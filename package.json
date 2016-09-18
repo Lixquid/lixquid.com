@@ -1,0 +1,11 @@
+{
+  "name": "site",
+  "version": "0.1.0",
+  "author": "Lixquid",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "pug": "^2.0.0-beta6",
+    "pug-cli": "^1.0.0-alpha6",
+    "stylus": "^0.54.5"
+  }
+}

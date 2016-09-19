@@ -1,6 +1,8 @@
 html, head, body
 	width 100%
 	height 100%
+	padding 0
+	margin 0
 
 body
 	background:
@@ -13,6 +15,8 @@ body
 
 a
 	color #ccc
+
+	transition color .2s
 
 a:hover
 	color #fff
@@ -28,10 +32,13 @@ a:hover
 	left 50%
 	transform translate( -50%, -50% )
 
-	width 20vw
+	width 80vw
+
+	text-align center
 
 #logo
-	width 100%
+	width 20vw
+	height @width
 
 #links
 	width 100%
@@ -40,3 +47,38 @@ a:hover
 
 	a + a
 		margin-left 1em
+
+#more_arrow
+	position fixed
+	bottom 20px
+	left 50%
+	transform translate( -50%, 0 )
+
+	color #ccc5
+
+	z-index 0
+
+	animation 1s ease-in-out infinite alternate more_arrow_animate
+
+	@keyframes more_arrow_animate
+		from
+			color #fff4
+		to
+			color #fff6
+
+#push
+	display block
+
+	width 100%
+	height 100%
+
+#footer
+	position relative
+
+	width 100%
+	min-height 300px
+	padding 4%
+
+	background #333
+
+	z-index 5

@@ -1,39 +1,40 @@
 doctype html
-head
-	title Lixquid
+html
+	head
+		title Lixquid
 
-	link( rel="icon", type="image/png", href="img/favicon.png" )
-	link( rel="stylesheet", href="hint.min.css" )
-	link( rel="stylesheet", href="style.css" )
+		link( rel="icon", type="image/png", href="img/favicon.png" )
+		link( rel="stylesheet", href="hint.min.css" )
+		link( rel="stylesheet", href="style.css" )
 
-	// Font Awesome
+		// Font Awesome
 
-	link( href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css", rel="stylesheet", integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1", crossorigin="anonymous" )
-	mixin fa
-		- attributes.class = "fa fa-" + attributes.class
-		i&attributes( attributes )
+		link( href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css", rel="stylesheet", integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1", crossorigin="anonymous" )
+		mixin fa
+			- attributes.class = "fa fa-" + attributes.class
+			i&attributes( attributes )
 
-body
-	a#bg-info(
-		href="https://wall.alphacoders.com/big.php?i=103542",
-		class="hint--bottom-left hint--rounded hint--no-animate",
-		aria-label="Background provided by \"chacha08\"",
-	)
-		+fa.picture-o.fa-lg
+	body
+		a#bg-info(
+			href="https://wall.alphacoders.com/big.php?i=103542",
+			class="hint--bottom-left hint--rounded hint--no-animate",
+			aria-label="Background provided by \"chacha08\"",
+		)
+			+fa.picture-o.fa-lg
 
-	#logo_container
-		img( alt="Logo", src="img/logo.png" )#logo
+		#logo_container
+			img( alt="Logo", src="img/logo.png" )#logo
 
-		#links
-			a(
-				href="http://steamcommunity.com/id/Lixquid/",
-				class="hint--bottom hint--rounded hint--no-animate",
-				aria-label="Steam Profile"
-			)
-				+fa.steam.fa-2x
-			a(
-				href="http://github.com/lixquid",
-				class="hint--bottom hint--rounded hint--no-animate",
-				aria-label="Github"
-			)
-				+fa.github.fa-2x
+			#links
+				a(
+					href="http://steamcommunity.com/id/Lixquid/",
+					class="hint--bottom hint--rounded hint--no-animate",
+					aria-label="Steam Profile"
+				)
+					+fa.steam.fa-2x
+				a(
+					href="http://github.com/lixquid",
+					class="hint--bottom hint--rounded hint--no-animate",
+					aria-label="Github"
+				)
+					+fa.github.fa-2x

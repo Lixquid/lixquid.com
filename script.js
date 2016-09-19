@@ -39,7 +39,7 @@ var quotes = [
 	"And the crowd goes mild",
 	"well, yes",
 	"Why does my tea taste like flowers?",
-	"> tfw your almonds aren't activated",
+	"&gt; tfw your almonds aren't activated",
 	"You have to be there to be not square",
 	"\"I'm happy with my Fisher Price sized Return key\"",
 	"smell my hair",

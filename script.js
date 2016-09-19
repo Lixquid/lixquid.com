@@ -65,6 +65,22 @@ var quotes = [
 	"not so fast mister",
 	"yes i'll hold",
 	"now playing",
-	"music enabled for 009"
+	"music enabled for 009",
+	"Have you tried turning it off and on again?",
+	"You wouldn't shoot a policeman",
+	"0118 999 881 999 119 725.. 3",
+	"I'll just put it here with the rest of the fire.",
+	"Fire - exclamation mark - fire - exclamation mark - help me - exclamation mark.<br />Looking forward to hearing from you.",
+	"I don't know if it's the loss of blood or the melting plastic from the monitor, but I feel great!",
+	"Good morning, that's a nice tnetennba.",
+	"I'm not a window cleaner!",
+	"\"My mum's on Friendface. She has put down her current mood as 'sensual'.\"",
+	"Elevator's not worthy.",
+	"woomy",
+	"They say taupe is very soothing.",
+	"This city deserves a better class of criminal.",
+	"I'm gonna make this pencil, disappear.",
+	"I want... my phone call. I want it. I want it! I want my phone call!",
+	"The Lamborghini, then. Much more subtle."
 ];
 document.getElementById( "quote" ).innerHTML = quotes[ Math.floor( Math.random() * quotes.length ) ];

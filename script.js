@@ -81,6 +81,7 @@ var quotes = [
 	"This city deserves a better class of criminal.",
 	"I'm gonna make this pencil, disappear.",
 	"I want... my phone call. I want it. I want it! I want my phone call!",
-	"The Lamborghini, then. Much more subtle."
+	"The Lamborghini, then. Much more subtle.",
+	"I would lose weight but I hate losing"
 ];
 document.getElementById( "quote" ).innerHTML = quotes[ Math.floor( Math.random() * quotes.length ) ];

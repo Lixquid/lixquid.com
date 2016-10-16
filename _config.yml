@@ -1,0 +1,9 @@
+timezone: GB
+exclude:
+    - "*.pug"
+    - "*.styl"
+    - gulpfile.js
+    - LICENSE
+    - node_modules
+    - package.json
+    - pug_includes/**

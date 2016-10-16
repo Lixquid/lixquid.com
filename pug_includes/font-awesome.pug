@@ -1,0 +1,9 @@
+mixin fa
+	- attributes.class = "fa fa-" + attributes.class
+	i&attributes( attributes )
+
+-
+	HEAD = HEAD || []
+	HEAD.push( `<link
+		rel="stylesheet"
+		href="/external/font-awesome/font-awesome.min.css">` )

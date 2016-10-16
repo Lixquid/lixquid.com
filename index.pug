@@ -1,72 +1,29 @@
-doctype html
+include /test
+include /font-awesome
+include /jquery
+include /bootstrap
+
 html
 	head
+
 		title Lixquid
 
-		link( rel="icon", type="image/png", href="img/favicon.png" )
-		link( rel="stylesheet", href="hint.min.css" )
-
-		// Font Awesome
-
 		link(
-			href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css",
-			rel="stylesheet",
-			integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1",
-			crossorigin="anonymous"
+			href="images/favicon.png"
+			rel="icon"
+			type="image/png"
 		)
-		mixin fa
-			- attributes.class = "fa fa-" + attributes.class
-			i&attributes( attributes )
-
-		// Bootstrap
 		link(
-			href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css",
-			rel="stylesheet",
-			integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj",
-			crossorigin="anonymous"
-		)
-		script(
-			src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js",
-			integrity="sha384-VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU",
-			crossorigin="anonymous"
+			href="css/cover/main.css"
+			rel="stylesheet"
 		)
 
-		link( rel="stylesheet", href="style.css" )
-
+		!= ( HEAD || [] ).join( "" )
 
 	body
-		a#bg-info(
-			href="https://wall.alphacoders.com/big.php?i=103542",
-			class="hint--bottom-left hint--rounded hint--no-animate",
-			aria-label="Background provided by \"chacha08\"",
-		)
-			+fa.picture-o.fa-lg
+		p test
+		p font awesome test: #[+fa.user]
+		+testmixin
 
-		#logo_container
-			#links
-				a(
-					href="http://steamcommunity.com/id/Lixquid/",
-					class="hint--bottom hint--rounded hint--no-animate",
-					aria-label="Steam Profile"
-				)
-					+fa.steam.fa-2x
-				a(
-					href="http://github.com/lixquid",
-					class="hint--bottom hint--rounded hint--no-animate",
-					aria-label="Github"
-				)
-					+fa.github.fa-2x
+		!= ( BODY || [] ).join( "" )
 
-			img( alt="Logo", src="img/logo.png" )#logo
-			br
-
-			span.lead#quote Inspirational Quote
-
-		//- #more_arrow
-		//- 	+fa.angle-down.fa-2x
-
-		//- #push
-		//- #footer
-		//- 	p hello
-
-		script( src="script.js" )

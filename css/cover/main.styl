@@ -1,3 +1,5 @@
+$text-color = #ccc
+
 body
 	background:
 		url( "/images/cover/overlay.png" ),
@@ -7,3 +9,63 @@ body
 	background-attachment scroll, fixed, scroll
 	background-repeat repeat, no-repeat, repeat
 	background-size auto, cover, auto
+
+#center--container
+	position absolute
+	top 50%
+
+	width 100%
+
+	color $text-color
+	text-align center
+
+	text-shadow 1px 1px 0 #0009
+	transform translateY( -50% )
+
+#center--logo
+	width 20vw
+	height @width
+
+.center--link
+	color $text-color
+
+	&:hover
+		color #fff
+
+	& + &
+		margin-left 1em
+
+#pushdown
+	display block
+
+	width 100%
+	height 100%
+
+#footer
+	position relative // z-index
+
+	width 100%
+	min-height 100%
+	padding 4%
+
+	background #111e
+
+	z-index 1
+
+#footer--arrow
+	position fixed
+	bottom 20px
+	left 50%
+
+	color #fff4
+
+	z-index 0
+
+	animation 1s ease-in-out infinite alternate footer--arrow
+	transform translateX( -50% )
+
+	@keyframes footer--arrow
+		from
+			color #fff4
+		to
+			color #fff6

@@ -26,4 +26,37 @@ html
 
 	body
 
+		#center--container
+			a(
+				href="http://steamcommunity.com/id/Lixquid/"
+				data-toggle="tooltip"
+				data-placement="top"
+				title="Steam Profile"
+			).center--link
+				+fa.steam.fa-2x
+			a(
+				href="http://github.com/Lixquid/"
+				data-toggle="tooltip"
+				data-placement="top"
+				title="Github"
+			).center--link
+				+fa.github.fa-2x
+
+			br
+
+			img#center--logo(
+				src="/images/cover/logo.png"
+			)
+
+			br
+
+			#center--quote Inspirational Quote
+
+		#pushdown
+		#footer--arrow
+			+fa.angle-down.fa-2x
+
+		#footer
+
 		!= ( BODY || [] ).join( "" )
+		script( src="/js/cover/main.js" )

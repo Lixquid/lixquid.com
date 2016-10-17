@@ -2,6 +2,7 @@ timezone: GB
 exclude:
     - "*.pug"
     - "*.styl"
+    - CNAME
     - gulpfile.js
     - LICENSE
     - node_modules

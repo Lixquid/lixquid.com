@@ -1,4 +1,3 @@
-include /test
 include /font-awesome
 include /jquery
 include /bootstrap
@@ -6,24 +5,25 @@ include /bootstrap
 html
 	head
 
+		//- Misc
+
 		title Lixquid
 
 		link(
-			href="images/favicon.png"
+			href="/images/favicon.png"
 			rel="icon"
 			type="image/png"
 		)
+
+		//- CSS
+
 		link(
-			href="css/cover/main.css"
+			href="/css/cover/main.css"
 			rel="stylesheet"
 		)
 
 		!= ( HEAD || [] ).join( "" )
 
 	body
-		p test
-		p font awesome test: #[+fa.user]
-		+testmixin
 
 		!= ( BODY || [] ).join( "" )
-

@@ -1,0 +1,175 @@
+extends /resources/layouts/base/base
+
+//-///////////////////////////////// Blocks ////////////////////////////////////
+
+block title
+	title Lixquid
+
+block head
+	link(
+		href = ROOT + "/resources/layouts/main/main.css"
+		rel = "stylesheet"
+	)
+	meta(
+		name = "viewport"
+		content = "width=device-width, initial-scale=1"
+	)
+	meta(
+		encoding = "utf-8"
+	)
+
+block body
+
+	.main--container
+
+		///////////////////// Top Level Navigation //////////////////////
+
+		nav.navbar.navbar-inverse.bg-inverse.navbar-toggleable-xl.mb-3
+			a.navbar-brand( href=ROOT+"/" )
+				img(
+					src = ROOT + "/resources/layouts/main/logo.png"
+					style = "height: 1em"
+				)
+			ul.navbar-nav
+				li.nav-item
+					a.nav-link( href = ROOT + "/blog" ) Blog
+				li.nav-item
+					a.nav-link( href = ROOT + "/projects" ) Projects
+				li.nav-item
+					a.nav-link( href = ROOT + "/gadgets" ) Gadgets
+			- if ( ACTIONBAR )
+				.navbar-nav.ml-auto
+					a.nav-item.nav-link#main--ext-toggle( href="#" )
+						+fa.caret-down(
+							data-toggle = "tooltip"
+							data-placement = "left"
+							title = "Toggle Extended Actions"
+						)
+						.sr-only Toggle Extended Actions
+
+		////////////////////////// Action Bar ///////////////////////////
+
+		- if ( ACTIONBAR )
+			.navbar.navbar-light.bg-faded.navbar-toggleable.mb-3#main--ext-nav
+				.navbar-brand= ACTIONBAR.name
+				- if ( ACTIONBAR.settings )
+					.navbar-nav
+						a.nav-item.nav-link#main--settings(
+							data-toggle = "modal"
+							href = "#main--settings--modal"
+						)
+							| #[+fa.cog] Settings
+				.navbar-nav.main--ext-nav--right
+					- if ( ACTIONBAR.fullscreen )
+						a.nav-item.nav-link#main--fullscreen( href="#" ).
+							#[+fa.arrows-alt] Fullscreen
+					- if ( ACTIONBAR.darkmode )
+						a.nav-item.nav-link#main--darkmode( href="#" ).
+							#[+fa.moon-o] Dark Mode
+
+		///////////////////////// Main Content //////////////////////////
+
+		.card.mb-3#main--main
+			a#main--fullscreen--close( href="#" )
+				+fa.arrows-alt
+			main.card-block
+				block main
+
+		//////////////////////// Settings Modal /////////////////////////
+
+		- if ( ACTIONBAR && ACTIONBAR.settings )
+			.modal.fade#main--settings--modal
+				.modal-dialog( role="document" )
+					.modal-content
+						.modal-header
+							h5 #[+fa.cog] Settings
+							button.close( data-dismiss="modal", aria-label="Close" )
+								.aria-hidden &times;
+						.modal-body
+
+
+							block settings
+								- for ( var s of ACTIONBAR.settings )
+									if s.type == "header"
+										h3= s.text
+									if s.type == "html"
+										=! s.html
+									if s.type == "boolean"
+										.form-check
+											label.form-check-label
+												input.form-check-input(
+													type = "checkbox"
+													data-id = s.id
+													data-type = s.type
+													data-nosave = s.nosave ? "nosave" : false
+													checked = s.default
+												).setting--control
+												span= s.text
+												if s.description
+													+fa.info-circle.text-info(
+														data-toggle = "tooltip"
+														title = s.description
+														data-container = "body"
+													).ml-1
+													.sr-only= s.description
+									if s.type == "text"
+										.form-group
+											label.w-100
+												span= s.name
+												if s.description
+													+fa.info-circle.text-info(
+														data-toggle = "tooltip"
+														title = s.description
+														data-container = "body"
+													).ml-1
+													.sr-only= s.description
+												input.form-control(
+													type = "text"
+													data-id = s.id
+													data-type = s.type
+													data-nosave = s.nosave ? "nosave" : false
+													value = s.default
+													placeholder = s.default
+												).setting--control
+
+								small.float-right
+									a.text-danger#main--settings--reset(
+										href = "#"
+									)
+										| Reset all to default
+
+						.modal-footer
+							button.btn.btn-secondary( data-dismiss="modal" )
+								| Close
+
+		//////////////////////////// Footer /////////////////////////////
+
+		footer.main--footer.mx-3
+			a.mr-2(
+				href = "//github.com/Lixquid"
+				data-toggle = "tooltip", title = "Github"
+			)
+				+fa.github
+			a.mr-2(
+				href = "//gitlab.com/Lixquid"
+				data-toggle = "tooltip", title = "Gitlab"
+			)
+				+fa.gitlab
+			a.mr-2(
+				href = "//steamcommunity.com/id/Lixquid"
+				data-toggle = "tooltip", title = "Steam Profile"
+			)
+				+fa.steam
+			small.float-right#main--footer--quote
+				| Inspirational Quote
+
+	script( src = ROOT + "/resources/layouts/main/main.js" )
+
+//-//////////////////////////////// Includes ///////////////////////////////////
+
+include /resources/external/font-awesome-4.7.0/load.pug
+include /resources/external/bootstrap-4.0.0-alpha.6/load.pug
+include /resources/external/tether-1.3.3/load.pug
+include /resources/external/jquery-3.1.1/load.pug
+
+//-///////////////////////////////// Mixins ////////////////////////////////////

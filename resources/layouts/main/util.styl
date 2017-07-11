@@ -1,0 +1,8 @@
+@require "resources/external/bootstrap-4.0.0-alpha.6/util"
+
+font-autosize( size )
+	font-size size
+
+	@media( min-width: $bs-lg )
+		body:not( ._fullscreen ) &
+			font-size ( size * 0.6 )rem

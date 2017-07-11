@@ -1,0 +1,35 @@
+extends /resources/layouts/main/main
+
+block pre
+	-
+		ACTIONBAR = {
+			name: "ASCII Table"
+		}
+
+block main
+
+	mixin row( control, c1, c2, c3 )
+		- CURCOUNT = CURCOUNT || 0
+		tr
+			td
+				code= control
+			td
+				pre= c1
+			td
+				pre= c2
+			td
+				pre= c3
+			td
+				code= CUR
+		- CURCOUNT++
+
+	table.table
+		thead
+			tr
+				td #[code 00]
+				td #[code 01]
+				td #[code 10]
+				td #[code 11]
+				td
+		tbody
+			+row( "NUL", "Space", "@", "`" )

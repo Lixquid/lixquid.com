@@ -1,0 +1,59 @@
+@require "resources/external/bootstrap-4.0.0-alpha.6/util"
+
+///////////////////////////////////// Dom //////////////////////////////////////
+
+body
+	background #eee
+
+	&._darkmode
+		background #44494d
+
+
+////////////////////////////////// Structure ///////////////////////////////////
+
+.main--container
+	display block
+
+	width $bs-lg
+	max-width 95%
+	margin 1em auto
+
+body._fullscreen #main--main
+	position absolute
+	top 0
+	left 0
+	right 0
+	bottom 0
+
+#main--fullscreen--close
+	position absolute
+	top .5em
+	right .5em
+	display none
+
+	font-size 3em
+
+	transition opacity .5s
+
+////////////////////////////////// Navigation //////////////////////////////////
+
+.main--ext-nav--right
+	@media ( min-width $bs-sm )
+		margin-left auto
+
+//////////////////////////////////// Footer ////////////////////////////////////
+
+.main--footer
+	&, & a
+		color #aaa
+		font-size 1.5em
+
+	#main--footer--quote
+		max-width 50%
+		padding-bottom 2em
+
+		font-size .9rem
+		text-align right
+
+	& a:hover
+		color #888

@@ -1,0 +1,45 @@
+extends /resources/layouts/main/main
+
+//-///////////////////////////////// Mixins ////////////////////////////////////
+
+mixin gadget( title, link, description, tags )
+	a.btn.btn-secondary.w-100.text-left.mb-1( href=link )
+		.h3= title
+		if tags
+			p= description
+			- for ( var tag of tags )
+				span.badge.badge-pill.badge-default.gadget--tag= tag
+		else
+			p.mb-0= description
+
+//-////////////////////////////////// DOM //////////////////////////////////////
+
+block main
+	h1.mb-3 Gadgets
+
+	// .form-group
+		.input-group
+			input.form-control#search--input(
+				type = "text"
+				placeholder = "Search"
+			)
+			span.input-group-btn
+				button.btn.btn-danger#search--clear( type="button" ) Clear
+			span.input-group-btn
+				button.btn.btn-secondary( type="button" )
+					+fa.search
+					.sr-only Search
+
+	+gadget( "Clock", "clock", "A simple clock.", [ "tool" ] )
+	+gadget( "Universal Calculator", "calc",
+		`A calculator that can perform math, conversions, and other
+			operations.`, [ "tool" ] )
+	+gadget( "IP Colour", "ipcolour", `Shows your IP.. and the colour it
+		represents!`, [ "misc" ] )
+	+gadget( "Text Transform", "texttransform", `Transforms text into different
+		forms.`, [ "tool" ] )
+	//-
+		+gadget( "ASCII Table", "asciitable", "An interactive ASCII Table",
+			[ "tool", "documentation" ] )
+	+gadget( "Regex Tester", "regextester", `A simple tester for Javascript
+		regexes.`, [ "tool" ] )

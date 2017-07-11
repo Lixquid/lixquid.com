@@ -1,0 +1,48 @@
+extends /resources/layouts/main/main
+
+block pre
+	-
+		ACTIONBAR = {
+			name: "Text Transform",
+			fullscreen: true,
+			darkmode: true,
+			settings: []
+		}
+
+append body
+	script( src="index.js" )
+
+block main
+
+	label.w-100.mb-4
+		small 1. Input
+		textarea.form-control#transform--input( rows=3, placeholder=lipsum )
+
+	label.w-100.mb-3
+		small 2. Transform Mode
+		.input-group.mb-3
+			select.form-control#transform--mode
+			button.btn.btn-primary#transform--confirm
+				| #[+fa.font] Transform
+		// .dropdown-menu
+			// a.dropdown-item( href="#" ) Transform then Copy to Clipboard
+
+	label.w-100.mb-3
+		small Output
+		textarea.form-control#transform--output( rows=3 )
+
+block settings
+	small.text-muted Keyboard Shortcuts:
+		ul
+			li
+				kbd #[kbd Ctrl] + #[kbd Up]
+				| : Previous Transform
+			li
+				kbd #[kbd Ctrl] + #[kbd Down]
+				| : Next Transform
+			li
+				kbd #[kbd Ctrl] + #[kbd Enter]
+				| : Transform
+			li
+				kbd #[kbd Ctrl] + #[kbd Shift] + #[kbd Enter]
+				| : Transform and Copy to Clipboard

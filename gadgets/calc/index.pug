@@ -1,0 +1,39 @@
+extends /resources/layouts/main/main
+
+//-///////////////////////////// Configuration /////////////////////////////////
+
+block pre
+	-
+		ACTIONBAR = {
+			name: "Universal Calculator",
+			fullscreen: true,
+			darkmode: true,
+			settings: [
+				// {
+					// id: "clock_twelvehour",
+					// text: "12 Hour",
+					// type: "boolean",
+					// default: "false"
+				// }
+			]
+		}
+
+//-//////////////////////////////// Scripts ////////////////////////////////////
+
+append body
+	link(
+		rel = "stylesheet"
+		href = "index.css"
+	)
+	script( src="index.js" )
+
+//-////////////////////////////////// DOM //////////////////////////////////////
+
+block main
+	.input-group.input-group-lg
+		input.form-control(
+			type = "text"
+		)#calc--input
+		span.input-group-btn
+			button.btn.btn-secondary#calc--eval( type="button" ) Evaluate
+	#calc--output

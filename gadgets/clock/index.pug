@@ -1,0 +1,35 @@
+extends /resources/layouts/main/main
+
+//-///////////////////////////// Configuration /////////////////////////////////
+
+block pre
+	-
+		ACTIONBAR = {
+			name: "Clock",
+			fullscreen: true,
+			darkmode: true,
+			settings: [
+				{
+					id: "clock_twelvehour",
+					text: "12 Hour",
+					type: "boolean",
+					default: "false"
+				}
+			]
+		}
+
+//-//////////////////////////////// Scripts ////////////////////////////////////
+
+append body
+	link(
+		rel = "stylesheet"
+		href = "index.css"
+	)
+	script( src="date-format.js" )
+	script( src="index.js" )
+
+//-////////////////////////////////// DOM //////////////////////////////////////
+
+block main
+	#clock--time 12:00:00
+	#clock--date Monday, January 31st, 2000

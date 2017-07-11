@@ -1,0 +1,69 @@
+extends /resources/layouts/main/main
+
+block pre
+	-
+		ACTIONBAR = {
+			name: "Regex Tester"
+		}
+
+block main
+
+	label.w-100
+		small.text-muted Regex Input
+		.input-group
+			span.input-group-addon /
+			input.form-control#regex--inputregex( type="text" )
+			span.input-group-addon#flag--display /
+
+	.row.mb-3
+		mixin info( text )
+			span.text-info
+				+fa.info-circle.ml-1(
+					data-toggle = "tooltip"
+					title = text
+				)
+
+		.form-check.col-md-2
+			label.form-check-label
+				input.form-check-input#opt--global( type="checkbox" )
+				small
+					| Global
+					+info( "Matches against all occurrances of the regex." )
+		.form-check.col-md-2
+			label.form-check-label
+				input.form-check-input#opt--ignorecase( type="checkbox" )
+				small
+					| Ignore Case
+					+info( "Regex testing is case-insensitive." )
+		.form-check.col-md-2
+			label.form-check-label
+				input.form-check-input#opt--multiline( type="checkbox" )
+				small
+					| Multiline
+					+info( `^ and $ tokens will match at line start/end, instead
+						of input start/end.` )
+		.form-check.col-md-2
+			label.form-check-label
+				input.form-check-input#opt--sticky( type="checkbox" )
+				small
+					| Sticky
+					+info( `Matches will only match from the lastIndex
+						property's value.` )
+		.form-check.col-md-2
+			label.form-check-label
+				input.form-check-input#opt--unicode( type="checkbox" )
+				small
+					| Unicode
+					+info( `Enables Unicode related features, such as Unicode
+						code point escaping.` )
+
+	label.w-100.mb-3
+		small.text-muted Input Text
+		textarea.form-control#regex--inputtext( cols=5 )
+
+	button.btn.btn-success#regex--test( type="button" )
+		| #[+fa.search] Test
+
+	pre#output--output
+
+	script( src="index.js" )

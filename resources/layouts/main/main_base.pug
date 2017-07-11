@@ -1,0 +1,37 @@
+//-
+	The DOM has to be split over two files because blocks cannot modify blocks
+	in the current extension level.
+
+	Why? *shrug*
+
+block pre
+
+html
+	head
+		link(
+			href = ROOT + "/resources/favicon.png"
+			rel = "icon"
+			type = "image/png"
+		)
+
+		block title
+			title Lixquid
+
+		block head
+			link(
+				href = ROOT + "/resources/layouts/main/main.css"
+				rel = "stylesheet"
+			)
+			meta(
+				name = "viewport"
+				content = "width=device-width, initial-scale=1"
+			)
+
+	body
+		block body
+			// FIXME
+			.panel
+				.panel-header
+				.panel-content
+				.panel-footer
+			script( src = ROOT + "/resources/layouts/main/main.js" )

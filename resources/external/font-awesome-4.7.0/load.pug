@@ -1,0 +1,10 @@
+mixin fa
+	- attributes.class = "fa fa-" + attributes.class
+	i&attributes( attributes )
+
+prepend head
+	link(
+		href = ROOT +
+			"/resources/external/font-awesome-4.7.0/css/font-awesome.min.css"
+		rel = "stylesheet"
+	)

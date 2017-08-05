@@ -1,0 +1,56 @@
+extends /resources/layouts/main/main
+
+block main
+
+	-
+		function getOrdinal( num ) {
+			const i = num % 10, k = num % 100;
+			if ( i == 1 && k != 11 ) return "st";
+			if ( i == 2 && k != 12 ) return "nd";
+			if ( i == 3 && k != 13 ) return "rd";
+			return "th";
+		}
+		const monthList = [
+			"January",
+			"February",
+			"March",
+			"April",
+			"May",
+			"June",
+			"July",
+			"August",
+			"September",
+			"October",
+			"November",
+			"December"
+		];
+		function formatDate( date ) {
+			return date.getDate() + getOrdinal( date.getDate() )
+				+ " " + monthList[ date.getMonth() ]
+				+ " " + date.getFullYear();
+		}
+		function formatEditedDate( date ) {
+			if ( !date ) return "";
+			return " / Edited " + formatDate( date );
+		}
+		function formatTags( tags ) {
+			if ( !tags ) return "";
+			return " / Tags: " +
+				tags.map( function( t ) {
+					return `<a href="${ROOT}/blog/tags/${t}">${t}</a>`
+				} ).join( ", " );
+		}
+
+	-
+		if ( post.date && typeof post.date != "number" )
+			post.date = new Date( post.date );
+		if ( post.dateEdited && typeof post.dateEdited != "number" )
+			post.dateEdited = new Date( post.dateEdited );
+
+	h1.blog--title= post.title
+	h2.blog--subtitle
+		= formatDate( post.date )
+		= formatEditedDate( post.dateEdited )
+		!= formatTags( post.tags )
+
+	block post

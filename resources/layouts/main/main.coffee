@@ -113,6 +113,7 @@ quotes = [
 	"Now in colour"
 	"\"Come with me if you want to leave.\""
 	"Cameras are like shotguns. The closer the target, the greater the damage."
+	"Unregistered Hypercam 2"
 ]
 
 document.getElementById( "main--footer--quote" ).innerHTML =

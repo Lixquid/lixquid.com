@@ -3,6 +3,7 @@
   "version": "0.5.0",
   "description": "Lixquid's Personal Site",
   "author": "Lixquid",
+  "repository": "https://github.com/lixquid/lixquid.github.io",
   "license": "MIT",
   "scripts": {
     "start": "sudo python -m SimpleHTTPServer 80 &; gulp &;",
@@ -19,5 +20,8 @@
     "gulp-stylus": "^2.6.0",
     "jison": "^0.4.17",
     "jstransformer-markdown-it": "^2.0.0"
+  },
+  "dependencies": {
+    "markdown-it-deflist": "^2.0.3"
   }
 }

@@ -16,11 +16,14 @@ append head
 
 block body
 	#editor--toolbar
-		mixin icon( icon )
-			a( href="#" ).editor--toolbar--link&attributes( attributes )
+		mixin icon( icon, title )
+			a.editor--toolbar--link&attributes( attributes )(
+				href="#",
+				title=title
+			)
 				i( class = "fa fa-" + icon )
 
-		+icon( "file" )#button--new
+		+icon( "file", "New" )#button--new
 
 		.editor--section--right
 			+icon( "close" )( href = ROOT + "/gadgets" )

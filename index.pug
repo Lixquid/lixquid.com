@@ -1,9 +1,25 @@
 extends /resources/layouts/main/main
 
-block main
-	p Hello:
+append head
+	link(
+		rel = "stylesheet"
+		href = "https://opensource.keycdn.com/"
+			+ "fontawesome/4.7.0/font-awesome.min.css"
+		integrity = "sha384-dNpIIXE8U05kAbPhy3G1cz+yZmTzA6CY8Vg/"
+			+ "u2L9xRnHjJiAK76m2BIEaSEV+/aU"
+		crossorigin = "anonymous"
+	)
 
-	:markdown-it
-		- [GitHub](https://github.com/lixquid)
-		- [GitLab](https://gitlab.com/lixquid)
-		- [Steam](https://steamcommunity.com/lixquid)
+block main
+
+	p Say Hello!
+
+	mixin link( url, name, icon )
+		- icon = "fa fa-" + icon
+		a( href = url ).biglist--link
+			h2 #[i( class = icon )] #{name}
+			sub= url
+
+	+link( "https://github.com/lixquid", "GitHub", "github" )
+	+link( "https://gitlab.com/lixquid", "GitLab", "gitlab" )
+	+link( "https://steamcommunity.com/lixquid", "Steam", "steam" )

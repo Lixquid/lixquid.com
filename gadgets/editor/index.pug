@@ -1,0 +1,37 @@
+extends /resources/layouts/base/base
+
+append head
+	link(
+		rel = "stylesheet"
+		href = "index.css"
+	)
+	link(
+		rel = "stylesheet"
+		href = "https://opensource.keycdn.com/"
+			+ "fontawesome/4.7.0/font-awesome.min.css"
+		integrity = "sha384-dNpIIXE8U05kAbPhy3G1cz+yZmTzA6CY8Vg/"
+			+ "u2L9xRnHjJiAK76m2BIEaSEV+/aU"
+		crossorigin = "anonymous"
+	)
+
+block body
+	#editor--toolbar
+		mixin icon( icon )
+			a( href="#" ).editor--toolbar--link&attributes( attributes )
+				i( class = "fa fa-" + icon )
+
+		+icon( "file" )#button--new
+
+		.editor--section--right
+			+icon( "close" )( href = ROOT + "/gadgets" )
+
+
+	#editor
+
+	#editor--statusbar
+		span#editor--statusbar--output My editor is ready
+		.editor--section--right
+			#editor--statusbar--linecol Ln 1, Col 1
+
+	script( src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.8/ace.js" )
+	script( src="index.js" )

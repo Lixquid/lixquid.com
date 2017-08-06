@@ -1,0 +1,49 @@
+body
+	font-family Helvetica, Arial, sans-serif
+
+#editor--toolbar
+	position absolute
+	// display block
+	top 0
+	left 0
+	right 0
+	box-sizing border-box
+
+	height 2rem
+	padding 0 1rem
+
+	line-height @height
+
+	a
+		padding .1rem .3rem
+
+		color #013
+
+		&:hover
+			background #eee
+
+			color lighten( @color, 30% )
+
+#editor--statusbar
+	position absolute
+	// display block
+	bottom 0
+	left 0
+	right 0
+	box-sizing border-box
+
+	height 1.5rem
+	padding 0 .5rem
+
+	font-size .9em
+	line-height @height
+
+.editor--section--right
+	float right
+
+#editor
+	position absolute
+	top 2rem
+	left 0
+	right 0
+	bottom 1.5rem

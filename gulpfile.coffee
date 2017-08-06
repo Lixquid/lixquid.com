@@ -21,7 +21,7 @@ HTMLRender = [
 	"!blog/**"
 	"!resources/**"
 ]
-BlogWatch = [ "blog/posts/*.pug" ]
+BlogWatch = [ "blog/**.pug" ]
 CSSWatch = [ "**/*.styl" ]
 JSWatch = [ "**/*.coffee", "!gulpfile.coffee" ]
 

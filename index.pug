@@ -15,10 +15,9 @@ block main
 	p Say Hello!
 
 	mixin link( url, name, icon )
-		- icon = "fa fa-" + icon
 		a( href = url ).biglist--link
-			h2 #[i( class = icon )] #{name}
-			sub= url
+			h2 #[i( class = "fa fa-" + icon )] #{name}
+			small= url
 
 	+link( "https://github.com/lixquid", "GitHub", "github" )
 	+link( "https://gitlab.com/lixquid", "GitLab", "gitlab" )

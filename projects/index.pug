@@ -4,7 +4,7 @@ mixin link( url, header )
 	a( href = url ).biglist--link
 		h2= header
 		if block
-			sub
+			small
 				block
 mixin gh-link( url, header )
 	+link( `https://github.com/lixquid/${url}`, header )

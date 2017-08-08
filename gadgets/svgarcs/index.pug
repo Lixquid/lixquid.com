@@ -1,0 +1,37 @@
+extends /resources/layouts/main/main
+
+append head
+	link(
+		rel = "stylesheet"
+		href = "index.css"
+	)
+
+block main
+	h1 SVG Arcs
+
+	.svg--code
+		= '<path d="M '
+		button#svg--code--from 100,100
+		input( type = "text", title="hello" )#svg--code--fromInput
+		= ' A '
+		button#svg--code--radius 50,50
+		input( type = "text" )#svg--code--radiusInput
+		= ' '
+		button#svg--code--rotation 0
+		input( type = "text" )#svg--code--rotationInput
+		= ' '
+		button#svg--code--large 1
+		= ' '
+		button#svg--code--sweep 1
+		= ' '
+		button#svg--code--to 300,200
+		input( type = "text" )#svg--code--toInput
+		= '">'
+	svg#svg--area
+		rect( x=0, y=0, width=50, height=50 )#svg--radiusrect
+		path( d="M100,100A50 50 0 1 1 300 200" )#svg--path
+		circle( cx=50, cy=50, r=5 )#svg--radius
+		circle( cx=100, cy=100, r=5 )#svg--from
+		circle( cx=300, cy=200, r=5 )#svg--to
+
+	script( src = "index.js" )

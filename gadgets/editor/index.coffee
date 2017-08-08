@@ -7,9 +7,22 @@ addClick = ( id, fn ) -> addEvent( "click", id, fn )
 
 
 
+## Modal #######################################################################
 
+elModal = document.getElementById( "modal" )
+
+window.addEventListener "click", ( ev ) ->
+	if ev.target == elModal
+		elModal.style.display = "none"
+
+
+## Toolbar #####################################################################
 
 addClick "button--new", -> editor.setValue ""
+addClick "button--save", ->
+	elModal.style.display = "block"
+
+## Status Bar ##################################################################
 
 editor.getSession().selection.on "changeCursor", ->
 	cursor = editor.selection.getCursor()

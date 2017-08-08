@@ -15,15 +15,18 @@ append head
 	)
 
 block body
+
+	//- Editor /////////////////////////////////////////////////////////////////
+
 	#editor--toolbar
 		mixin icon( icon, title )
-			a.editor--toolbar--link&attributes( attributes )(
-				href="#",
+			button.editor--toolbar--link&attributes( attributes )(
 				title=title
 			)
 				i( class = "fa fa-" + icon )
 
-		+icon( "file", "New" )#button--new
+		+icon( "file-o", "New" )#button--new
+		+icon( "floppy-o", "Save" )#button--save
 
 		.editor--section--right
 			+icon( "close" )( href = ROOT + "/gadgets" )
@@ -35,6 +38,13 @@ block body
 		span#editor--statusbar--output My editor is ready
 		.editor--section--right
 			#editor--statusbar--linecol Ln 1, Col 1
+
+	//- Modals /////////////////////////////////////////////////////////////////
+
+	#modal
+		.modal--box#modal--save
+			h2 Save
+
 
 	script( src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.8/ace.js" )
 	script( src="index.js" )

@@ -108,6 +108,9 @@ gulp.task "blog", ->
 				.map ( l ) -> l.trim()
 				.join( "\n" ) )
 
+			if data.hidden
+				continue
+
 			if data.date
 				data.date = new Date( data.date )
 			data.short_filename = f.short

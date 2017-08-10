@@ -5,58 +5,13 @@
 
 extends /resources/layouts/blog/blog
 
+append head
+	link(
+		rel = "stylesheet"
+		href = "20170805-uiexperiments.css"
+	)
+
 block post
-	style
-		:stylus
-			$red = #c30
-			$yellow = #c90
-			$green = #2a4
-			$blue = #39c
-
-			.alert--1
-				position relative
-
-				padding .5em
-				padding-top 1.5em
-				margin .5em 0
-
-				border-radius .3em
-
-				&.warning
-					background lighten( $red, 95% )
-					border 1px solid $red
-					border-left .3em solid $red
-					&:before
-						color darken( $red, 50% )
-						content "Warning"
-				&.note
-					background lighten( $yellow, 95% )
-					border 1px solid $yellow
-					border-left .3em solid $yellow
-					&:before
-						color darken( $yellow, 50% )
-						content "Note"
-				&.tip
-					background lighten( $green, 95% )
-					border 1px solid $green
-					border-left .3em solid $green
-					&:before
-						color darken( $green, 50% )
-						content "Tip"
-				&.info
-					background lighten( $blue, 95% )
-					border 1px solid $blue
-					border-left .3em solid $blue
-					&:before
-						color darken( $blue, 50% )
-						content "Info"
-
-				&:before
-					position absolute
-					top .2em
-					left .4em
-
-					font-size .7em
 
 	h2 Alert
 	.alert--1.warning Warning 1

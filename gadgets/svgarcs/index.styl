@@ -1,6 +1,4 @@
-$red = #c30
-$green = #3c3
-$blue = #37e
+@require "/resources/layouts/main/util/colors"
 
 #svg--area
 	width 100%
@@ -14,15 +12,15 @@ $blue = #37e
 	stroke-width 2px
 
 #svg--radius
-	fill $green
+	fill $cGreen
 	stroke black
 
 #svg--from
-	fill $red
+	fill $cRed
 	stroke black
 
 #svg--to
-	fill $blue
+	fill $cBlue
 	stroke black
 
 #svg--path
@@ -55,15 +53,15 @@ $blue = #37e
 		cursor pointer
 
 	#svg--code--from
-		color $red
+		color $cRed
 	#svg--code--radius
-		color $green
+		color $cGreen
 	#svg--code--to
-		color $blue
+		color $cBlue
 	#svg--code--rotation,
 	#svg--code--large,
 	#svg--code--sweep
-		color #c4e
+		color $cPurple
 
 	#svg--code--fromInput,
 	#svg--code--radiusInput,

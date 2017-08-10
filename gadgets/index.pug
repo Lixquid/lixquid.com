@@ -1,16 +1,10 @@
 extends /resources/layouts/main/main
 
 append head
-	style
-		:stylus
-			.tag._wip
-				background #c30
-				&:after
-					content "WIP"
-			.tag._desktop
-				background #26e
-				&:after
-					content "Desktop Only"
+	link(
+		rel = "stylesheet"
+		href = "index.css"
+	)
 
 block main
 	h1 Gadgets

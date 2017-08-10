@@ -1,0 +1,28 @@
+extends /resources/layouts/main/main
+
+append head
+	link(
+		rel = "stylesheet"
+		href = "index.css"
+	)
+
+block main
+
+	include palettes
+
+	h1 Palettes
+
+	input( readonly, type = "text", value = "#000000" )#output--input
+
+	each palette in palettes
+		table.palette--table
+			each row in palette
+				tr
+					each col in row
+						td
+							button.palette--color(
+								style = `background: #${col}`
+								data-color = "#" + col
+							)
+
+	script( src = "index.js" )

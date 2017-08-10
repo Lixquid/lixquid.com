@@ -118,3 +118,22 @@ quotes = [
 
 document.getElementById( "main--footer--quote" ).innerHTML =
 	quotes[ Math.floor( Math.random() * quotes.length ) ]
+
+window.mainFullscreen = ( active = true ) ->
+	eMain = document.getElementById "main--main"
+	if active
+		eMain.style.position = "absolute"
+		eMain.style.top = 0
+		eMain.style.left = 0
+		eMain.style.right = 0
+		eMain.style.bottom = 0
+		eMain.style.margin = 0
+		eMain.style.background = "white"
+	else
+		eMain.style.position = null
+		eMain.style.top = null
+		eMain.style.left = null
+		eMain.style.right = null
+		eMain.style.bottom = null
+		eMain.style.margin = null
+		eMain.style.background = null

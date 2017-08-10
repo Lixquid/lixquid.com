@@ -1,5 +1,17 @@
 extends /resources/layouts/main/main
 
+append head
+	style
+		:stylus
+			.tag._wip
+				background #c30
+				&:after
+					content "WIP"
+			.tag._desktop
+				background #26e
+				&:after
+					content "Desktop Only"
+
 block main
 	h1 Gadgets
 	p Just some stupid little apps. JavaScript is required for all of them!
@@ -7,9 +19,13 @@ block main
 	a( href = "editor" ).biglist--link
 		h2 Editor
 		small A full-screen Ace Editor. Supports some common editing actions.
+		br
+		small #[.tag._wip] #[.tag._desktop]
 	a( href = "svgarcs" ).biglist--link
 		h2 SVG Arcs
 		small A small gadget for displaying SVG Arcs.
+		br
+		small #[.tag._wip] #[.tag._desktop]
 	a( href = "colorpalette" ).biglist--link
 		h2 Color Palette
 		small A selection of color palettes.

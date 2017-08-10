@@ -1,0 +1,35 @@
+//-
+    title: "Linux Reference"
+    date: "2017/08/07"
+    tags: [ "reference" ]
+	hidden: true
+
+extends /resources/layouts/blog/blog
+
+block post
+    :markdown-it
+        ## Terminology
+
+        - `text`: Verbatim
+        - `<arg>`: Required Argument
+        - `[arg]`: Optional Argument
+        - `<add|delete>`: Required Multiple Choice
+        - `[add|delete]`: Optional Multiple Choice
+
+        ## Navigation
+
+        - `cd <directory>`: **C**hange **D**irectory
+            - Moves your current directory (AKA Working Directory) to another
+            location.
+        - `pwd`: **P**rint **W**orking **D**irectory
+            - Outputs your current directory.
+        - `ls`: **L**i**s**t Directory
+            -
+
+        ## File Operations
+
+        - `cat <file> [file2]`: Con**cat**enate files
+            - Outputs `file`. If `file2` is given, it is also output after
+            `file`.
+            - The command is named after *concatenation*, which is the act of
+            joining two strings together.

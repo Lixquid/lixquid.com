@@ -11,21 +11,21 @@ block main
 
 	.svg--code
 		= '<path d="M '
-		button#svg--code--from 100,100
-		input( type = "text", title="hello" )#svg--code--fromInput
+		button#svg--code--from( title = "From Position" ) 100,100
+		input( type = "text", title="hello" )#svg--input--from
 		= ' A '
-		button#svg--code--radius 50,50
-		input( type = "text" )#svg--code--radiusInput
+		button#svg--code--radius( title = "Radius" ) 50,50
+		input( type = "text" )#svg--input--radius
 		= ' '
-		button#svg--code--rotation 0
-		input( type = "text" )#svg--code--rotationInput
+		button#svg--code--rotation( title = "Rotation" ) 0
+		input( type = "text" )#svg--input--rotation
 		= ' '
-		button#svg--code--large 1
+		button#svg--code--large( title = "Large Arc Flag" ) 1
 		= ' '
-		button#svg--code--sweep 1
+		button#svg--code--sweep( title = "Sweep Flag" ) 1
 		= ' '
-		button#svg--code--to 300,200
-		input( type = "text" )#svg--code--toInput
+		button#svg--code--to( title = "Destination Position" ) 300,200
+		input( type = "text" )#svg--input--to
 		= '">'
 	svg#svg--area
 		rect( x=0, y=0, width=50, height=50 )#svg--radiusrect

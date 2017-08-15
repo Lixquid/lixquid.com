@@ -1,8 +1,10 @@
 extends /resources/layouts/base/base
 
+include /resources/external/normalizecss-7.0.0/pug
+
 //- Blocks -------------------------------------------------------------------//
 
-block head
+append head
 	link(
 		href = ROOT + "/resources/layouts/main/main.css"
 		rel = "stylesheet"
@@ -15,7 +17,7 @@ block head
 		encoding = "utf-8"
 	)
 
-block body
+append body
 
 	.main--container
 		header.main--nav

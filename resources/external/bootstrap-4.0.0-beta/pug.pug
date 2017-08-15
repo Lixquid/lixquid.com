@@ -1,0 +1,19 @@
+prepend head
+	link(
+		rel = "stylesheet"
+		href = ROOT +
+			"/resources/external/bootstrap-4.0.0-beta/css/bootstrap.min.css"
+	)
+
+prepend body
+	script(
+		src = ROOT + "/resources/external/jquery-3.2.1/jquery-3.2.1.min.js"
+	)
+	script(
+		src = ROOT +
+			"/resources/external/bootstrap-4.0.0-beta/js/popper.min.js"
+	)
+	script(
+		src = ROOT +
+			"/resources/external/bootstrap-4.0.0-beta/js/bootstrap.min.js"
+	)

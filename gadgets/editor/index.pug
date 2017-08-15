@@ -1,20 +1,13 @@
 extends /resources/layouts/base/base
+include /resources/external/fontawesome-4.7.0/pug
 
 append head
 	link(
 		rel = "stylesheet"
 		href = "index.css"
 	)
-	link(
-		rel = "stylesheet"
-		href = "https://opensource.keycdn.com/"
-			+ "fontawesome/4.7.0/font-awesome.min.css"
-		integrity = "sha384-dNpIIXE8U05kAbPhy3G1cz+yZmTzA6CY8Vg/"
-			+ "u2L9xRnHjJiAK76m2BIEaSEV+/aU"
-		crossorigin = "anonymous"
-	)
 
-block body
+append body
 
 	//- Editor /////////////////////////////////////////////////////////////////
 

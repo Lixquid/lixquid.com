@@ -1,0 +1,40 @@
+extends /resources/layouts/main/main
+include /resources/external/jquery-3.2.1/pug
+include /resources/external/bootstrap-4.0.0-beta/pug
+
+block main
+	h1 Regex Tester
+
+	.form-group
+		label( for = "input--regex" )
+			small.text-muted Regex
+		.input-group
+			span.input-group-addon /
+			input#input--regex.form-control( type = "text" )
+			.input-group-btn
+				button.btn.btn-secondary.dropdown-toggle#dropdown--text(
+					data-toggle = "dropdown"
+				) /
+				.dropdown-menu.dropdown-menu-right#dropdown--flags
+					button#flag--g.dropdown-item( href = "#" ).
+						#[code g] #[em.text-muted Global]
+					button#flag--i.dropdown-item( href = "#" ).
+						#[code i] #[em.text-muted Ignore Case]
+					button#flag--m.dropdown-item( href = "#" ).
+						#[code m] #[em.text-muted Multiline]
+					button#flag--u.dropdown-item( href = "#" ).
+						#[code u] #[em.text-muted Unicode]
+
+	.form-group
+		label( for = "input--input" )
+			small.text-muted Input
+		textarea.form-control#input--input
+
+	button.btn.btn-primary#input--match Match
+
+	#output.invisible.mt-4
+		h2 Matches
+
+		ul#output--list
+
+	script( src = "index.js" )

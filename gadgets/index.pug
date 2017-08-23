@@ -1,28 +1,39 @@
 extends /resources/layouts/main/main
 
-append head
-	link(
-		rel = "stylesheet"
-		href = "index.css"
-	)
+mixin link( url, name )
+	a( href = url ).list-group-item.list-group-item-action
+		h4.text-primary
+			= name
+		if block
+			block
+mixin text
+	small.text-muted
+		block
+	br
+mixin badge( type )
+	- attributes.class = "mr-1 mt-1 badge badge-" + attributes.class;
+	span&attributes( attributes )
+		block
 
 block main
 	h1 Gadgets
-	p Just some stupid little apps. JavaScript is required for all of them!
+	p.
+		Some small experimental JavaScript apps. JavaScript needs to be enabled
+		for all of them!
 
-	a( href = "editor" ).biglist--link
-		h2 Editor
-		small A full-screen Ace Editor. Supports some common editing actions.
-		br
-		small #[.tag._wip] #[.tag._desktop]
-	a( href = "svgarcs" ).biglist--link
-		h2 SVG Arcs
-		small A small gadget for displaying SVG Arcs.
-		br
-		small #[.tag._desktop]
-	a( href = "colorpalette" ).biglist--link
-		h2 Color Palette
-		small A selection of color palettes.
-	a( href = "regextester" ).biglist--link
-		h2 Regex Tester
-		small Supports testing Javascript regexes against input.
+	.list-group
+		+link( "editor", "Editor" )
+			+text.
+				A full-screen Ace Editor. Supports some common editing actions.
+			+badge.primary Desktop Only
+			+badge.danger WIP
+		+link( "svgarcs", "SVG Arcs" )
+			+text.
+				A small gadget for displaying SVG Arcs.
+			+badge.primary Desktop Only
+		+link( "colorpalette", "Color Palette" )
+			+text.
+				A selection of color palettes.
+		+link( "regextester", "Regex Tester" )
+			+text.
+				Supports testing Javascript regexes against input.

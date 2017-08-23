@@ -30,8 +30,9 @@ block main
 				+ " " + date.getFullYear();
 		}
 
-	each post in posts
-		a( href=post.url ).biglist--link
-			h2= post.title
-			if post.date
-				small= formatDate( post.date )
+	.list-group
+		each post in posts
+			a( href = post.url ).list-group-item.list-group-item-action
+				h4.text-primary= post.title
+				if post.date
+					small.text-muted= formatDate( post.date )

@@ -50,10 +50,11 @@ block main
 		if ( post.dateEdited && typeof post.dateEdited != "number" )
 			post.dateEdited = new Date( post.dateEdited );
 
-	h1.blog--title= post.title
-	h2.blog--subtitle
+	h1.mb-0= post.title
+	small.text-muted.d-block.mb-4
 		= formatDate( post.date )
 		= formatEditedDate( post.dateEdited )
 		!= formatTags( post.tags )
 
-	block post
+	article
+		block post

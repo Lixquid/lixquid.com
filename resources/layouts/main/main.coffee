@@ -114,6 +114,7 @@ quotes = [
 	"\"Come with me if you want to leave.\""
 	"Cameras are like shotguns. The closer the target, the greater the damage."
 	"Unregistered Hypercam 2"
+	"These are the voyages of the Starprise Entership"
 ]
 
 document.getElementById( "main--footer--quote" ).innerHTML =

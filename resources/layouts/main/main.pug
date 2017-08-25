@@ -1,7 +1,5 @@
 extends /resources/layouts/base/base
 
-include /resources/external/normalizecss-7.0.0/pug
-
 //- Blocks -------------------------------------------------------------------//
 
 append head
@@ -52,6 +50,7 @@ append body
 		footer.main--footer#main--footer--quote
 			p Inspirational Quote
 
+append scripts
 	script( src = ROOT + "/resources/layouts/main/main.js" )
 
 //- Includes -----------------------------------------------------------------//

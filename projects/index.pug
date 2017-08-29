@@ -1,31 +1,10 @@
 extends /resources/layouts/main/main
+include /resources/layouts/main/util/search
 
-mixin link( url, header, language )
-	-
-		language_colors = {
-			"C#": "#178600",
-			"Lua": "#000080",
-			"CoffeeScript": "#244776",
-			"TypeScript": "#2b7489",
-			"VimScript": "#199f4b"
-		};
-	a( href = url ).list-group-item.list-group-item-action
-		h4.text-primary
-			= header + " "
-			span.badge.badge-primary.mr-1.float-right(
-				style =
-					"background-color: " + language_colors[ language ] || null
-			)= language
-		if block
-			small.text-muted
-				block
-
-mixin gh-link( url, header, language )
-	+link( `https://github.com/lixquid/${url}`, header, language )
-		block
-
-mixin badge( name, color )
-	span.badge.mr-1.badge-primary( style = `background-color: ${color}` )= name
+mixin github( url, header, language )
+	+search-item-link( header, "https://github.com/lixquid/" + url, language )
+		small.text-muted
+			block
 
 block main
 
@@ -33,32 +12,71 @@ block main
 
 	p Just some things I've worked on.
 
-	.list-group
-		+gh-link( "cs-utility", "C# Utility", "C#" ).
+	-
+		search_tags = {
+			"C#": "#178600",
+			"Lua": "#000080",
+			"CoffeeScript": "#244776",
+			"TypeScript": "#2b7489",
+			"VimScript": "#199f4b"
+		};
+	+search
+		+github( "cs-utility", "C# Utility", "C#" ).
 			A collection of utility code. Includes a reflective Opt parser, just
 			like Mono's except 10 years late!
-		+gh-link( "LLib", "LLib", "Lua" ).
+		+github( "LLib", "LLib", "Lua" ).
 			A collection of Utility functions for Lua.
-		+gh-link( "vscode-calculator", "Visual Studio Code Calculator",
+		+github( "vscode-calculator", "Visual Studio Code Calculator",
 			"TypeScript" ).
 			A calculation plugin for Visual Studio Code.
-		+gh-link( "vscode-gmod-luadev", "Visual Studio Code LuaDev Support",
+		+github( "vscode-gmod-luadev", "Visual Studio Code LuaDev Support",
 			"TypeScript" ).
 			Adds LuaDev support for Garry's Mod into Visual Studio Code.
-		+gh-link( "atom-calc", "Atom Calculator", "CoffeeScript" ).
+		+github( "atom-calc", "Atom Calculator", "CoffeeScript" ).
 			Adds Calculator commands to Atom.
-		+gh-link( "atom-gmod-luadev", "Atom LuaDev Support", "CoffeeScript" ).
+		+github( "atom-gmod-luadev", "Atom LuaDev Support", "CoffeeScript" ).
 			Adds LuaDev support for Garry's Mod into Atom.
-		+gh-link( "atom-language-gmod-lua", "Atom Garry's Mod Lua",
+		+github( "atom-language-gmod-lua", "Atom Garry's Mod Lua",
 			"CoffeeScript" ).
 			A plugin to add support for Garry's Mod Lua to Atom.
-		+gh-link( "atom-project-jump", "Atom Project Jump", "CoffeeScript" ).
+		+github( "atom-project-jump", "Atom Project Jump", "CoffeeScript" ).
 			Adds rapid project navigation support to Atom.
-		+gh-link( "vim-align", "Vim Align", "VimScript" ).
+		+github( "vim-align", "Vim Align", "VimScript" ).
 			A small plugin to support aligning text, with optional characters.
-		+gh-link( "pandoc-steam", "PanDoc Steam Filter", "Lua" ).
+		+github( "pandoc-steam", "PanDoc Steam Filter", "Lua" ).
 			A PanDoc filter to output Steam compatible BBCode.
-		+gh-link( "gmod-simplehitmarkers", "Garry's Mod Simple Hitmarkers",
+		+github( "gmod-simplehitmarkers", "Garry's Mod Simple Hitmarkers",
 			"Lua" ).
 			A small addon for Garry's Mod that adds Call of Duty-style
 			hitmarkers.
+
+	//-
+		.list-group
+			+gh-link( "cs-utility", "C# Utility", "C#" ).
+				A collection of utility code. Includes a reflective Opt parser, just
+				like Mono's except 10 years late!
+			+gh-link( "LLib", "LLib", "Lua" ).
+				A collection of Utility functions for Lua.
+			+gh-link( "vscode-calculator", "Visual Studio Code Calculator",
+				"TypeScript" ).
+				A calculation plugin for Visual Studio Code.
+			+gh-link( "vscode-gmod-luadev", "Visual Studio Code LuaDev Support",
+				"TypeScript" ).
+				Adds LuaDev support for Garry's Mod into Visual Studio Code.
+			+gh-link( "atom-calc", "Atom Calculator", "CoffeeScript" ).
+				Adds Calculator commands to Atom.
+			+gh-link( "atom-gmod-luadev", "Atom LuaDev Support", "CoffeeScript" ).
+				Adds LuaDev support for Garry's Mod into Atom.
+			+gh-link( "atom-language-gmod-lua", "Atom Garry's Mod Lua",
+				"CoffeeScript" ).
+				A plugin to add support for Garry's Mod Lua to Atom.
+			+gh-link( "atom-project-jump", "Atom Project Jump", "CoffeeScript" ).
+				Adds rapid project navigation support to Atom.
+			+gh-link( "vim-align", "Vim Align", "VimScript" ).
+				A small plugin to support aligning text, with optional characters.
+			+gh-link( "pandoc-steam", "PanDoc Steam Filter", "Lua" ).
+				A PanDoc filter to output Steam compatible BBCode.
+			+gh-link( "gmod-simplehitmarkers", "Garry's Mod Simple Hitmarkers",
+				"Lua" ).
+				A small addon for Garry's Mod that adds Call of Duty-style
+				hitmarkers.

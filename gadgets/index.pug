@@ -1,19 +1,5 @@
 extends /resources/layouts/main/main
-
-mixin link( url, name )
-	a( href = url ).list-group-item.list-group-item-action
-		h4.text-primary
-			= name
-		if block
-			block
-mixin text
-	small.text-muted
-		block
-	br
-mixin badge( type )
-	- attributes.class = "mr-1 mt-1 badge badge-" + attributes.class;
-	span&attributes( attributes )
-		block
+include /resources/layouts/main/util/search
 
 block main
 	h1 Gadgets
@@ -21,21 +7,23 @@ block main
 		Some small experimental JavaScript apps. JavaScript needs to be enabled
 		for all of them!
 
-	.list-group
+	-
+		search_tags = {
+			"Desktop Only": "#007bff",
+			"WIP": "#dc3545"
+		};
+	+search
 		.list-group-item.disabled Large
-		+link( "editor", "Editor" )
-			+text.
+		+search-item-link( "Editor", "editor", "Desktop Only", "WIP" )
+			small.text-muted.
 				A full-screen Ace Editor. Supports some common editing actions.
-			+badge.primary Desktop Only
-			+badge.danger WIP
 		.list-group-item.disabled Small
-		+link( "svgarcs", "SVG Arcs" )
-			+text.
+		+search-item-link( "SVG Arcs", "svgarcs", "Desktop Only" )
+			small.text-muted.
 				A small gadget for displaying SVG Arcs.
-			+badge.primary Desktop Only
-		+link( "colorpalette", "Color Palette" )
-			+text.
+		+search-item-link( "Color Palette", "colorpalette" )
+			small.text-muted.
 				A selection of color palettes.
-		+link( "regextester", "Regex Tester" )
-			+text.
+		+search-item-link( "Regex Tester", "regextester" )
+			small.text-muted.
 				Supports testing Javascript regexes against input.

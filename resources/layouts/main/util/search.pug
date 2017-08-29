@@ -1,0 +1,40 @@
+append scripts
+	script( src = ROOT + "/resources/layouts/main/util/search.js" )
+
+mixin search
+	//-
+		.input-group.mb-4
+			.input-group-addon Search
+			input.form-control#search--input
+	- search_tags = search_tags || {};
+	ul.list-group
+		if block
+			block
+
+mixin search-item( title, ...tags )
+	li.list-group-item
+		div
+			h3.search--title.d-inline= title
+			.float-right
+				each tag in tags
+					= " "
+					.badge.badge-primary(
+						style = "background-color: " +
+							( search_tags[ tag ] || "" )
+					)= tag
+		if block
+			block
+
+mixin search-item-link( title, url, ...tags )
+	a( href = url ).list-group-item
+		div
+			h3.search--title.d-inline= title
+			.float-right
+				each tag in tags
+					= " "
+					.badge.badge-primary(
+						style = "background-color: " +
+							( search_tags[ tag ] || "" )
+					)= tag
+		if block
+			block

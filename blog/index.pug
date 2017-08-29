@@ -1,4 +1,5 @@
 extends /resources/layouts/main/main
+include /resources/layouts/main/util/search
 
 block main
 
@@ -30,9 +31,15 @@ block main
 				+ " " + date.getFullYear();
 		}
 
-	.list-group
+	+search
 		each post in posts
-			a( href = post.url ).list-group-item.list-group-item-action
-				h4.text-primary= post.title
+			+search-item-link( post.title, post.url, post.tags )
 				if post.date
 					small.text-muted= formatDate( post.date )
+	//-
+		.list-group
+			each post in posts
+				a( href = post.url ).list-group-item.list-group-item-action
+					h4.text-primary= post.title
+					if post.date
+						small.text-muted= formatDate( post.date )

@@ -7,12 +7,16 @@ mixin search
 			.input-group-addon Search
 			input.form-control#search--input
 	- search_tags = search_tags || {};
-	ul.list-group
+	ul.list-group.mb-4#search--list
 		if block
 			block
+	ul.pagination.pagination-lg.justify-content-center#search--pagination
 
 mixin search-item( title, ...tags )
-	li.list-group-item
+	li.list-group-item.search--item(
+		data-title = title
+		data-tags = tags.join( "|" )
+	)
 		div
 			h3.search--title.d-inline= title
 			.float-right
@@ -26,7 +30,11 @@ mixin search-item( title, ...tags )
 			block
 
 mixin search-item-link( title, url, ...tags )
-	a( href = url ).list-group-item
+	a.list-group-item.search--item(
+		href = url
+		data-title = title
+		data-tags = tags.join( "|" )
+	)
 		div
 			h3.search--title.d-inline= title
 			.float-right

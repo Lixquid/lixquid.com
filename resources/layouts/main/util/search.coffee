@@ -1,26 +1,54 @@
 ## Elements ##
 
 ePagination = document.getElementById "search--pagination"
+eInput = document.getElementById "search--input"
 
-## Functions ##
+## Variables ##
 
+currentPage = 1
 maximumPage = 1
 
+## Search ##
+
+matchesSearch = ( e ) ->
+	return true if eInput.value == ""
+	return false if not e.dataset.title
+	return e.dataset.title.includes( eInput.value )
+
+getItemList = ->
+	list = []
+
+	for e in document.getElementsByClassName "search--item"
+		if not matchesSearch( e )
+			e.style.display = "none"
+			continue
+		e.style.display = null
+		list.push e
+
+	return list
+
+## Pagination ##
+
 buildList = ( page ) ->
-	for e, i in document.getElementsByClassName "search--item"
-		if not e.listIndex?
-			e.listIndex = i
-			maximumPage = Math.ceil( ( i + 1 ) / 10 )
+	for e, i in getItemList()
+		e.listIndex = i
+		maximumPage = Math.ceil( ( i + 1 ) / 10 )
+		console.log maximumPage
 
 		if page * 10 - 11 < e.listIndex < page * 10
-			e.style.display = null
+			# e.style.display = null
 		else
 			e.style.display = "none"
 
 buildPagination = ( page ) ->
+	page = maximumPage if page > maximumPage
+
+	currentPage = page
 	if maximumPage == 1
 		ePagination.style.display = "none"
 		return
+	else
+		ePagination.style.display = null
 
 	ePagination.innerHTML = ""
 
@@ -77,7 +105,9 @@ buildPagination = ( page ) ->
 	else
 		ea.addEventListener "click", clickEv( page + 1 )
 
-## Build ##
-
 buildList( 1 )
 buildPagination( 1 )
+
+eInput.addEventListener "change", ->
+	buildList( currentPage )
+	buildPagination( currentPage )

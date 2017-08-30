@@ -2,9 +2,12 @@ append scripts
 	script( src = ROOT + "/resources/layouts/main/util/search.js" )
 
 mixin search
-	.input-group.input-group-sm.mb-1
+	.input-group.input-group-sm.mb-2
 		.input-group-addon Search
 		input.form-control#search--input
+		.input-group-btn#search--cancel--container( style = "display: none" )
+			button.btn.btn-danger#search--cancel.
+				&times; #[.sr-only Cancel Search]
 	- search_tags = search_tags || {};
 	ul.list-group.mb-4#search--list
 		if block

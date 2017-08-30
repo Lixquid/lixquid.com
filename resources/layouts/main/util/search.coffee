@@ -2,6 +2,8 @@
 
 ePagination = document.getElementById "search--pagination"
 eInput = document.getElementById "search--input"
+eCancelContainer = document.getElementById "search--cancel--container"
+eCancel = document.getElementById "search--cancel"
 
 ## Variables ##
 
@@ -108,6 +110,17 @@ buildPagination = ( page ) ->
 buildList( 1 )
 buildPagination( 1 )
 
-eInput.addEventListener "change", ->
+sortList = ->
+	if eInput.value != ""
+		eCancelContainer.style.display = null
+	else
+		eCancelContainer.style.display = "none"
+
 	buildList( currentPage )
 	buildPagination( currentPage )
+
+eInput.addEventListener "input", sortList
+
+eCancel.addEventListener "click", ->
+	eInput.value = ""
+	sortList()

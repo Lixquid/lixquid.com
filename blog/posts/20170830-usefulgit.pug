@@ -1,0 +1,86 @@
+//-
+	title: "Useful Git"
+	date: "2017/08/30"
+	tags: [ "reference" ]
+
+extends /resources/layouts/blog/blog
+include /resources/layouts/main/util/dropdownlist
+
+mixin sublist( title )
+	li
+		+dropdown-list-toggle
+			code= title
+		+dropdown-list-contents
+			ul
+				block
+
+block post
+	p A collection of useful git commands.
+
+	+dropdown-list
+		+sublist( "git status" )
+			li
+				code git status -sb
+				ul
+					li
+						:markdown-it
+							Shows the current branch and its upstream, how many
+							commits ahead or behind the local branch is, and the
+							status of all modified / untracked files.
+
+							```
+							$ git status -sb
+							## master...origin/master [ahead 1, behind 1]
+							 M modifed_file.txt
+							 D deleted_file.txt
+							?? untracked_file.txt
+							```
+		+sublist( "git add" )
+			li
+				code git add -u
+				ul
+					li
+						:markdown-it
+							Stages all tracked files. Untracked files will not
+							be staged.
+			li
+				code git add -A
+				ul
+					li
+						:markdown-it
+							Stages all files, tracked and untracked.
+
+							Files that are ignored will not be staged.
+		+sublist( "git commit" )
+			li
+				code git commit --amend
+				ul
+					li
+						:markdown-it
+							Recreates the last commit, opening the editor to
+							modify the commit message.
+
+							Generally used to modify a typo in the commit
+							message.
+
+						.text-danger Warning: Modifies history!
+			li
+				code git commit --amend --no-edit
+				ul
+					li
+						:markdown-it
+							Recreates the last commit, using the commit's old
+							commit message. Any files that have been staged will
+							become part of the last commit.
+
+							Generally used to add files to a commit that were
+							accidentally left out.
+
+						.text-danger Warning: Modifies history!
+		+sublist( "git log" )
+			li
+				code git log -1 HEAD
+				ul
+					li
+						:markdown-it
+							Shows the last commit on whatever branch you're on.

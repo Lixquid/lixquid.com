@@ -1,6 +1,7 @@
 ## Elements ##
 
 ePagination = document.getElementById "search--pagination"
+eList = document.getElementById "search--list"
 eInput = document.getElementById "search--input"
 eCancelContainer = document.getElementById "search--cancel--container"
 eCancel = document.getElementById "search--cancel"
@@ -13,14 +14,18 @@ maximumPage = 1
 ## Search ##
 
 matchesSearch = ( e ) ->
-	return true if eInput.value == ""
+	input = eInput.value
+	return true if input == ""
 	return false if not e.dataset.title
-	return e.dataset.title.includes( eInput.value )
+	if input.startsWith( "tag:" )
+		return e.dataset.tags.toLowerCase()
+			.split( "|" ).indexOf( input.substr( 4 ).toLowerCase() ) > -1
+	return e.textContent.toLowerCase().includes( input.toLowerCase() )
 
 getItemList = ->
 	list = []
 
-	for e in document.getElementsByClassName "search--item"
+	for e in eList.children
 		if not matchesSearch( e )
 			e.style.display = "none"
 			continue
@@ -35,7 +40,6 @@ buildList = ( page ) ->
 	for e, i in getItemList()
 		e.listIndex = i
 		maximumPage = Math.ceil( ( i + 1 ) / 10 )
-		console.log maximumPage
 
 		if page * 10 - 11 < e.listIndex < page * 10
 			# e.style.display = null

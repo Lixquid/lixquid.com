@@ -1,0 +1,15 @@
+.dropdown--list
+	list-style none
+	padding-left 0
+
+	& > li
+		padding-left 1.3em
+
+		&:before
+			content "\25b6"
+			display inline-block
+			margin-left -@padding-left
+			width @padding-left
+
+		&._toggled:before
+			content "\25bc"

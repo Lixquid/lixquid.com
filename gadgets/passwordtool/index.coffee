@@ -1,5 +1,7 @@
 ## COMMON ######################################################################
 
+window.DISABLE_ZXCVBN_LIMIT = false
+
 eNavBrute = document.getElementById "nav--brute"
 eNavDict = document.getElementById "nav--dict"
 eNavEval = document.getElementById "nav--eval"
@@ -9,11 +11,13 @@ eEvalDiv = document.getElementById "eval--div"
 eOutputDiv = document.getElementById "output--div"
 eOutputError = document.getElementById "output--error"
 eOutputText = document.getElementById "output--text"
+eEvalInput = document.getElementById "eval--input"
 
 activeDiv = eBruteDiv
 
 generateBrutePassword = ->
 generateDictPassword = ->
+analyzeStrength = ->
 
 hideAllNavs = ->
 	eNavBrute.classList.remove "active"
@@ -66,6 +70,113 @@ document.getElementById( "output--copy" ).addEventListener "click", ->
 randomArray = ( array ) ->
 	array[ Math.floor( Math.random() * array.length ) ]
 
+## STRENGTH ANALYSIS ###########################################################
+
+do ->
+
+	eError = document.getElementById "an--error"
+	eOutput = document.getElementById "an--div--output"
+	eGuesses = document.getElementById "an--guesses"
+	eStrength= document.getElementById "an--strength"
+	eWarning = document.getElementById "an--warning"
+	eSuggestions = document.getElementById "an--suggestions"
+	eCrack1 = document.getElementById "an--crack--1"
+	eCrack2 = document.getElementById "an--crack--2"
+	eCrack3 = document.getElementById "an--crack--3"
+	eCrack4 = document.getElementById "an--crack--4"
+	eCrack5 = document.getElementById "an--crack--5"
+
+	strengthTexts = [
+		"Unsuitable"
+		"Poor"
+		"Adequate"
+		"Good"
+		"Excellent"
+	]
+	strengthClasses = [
+		"bg-danger"
+		"bg-warning"
+		"bg-warning"
+		"bg-success"
+		"bg-success"
+	]
+
+	niceTime = ( t ) ->
+		p = ( n, s ) ->
+			if Math.floor( n ) == 1
+				return Math.floor( n ) + " " + s
+			else
+				return Math.floor( n ) + " " + s + "s"
+
+		if t < 1
+			return "Less than a second"
+		if t < 60
+			return p t, "second"
+		if t < 3600
+			return p t/60, "minute"
+		if t < 86400
+			return p t/3600, "hour"
+		if t < 31536000
+			return p t/86400, "day"
+		if t < 3153600000
+			return p t/31536000, "year"
+		return "Centuries"
+
+	energy_in_universe = 91.954242509439324874590055806510230618400257728381391
+	thermoLog = ( input ) ->
+		n = input - energy_in_universe
+
+		if n > 0
+			# good lord
+			return "Requires more energy than available in the universe"
+		else
+			return "Factor " + Math.abs( n ) + " (base 10)"
+
+	analyzeStrength = ->
+		return if not zxcvbn
+
+		pw = eOutputText.value
+
+		if pw.length > 100 and not window.DISABLE_ZXCVBN_LIMIT
+			eError.style.display = null
+			eOutput.style.display = "none"
+			return
+
+		eError.style.display = "none"
+		eOutput.style.display = null
+
+		data = zxcvbn( pw )
+
+		eGuesses.value = Math.floor( data.guesses )
+		eStrength.style.width =
+			Math.min( data.guesses_log10 * 10, 100 ) + "%"
+		eStrength.innerText = strengthTexts[ data.score ]
+		eStrength.classList = "progress-bar " + strengthClasses[ data.score ]
+
+		if data.feedback.warning
+			eWarning.style.display = null
+			eWarning.innerHTML = "<strong>Warning</strong><br />" +
+				data.feedback.warning
+		else
+			eWarning.style.display = "none"
+
+		eSuggestions.innerHTML = ""
+		if data.feedback.suggestions.length > 0
+			for str in data.feedback.suggestions
+				e = document.createElement "div"
+				e.classList = "alert alert-info"
+				e.innerHTML = "<strong>Suggestion</strong><br />" + str
+				eSuggestions.appendChild( e )
+
+		eCrack1.value =
+			data.crack_times_display.online_throttling_100_per_hour
+		eCrack2.value =
+			data.crack_times_display.online_no_throttling_10_per_second
+		eCrack3.value =
+			data.crack_times_display.offline_slow_hashing_1e4_per_second
+		eCrack4.value =
+			data.crack_times_display.offline_fast_hashing_1e10_per_second
+		eCrack5.value = thermoLog( data.guesses_log10 )
 
 ## BRUTE #######################################################################
 
@@ -185,6 +296,7 @@ do ->
 			shuffleArray( out )
 
 			eOutputText.value = out.join ""
+			analyzeStrength()
 		catch ex
 			if typeof( ex ) == "string"
 				eOutputError.style.display = null
@@ -264,6 +376,7 @@ do ->
 				out.push randomArray( wordList ).toLowerCase()
 
 			eOutputText.value = out.join " "
+			analyzeStrength()
 		catch ex
 			if typeof( ex ) == "string"
 				eOutputError.style.display = null
@@ -274,4 +387,6 @@ do ->
 
 	eWords.addEventListener "change", generateDictPassword
 
-return
+eEvalInput.addEventListener "change", ->
+	eOutputText.value = eEvalInput.value
+	analyzeStrength()

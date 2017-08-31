@@ -1,6 +1,7 @@
 extends /resources/layouts/main/main
 
 append scripts
+	script( src = "zxcvbn.js" )
 	script( src = "index.js" )
 
 append head
@@ -8,6 +9,11 @@ append head
 		:stylus
 			.card-body._border-top
 				border-top 1px solid rgba( 0, 0, 0, .125 )
+
+			.progress-bar
+				transition:
+					width .6s ease,
+					background-color .6s ease
 
 block main
 	h1 Password Tool
@@ -147,6 +153,87 @@ block main
 			button.btn.btn-outline-secondary.btn-sm#output--refresh.
 				&#x21bb; Refresh
 
-		//-
-			.card-body._border-top#an--div
-				h4.card-title Strength Analysis
+		.card-body._border-top#an--div
+			h4.card-title Strength Analysis
+
+			.alert.alert-danger( style = "display: none" )#an--error.
+				Strength Analysis is only performed on passwords that are 100
+				characters or less.
+
+			#an--div--output( style = "display: none" )
+				.form-group.row
+					.col-md-3 Guesses
+					.col-md-9
+						input.form-control( readonly )#an--guesses
+				.form-group.row
+					.col-md-3 Strength
+					.col-md-9
+						.progress
+							.progress-bar(
+								style = "min-width: 5em"
+							)#an--strength
+				.alert.alert-warning( style = "display: none" )#an--warning
+				#an--suggestions
+				hr
+				h5.text-center Time to crack
+				.form-group.row
+					.col-md-3 Online Throttled (100/hr)
+					.col-md-9
+						input.form-control( readonly )#an--crack--1
+				.form-group.row
+					.col-md-3 Online Un-throttled (10/s)
+					.col-md-9
+						input.form-control( readonly )#an--crack--2
+				.form-group.row
+					.col-md-3 Offline Slow Hash (10k/s)
+					.col-md-9
+						input.form-control( readonly )#an--crack--3
+				.form-group.row
+					.col-md-3 Offline Fast Hash (10B/s)
+					.col-md-9
+						input.form-control( readonly )#an--crack--4
+				.form-group.row
+					.col-md-3 Percentage of Thermodynamic Maximum
+					.col-md-9
+						input.form-control( readonly )#an--crack--5
+
+			.card
+				.card-body
+					:markdown-it( plugins = [ "markdown-it-deflist" ] )
+						Online Throttled (`100 guesses per hour`)
+						:   Guessing via a web service that successfully
+							throttles guess attempts.
+
+						Online Un-Throttled (`10 guesses per second`)
+						:   Guessing via a web service that implements no
+							throttling, or has had its throttling bypassed.
+
+						Offline Slow Hash (`10,000 guesses per second`)
+						:   Guessing on an offline database that has its
+							passwords per-user salted, and hashed with a slow
+							hash function with high work factor.
+
+						Offline Fast Hash (`10,000,000,000 guesses per second`)
+						:   Guessing on an offline database that has its
+							passwords hashed with a fast hash function with low
+							work factor.
+
+						Percentage of Thermodynamic Maximum
+						:   Calculates how much energy in the Universe (assuming
+							classical thermodynamics) would be required under
+							completely ideal conditions to guess the password.
+
+							Assumes attempting a guess requires the lowest
+							possible amount of work (Boltzman constant
+							multiplied by ambient universe temperature), and
+							that all of the possible mass-energy in the universe
+							is available.
+
+							Attempting a guess: `4.4 x 10^-23 Joules`
+
+							Mass-Energy in Universe: `4 x 10^69 Joules`
+
+			div.text-right
+				small.text-muted.
+					Powered by
+					#[a(href="https://github.com/dropbox/zxcvbn") zxcvbn].

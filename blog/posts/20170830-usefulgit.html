@@ -1,4 +1,4 @@
-<html><head><link href="/resources/favicon.png" rel="icon" type="image/png"><title>Useful Git - Lixquid</title><link rel="stylesheet" href="/resources/layouts/main/util/dropdownlist.css"><link href="/resources/external/bootstrap-4.0.0-beta/css/bootstrap.min.css" rel="stylesheet"><link href="/resources/layouts/main/main.css" rel="stylesheet"><meta name="viewport" content="width=device-width, initial-scale=1"><meta encoding="utf-8"></head><body><div class="main--container"><header class="main--nav"><hr class="main--nav--hr"><a class="main--logo" href="/"><img src="/resources/layouts/main/logo.png" alt="Lixquid"></a><hr class="main--nav--hr"><nav><a href="/projects">Projects</a><span class="main--nav--separator">/</span><a href="/gadgets">Gadgets</a><span class="main--nav--separator">/</span><a href="/blog">Blog</a></nav></header><main id="main--main"><h1 class="mb-0">Useful Git</h1><small class="text-muted d-block mb-4">30th August 2017 / Tags: <a href="/blog/tags/reference">reference</a></small><article><p>A collection of useful git commands.</p><ul class="dropdown--list"><li><a class="dropdown--list--toggle" href="#"><code>git status</code></a><div class="dropdown--list--contents"><ul><li><code>git status -sb</code><ul><li><p>Shows the current branch and its upstream, how many
+<html><head><link href="/resources/favicon.png" rel="icon" type="image/png"><title>Useful Git - Lixquid</title><link rel="stylesheet" href="/resources/layouts/main/util/dropdownlist.css"><link href="/resources/external/bootstrap-4.0.0-beta/css/bootstrap.min.css" rel="stylesheet"><link href="/resources/layouts/main/main.css" rel="stylesheet"><meta name="viewport" content="width=device-width, initial-scale=1"><meta encoding="utf-8"></head><body><div class="main--container"><header class="main--nav"><hr class="main--nav--hr"><a class="main--logo" href="/"><img src="/resources/layouts/main/logo.png" alt="Lixquid"></a><hr class="main--nav--hr"><nav><a href="/projects">Projects</a><span class="main--nav--separator">/</span><a href="/gadgets">Gadgets</a><span class="main--nav--separator">/</span><a href="/blog">Blog</a></nav></header><main id="main--main"><h1 class="mb-0">Useful Git</h1><small class="text-muted d-block mb-4">30th August 2017 / Tags: <a href="/blog/tags/reference">reference</a></small><article><p>A collection of useful git commands.</p><ul class="dropdown--list"><li><a class="dropdown--list--toggle" href="#"><code>git status</code></a><div class="dropdown--list--contents"><ul><li><code>git status -sb</code>, <code>git status --short --branch</code><ul><li><p>Shows the current branch and its upstream, how many
 commits ahead or behind the local branch is, and the
 status of all modified / untracked files.</p>
 <pre><code>$ git status -sb
@@ -7,18 +7,42 @@ status of all modified / untracked files.</p>
  D deleted_file.txt
 ?? untracked_file.txt
 </code></pre>
-</li></ul></li></ul></div></li><li><a class="dropdown--list--toggle" href="#"><code>git add</code></a><div class="dropdown--list--contents"><ul><li><code>git add -u</code><ul><li><p>Stages all tracked files. Untracked files will not
+</li></ul></li></ul></div></li><li><a class="dropdown--list--toggle" href="#"><code>git add</code></a><div class="dropdown--list--contents"><ul><li><code>git add -u</code>, <code>git add --update</code><ul><li><p>Stages all tracked files. Untracked files will not
 be staged.</p>
-</li></ul></li><li><code>git add -A</code><ul><li><p>Stages all files, tracked and untracked.</p>
+</li></ul></li><li><code>git add -A</code>, <code>git add --all</code><ul><li><p>Stages all files, tracked and untracked.</p>
 <p>Files that are ignored will not be staged.</p>
+</li></ul></li><li><code>git add -N</code>, <code>git add --intent-to-add</code><ul><li><p>Stages the file, without staging its contents.</p>
+<pre><code>$ echo test &gt; file
+$ git add -N file
+$ git diff --staged
+diff --git a/file b/file
+new file mode 100644
+index 0000000..e69de29
+$ # Note the diff contains no contents
+$
+$ git add file
+$ git diff --staged
+diff --git a/file b/file
+new file mode 100644
+index 0000000..9daeafb
+--- /dev/null
++++ b/file
+@@ -0,0 +1 @@
++test
+$ # The diff now contains the contents of file
+</code></pre>
 </li></ul></li></ul></div></li><li><a class="dropdown--list--toggle" href="#"><code>git commit</code></a><div class="dropdown--list--contents"><ul><li><code>git commit --amend</code><ul><li><p>Recreates the last commit, opening the editor to
 modify the commit message.</p>
 <p>Generally used to modify a typo in the commit
 message.</p>
-<div class="text-danger">Warning: Modifies history!</div></li></ul></li><li><code>git commit --amend --no-edit</code><ul><li><p>Recreates the last commit, using the commit's old
+<div class="alert alert-danger"><strong>Warning:</strong> Modifies history!</div></li></ul></li><li><code>git commit --amend --no-edit</code><ul><li><p>Recreates the last commit, using the commit's old
 commit message. Any files that have been staged will
 become part of the last commit.</p>
 <p>Generally used to add files to a commit that were
 accidentally left out.</p>
-<div class="text-danger">Warning: Modifies history!</div></li></ul></li></ul></div></li><li><a class="dropdown--list--toggle" href="#"><code>git log</code></a><div class="dropdown--list--contents"><ul><li><code>git log -1 HEAD</code><ul><li><p>Shows the last commit on whatever branch you're on.</p>
+<div class="alert alert-danger"><strong>Warning:</strong> Modifies history!</div></li></ul></li></ul></div></li><li><a class="dropdown--list--toggle" href="#"><code>git log</code></a><div class="dropdown--list--contents"><ul><li><code>git log -1 HEAD</code><ul><li><p>Shows the last commit on whatever branch you're on.</p>
+</li></ul></li></ul></div></li><li><a class="dropdown--list--toggle" href="#"><code>git diff</code></a><div class="dropdown--list--contents"><ul><li><code>git diff</code><ul><li><p>Shows all unstaged changes to tracked files.</p>
+<div class="alert alert-warning">Does not show changes to untracked files!</div></li></ul></li><li><code>git diff filename.txt</code><ul><li><p>Shows unstaged changes to <code>filename.txt</code>.</p>
+</li></ul></li><li><code>git diff --staged</code><ul><li><p>Shows all staged changes.</p>
+<p>Unstaged changes are not shown.</p>
 </li></ul></li></ul></div></li></ul></article></main><footer class="main--footer" id="main--footer--quote"><p>Inspirational Quote</p></footer></div><script src="/resources/layouts/main/main.js"></script><script src="/resources/layouts/main/util/dropdownlist.js"></script></body></html>

@@ -14,6 +14,12 @@ mixin sublist( title )
 			ul
 				block
 
+mixin modifies-history
+	.alert.alert-danger
+		strong Warning:
+		= " "
+		| Modifies history!
+
 block post
 	p A collection of useful git commands.
 
@@ -21,6 +27,8 @@ block post
 		+sublist( "git status" )
 			li
 				code git status -sb
+				= ", "
+				code git status --short --branch
 				ul
 					li
 						:markdown-it
@@ -38,6 +46,8 @@ block post
 		+sublist( "git add" )
 			li
 				code git add -u
+				= ", "
+				code git add --update
 				ul
 					li
 						:markdown-it
@@ -45,12 +55,43 @@ block post
 							be staged.
 			li
 				code git add -A
+				= ", "
+				code git add --all
 				ul
 					li
 						:markdown-it
 							Stages all files, tracked and untracked.
 
 							Files that are ignored will not be staged.
+			li
+				code git add -N
+				= ", "
+				code git add --intent-to-add
+				ul
+					li
+						:markdown-it
+							Stages the file, without staging its contents.
+
+							```
+							$ echo test > file
+							$ git add -N file
+							$ git diff --staged
+							diff --git a/file b/file
+							new file mode 100644
+							index 0000000..e69de29
+							$ # Note the diff contains no contents
+							$
+							$ git add file
+							$ git diff --staged
+							diff --git a/file b/file
+							new file mode 100644
+							index 0000000..9daeafb
+							--- /dev/null
+							+++ b/file
+							@@ -0,0 +1 @@
+							+test
+							$ # The diff now contains the contents of file
+							```
 		+sublist( "git commit" )
 			li
 				code git commit --amend
@@ -63,7 +104,7 @@ block post
 							Generally used to modify a typo in the commit
 							message.
 
-						.text-danger Warning: Modifies history!
+						+modifies-history
 			li
 				code git commit --amend --no-edit
 				ul
@@ -76,7 +117,7 @@ block post
 							Generally used to add files to a commit that were
 							accidentally left out.
 
-						.text-danger Warning: Modifies history!
+						+modifies-history
 		+sublist( "git log" )
 			li
 				code git log -1 HEAD
@@ -84,3 +125,27 @@ block post
 					li
 						:markdown-it
 							Shows the last commit on whatever branch you're on.
+		+sublist( "git diff" )
+			li
+				code git diff
+				ul
+					li
+						:markdown-it
+							Shows all unstaged changes to tracked files.
+
+						.alert.alert-warning.
+							Does not show changes to untracked files!
+			li
+				code git diff filename.txt
+				ul
+					li
+						:markdown-it
+							Shows unstaged changes to `filename.txt`.
+			li
+				code git diff --staged
+				ul
+					li
+						:markdown-it
+							Shows all staged changes.
+
+							Unstaged changes are not shown.

@@ -115,6 +115,7 @@ quotes = [
 	"Cameras are like shotguns. The closer the target, the greater the damage."
 	"Unregistered Hypercam 2"
 	"These are the voyages of the Starprise Entership"
+	"Profound. But fundamentally bollocks."
 ]
 
 document.getElementById( "main--footer--quote" ).innerHTML =

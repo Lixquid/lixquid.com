@@ -1,0 +1,92 @@
+extends /resources/layouts/main/main
+
+append scripts
+	script( src = "index.js" )
+
+block main
+	// h1 Password Generator
+
+	.card
+		.card-body
+			h4.card-title Settings
+
+			.form-group.row
+				label( for = "setting--length" ).col-md-2.col-form-label Length
+				.col-md-10
+					input(
+						type = "number"
+						step = "1"
+						min = "1"
+						max = "128"
+						value = "32"
+					).form-control#setting--length
+
+			.form-group.row
+				.col-lg-3
+					label.form-check-label
+						input.form-check-input(
+							type = "checkbox"
+							checked
+						)#setting--upper
+						= " "
+						| Uppercase
+				.col-lg-3
+					label.form-check-label
+						input.form-check-input(
+							type = "checkbox"
+							checked
+						)#setting--lower
+						= " "
+						| Lowercase
+				.col-lg-3
+					label.form-check-label
+						input.form-check-input(
+							type = "checkbox"
+							checked
+						)#setting--digits
+						= " "
+						| Digits
+				.col-lg-3
+					label.form-check-label
+						input.form-check-input(
+							type = "checkbox"
+						)#setting--symbols
+						= " "
+						| Symbols
+			.form-group.row
+				.col-md-6
+					.form-check
+						label.form-check-label
+							input.form-check-input(
+								type = "checkbox"
+							)#setting--ambiguous
+							= " "
+							| Avoid ambiguous characters
+				label(
+					for = "setting--mindigits"
+				).col-form-label.col-md-3 Minimum Digits
+				.col-md-3
+					input(
+						type = "number"
+						step = "1"
+						min = "0"
+						max = "128"
+						value = "0"
+					).form-control#setting--mindigits
+
+		.card-body
+			h4.card-title Output
+
+			.alert.alert-danger(
+				style = "display: none"
+			)#pg--error
+
+			.input-group.input-group-lg
+				input(
+					type="text"
+					readonly
+				).form-control#pg--output
+				span.input-group-btn
+					button.btn.btn-secondary#pg--refresh
+						| &#x21bb;
+						.sr-only Refresh

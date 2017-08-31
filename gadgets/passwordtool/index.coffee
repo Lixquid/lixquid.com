@@ -129,8 +129,10 @@ do ->
 		if n > 0
 			# good lord
 			return "Requires more energy than available in the universe"
+		else if n > -7
+			return ( 10 ** n * 100 ) + "%"
 		else
-			return "Factor " + Math.abs( n ) + " (base 10)"
+			return "10^" + Math.floor( n + 2 ) + " %"
 
 	analyzeStrength = ->
 		return if not zxcvbn

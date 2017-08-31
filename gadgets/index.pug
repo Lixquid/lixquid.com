@@ -14,9 +14,13 @@ block main
 		};
 	+search
 		.list-group-item.disabled Large
-		+search-item-link( "Editor", "editor", "Desktop Only", "WIP" )
+		//-
+			+search-item-link( "Editor", "editor", "Desktop Only", "WIP" )
+				small.text-muted.
+					A full-screen Ace Editor. Supports some common editing actions.
+		+search-item-link( "Password Tool", "passwordtool" )
 			small.text-muted.
-				A full-screen Ace Editor. Supports some common editing actions.
+				A tool to generate and evaluate strong passwords.
 		.list-group-item.disabled Small
 		+search-item-link( "SVG Arcs", "svgarcs", "Desktop Only" )
 			small.text-muted.
@@ -27,6 +31,3 @@ block main
 		+search-item-link( "Regex Tester", "regextester" )
 			small.text-muted.
 				Supports testing Javascript regexes against input.
-		+search-item-link( "Password Generator", "passwordgenerator" )
-			small.text-muted.
-				A tool to generate strong passwords.

@@ -1,0 +1,152 @@
+extends /resources/layouts/main/main
+
+append scripts
+	script( src = "index.js" )
+
+append head
+	style
+		:stylus
+			.card-body._border-top
+				border-top 1px solid rgba( 0, 0, 0, .125 )
+
+block main
+	h1 Password Tool
+
+	.card
+		.card-header
+			ul.nav.nav-tabs.card-header-tabs
+				li.nav-item
+					a.nav-link.active( href="#" )#nav--brute Brute
+				li.nav-item
+					a.nav-link( href="#" )#nav--dict Dictionary
+				li.nav-item
+					a.nav-link( href="#" )#nav--eval Evaluate
+		.card-body#brute--div
+			h4.card-title Generate Brute Password
+
+			.form-group.row
+				label( for = "brute--length" ).col-sm-3.col-form-label Length
+				.col-sm-9
+					input(
+						type = "number"
+						step = "1"
+						min = "1"
+						max = "128"
+						value = "32"
+					).form-control#brute--length
+
+			.text-right
+				button.btn.btn-outline-warning#brute--adv--toggle.
+					Toggle Advanced
+			.card.border-warning.mt-2#brute--adv--div( style = "display: none" )
+				.card-body
+					.form-group.row
+						.col-md-3
+							label.form-check-label
+								input.form-check-input(
+									type = "checkbox"
+									checked
+								)#brute--upper
+								= " "
+								| Uppercase Letters
+						.col-md-3
+							label.form-check-label
+								input.form-check-input(
+									type = "checkbox"
+									checked
+								)#brute--lower
+								= " "
+								| Lowercase Letters
+						.col-md-3
+							label.form-check-label
+								input.form-check-input(
+									type = "checkbox"
+									checked
+								)#brute--digits
+								= " "
+								| Digits
+						.col-md-3
+							label.form-check-label
+								input.form-check-input(
+									type = "checkbox"
+								)#brute--symbols
+								= " "
+								| Symbols
+					.form-group.row
+						.col-md-6
+							.form-check
+								label.form-check-label
+									input.form-check-input(
+										type = "checkbox"
+									)#brute--ambiguous
+									= " "
+									| Avoid ambiguous characters
+						label(
+							for = "setting--mindigits"
+						).col-form-label.col-md-3 Minimum Digits
+						.col-md-3
+							input(
+								type = "number"
+								step = "1"
+								min = "0"
+								max = "128"
+								value = "0"
+							).form-control#brute--mindigits
+
+		.card-body( style="display: none" )#dict--div
+			h4.card-title Generate Dictionary Password
+
+			.form-group.row
+				label( for = "dict--words" ).col-sm-3.col-form-label.
+					Word Count
+				.col-sm-9
+					input(
+						type = "number"
+						step = "1"
+						min = "1"
+						max = "16"
+						value = "4"
+					).form-control#dict--words
+
+			.alert.alert-info#dict--downloading
+				| Downloading Word List..
+				.progress
+					div(
+						class = `
+							progress-bar
+							progress-bar-striped
+							progress-bar-animated
+							w-100
+						`
+					)
+
+		.card-body( style="display: none" )#eval--div
+			h4.card-title Evaluate Password
+
+			input.form-control.form-control-lg(
+				type = "text"
+				placeholder = "password123"
+			)#eval--input
+
+		.card-body._border-top#output--div
+			h4.card-title Output
+
+			.alert.alert-danger(
+				style = "display: none"
+			)#output--error
+
+			input.form-control.form-control-lg.mb-2(
+				type="text"
+				readonly
+			)#output--text
+
+			= " "
+			button.btn.btn-outline-secondary.btn-sm#output--copy.
+				&#x1f4cb; Copy to Clipboard
+			= " "
+			button.btn.btn-outline-secondary.btn-sm#output--refresh.
+				&#x21bb; Refresh
+
+		//-
+			.card-body._border-top#an--div
+				h4.card-title Strength Analysis

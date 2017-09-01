@@ -1,3 +1,12 @@
+###
+Easter Eggs:
+
+zxcvbn's output will be put in the "zxcvbnOutput" global variable.
+
+The 100 character limit to strength analysis can be bypassed by setting the
+global variable "DISABLED_ZXCVBN_LIMIT" to true.
+###
+
 ## COMMON ######################################################################
 
 window.DISABLE_ZXCVBN_LIMIT = false

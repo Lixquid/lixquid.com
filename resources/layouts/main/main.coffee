@@ -1,3 +1,9 @@
+###
+Easter Egg:
+mainFullscreen() will maximize the current area.
+mainFullscreen( false ) will return it to normal.
+###
+
 quotes = [
 	"Metal Gear?"
 	"This isn't a car"

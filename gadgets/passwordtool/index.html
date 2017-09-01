@@ -4,7 +4,26 @@
 .progress-bar {
   transition: width 0.6s ease, background-color 0.6s ease;
 }
-</style></head><body><div class="main--container"><header class="main--nav"><hr class="main--nav--hr"><a class="main--logo" href="/"><img src="/resources/layouts/main/logo.png" alt="Lixquid"></a><hr class="main--nav--hr"><nav><a href="/projects">Projects</a><span class="main--nav--separator">/</span><a href="/gadgets">Gadgets</a><span class="main--nav--separator">/</span><a href="/blog">Blog</a></nav></header><main id="main--main"><h1>Password Tool</h1><div class="card"><div class="card-header"><ul class="nav nav-tabs card-header-tabs"><li class="nav-item"><a class="nav-link active" href="#" id="nav--brute">Brute</a></li><li class="nav-item"><a class="nav-link" href="#" id="nav--dict">Dictionary</a></li><li class="nav-item"><a class="nav-link" href="#" id="nav--eval">Evaluate</a></li></ul></div><div class="card-body" id="brute--div"><h4 class="card-title">Generate Brute Password</h4><div class="form-group row"><label class="col-sm-3 col-form-label" for="brute--length">Length</label><div class="col-sm-9"><input class="form-control" type="number" step="1" min="1" max="128" value="32" id="brute--length"></div></div><div class="text-right"><button class="btn btn-outline-warning" id="brute--adv--toggle">Toggle Advanced</button></div><div class="card border-warning mt-2" id="brute--adv--div" style="display: none;"><div class="card-body"><div class="form-group row"><div class="col-md-3"><label class="form-check-label"><input class="form-check-input" type="checkbox" checked id="brute--upper"> Uppercase Letters</label></div><div class="col-md-3"><label class="form-check-label"><input class="form-check-input" type="checkbox" checked id="brute--lower"> Lowercase Letters</label></div><div class="col-md-3"><label class="form-check-label"><input class="form-check-input" type="checkbox" checked id="brute--digits"> Digits</label></div><div class="col-md-3"><label class="form-check-label"><input class="form-check-input" type="checkbox" id="brute--symbols"> Symbols</label></div></div><div class="form-group row"><div class="col-md-6"><div class="form-check"><label class="form-check-label"><input class="form-check-input" type="checkbox" id="brute--ambiguous"> Avoid ambiguous characters</label></div></div><label class="col-form-label col-md-3" for="setting--mindigits">Minimum Digits</label><div class="col-md-3"><input class="form-control" type="number" step="1" min="0" max="128" value="0" id="brute--mindigits"></div></div></div></div></div><div class="card-body" style="display: none;" id="dict--div"><h4 class="card-title">Generate Dictionary Password</h4><div class="form-group row"><label class="col-sm-3 col-form-label" for="dict--words">Word Count</label><div class="col-sm-9"><input class="form-control" type="number" step="1" min="1" max="16" value="4" id="dict--words"></div></div><div class="alert alert-info" id="dict--downloading">Downloading Word List..<div class="progress"><div class="
+.dropdown-arrow:after {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 0.255em;
+  border-top: 0.3em solid;
+  border-right: 0.3em solid transparent;
+  border-left: 0.3em solid transparent;
+  vertical-align: 0.255em;
+  content: "";
+}
+.dropdown-arrow._toggled:after {
+  border-top: none;
+  border-bottom: 0.3em solid;
+}
+</style></head><body><div class="main--container"><header class="main--nav"><hr class="main--nav--hr"><a class="main--logo" href="/"><img src="/resources/layouts/main/logo.png" alt="Lixquid"></a><hr class="main--nav--hr"><nav><a href="/projects">Projects</a><span class="main--nav--separator">/</span><a href="/gadgets">Gadgets</a><span class="main--nav--separator">/</span><a href="/blog">Blog</a></nav></header><main id="main--main"><h1>Password Tool</h1><div class="card"><div class="card-header"><ul class="nav nav-tabs card-header-tabs"><li class="nav-item"><a class="nav-link active" href="#" id="nav--brute">Brute</a></li><li class="nav-item"><a class="nav-link" href="#" id="nav--dict">Dictionary</a></li><li class="nav-item"><a class="nav-link" href="#" id="nav--eval">Evaluate</a></li></ul></div><div class="card-body" id="brute--div"><h4 class="card-title">Generate Brute Password</h4><div class="form-group row"><label class="col-sm-3 col-form-label" for="brute--length">Length</label><div class="col-sm-9"><input class="form-control" type="number" step="1" min="1" max="128" value="32" id="brute--length"></div></div><div class="text-right"><button class="
+						btn
+						btn-outline-warning
+						dropdown-arrow
+					" id="brute--adv--toggle">Toggle Advanced</button></div><div class="card border-warning mt-2" id="brute--adv--div" style="display: none;"><div class="card-body"><div class="form-group row"><div class="col-md-3"><label class="form-check-label"><input class="form-check-input" type="checkbox" checked id="brute--upper"> Uppercase Letters</label></div><div class="col-md-3"><label class="form-check-label"><input class="form-check-input" type="checkbox" checked id="brute--lower"> Lowercase Letters</label></div><div class="col-md-3"><label class="form-check-label"><input class="form-check-input" type="checkbox" checked id="brute--digits"> Digits</label></div><div class="col-md-3"><label class="form-check-label"><input class="form-check-input" type="checkbox" id="brute--symbols"> Symbols</label></div></div><div class="form-group row"><div class="col-md-6"><div class="form-check"><label class="form-check-label"><input class="form-check-input" type="checkbox" id="brute--ambiguous"> Avoid ambiguous characters</label></div></div><label class="col-form-label col-md-3" for="setting--mindigits">Minimum Digits</label><div class="col-md-3"><input class="form-control" type="number" step="1" min="0" max="128" value="0" id="brute--mindigits"></div></div></div></div></div><div class="card-body" style="display: none;" id="dict--div"><h4 class="card-title">Generate Dictionary Password</h4><div class="form-group row"><label class="col-sm-3 col-form-label" for="dict--words">Word Count</label><div class="col-sm-9"><input class="form-control" type="number" step="1" min="1" max="16" value="4" id="dict--words"></div></div><div class="alert alert-info" id="dict--downloading">Downloading Word List..<div class="progress"><div class="
 							progress-bar
 							progress-bar-striped
 							progress-bar-animated
@@ -12,7 +31,7 @@
 						"></div></div></div></div><div class="card-body" style="display: none;" id="eval--div"><h4 class="card-title">Evaluate Password</h4><input class="form-control form-control-lg" type="text" placeholder="password123" id="eval--input"></div><div class="card-body _border-top" id="output--div"><h4 class="card-title">Output</h4><div class="alert alert-danger" style="display: none;" id="output--error"></div><input class="form-control form-control-lg mb-2" type="text" readonly id="output--text"> <button class="btn btn-outline-secondary btn-sm" id="output--copy">&#x1f4cb; Copy to Clipboard</button> <button class="btn btn-outline-secondary btn-sm" id="output--refresh">&#x21bb; Refresh
 </button></div><div class="card-body _border-top" id="an--div"><h4 class="card-title">Strength Analysis</h4><div class="alert alert-danger" style="display: none;" id="an--error">Strength Analysis is only performed on passwords that are 100
 characters or less.
-</div><div id="an--div--output" style="display: none;"><div class="form-group row"><div class="col-md-3">Guesses</div><div class="col-md-9"><input class="form-control" readonly id="an--guesses"></div></div><div class="form-group row"><div class="col-md-3">Strength</div><div class="col-md-9"><div class="progress"><div class="progress-bar" style="min-width: 5em;" id="an--strength"></div></div></div></div><div class="alert alert-warning" style="display: none;" id="an--warning"></div><div id="an--suggestions"></div><hr><h5 class="text-center">Time to crack</h5><div class="form-group row"><div class="col-md-3">Online Throttled (100/hr)</div><div class="col-md-9"><input class="form-control" readonly id="an--crack--1"></div></div><div class="form-group row"><div class="col-md-3">Online Un-throttled (10/s)</div><div class="col-md-9"><input class="form-control" readonly id="an--crack--2"></div></div><div class="form-group row"><div class="col-md-3">Offline Slow Hash (10k/s)</div><div class="col-md-9"><input class="form-control" readonly id="an--crack--3"></div></div><div class="form-group row"><div class="col-md-3">Offline Fast Hash (10B/s)</div><div class="col-md-9"><input class="form-control" readonly id="an--crack--4"></div></div><div class="form-group row"><div class="col-md-3">Percentage of Thermodynamic Maximum</div><div class="col-md-9"><input class="form-control" readonly id="an--crack--5"></div></div></div><div class="card"><div class="card-body"><dl>
+</div><div id="an--div--output" style="display: none;"><div class="form-group row"><div class="col-md-3">Guesses</div><div class="col-md-9"><input class="form-control" readonly id="an--guesses"></div></div><div class="form-group row"><div class="col-md-3">Strength</div><div class="col-md-9"><div class="progress"><div class="progress-bar" style="min-width: 5em;" id="an--strength"></div></div></div></div><div class="alert alert-warning" style="display: none;" id="an--warning"></div><div id="an--suggestions"></div><hr><h5 class="text-center">Time to crack</h5><div class="form-group row"><div class="col-md-3">Online Throttled (100/hr)</div><div class="col-md-9"><input class="form-control" readonly id="an--crack--1"></div></div><div class="form-group row"><div class="col-md-3">Online Un-throttled (10/s)</div><div class="col-md-9"><input class="form-control" readonly id="an--crack--2"></div></div><div class="form-group row"><div class="col-md-3">Offline Slow Hash (10k/s)</div><div class="col-md-9"><input class="form-control" readonly id="an--crack--3"></div></div><div class="form-group row"><div class="col-md-3">Offline Fast Hash (10B/s)</div><div class="col-md-9"><input class="form-control" readonly id="an--crack--4"></div></div><div class="form-group row"><div class="col-md-3">Percentage of Thermodynamic Maximum</div><div class="col-md-9"><input class="form-control" readonly id="an--crack--5"></div></div><div class="text-right"><button class="btn btn-outline-info dropdown-arrow" id="an--help--toggle">What's This?</button></div><div class="card mt-2" style="display: none;" id="an--help--div"><div class="card-body"><dl>
 <dt>Online Throttled (<code>100 guesses per hour</code>)</dt>
 <dd>
 <p>Guessing via a web service that successfully
@@ -26,28 +45,30 @@ throttling, or has had its throttling bypassed.</p>
 <dt>Offline Slow Hash (<code>10,000 guesses per second</code>)</dt>
 <dd>
 <p>Guessing on an offline database that has its
-passwords per-user salted, and hashed with a slow
-hash function with high work factor.</p>
+passwords per-user salted, and hashed with a
+slow hash function with high work factor.</p>
 </dd>
 <dt>Offline Fast Hash (<code>10,000,000,000 guesses per second</code>)</dt>
 <dd>
 <p>Guessing on an offline database that has its
-passwords hashed with a fast hash function with low
-work factor.</p>
+passwords hashed with a fast hash function with
+low work factor.</p>
 </dd>
 <dt>Percentage of Thermodynamic Maximum</dt>
 <dd>
-<p>Calculates how much energy in the Universe (assuming
-classical thermodynamics) would be required under
-completely ideal conditions to guess the password.</p>
+<p>Calculates how much energy in the Universe
+(assuming classical thermodynamics) would be
+required under completely ideal conditions to
+guess
+the password.</p>
 <p>Assumes attempting a guess requires the lowest
 possible amount of work (Boltzman constant
 multiplied by ambient universe temperature), and
-that all of the possible mass-energy in the universe
-is available.</p>
+that all of the possible mass-energy in the
+universe is available.</p>
 <p>Attempting a guess: <code>4.4 x 10^-23 Joules</code></p>
 <p>Mass-Energy in Universe: <code>4 x 10^69 Joules</code></p>
 </dd>
 </dl>
-</div></div><div class="text-right"><small class="text-muted">Powered by
+</div></div><hr></div><div class="text-right"><small class="text-muted">Powered by
 <a href="https://github.com/dropbox/zxcvbn">zxcvbn</a>.</small></div></div></div></main><footer class="main--footer" id="main--footer--quote"><p>Inspirational Quote</p></footer></div><script src="/resources/layouts/main/main.js"></script><script src="zxcvbn.js"></script><script src="index.js"></script></body></html>

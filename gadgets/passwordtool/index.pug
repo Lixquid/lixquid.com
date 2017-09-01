@@ -15,6 +15,25 @@ append head
 					width .6s ease,
 					background-color .6s ease
 
+			.dropdown-arrow
+				&:after
+					display inline-block
+
+					width 0
+					height 0
+					margin-left .255em
+
+					border-top .3em solid
+					border-right .3em solid transparent
+					border-left .3em solid transparent
+
+					vertical-align @margin-left
+
+					content ""
+				&._toggled:after
+					border-top none
+					border-bottom .3em solid
+
 block main
 	h1 Password Tool
 
@@ -42,8 +61,13 @@ block main
 					).form-control#brute--length
 
 			.text-right
-				button.btn.btn-outline-warning#brute--adv--toggle.
-					Toggle Advanced
+				button#brute--adv--toggle(
+					class = `
+						btn
+						btn-outline-warning
+						dropdown-arrow
+					`
+				) Toggle Advanced
 			.card.border-warning.mt-2#brute--adv--div( style = "display: none" )
 				.card-body
 					.form-group.row
@@ -174,7 +198,9 @@ block main
 							)#an--strength
 				.alert.alert-warning( style = "display: none" )#an--warning
 				#an--suggestions
+
 				hr
+
 				h5.text-center Time to crack
 				.form-group.row
 					.col-md-3 Online Throttled (100/hr)
@@ -197,41 +223,48 @@ block main
 					.col-md-9
 						input.form-control( readonly )#an--crack--5
 
-			.card
-				.card-body
-					:markdown-it( plugins = [ "markdown-it-deflist" ] )
-						Online Throttled (`100 guesses per hour`)
-						:   Guessing via a web service that successfully
-							throttles guess attempts.
+				.text-right
+					button.btn.btn-outline-info.dropdown-arrow#an--help--toggle.
+						What's This?
+				.card.mt-2( style = "display: none" )#an--help--div
+					.card-body
+						:markdown-it( plugins = [ "markdown-it-deflist" ] )
+							Online Throttled (`100 guesses per hour`)
+							:   Guessing via a web service that successfully
+								throttles guess attempts.
 
-						Online Un-Throttled (`10 guesses per second`)
-						:   Guessing via a web service that implements no
-							throttling, or has had its throttling bypassed.
+							Online Un-Throttled (`10 guesses per second`)
+							:   Guessing via a web service that implements no
+								throttling, or has had its throttling bypassed.
 
-						Offline Slow Hash (`10,000 guesses per second`)
-						:   Guessing on an offline database that has its
-							passwords per-user salted, and hashed with a slow
-							hash function with high work factor.
+							Offline Slow Hash (`10,000 guesses per second`)
+							:   Guessing on an offline database that has its
+								passwords per-user salted, and hashed with a
+								slow hash function with high work factor.
 
-						Offline Fast Hash (`10,000,000,000 guesses per second`)
-						:   Guessing on an offline database that has its
-							passwords hashed with a fast hash function with low
-							work factor.
+							Offline Fast Hash (`10,000,000,000 guesses per second`)
+							:   Guessing on an offline database that has its
+								passwords hashed with a fast hash function with
+								low work factor.
 
-						Percentage of Thermodynamic Maximum
-						:   Calculates how much energy in the Universe (assuming
-							classical thermodynamics) would be required under
-							completely ideal conditions to guess the password.
+							Percentage of Thermodynamic Maximum
+							:   Calculates how much energy in the Universe
+								(assuming classical thermodynamics) would be
+								required under completely ideal conditions to
+								guess
+								the password.
 
-							Assumes attempting a guess requires the lowest
-							possible amount of work (Boltzman constant
-							multiplied by ambient universe temperature), and
-							that all of the possible mass-energy in the universe
-							is available.
+								Assumes attempting a guess requires the lowest
+								possible amount of work (Boltzman constant
+								multiplied by ambient universe temperature), and
+								that all of the possible mass-energy in the
+								universe is available.
 
-							Attempting a guess: `4.4 x 10^-23 Joules`
+								Attempting a guess: `4.4 x 10^-23 Joules`
 
-							Mass-Energy in Universe: `4 x 10^69 Joules`
+								Mass-Energy in Universe: `4 x 10^69 Joules`
+
+				hr
 
 			div.text-right
 				small.text-muted.

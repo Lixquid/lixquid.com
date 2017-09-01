@@ -85,6 +85,8 @@ do ->
 	eCrack3 = document.getElementById "an--crack--3"
 	eCrack4 = document.getElementById "an--crack--4"
 	eCrack5 = document.getElementById "an--crack--5"
+	eHelpToggle = document.getElementById "an--help--toggle"
+	eHelpDiv = document.getElementById "an--help--div"
 
 	strengthTexts = [
 		"Unsuitable"
@@ -148,6 +150,7 @@ do ->
 		eOutput.style.display = null
 
 		data = zxcvbn( pw )
+		window.zxcvbnOutput = data
 
 		eGuesses.value = Math.floor( data.guesses )
 		eStrength.style.width =
@@ -180,19 +183,30 @@ do ->
 			data.crack_times_display.offline_fast_hashing_1e10_per_second
 		eCrack5.value = thermoLog( data.guesses_log10 )
 
+	eHelpToggle.addEventListener "click", ->
+		if eHelpDiv.style.display
+			eHelpDiv.style.display = null
+			eHelpToggle.classList.add "_toggled"
+		else
+			eHelpDiv.style.display = "none"
+			eHelpToggle.classList.remove "_toggled"
+
 ## BRUTE #######################################################################
 
 do ->
 
 	## Advanced Options Display ##
 
+	eAdvToggle = document.getElementById "brute--adv--toggle"
 	eAdvDiv = document.getElementById "brute--adv--div"
 
-	document.getElementById( "brute--adv--toggle" ).addEventListener "click", ->
+	eAdvToggle.addEventListener "click", ->
 		if eAdvDiv.style.display
 			eAdvDiv.style.display = null
+			eAdvToggle.classList.add "_toggled"
 		else
 			eAdvDiv.style.display = "none"
+			eAdvToggle.classList.remove "_toggled"
 
 	## Elements ##
 

@@ -1,0 +1,53 @@
+//-
+	title: "Form Designs"
+	date: "2017/09/01"
+	tags: [ "ui" ]
+
+extends /resources/layouts/blog/blog
+
+block post
+	.card.w-50.mx-auto
+		.card-header Log In
+		.card-body
+			form
+				.form-group
+					label( for = "login1--username" ) Username
+					input.form-control#login1--username
+				.form-group
+					label( for = "login1--password" ) Password
+					input.form-control( type = "password" )#login2--password
+				.text-center
+					button.btn.btn-primary Log In
+					= " "
+					button.btn.btn-success Register
+				br
+				small
+					a( href = "#" ) Forgot your password?
+
+	br
+
+	.card.w-50.mx-auto
+		.card-header Register
+		.card-body
+			form
+				.form-group
+					label( for = "reg1--username" ) Username
+					input.form-control.is-valid#reg1--username
+					.text-right
+						small.text-success Username Available
+				.form-group
+					label( for = "reg1--password" ) Password
+					input.form-control( type = "password" )#reg1--password
+
+					.progress( style = "height: .2em" )
+						.progress-bar.bg-danger.w-25
+					.text-right
+						small.text-danger Weak Password
+						br
+						small.text-muted.
+							Consider adding more words
+				.form-group
+					label( for = "reg1--email" ) E-Mail
+					input.form-control( type = "email" )#reg1--email
+				.text-center
+					button.btn.btn-success Register

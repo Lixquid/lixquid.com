@@ -1,0 +1,6 @@
+(function() {
+  $("[data-toggle='tooltip']").tooltip();
+
+}).call(this);
+
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicmVzb3VyY2VzL2V4dGVybmFsL2Jvb3RzdHJhcC00LjAuMC1iZXRhL2pzL2V4dHJhLmpzIiwic291cmNlcyI6WyJyZXNvdXJjZXMvZXh0ZXJuYWwvYm9vdHN0cmFwLTQuMC4wLWJldGEvanMvZXh0cmEuY29mZmVlIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQUEsQ0FBQSxDQUFHLHlCQUFILENBQThCLENBQUMsT0FBL0IsQ0FBQTtBQUFBIiwic291cmNlc0NvbnRlbnQiOlsiJCggXCJbZGF0YS10b2dnbGU9J3Rvb2x0aXAnXVwiICkudG9vbHRpcCgpXG4iXX0=

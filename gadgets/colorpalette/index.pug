@@ -13,6 +13,11 @@ block main
 	h1 Palettes
 
 	input( readonly, type = "text", value = "#000000" )#output--input
+	.form-check
+		label.form-check-label
+			input.form-check-input( type = "checkbox" )#output--copy
+			= " "
+			| Copy on select
 
 	each palette in palettes
 		table.palette--table

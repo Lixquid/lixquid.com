@@ -1,7 +1,10 @@
-elOutput = document.getElementById "output--input"
+eOutput = document.getElementById "output--input"
+eOutputCopy = document.getElementById "output--copy"
 
 for el in document.getElementsByClassName( "palette--color" )
 	el.addEventListener "click", ->
-		elOutput.value = this.getAttribute( "data-color" )
-		elOutput.focus()
-		elOutput.select()
+		eOutput.value = this.getAttribute( "data-color" )
+		eOutput.focus()
+		eOutput.select()
+		if eOutputCopy.checked
+			document.execCommand "copy"

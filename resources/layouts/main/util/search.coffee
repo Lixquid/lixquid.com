@@ -11,6 +11,36 @@ eCancel = document.getElementById "search--cancel"
 currentPage = 1
 maximumPage = 1
 
+## Anchor Multiplexing ##
+
+getPageNum = ->
+	return 1 if not window.location.hash
+	match = window.location.hash.match /page=(\d+)/
+	return 1 if not match
+	num = parseInt( match[1] )
+	return 1 if not num
+	return num
+
+getSearch = ->
+	return null if not window.location.hash
+	match = window.location.hash.match /search=([^&]+)/
+	return null if not match
+	return match[1]
+
+replacePageNum = ( n ) ->
+	return "#page=#{n}" if not window.location.hash
+	match = window.location.hash.match /page=\d+/
+	if not match
+		return window.location.hash + "&page=#{n}"
+	return window.location.hash.replace( /page=\d+/, "page=#{n}" )
+
+replaceSearch = ( str ) ->
+	return "#search=" + str if not window.location.hash
+	match = window.location.hash.match /search=[^&]+/
+	if not match
+		return window.location.hash + "&search=" + str
+	return window.location.hash.replace( /search=[^&]+/, "search=" + str )
+
 ## Search ##
 
 matchesSearch = ( e ) ->
@@ -68,7 +98,6 @@ buildPagination = ( page ) ->
 	ePagination.appendChild( en )
 
 	ea = document.createElement "a"
-	ea.href = "#"
 	ea.classList = [ "page-link" ]
 	ea.textContent = "Previous"
 	en.appendChild( ea )
@@ -76,8 +105,10 @@ buildPagination = ( page ) ->
 	if page == 1
 		ea.tabIndex = -1
 		en.classList.add( "disabled" )
+		ea.href = replacePageNum( page )
 	else
 		ea.addEventListener "click", clickEv( page - 1 )
+		ea.href = replacePageNum( page - 1 )
 
 	for i in [ 1 .. maximumPage ]
 		en = document.createElement "li"
@@ -85,7 +116,7 @@ buildPagination = ( page ) ->
 		ePagination.appendChild( en )
 
 		ea = document.createElement "a"
-		ea.href = "#"
+		ea.href = replacePageNum( i )
 		ea.classList = [ "page-link" ]
 		ea.textContent = i
 		en.appendChild( ea )
@@ -100,7 +131,6 @@ buildPagination = ( page ) ->
 	ePagination.appendChild( en )
 
 	ea = document.createElement "a"
-	ea.href = "#"
 	ea.classList = [ "page-link" ]
 	ea.textContent = "Next"
 	en.appendChild( ea )
@@ -108,11 +138,10 @@ buildPagination = ( page ) ->
 	if page == maximumPage
 		ea.tabIndex = -1
 		en.classList.add( "disabled" )
+		ea.href = replacePageNum( page )
 	else
 		ea.addEventListener "click", clickEv( page + 1 )
-
-buildList( 1 )
-buildPagination( 1 )
+		ea.href = replacePageNum( page + 1 )
 
 sortList = ->
 	if eInput.value != ""
@@ -120,6 +149,7 @@ sortList = ->
 	else
 		eCancelContainer.style.display = "none"
 
+	window.location.hash = replaceSearch( eInput.value )
 	buildList( currentPage )
 	buildPagination( currentPage )
 
@@ -128,3 +158,7 @@ eInput.addEventListener "input", sortList
 eCancel.addEventListener "click", ->
 	eInput.value = ""
 	sortList()
+
+eInput.value = getSearch()
+buildList( getPageNum() )
+buildPagination( getPageNum() )

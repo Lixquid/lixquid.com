@@ -219,7 +219,7 @@ block main
 					.col-md-9
 						input.form-control( readonly )#an--crack--4
 				.form-group.row
-					.col-md-3 Percentage of Thermodynamic Maximum
+					.col-md-3 Energy Expenditure
 					.col-md-9
 						input.form-control( readonly )#an--crack--5
 
@@ -247,22 +247,12 @@ block main
 								passwords hashed with a fast hash function with
 								low work factor.
 
-							Percentage of Thermodynamic Maximum
-							:   Calculates how much energy in the Universe
-								(assuming classical thermodynamics) would be
-								required under completely ideal conditions to
-								guess
-								the password.
+							Energy Expenditure
+							:   Calculates very roughly how much energy would be
+								consumed guessing the password.
 
-								Assumes attempting a guess requires the lowest
-								possible amount of work (Boltzman constant
-								multiplied by ambient universe temperature), and
-								that all of the possible mass-energy in the
-								universe is available.
-
-								Attempting a guess: `4.4 x 10^-23 Joules`
-
-								Mass-Energy in Universe: `4 x 10^69 Joules`
+								Assumes that completing one guess would consume
+								36 microJoules.
 
 				hr
 

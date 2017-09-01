@@ -135,17 +135,73 @@ do ->
 			return p t/31536000, "year"
 		return "Centuries"
 
-	energy_in_universe = 91.954242509439324874590055806510230618400257728381391
-	thermoLog = ( input ) ->
-		n = input - energy_in_universe
+	energyUse = ( guesses ) ->
+		guesses *= 0.036
 
-		if n > 0
-			# good lord
-			return "Requires more energy than available in the universe"
-		else if n > -7
-			return ( 10 ** n * 100 ) + "%"
+		if guesses < 0.11
+			return "Less than a coin falling 1 metre"
+		if guesses < 4.22e3
+			return "Less than 1 gram of TNT"
+		else if guesses < 9e3
+			return "Less than an alkaline AA battery"
+		else if guesses < 4.2e6
+			return "Less than 1 kilogram of TNT"
+		else if guesses < 3.7e7
+			return "Less than $1 of electricity"
+		else if guesses < 6.3e7
+			return "Less than 1kg at escape velocity"
+		else if guesses < 5e9
+			return "Less than 1 lightning bolt"
+		else if guesses < 3.3e9
+			return "Less than 1 lifetime of heartbeats"
+		else if guesses < 4.2e9
+			return "Less than 1 ton of TNT"
+		else if guesses < 8.8e10
+			return "Less than the fission of 1 gram of Uranium-235"
+		else if guesses < 6.3e13
+			return "Less than the Little Boy atomic bomb"
+		else if guesses < 9e13
+			return "Less than the mass-energy of 1 gram of matter"
+		else if guesses < 6e14
+			return "Less than 1 second of output from a hurricane"
+		else if guesses < 4.2e15
+			return "Less than 1 megaton of TNT"
+		else if guesses < 1.7e17
+			return "Less than 1 second of the earth's total solar energy input"
+		else if guesses < 5e20
+			return "Less than one year of the earth's energy consumption"
+		else if guesses < 7.9e21
+			return "Less than the world's entire petroleum reserves"
+		else if guesses < 1.5e22
+			return "Less than one day of the earth's total solar energy input"
+		else if guesses < 5.5e24
+			return "Less than one year of the earth's total solar energy input"
+		else if guesses < 6e25
+			return "Less than the energy in a solar flare"
+		else if guesses < 3.8e26
+			return "Less than one second of the Sun's energy output"
+		else if guesses < 3.3e31
+			return "Less than one day of the Sun's energy output"
+		else if guesses < 5.4e41
+			return "Less than the mass-energy of the earth"
+		else if guesses < 1.2e44
+			return "Less than the total lifetime energy output of the Sun"
+		else if guesses < 1.5e44
+			return "Less than one supernova"
+		else if guesses < 1e46
+			return "Less than one hypernova"
+		else if guesses < 1.8e47
+			return "Less than the mass-energy of the Sun"
+		else if guesses < 1e59
+			return "Less than the mass-energy of the Milky Way"
+		else if guesses < 1e62
+			return "Less than the mass-energy of the Virgo Supercluster"
+		else if guesses < 1e69
+			return "Less than the mass-energy of the observable universe"
 		else
-			return "10^" + Math.floor( n + 2 ) + " %"
+			# good lord
+			return "More than the mass-energy of the observable universe"
+
 
 	analyzeToken = ( token ) ->
 		eSeqOutput.innerText = (
@@ -197,7 +253,7 @@ do ->
 			data.crack_times_display.offline_slow_hashing_1e4_per_second
 		eCrack4.value =
 			data.crack_times_display.offline_fast_hashing_1e10_per_second
-		eCrack5.value = thermoLog( data.guesses_log10 )
+		eCrack5.value = energyUse( data.guesses )
 
 		eSeqList.innerHTML = ""
 		eSeqOutput.innerHTML = ""

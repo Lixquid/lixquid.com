@@ -31,7 +31,7 @@
 						"></div></div></div></div><div class="card-body" style="display: none;" id="eval--div"><h4 class="card-title">Evaluate Password</h4><input class="form-control form-control-lg" type="text" placeholder="password123" id="eval--input"></div><div class="card-body _border-top" id="output--div"><h4 class="card-title">Output</h4><div class="alert alert-danger" style="display: none;" id="output--error"></div><input class="form-control form-control-lg mb-2" type="text" readonly id="output--text"> <button class="btn btn-outline-secondary btn-sm" id="output--copy">&#x1f4cb; Copy to Clipboard</button> <button class="btn btn-outline-secondary btn-sm" id="output--refresh">&#x21bb; Refresh
 </button></div><div class="card-body _border-top" id="an--div"><h4 class="card-title">Strength Analysis</h4><div class="alert alert-danger" style="display: none;" id="an--error">Strength Analysis is only performed on passwords that are 100
 characters or less.
-</div><div id="an--div--output" style="display: none;"><div class="form-group row"><div class="col-md-3">Guesses</div><div class="col-md-9"><input class="form-control" readonly id="an--guesses"></div></div><div class="form-group row"><div class="col-md-3">Strength</div><div class="col-md-9"><div class="progress"><div class="progress-bar" style="min-width: 5em;" id="an--strength"></div></div></div></div><div class="alert alert-warning" style="display: none;" id="an--warning"></div><div id="an--suggestions"></div><hr><h5 class="text-center">Time to crack</h5><div class="form-group row"><div class="col-md-3">Online Throttled (100/hr)</div><div class="col-md-9"><input class="form-control" readonly id="an--crack--1"></div></div><div class="form-group row"><div class="col-md-3">Online Un-throttled (10/s)</div><div class="col-md-9"><input class="form-control" readonly id="an--crack--2"></div></div><div class="form-group row"><div class="col-md-3">Offline Slow Hash (10k/s)</div><div class="col-md-9"><input class="form-control" readonly id="an--crack--3"></div></div><div class="form-group row"><div class="col-md-3">Offline Fast Hash (10B/s)</div><div class="col-md-9"><input class="form-control" readonly id="an--crack--4"></div></div><div class="form-group row"><div class="col-md-3">Percentage of Thermodynamic Maximum</div><div class="col-md-9"><input class="form-control" readonly id="an--crack--5"></div></div><div class="text-right"><button class="btn btn-outline-info dropdown-arrow" id="an--help--toggle">What's This?</button></div><div class="card mt-2" style="display: none;" id="an--help--div"><div class="card-body"><dl>
+</div><div id="an--div--output" style="display: none;"><div class="form-group row"><div class="col-md-3">Guesses</div><div class="col-md-9"><input class="form-control" readonly id="an--guesses"></div></div><div class="form-group row"><div class="col-md-3">Strength</div><div class="col-md-9"><div class="progress"><div class="progress-bar" style="min-width: 5em;" id="an--strength"></div></div></div></div><div class="alert alert-warning" style="display: none;" id="an--warning"></div><div id="an--suggestions"></div><hr><h5 class="text-center">Time to crack</h5><div class="form-group row"><div class="col-md-3">Online Throttled (100/hr)</div><div class="col-md-9"><input class="form-control" readonly id="an--crack--1"></div></div><div class="form-group row"><div class="col-md-3">Online Un-throttled (10/s)</div><div class="col-md-9"><input class="form-control" readonly id="an--crack--2"></div></div><div class="form-group row"><div class="col-md-3">Offline Slow Hash (10k/s)</div><div class="col-md-9"><input class="form-control" readonly id="an--crack--3"></div></div><div class="form-group row"><div class="col-md-3">Offline Fast Hash (10B/s)</div><div class="col-md-9"><input class="form-control" readonly id="an--crack--4"></div></div><div class="form-group row"><div class="col-md-3">Energy Expenditure</div><div class="col-md-9"><input class="form-control" readonly id="an--crack--5"></div></div><div class="text-right"><button class="btn btn-outline-info dropdown-arrow" id="an--help--toggle">What's This?</button></div><div class="card mt-2" style="display: none;" id="an--help--div"><div class="card-body"><dl>
 <dt>Online Throttled (<code>100 guesses per hour</code>)</dt>
 <dd>
 <p>Guessing via a web service that successfully
@@ -54,20 +54,12 @@ slow hash function with high work factor.</p>
 passwords hashed with a fast hash function with
 low work factor.</p>
 </dd>
-<dt>Percentage of Thermodynamic Maximum</dt>
+<dt>Energy Expenditure</dt>
 <dd>
-<p>Calculates how much energy in the Universe
-(assuming classical thermodynamics) would be
-required under completely ideal conditions to
-guess
-the password.</p>
-<p>Assumes attempting a guess requires the lowest
-possible amount of work (Boltzman constant
-multiplied by ambient universe temperature), and
-that all of the possible mass-energy in the
-universe is available.</p>
-<p>Attempting a guess: <code>4.4 x 10^-23 Joules</code></p>
-<p>Mass-Energy in Universe: <code>4 x 10^69 Joules</code></p>
+<p>Calculates very roughly how much energy would be
+consumed guessing the password.</p>
+<p>Assumes that completing one guess would consume
+36 microJoules.</p>
 </dd>
 </dl>
 </div></div><hr><h5 class="text-center">Token Analyzer</h5><div id="an--seq--list"></div><pre id="an--seq--output"></pre></div><div class="text-right"><small class="text-muted">Powered by

@@ -2,8 +2,30 @@ extends /resources/layouts/main/main
 //- include /resources/external/jquery-3.2.1/pug
 include /resources/external/bootstrap-4.0.0-beta/pug
 
+append head
+	style
+		:stylus
+			.dropdown-arrow
+				&:after
+					display inline-block
+
+					width 0
+					height 0
+					margin-left .255em
+
+					border-top .3em solid
+					border-right .3em solid transparent
+					border-left .3em solid transparent
+
+					vertical-align @margin-left
+
+					content ""
+				&._toggled:after
+					border-top none
+					border-bottom .3em solid
+
 block main
-	h1 Regex Tester
+	// h1 Regex Tester
 
 	.form-group
 		label( for = "input--regex" )
@@ -32,10 +54,25 @@ block main
 
 	button.btn.btn-primary#input--match Match
 
-	#output.invisible.mt-4
+	#single--div( style = "display: none" )
+		h4.mt-3 Match
+		code#single--match
+
+		h4.mt-3 Groups
+		ol#single--groups
+
+		h4.mt-3 Position
+		button.btn.btn-outline-secondary.dropdown-arrow#single--toggle Show
+		.card.border-secondary.mt-2( style = "display: none" )#single--position
+			.card-body
+				pre#single--position--contents
+
+	#multi--div( style = "display: none" ).mt-2
 		h2 Matches
 
-		ul#output--list
+		ul#multi--list
+
+	.alert.alert-danger.mt-2( style = "display: none" )#error
 
 append scripts
 	script( src = "index.js" )

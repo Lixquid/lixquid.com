@@ -29,3 +29,9 @@ document.getElementById( "input--match" ).addEventListener "click", ->
 	regex = new RegExp( input, "g" + ( if eCase.checked then "i" else "" ) )
 
 	eInput.value = eInput.value.replace( regex, replace )
+
+eRegex.addEventListener "change", ->
+	if eRegex.checked
+		eFind.style.fontFamily = "monospace"
+	else
+		eFind.style.fontFamily = null

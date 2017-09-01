@@ -87,6 +87,8 @@ do ->
 	eCrack5 = document.getElementById "an--crack--5"
 	eHelpToggle = document.getElementById "an--help--toggle"
 	eHelpDiv = document.getElementById "an--help--div"
+	eSeqList = document.getElementById "an--seq--list"
+	eSeqOutput = document.getElementById "an--seq--output"
 
 	strengthTexts = [
 		"Unsuitable"
@@ -136,6 +138,11 @@ do ->
 		else
 			return "10^" + Math.floor( n + 2 ) + " %"
 
+	analyzeToken = ( token ) ->
+		eSeqOutput.innerText = (
+			k + ": " + v for k, v of token
+		).join( "\n" )
+
 	analyzeStrength = ->
 		return if not zxcvbn
 
@@ -182,6 +189,18 @@ do ->
 		eCrack4.value =
 			data.crack_times_display.offline_fast_hashing_1e10_per_second
 		eCrack5.value = thermoLog( data.guesses_log10 )
+
+		eSeqList.innerHTML = ""
+		eSeqOutput.innerHTML = ""
+		for seg in data.sequence
+			e = document.createElement "a"
+			e.href = "#"
+			e.innerText = seg.token
+			e.addEventListener "click", ( e ) ->
+				analyzeToken( seg )
+				e.preventDefault()
+
+			eSeqList.appendChild( e )
 
 	eHelpToggle.addEventListener "click", ->
 		if eHelpDiv.style.display

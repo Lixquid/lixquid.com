@@ -140,7 +140,7 @@ do ->
 
 	analyzeToken = ( token ) ->
 		eSeqOutput.innerText = (
-			k + ": " + v for k, v of token
+			k + ": " + v for k, v of token when typeof( v ) != "object"
 		).join( "\n" )
 
 	analyzeStrength = ->
@@ -193,14 +193,19 @@ do ->
 		eSeqList.innerHTML = ""
 		eSeqOutput.innerHTML = ""
 		for seg in data.sequence
-			e = document.createElement "a"
-			e.href = "#"
-			e.innerText = seg.token
-			e.addEventListener "click", ( e ) ->
-				analyzeToken( seg )
-				e.preventDefault()
 
-			eSeqList.appendChild( e )
+			do ( seg ) ->
+				e = document.createElement "a"
+				e.href = "#"
+				e.innerText = seg.token
+				e.addEventListener "click", ( e ) ->
+					analyzeToken( seg )
+					e.preventDefault()
+
+				ec = document.createElement "code"
+				ec.appendChild( e )
+
+				eSeqList.appendChild( ec )
 
 	eHelpToggle.addEventListener "click", ->
 		if eHelpDiv.style.display

@@ -1,0 +1,53 @@
+extends /resources/layouts/main/main
+include /resources/external/bootstrap-4.0.0-beta/pug
+
+append scripts
+	script( src="index.js" )
+
+block main
+	// h1 Find and Replace
+
+	.row
+		.col-md-6.form-group
+			label( for="input--find" ) Find
+			input.form-control#input--find
+		.col-md-6.form-group
+			label( for="input--replace" ) Replace
+			input.form-control#input--replace
+	.row.mb-2
+		.col-sm-3
+			label.form-check-label
+				input.form-check-input( type="checkbox" )#input--case
+				= " "
+				| Ignore Case
+		.col-sm-3
+			label.form-check-label
+				input.form-check-input( type="checkbox" )#input--whole
+				= " "
+				| Find Whole Word
+		.col-sm-3
+			label.form-check-label
+				input.form-check-input( type="checkbox" )#input--regex
+				= " "
+				| Regex Find
+		.col-sm-3
+			label.form-check-label(
+				data-toggle = "tooltip"
+				data-html = "true"
+				title = `Escape codes in Replace box will be activated:<br />
+					<code>$$</code>: Literal $<br />
+					<code>$&</code>: Matched String<br />
+					<code>$\`</code>: String preceding matched String<br />
+					<code>$'</code>: String following matched String<br />
+					<code>$n</code>: Where n is a positive integer:
+						Group matched with RegExp find`
+			)
+				input.form-check-input( type="checkbox" )#input--escapes
+				= " "
+				| Replace Escapes
+
+	.text-right
+		button.btn.btn-primary.btn-lg#input--match Replace
+	.form-group.mt-4
+		label( for="input--input" ) Input
+		textarea.form-control( rows=4 )#input--input

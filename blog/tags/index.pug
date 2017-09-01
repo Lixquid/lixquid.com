@@ -1,7 +1,0 @@
-extends /resources/layouts/main/main
-
-block main
-	ul
-		each posts, tag in tags
-			li
-				a( href = `${ROOT}/blog/tags/${tag}` )= tag

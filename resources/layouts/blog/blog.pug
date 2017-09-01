@@ -40,7 +40,7 @@ block main
 			if ( !tags ) return "";
 			return " / Tags: " +
 				tags.map( function( t ) {
-					return `<a href="${ROOT}/blog/tags/${t}">${t}</a>`
+					return `<a href="${ROOT}/blog/#search=tag:${t}">${t}</a>`
 				} ).join( ", " );
 		}
 

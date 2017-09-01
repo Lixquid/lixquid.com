@@ -138,28 +138,6 @@ gulp.task "blog", ->
 
 		compilePugFile( "#{__dirname}/blog/index.pug", null, posts: posts )
 
-		## Build Tag Data ##
-
-		tags = {}
-		for post in posts
-			continue if not post.tags
-			for tag in post.tags
-				if not tags[ tag ]
-					tags[ tag ] = []
-				tags[ tag ].push post
-
-		## Render Tag Layout ##
-
-		compilePugFile( "#{__dirname}/blog/tags/index.pug", null, tags: tags )
-
-		for tag, posts of tags
-			# global.posts = posts
-			try fs.mkdirSync( "#{__dirname}/blog/tags/#{tag}" )
-			compilePugFile(
-				"#{__dirname}/blog/index.pug",
-				"#{__dirname}/blog/tags/#{tag}/index.html",
-				posts: posts )
-
 	catch ex
 		console.error ex
 

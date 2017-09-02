@@ -1,0 +1,88 @@
+//-
+	# Settings ########
+
+	Settings is a widget that provides permanent setting storage and automatic
+	UI generation.
+
+	The pre block should be extended with a SETTINGS array that contains objects
+	with:
+
+	id: string          Id of the control
+	name: string        Name for the control to show
+	type: string        Type of the control. Acceptable values:
+						"checkbox", "text", "number"
+	default: var        What the default value should be
+	attr: object        Extra attributes to attach to the html input
+
+	+settings-show creates a settings button that will show the Settings panel.
+
+	Provides a settings-extra block for attaching more information.
+
+	Example Usage:
+
+include /resources/external/bootstrap-4.0.0-beta/pug
+
+mixin settings-show
+	button.btn.btn-outline-info(
+		data-toggle = "modal"
+		data-target = "#settings--modal"
+	) &#9874; Settings
+
+mixin _settings-checkbox( data )
+	.form-check
+		label.form-check-label
+			input.form-check-input.settings--setting(
+				type = "checkbox"
+				id = data.id
+				data-default = data.default
+			)&attributes( data.attr )
+			= " " + data.name
+mixin _settings-text( data )
+	.form-group
+		label.mb-0( for = data.id )= data.name
+		input.form-control.settings--setting(
+			type = "text"
+			id = data.id
+			data-default = data.default
+		)&attributes( data.attr )
+mixin _settings-number( data )
+	.form-group
+		label.mb-o( for = data.id )= data.name
+		input.form-control.settings--setting(
+			input = "number"
+			id = data.id
+			data-default = data.default
+		)&attributes( data.attr )
+
+append body
+	.modal.fade( tabindex = -1 )#settings--modal
+		.modal-dialog
+			.modal-content
+				.modal-header
+					h5.modal-title Settings
+					button.close( data-dismiss = "modal" ) &times;
+				.modal-body
+					- SETTINGS = SETTINGS || [];
+					each setting in SETTINGS
+						if setting.type == "checkbox"
+							+_settings-checkbox( setting )
+						if setting.type == "text"
+							+_settings-text( setting )
+						if setting.type == "number"
+							+_settings-number( setting )
+					block settings-extra
+					.text-right
+						small
+							a.text-danger(
+								href = "#"
+							)#settings--reset Reset all
+				.modal-footer
+					button.btn.btn-secondary( data-dismiss = "modal" ) Close
+					//-
+						button.btn.btn-primary#settings--modal--save Save
+						button.btn.btn-secondary(
+							data-dismiss = "modal"
+						)#settings--modal--cancel Cancel
+
+append scripts
+	script( src = ROOT + "/resources/layouts/main/util/settings.js" )

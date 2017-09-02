@@ -1,5 +1,7 @@
 prepend head
-	link(
-		rel = "stylesheet"
-		href = ROOT + "/resources/external/normalizecss-7.0.0/normalize.css"
-	)
+	if !INCLUDED[ "normalizecss-7.0.0" ]
+		- INCLUDED[ "normalizecss-7.0.0" ] = true;
+		link(
+			rel = "stylesheet"
+			href = ROOT + "/resources/external/normalizecss-7.0.0/normalize.css"
+		)

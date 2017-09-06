@@ -31,3 +31,5 @@ document.getElementById( "input--go" ).addEventListener "click", ->
 transforms =
 	uppercase: ( s ) -> s.toUpperCase()
 	lowercase: ( s ) -> s.toLowerCase()
+	uriencode: ( s ) -> encodeURIComponent( s )
+	uridecode: ( s ) -> decodeURIComponent( s ).replace( "+", " " )

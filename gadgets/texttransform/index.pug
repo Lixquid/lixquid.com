@@ -1,0 +1,38 @@
+extends /resources/layouts/main/main
+append pre
+	-
+		SETTINGS = [
+			{
+				"id": "texttransform--inline",
+				"name": "Inline Transforms",
+				"type": "checkbox",
+				"default": true
+			}
+		];
+include /resources/layouts/main/util/settings
+
+append scripts
+	script( src = "index.js" )
+
+block main
+	.row
+		.col-sm-10
+			h1 Text Transform
+		.col-sm-2.text-right
+			+settings-show
+
+	.row
+		.col-sm-9
+			select.custom-select.w-100#input--filter
+				option( value = "uppercase" ) Uppercase
+				option( value = "lowercase" ) Lowercase
+		.col
+			button.btn.btn-block.btn-primary#input--go Transform
+
+	.mt-3
+		label( for = "#input--input" ).mb-0 Input
+		textarea.form-control( rows = 4 )#input--input
+
+	#input--output--div.mt-3
+		label( for = "#input--output" ).mb-0 Output
+		textarea.form-control( rows = 4, readonly )#input--output

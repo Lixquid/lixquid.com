@@ -10,7 +10,8 @@ block main
 	-
 		search_tags = {
 			"Desktop Only": "#007bff",
-			"WIP": "#dc3545"
+			"WIP": "#dc3545",
+			"Tool": "#BABDB6"
 		};
 	+search
 		.list-group-item.disabled Large
@@ -18,32 +19,32 @@ block main
 			+search-item-link( "Editor", "editor", "Desktop Only", "WIP" )
 				small.text-muted.
 					A full-screen Ace Editor. Supports some common editing actions.
-		+search-item-link( "Password Tool", "passwordtool" )
+		+search-item-link( "Password Tool", "passwordtool", "Tool" )
 			small.text-muted.
 				A tool to generate and evaluate strong passwords.
-		+search-item-link( "Find and Replace", "findandreplace" )
+		+search-item-link( "Find and Replace", "findandreplace", "Tool" )
 			small.text-muted.
 				A tool to find and replace text. Support Regexes and escape
 				codes.
-		+search-item-link( "Regex Tester", "regextester" )
+		+search-item-link( "Regex Tester", "regextester", "Tool" )
 			small.text-muted.
 				Supports testing Javascript regexes against input.
-		+search-item-link( "Debt Resolver", "debtresolver" )
+		+search-item-link( "Debt Resolver", "debtresolver", "Tool" )
 			small.text-muted.
 				Solves complicated debt graphs. Supports chained and cyclic
 				graphs.
 		.list-group-item.disabled Small
-		+search-item-link( "SVG Arcs", "svgarcs", "Desktop Only" )
+		+search-item-link( "SVG Arcs", "svgarcs", "Desktop Only", "Tool" )
 			small.text-muted.
 				A small gadget for displaying SVG Arcs.
-		+search-item-link( "Color Palette", "colorpalette" )
+		+search-item-link( "Color Palette", "colorpalette", "Tool" )
 			small.text-muted.
 				A selection of color palettes.
-		+search-item-link( "Text Transform", "texttransform" )
-			small.text-muted.
-				A widget for performing transforms on text.
+		+search-item-link( "Text Transform", "texttransform", "Tool" )
+			small.text-muted
+				| A widget for performing transforms on text.
 				br
-				Supports URI Encoding, ROT transforms.
-		+search-item-link( "BPM Tester", "bpmtester" )
+				| Supports URI Encoding, ROT transforms.
+		+search-item-link( "BPM Tester", "bpmtester", "Tool" )
 			small.text-muted.
 				Tap in time with the beat to get the BPM.

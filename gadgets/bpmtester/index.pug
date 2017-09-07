@@ -1,0 +1,52 @@
+extends /resources/layouts/main/main
+append pre
+	-
+		SETTINGS = [
+			{
+				id: "bpmtester--period",
+				name: "Number of beats to average over",
+				type: "number",
+				default: 16,
+				attr: {
+					min: 1
+				}
+			}
+		];
+include /resources/layouts/main/util/settings
+
+append scripts
+	script( src = "index.js" )
+
+block main
+	.row
+		.col-sm-10
+			h1 BPM Tester
+		.col-sm-2.text-right
+			+settings-show
+
+	.alert.alert-primary.mt-3.
+		Tap the shift key or click the below button in time with the beat to
+		record Beats per Minute.
+
+	button.btn.btn-block.btn-lg.btn-primary.mt-5#input--beat Beat
+
+	.form-group.row.mt-5
+		label.col-sm-2.col-form-label( for = "#output--bpm" ) BPM
+		.col-sm-10
+			input.form-control( readonly )#output--bpm
+	.form-group.row
+		label.col-sm-2.col-form-label( for = "#output--period" ) Period (ms)
+		.col-sm-10
+			input.form-control( readonly )#output--period
+	.form-group.row
+		label.col-sm-2.col-form-label( for = "#output--beats" ) Beats
+		.col-sm-10
+			input.form-control( readonly )#output--beats
+	.form-group
+		.progress
+			.progress-bar#output--progress( style = `
+				overflow: hidden;
+				width: 0;
+			` )
+	.text-right.mt-3
+		button.btn.btn-danger#input--reset Reset

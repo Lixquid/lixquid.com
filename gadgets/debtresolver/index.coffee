@@ -3,6 +3,7 @@
 eRef = document.getElementById "ref--row"
 eInputList = document.getElementById "input--list"
 eInputNew = document.getElementById "input--new"
+eInputResolve = document.getElementById "input--resolve"
 sPrecision = document.getElementById "debtresolver--precision"
 
 ## Functions ##
@@ -20,10 +21,13 @@ eInputNew.addEventListener "click", ->
 
 	e.querySelectorAll( ".input--close" )[0].addEventListener "click", ->
 		e.parentNode.removeChild( e )
+		if document.getElementsByClassName( "input--row" ).length <= 1
+			eInputResolve.disabled = true
 
 	eInputList.insertBefore( e, eInputNew )
+	eInputResolve.disabled = false
 
-document.getElementById( "input--resolve" ).addEventListener "click", ->
+eInputResolve.addEventListener "click", ->
 
 	values = {}
 

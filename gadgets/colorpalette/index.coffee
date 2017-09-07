@@ -8,3 +8,15 @@ for el in document.getElementsByClassName( "palette--color" )
 		eOutput.select()
 		if eOutputCopy.checked
 			document.execCommand "copy"
+
+for e in document.getElementsByClassName( "palette--nav" )
+	e.addEventListener "click", ->
+		for ei in document.getElementsByClassName( "palette--nav" )
+			ei.classList.remove "active"
+		@classList.add "active"
+
+		for ei in document.getElementsByClassName( "palette--table" )
+			ei.style.display = "none"
+
+		document.getElementById(
+			"palette--div--#{@dataset.target}" ).style.display = ""

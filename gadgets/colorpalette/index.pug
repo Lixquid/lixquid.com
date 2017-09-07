@@ -19,16 +19,35 @@ block main
 			= " "
 			| Copy on select
 
-	each palette in palettes
-		table.palette--table
-			each row in palette
-				tr
-					each col in row
-						td
-							button.palette--color(
-								style = `background: #${col}`
-								data-color = "#" + col
-							)
+	.card
+		.card-header
+			ul.nav.nav-tabs.card-header-tabs
+				- var first = true;
+				each name, id in names
+					li.nav-item
+						a.nav-link(
+							href = "#"
+							class = "nav-link palette--nav" +
+								( first ? " active" : "" )
+							data-target = id
+						)= name
+						- first = false;
+		.card-body
+			- var first = true;
+			each palette, id in palettes
+				table.palette--table(
+					id = `palette--div--${id}`
+					style = first ? "" : "display: none"
+				)
+					each row in palette
+						tr
+							each col in row
+								td
+									button.palette--color(
+										style = `background: #${col}`
+										data-color = "#" + col
+									)
+				- first = false;
 
 append scripts
 	script( src = "index.js" )

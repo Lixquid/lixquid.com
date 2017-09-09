@@ -5,13 +5,14 @@ mixin tab-nav
 		ul.nav.nav-tabs.card-header-tabs
 			if block
 				block
-mixin tab-nav-link( name, target )
+mixin tab-nav-link( name, target, id = null )
 	li.nav-item
 		a(
 			href = "#"
 			class = "nav-link tab--nav" +
 				( _tabNavFirst ? " active" : "" )
 			data-target = target
+			id = id
 		)= name
 		- _tabNavFirst = false;
 

@@ -9,5 +9,6 @@ for e in document.getElementsByClassName( "tab--nav" )
 			ei.style.display = "none"
 
 		document.getElementById( @dataset.target ).style.display = ""
+		window.tabActivePage = @dataset.target
 
 		ev.preventDefault()

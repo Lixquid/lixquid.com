@@ -1,0 +1,13 @@
+extends /resources/layouts/main/main
+
+append scripts
+	script( src = "index.js" )
+
+block main
+	h1 Reaction Tester
+
+	button.btn.btn-lg.btn-block.btn-primary.mt-5#react--act Start
+
+	.form-group.mt-5
+		label( for = "output--speed" ) Reaction Time (ms)
+		input.form-control.form-control-lg( readonly )#output--speed

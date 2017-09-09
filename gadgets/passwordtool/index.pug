@@ -1,4 +1,5 @@
 extends /resources/layouts/main/main
+include /resources/layouts/main/util/tabs
 
 append scripts
 	script( src = "zxcvbn.js" )
@@ -38,15 +39,11 @@ block main
 	h1 Password Tool
 
 	.card
-		.card-header
-			ul.nav.nav-tabs.card-header-tabs
-				li.nav-item
-					a.nav-link.active( href="#" )#nav--brute Brute
-				li.nav-item
-					a.nav-link( href="#" )#nav--dict Dictionary
-				li.nav-item
-					a.nav-link( href="#" )#nav--eval Evaluate
-		.card-body#brute--div
+		+tab-nav
+			+tab-nav-link( "Brute", "brute--div", "brute--nav" )
+			+tab-nav-link( "Dictionary", "dict--div", "dict--nav" )
+			+tab-nav-link( "Evaluate", "eval--div", "eval--nav" )
+		+tab-page( "brute--div" )
 			h4.card-title Generate Brute Password
 
 			.form-group.row
@@ -123,7 +120,7 @@ block main
 								value = "0"
 							).form-control#brute--mindigits
 
-		.card-body( style="display: none" )#dict--div
+		+tab-page( "dict--div" )
 			h4.card-title Generate Dictionary Password
 
 			.form-group.row
@@ -150,7 +147,7 @@ block main
 						`
 					)
 
-		.card-body( style="display: none" )#eval--div
+		+tab-page( "eval--div" )
 			h4.card-title Evaluate Password
 
 			input.form-control.form-control-lg(

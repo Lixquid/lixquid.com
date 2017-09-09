@@ -11,64 +11,24 @@ global variable "DISABLED_ZXCVBN_LIMIT" to true.
 
 window.DISABLE_ZXCVBN_LIMIT = false
 
-eNavBrute = document.getElementById "nav--brute"
-eNavDict = document.getElementById "nav--dict"
-eNavEval = document.getElementById "nav--eval"
-eBruteDiv = document.getElementById "brute--div"
-eDictDiv = document.getElementById "dict--div"
-eEvalDiv = document.getElementById "eval--div"
 eOutputDiv = document.getElementById "output--div"
 eOutputError = document.getElementById "output--error"
 eOutputText = document.getElementById "output--text"
 eEvalInput = document.getElementById "eval--input"
 
-activeDiv = eBruteDiv
-
 generateBrutePassword = ->
 generateDictPassword = ->
 analyzeStrength = ->
 
-hideAllNavs = ->
-	eNavBrute.classList.remove "active"
-	eNavDict.classList.remove "active"
-	eNavEval.classList.remove "active"
-	eBruteDiv.style.display = "none"
-	eDictDiv.style.display = "none"
-	eEvalDiv.style.display = "none"
-	eOutputDiv.style.display = "none"
-
-eNavBrute.addEventListener "click", ->
-	return if activeDiv == eBruteDiv
-
-	hideAllNavs()
-	eNavBrute.classList.add "active"
-	eBruteDiv.style.display = null
-	eOutputDiv.style.display = null
-	activeDiv = eBruteDiv
+document.getElementById( "brute--nav" ).addEventListener "click", ->
 	generateBrutePassword()
-
-eNavDict.addEventListener "click", ->
-	return if activeDiv == eDictDiv
-
-	hideAllNavs()
-	eNavDict.classList.add "active"
-	eDictDiv.style.display = null
-	eOutputDiv.style.display = null
-	activeDiv = eDictDiv
+document.getElementById( "dict--nav" ).addEventListener "click", ->
 	generateDictPassword()
 
-eNavEval.addEventListener "click", ->
-	return if activeDiv == eEvalDiv
-
-	hideAllNavs()
-	eNavEval.classList.add "active"
-	eEvalDiv.style.display = null
-	activeDiv = eEvalDiv
-
 document.getElementById( "output--refresh" ).addEventListener "click", ->
-	if activeDiv == eBruteDiv
+	if tabActivePage == "brute--div"
 		generateBrutePassword()
-	if activeDiv == eDictDiv
+	if tabActivePage == "dict--div"
 		generateDictPassword()
 
 document.getElementById( "output--copy" ).addEventListener "click", ->

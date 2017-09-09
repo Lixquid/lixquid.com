@@ -1,9 +1,14 @@
 eSpeed = document.getElementById "output--speed"
+eAverage = document.getElementById "output--average"
+eBest = document.getElementById "output--best"
+eReset = document.getElementById "input--reset"
 
 # 0: Not running, 1: Pre, 2: React
 state = 0
 reactTime = null
 activeTimer = null
+times = []
+bestTime = Infinity
 
 document.getElementById( "react--act" ).addEventListener "click", ->
 	if state == 0
@@ -31,4 +36,19 @@ document.getElementById( "react--act" ).addEventListener "click", ->
 		@classList.remove "btn-success"
 		@classList.add "btn-primary"
 		@textContent = "Again"
-		eSpeed.value = new Date - reactTime
+		t = new Date - reactTime
+		times.push t
+		bestTime = Math.min( bestTime, t )
+
+		eSpeed.value = t
+		eBest.value = bestTime
+		eAverage.value = Math.floor(
+			times.reduce( ( a, b ) -> a + b ) / times.length )
+		eReset.disabled = false
+
+eReset.addEventListener "click", ->
+	@disabled = true
+	bestTime = Infinity
+	times = []
+	eBest.value = ""
+	eAverage.value = ""

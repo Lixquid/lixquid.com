@@ -11,3 +11,12 @@ block main
 	.form-group.mt-5
 		label( for = "output--speed" ) Reaction Time (ms)
 		input.form-control.form-control-lg( readonly )#output--speed
+	.form-group
+		label( for = "output--best" ) Best Reaction Time (ms)
+		input.form-control( readonly )#output--best
+	.form-group
+		label( for = "output--average" ) Average Reaction Time (ms)
+		.input-group
+			input.form-control( readonly )#output--average
+			span.input-group-btn
+				button.btn.btn-danger( disabled )#input--reset &times;

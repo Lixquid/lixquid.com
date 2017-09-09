@@ -9,10 +9,15 @@ mixin search
 			button.btn.btn-danger#search--cancel.
 				&times; #[.sr-only Cancel Search]
 	- search_tags = search_tags || {};
-	ul.list-group.mb-4#search--list
-		if block
-			block
+	if block
+		block
 	ul.pagination.pagination-lg.justify-content-center#search--pagination
+
+mixin search-list
+	+search
+		ul.list-group.mb-4#search--list
+			if block
+				block
 
 mixin search-item( title, ...tags )
 	li.list-group-item.search--item(

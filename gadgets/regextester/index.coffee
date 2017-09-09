@@ -23,7 +23,7 @@ eError = document.getElementById "error"
 
 ## Functions ###################################################################
 
-flagsText = -> k for k, v of regexFlags when v
+flagsText = -> ( k for k, v of regexFlags when v ).join( "" )
 updateFlagsText = -> eDropdownText.innerText = "/" + flagsText()
 
 ## Events ######################################################################

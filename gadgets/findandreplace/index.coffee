@@ -8,11 +8,14 @@ eRegex = document.getElementById "input--regex"
 eMultiline = document.getElementById "input--multiline"
 eEscapes = document.getElementById "input--escapes"
 eInput = document.getElementById "input--input"
+eUndo = document.getElementById "input--undo"
 
 ## Functions ##
 
 escapeInput = ( str ) -> str.replace /[^a-zA-Z0-9 ]/g, "\\$&"
 escapeReplace = ( str ) -> str.replace /\$/g, "$$$$"
+
+undoList = []
 
 ## Events ##
 
@@ -32,6 +35,9 @@ document.getElementById( "input--match" ).addEventListener "click", ->
 		( if eMultiline.checked then "m" else "" )
 	)
 
+	undoList.push eInput.value
+	eUndo.disabled = false
+
 	eInput.value = eInput.value.replace( regex, replace )
 
 eRegex.addEventListener "change", ->
@@ -40,3 +46,8 @@ eRegex.addEventListener "change", ->
 	else
 		eFind.style.fontFamily = null
 	eMultiline.disabled = not eRegex.checked
+
+eUndo.addEventListener "click", ->
+	eInput.value = undoList.pop()
+	if undoList.length == 0
+		eUndo.disabled = true

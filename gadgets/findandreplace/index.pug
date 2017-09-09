@@ -54,6 +54,8 @@ block main
 		label( for="input--input" ) Input
 		textarea.form-control( rows=4 )#input--input
 	.text-right
+		button.btn.btn-outline-secondary( disabled )#input--undo Undo
+		= " "
 		button.btn.btn-primary.btn-lg#input--match Replace
 
 	.modal.fade( tabindex = -1 )#escapesHelp

@@ -9,6 +9,7 @@ for el in document.getElementsByClassName( "palette--color" )
 		if eOutputCopy.checked
 			document.execCommand "copy"
 
+###
 for e in document.getElementsByClassName( "palette--nav" )
 	e.addEventListener "click", ( ev ) ->
 		for ei in document.getElementsByClassName( "palette--nav" )
@@ -21,3 +22,4 @@ for e in document.getElementsByClassName( "palette--nav" )
 		document.getElementById(
 			"palette--div--#{@dataset.target}" ).style.display = ""
 		ev.preventDefault()
+###

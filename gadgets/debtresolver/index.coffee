@@ -9,7 +9,7 @@ sPrecision = document.getElementById "debtresolver--precision"
 ## Functions ##
 
 parseNumber = ( str ) ->
-	precision = parseInt( sPrecision ) or 2
+	precision = parseInt( sPrecision.value ) ? 2
 	return parseInt( parseFloat( str ) * 10 ** precision ) / 10 ** precision
 
 ## Events ##
@@ -26,6 +26,17 @@ eInputNew.addEventListener "click", ->
 
 	eInputList.insertBefore( e, eInputNew )
 	eInputResolve.disabled = false
+
+change_prec = ->
+	precision = parseInt( sPrecision.value ) ? 2
+	for e in document.getElementsByClassName( "input--amount" )
+		e.placeholder = "0" +
+			( if precision > 0 then "." else "" ) +
+			"0".repeat precision
+		console.log e.placeholder
+		e.step = 0.1 ** precision
+sPrecision.addEventListener "change", change_prec
+change_prec()
 
 eInputResolve.addEventListener "click", ->
 

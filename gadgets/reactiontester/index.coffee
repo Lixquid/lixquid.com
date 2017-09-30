@@ -1,12 +1,14 @@
 eSpeed = document.getElementById "output--speed"
 eAverage = document.getElementById "output--average"
 eBest = document.getElementById "output--best"
+eCount = document.getElementById "output--count"
 eReset = document.getElementById "input--reset"
 
 # 0: Not running, 1: Pre, 2: React
 state = 0
 reactTime = null
 activeTimer = null
+testCount = 1
 times = []
 bestTime = Infinity
 
@@ -30,6 +32,7 @@ document.getElementById( "react--act" ).addEventListener "click", ->
 		@classList.add "btn-primary"
 		@textContent = "Try Again"
 		eSpeed.value = "Too soon!"
+		testCount++
 		clearTimeout( activeTimer )
 	else if state == 2
 		state = 0
@@ -42,9 +45,12 @@ document.getElementById( "react--act" ).addEventListener "click", ->
 
 		eSpeed.value = t
 		eBest.value = bestTime
+		testCount++
 		eAverage.value = Math.floor(
 			times.reduce( ( a, b ) -> a + b ) / times.length )
 		eReset.disabled = false
+
+	eCount.value = testCount
 
 eReset.addEventListener "click", ->
 	@disabled = true
@@ -52,3 +58,5 @@ eReset.addEventListener "click", ->
 	times = []
 	eBest.value = ""
 	eAverage.value = ""
+	testCount = 1
+	eCount.value = testCount

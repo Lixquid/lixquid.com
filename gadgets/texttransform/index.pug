@@ -7,6 +7,12 @@ append pre
 				"name": "Inline Transforms",
 				"type": "checkbox",
 				"default": true
+			},
+			{
+				"id": "texttransform--instant",
+				"name": "Instant Transforms",
+				"type": "checkbox",
+				"default": false
 			}
 		];
 include /resources/layouts/main/util/settings
@@ -32,6 +38,8 @@ block main
 				option( value = "rot13" ) ROT13
 				option( value = "rot135" ) ROT13.5
 				option( value = "rot47" ) ROT47
+				option( value = "reverse" ) Reverse
+				option( value = "circled" ) Circled
 		.col
 			button.btn.btn-block.btn-primary#input--go Transform
 

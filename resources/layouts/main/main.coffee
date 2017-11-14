@@ -122,6 +122,7 @@ quotes = [
 	"Unregistered Hypercam 2"
 	"These are the voyages of the Starprise Entership"
 	"Profound. But fundamentally bollocks."
+	"If things were any other way, things would be different."
 ]
 
 document.getElementById( "main--footer--quote" ).innerHTML =

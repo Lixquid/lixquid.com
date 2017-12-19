@@ -30,12 +30,17 @@ for a in [ HTMLWatch, HTMLRender, CSSWatch, JSWatch, BlogWatch ]
 
 #################################### Tasks #####################################
 
+handleError = ( err ) ->
+	console.error err.toString()
+	@emit "end"
+
 gulp.task "html", ->
 	try
 		gulp.src HTMLRender
 			.pipe pugGulp
 				basedir: __dirname
 				doctype: "html"
+			.on "error", handleError
 			.pipe gulp.dest( "." )
 	catch ex
 		console.error ex
@@ -47,6 +52,7 @@ gulp.task "css", ->
 			.pipe stylus
 				define: ROOT: ROOT
 				include: __dirname
+			.on "error", handleError
 			.pipe autoprefixer
 				browsers: [ "last 2 versions" ]
 				cascade: false
@@ -60,6 +66,7 @@ gulp.task "js", ->
 		gulp.src JSWatch
 			.pipe sourcemaps.init()
 			.pipe coffee()
+			.on "error", handleError
 			.pipe sourcemaps.write()
 			.pipe gulp.dest( "." )
 	catch ex

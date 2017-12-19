@@ -1,4 +1,6 @@
 for e in document.getElementsByClassName( "tab--nav" )
+	if not window.tabActivePage?
+		window.tabActivePage = e.dataset.target
 	e.addEventListener "click", ( ev ) ->
 
 		for ei in document.getElementsByClassName "tab--nav"

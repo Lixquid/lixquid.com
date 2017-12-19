@@ -1,0 +1,38 @@
+//-
+	title: "Site Easter Eggs"
+	date: "2017/12/19"
+	tags: [ "site" ]
+
+extends /resources/layouts/blog/blog
+
+block post
+	:markdown-it
+		Some sections of the site have extended functionality that isn't
+		perfectly tested, such as bypassing limits or modifying display
+		properties.
+
+		Script files that have these extra functions will have an Easter Egg
+		comment in the source code of the Coffeescript files.
+
+		For example, all pages that use the standard template with the logo at
+		the top can be made fullscreen by running `mainFullscreen()` in the
+		JavaScript console.
+
+		Try it here:
+
+	button.btn.btn-success#toggleFullscreen mainFullscreen()
+
+	script
+		:coffee-script
+			fullscreen = false
+
+			document.getElementById( "toggleFullscreen" )
+				.addEventListener "click", ->
+					fullscreen = not fullscreen
+
+					if fullscreen
+						this.innerText = "mainFullscreen( false )"
+						mainFullscreen()
+					else
+						this.innerText = "mainFullscreen()"
+						mainFullscreen( false )

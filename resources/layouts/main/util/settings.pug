@@ -70,7 +70,8 @@ append body
 							+_settings-text( setting )
 						if setting.type == "number"
 							+_settings-number( setting )
-					block settings-extra
+					if SETTINGS_EXTRA
+						!= SETTINGS_EXTRA
 					.text-right
 						small
 							a.text-danger(

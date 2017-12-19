@@ -11,7 +11,8 @@ block main
 		search_tags = {
 			"Desktop Only": "#007bff",
 			"WIP": "#dc3545",
-			"Tool": "#BABDB6"
+			"Tool": "#BABDB6",
+			"Game": "#37A42C"
 		};
 	+search-list
 		.list-group-item.disabled Large
@@ -36,6 +37,9 @@ block main
 		+search-item-link( "Converter", "converter", "Tool" )
 			small.text-muted.
 				Converts between values. Supports colour.
+		+search-item-link( "Codebreaker", "codebreaker", "Game" )
+			small.text-muted.
+				Guess the hidden code in as few attempts as possible!
 		.list-group-item.disabled Small
 		+search-item-link( "SVG Arcs", "svgarcs", "Desktop Only", "Tool" )
 			small.text-muted.

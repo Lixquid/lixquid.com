@@ -16,7 +16,8 @@ for list in document.getElementsByClassName "dropdown--list"
 			for contents in childrenList( li, ".dropdown--list--contents" )
 				contents.style.display = "none"
 			for link in childrenList( li, ".dropdown--list--toggle" )
-				link.addEventListener "click", ->
+				link.addEventListener "click", ( ev ) ->
+					ev.preventDefault()
 					li.classList.toggle "_toggled"
 					for con in childrenList( li, ".dropdown--list--contents" )
 						if con.style.display == "none"

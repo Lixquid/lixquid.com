@@ -14,11 +14,33 @@ block main
 	h1 Palettes
 
 	input( readonly, type = "text", value = "#000000" )#output--input
-	.form-check
-		label.form-check-label
-			input.form-check-input( type = "checkbox" )#output--copy
-			= " "
-			| Copy on select
+	.row
+		.col-sm-6
+			.form-check
+				label.form-check-label
+					input.form-check-input( type = "checkbox" )#output--copy
+					= " "
+					| Copy on select
+		.col-sm-3
+			.form-check
+				label.form-check-label
+					input.form-check-label(
+						type = "radio"
+						name = "colortype"
+						checked
+					)#output--hex
+					= " "
+					| Hex
+		.col-sm-3
+			.form-check
+				label.form-check-label
+					input.form-check-label(
+						type = "radio"
+						name = "colortype"
+					)#output--hex
+					= " "
+					| RGB
+
 
 	.card
 		+tab-nav
@@ -32,8 +54,11 @@ block main
 							each col in row
 								td
 									button.palette--color(
-										style = `background: #${col}`
-										data-color = "#" + col
+										style = `background: #${toHex(col)}`
+										data-color-r = col[0]
+										data-color-g = col[1]
+										data-color-b = col[2]
+										data-color-hex = toHex(col)
 									)
 
 append scripts

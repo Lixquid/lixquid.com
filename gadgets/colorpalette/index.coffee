@@ -1,9 +1,16 @@
 eOutput = document.getElementById "output--input"
 eOutputCopy = document.getElementById "output--copy"
+eOutputHex = document.getElementById "output--hex"
+eOutputRGB = document.getElementById "output--rgb"
 
 for el in document.getElementsByClassName( "palette--color" )
 	el.addEventListener "click", ->
-		eOutput.value = this.getAttribute( "data-color" )
+		if eOutputHex.checked
+			eOutput.value = "#" + this.getAttribute( "data-color-hex" )
+		else
+			eOutput.value = this.getAttribute( "data-color-r" ) + ", " +
+				this.getAttribute( "data-color-g" ) + ", " +
+				this.getAttribute( "data-color-b" )
 		eOutput.focus()
 		eOutput.select()
 		if eOutputCopy.checked

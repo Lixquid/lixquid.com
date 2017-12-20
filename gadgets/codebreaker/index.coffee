@@ -18,8 +18,10 @@ generateIntegers = ( amt, max ) ->
 	( Math.floor( Math.random() * max + 1 ) for [1..amt] )
 
 generateUniqueIntegers = ( amt, max ) ->
-	# TODO: Shuffle this array
 	nums = ( x for x in [1..max] )
+	for i in [( nums.length - 1 )..1] by -1
+		j = Math.floor( Math.random() * ( i + 1 ) )
+		[ nums[i], nums[j] ] = [ nums[j], nums[i] ]
 	return nums[...amt]
 
 generateNumberSequence = ( amt ) ->

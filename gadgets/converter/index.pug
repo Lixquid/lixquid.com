@@ -1,6 +1,9 @@
 extends /resources/layouts/main/main
 include /resources/layouts/main/util/tabs
 
+append head
+	link( rel="stylesheet", href="index.css" )
+
 append scripts
 	script( src = "index.js" )
 
@@ -15,7 +18,7 @@ block main
 		+tab-page( "tab--colour" )
 			h3 RGB
 			.row
-				.col-sm-4
+				.col-md-3
 					.input-group
 						span.input-group-addon Red
 						input#colour--rgb--r.form-control(
@@ -25,7 +28,7 @@ block main
 							max = 255
 							value = 97
 						)
-				.col-sm-4
+				.col-md-3
 					.input-group
 						span.input-group-addon Green
 						input#colour--rgb--g.form-control(
@@ -35,7 +38,7 @@ block main
 							max = 255
 							value = 147
 						)
-				.col-sm-4
+				.col-md-3
 					.input-group
 						span.input-group-addon Blue
 						input#colour--rgb--b.form-control(
@@ -44,6 +47,16 @@ block main
 							min = 0
 							max = 255
 							value = 207
+						)
+				.col-md-3
+					.input-group
+						span.input-group-addon Alpha
+						input#colour--rgb--a.form-control(
+							type = "number"
+							step = 1
+							min = 0
+							max = 255
+							value = 255
 						)
 			br
 			h3 Hex
@@ -55,10 +68,11 @@ block main
 				)
 			br
 			h3 Display
-			.card#colour--display--card( style = "background-color: #6193CF" )
-				.card-body
-					p.text-dark Dark Text
-					span.text-light Light Text
+			.checkered-bg
+				.card#colour--display--card( style = "background-color: #6193CF" )
+					.card-body
+						p.text-dark Dark Text
+						span.text-light Light Text
 			.card.bg-light.mt-2
 				.card-body
 					span#colour--display--lightbg( style = "color: #6193CF" )

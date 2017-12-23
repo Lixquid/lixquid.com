@@ -1,0 +1,12 @@
+.checkered-bg
+	$black = #D3D7CF
+	$size = 32px
+
+	background-color #eeeeec
+	background-image:
+		linear-gradient( 45deg,
+			$black 25%, transparent 25%, transparent 75%, $black 75%, $black ),
+		linear-gradient( 45deg,
+			$black 25%, transparent 25%, transparent 75%, $black 75%, $black )
+	background-size $size $size
+	background-position 0 0, ( $size / 2 ) ( $size / 2 )

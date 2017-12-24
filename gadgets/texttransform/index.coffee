@@ -70,6 +70,14 @@ transforms.uppercase = ( s ) -> s.toUpperCase()
 transforms.lowercase = ( s ) -> s.toLowerCase()
 transforms.uriencode = ( s ) -> encodeURIComponent( s )
 transforms.uridecode = ( s ) -> decodeURIComponent( s.replace( "+", " " ) )
+transforms.base64encode = ( s ) -> window.btoa( s )
+transforms.base64decode = ( s ) ->
+	try
+		window.atob( s )
+	catch ex
+		throw ex if ex.code != ex.INVALID_CHARACTER_ERR
+
+		"The given string is not a valid base 64 encoded string!"
 
 ################################### REVERSE ####################################
 

@@ -73,11 +73,25 @@ transforms.uridecode = ( s ) -> decodeURIComponent( s.replace( "+", " " ) )
 transforms.base64encode = ( s ) -> window.btoa( s )
 transforms.base64decode = ( s ) ->
 	try
-		window.atob( s )
+		return window.atob( s )
 	catch ex
 		throw ex if ex.code != ex.INVALID_CHARACTER_ERR
+		return "The given string is not a valid base 64 encoded string!"
 
-		"The given string is not a valid base 64 encoded string!"
+################################# HTML ESCAPE ##################################
+
+htmlEscapeReplaces =
+	'\'': '&#39;'
+	'&': '&amp;'
+	'>': '&gt;'
+	'<': '&lt;'
+	'"': '&quot;'
+	'/': '&#x2F;'
+	'=': '&#x3D;'
+	'`': '&#x60;'
+transforms.htmlescape = ( s ) ->
+	s.replace /['&><"\/=`]/g, ( c ) ->
+		htmlEscapeReplaces[c]
 
 ################################### REVERSE ####################################
 

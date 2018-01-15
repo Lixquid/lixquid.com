@@ -1,25 +1,25 @@
 extends /resources/layouts/main/main
 
 append scripts
-	script( src = "index.js" )
+    script( src = "index.js" )
 
 block main
-	h1 Reaction Tester
+    h1 Reaction Tester
 
-	button.btn.btn-lg.btn-block.btn-primary.mt-5#react--act Start
+    button.btn.btn-lg.btn-block.btn-primary.mt-5#react--act Start
 
-	.form-group.mt-5
-		label( for = "output--speed" ) Reaction Time (ms)
-		input.form-control.form-control-lg( readonly )#output--speed
-	.form-group.mt-5
-		label( for = "output--best" ) Best Reaction Time (ms)
-		input.form-control( readonly )#output--best
-	.form-group
-		label( for = "output--average" ) Average Reaction Time (ms)
-		input.form-control( readonly )#output--average
-	.form-group
-		label( for = "output--count" ) Test Count
-		.input-group
-			input.form-control( readonly, value = 1 )#output--count
-			span.input-group-btn
-				button.btn.btn-danger( disabled )#input--reset &times;
+    .form-group.mt-5
+        label( for = "output--speed" ) Reaction Time (ms)
+        input.form-control.form-control-lg( readonly )#output--speed
+    .form-group.mt-5
+        label( for = "output--best" ) Best Reaction Time (ms)
+        input.form-control( readonly )#output--best
+    .form-group
+        label( for = "output--average" ) Average Reaction Time (ms)
+        input.form-control( readonly )#output--average
+    .form-group
+        label( for = "output--count" ) Test Count
+        .input-group
+            input.form-control( readonly, value = 1 )#output--count
+            span.input-group-btn
+                button.btn.btn-danger( disabled )#input--reset &times;

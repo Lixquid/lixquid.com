@@ -1,23 +1,23 @@
 include /resources/external/jquery-3.2.1/pug
 
 prepend head
-	link(
-		rel = "stylesheet"
-		href = ROOT +
-			"/resources/external/bootstrap-4.0.0-beta/css/bootstrap.min.css"
-	)
+    link(
+        rel = "stylesheet"
+        href = ROOT +
+            "/resources/external/bootstrap-4.0.0-beta/css/bootstrap.min.css"
+    )
 
 append scripts
-	if !INCLUDED[ "bootstrap-4.0.0-beta" ]
-		- INCLUDED[ "bootstrap-4.0.0-beta" ] = true;
-		script(
-			src = ROOT +
-				"/resources/external/bootstrap-4.0.0-beta/js/popper.min.js"
-		)
-		script(
-			src = ROOT +
-				"/resources/external/bootstrap-4.0.0-beta/js/bootstrap.min.js"
-		)
-		script(
-			src = ROOT + "/resources/external/bootstrap-4.0.0-beta/js/extra.js"
-		)
+    if !INCLUDED[ "bootstrap-4.0.0-beta" ]
+        - INCLUDED[ "bootstrap-4.0.0-beta" ] = true;
+        script(
+            src = ROOT +
+                "/resources/external/bootstrap-4.0.0-beta/js/popper.min.js"
+        )
+        script(
+            src = ROOT +
+                "/resources/external/bootstrap-4.0.0-beta/js/bootstrap.min.js"
+        )
+        script(
+            src = ROOT + "/resources/external/bootstrap-4.0.0-beta/js/extra.js"
+        )

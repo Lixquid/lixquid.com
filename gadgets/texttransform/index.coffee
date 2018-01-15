@@ -9,60 +9,60 @@ eOutput = document.getElementById "input--output"
 eOutputDiv = document.getElementById "input--output--div"
 
 if sInline.checked
-	eOutputDiv.style.display = "none"
+    eOutputDiv.style.display = "none"
 else
-	eOutputDiv.style.display = ""
+    eOutputDiv.style.display = ""
 sInstant.disabled = sInline.checked
 sInline.addEventListener "change", ->
-	if @checked
-		eOutputDiv.style.display = "none"
-	else
-		eOutputDiv.style.display = ""
-	sInstant.disabled = @checked
+    if @checked
+        eOutputDiv.style.display = "none"
+    else
+        eOutputDiv.style.display = ""
+    sInstant.disabled = @checked
 
 if sInstant.checked
-	eGo.style.display = "none"
+    eGo.style.display = "none"
 else
-	eGo.style.display = ""
+    eGo.style.display = ""
 sInline.disabled = sInstant.checked
 sInstant.addEventListener "change", ->
-	if @checked
-		eGo.style.display = "none"
-	else
-		eGo.style.display = ""
-	sInline.disabled = @checked
+    if @checked
+        eGo.style.display = "none"
+    else
+        eGo.style.display = ""
+    sInline.disabled = @checked
 
 performTransform = ->
-	filter = eFilter.value
-	return if not transforms[ filter ]
+    filter = eFilter.value
+    return if not transforms[ filter ]
 
-	if sInline.checked
-		eInput.value = transforms[ filter ]( eInput.value )
-	else
-		eOutput.value = transforms[ filter ]( eInput.value )
+    if sInline.checked
+        eInput.value = transforms[ filter ]( eInput.value )
+    else
+        eOutput.value = transforms[ filter ]( eInput.value )
 
 eGo.addEventListener "click", performTransform
 eFilter.addEventListener "change", performTransform
 
 eInput.addEventListener "input", ->
-	if sInstant.checked and not sInline.checked
-		performTransform()
+    if sInstant.checked and not sInline.checked
+        performTransform()
 
 ############################## TRANSFORM HELPERS ###############################
 
 genMapTransform = ( charmap ) ->
-	return ( s ) ->
-		( for i in [0..s.length]
-			charmap[ s.charAt( i ) ] ? s.charAt( i ) ).join( "" )
+    return ( s ) ->
+        ( for i in [0..s.length]
+            charmap[ s.charAt( i ) ] ? s.charAt( i ) ).join( "" )
 
 # Lowercase a-z, Uppercase a-z, numbers 0-9
 genStringTransform = ( input ) ->
-	out = {}
-	for x in [0...94]
-		if not input[x]?
-			return genMapTransform( out )
-		out[ String.fromCharCode( 32 + x ) ] = input.charAt( x )
-	return genMapTransform( out )
+    out = {}
+    for x in [0...94]
+        if not input[x]?
+            return genMapTransform( out )
+        out[ String.fromCharCode( 32 + x ) ] = input.charAt( x )
+    return genMapTransform( out )
 
 ############################## SIMPLE TRANSFORMS ###############################
 
@@ -72,73 +72,73 @@ transforms.uriencode = ( s ) -> encodeURIComponent( s )
 transforms.uridecode = ( s ) -> decodeURIComponent( s.replace( "+", " " ) )
 transforms.base64encode = ( s ) -> window.btoa( s )
 transforms.base64decode = ( s ) ->
-	try
-		return window.atob( s )
-	catch ex
-		throw ex if ex.code != ex.INVALID_CHARACTER_ERR
-		return "The given string is not a valid base 64 encoded string!"
+    try
+        return window.atob( s )
+    catch ex
+        throw ex if ex.code != ex.INVALID_CHARACTER_ERR
+        return "The given string is not a valid base 64 encoded string!"
 
 ################################# HTML ESCAPE ##################################
 
 htmlEscapeReplaces =
-	'\'': '&#39;'
-	'&': '&amp;'
-	'>': '&gt;'
-	'<': '&lt;'
-	'"': '&quot;'
-	'/': '&#x2F;'
-	'=': '&#x3D;'
-	'`': '&#x60;'
+    '\'': '&#39;'
+    '&': '&amp;'
+    '>': '&gt;'
+    '<': '&lt;'
+    '"': '&quot;'
+    '/': '&#x2F;'
+    '=': '&#x3D;'
+    '`': '&#x60;'
 transforms.htmlescape = ( s ) ->
-	s.replace /['&><"\/=`]/g, ( c ) ->
-		htmlEscapeReplaces[c]
+    s.replace /['&><"\/=`]/g, ( c ) ->
+        htmlEscapeReplaces[c]
 
 ################################### REVERSE ####################################
 
 reverseTransformCombining = ///
-	# Non-Combining
-	(
-		[
-			\0 - \u02FF
-			\u0370 - \u1AAF
-			\u1B00 - \u1DBF
-			\u1E00 - \u20CF
-			\u2100 - \uD7FF
-			\uE000 - \uFE1F
-			\uFE30 - \uFFFF
-		]
-	|
-		[ \uD800 - \uDBFF ][ \uDC00 - \uDFFF]
-	|
-		[ \uD800 - \uDBFF ](?! [ \uDC00 - \uDFFF ] )
-	|
-		(?: [^ \uD800 - \uDBFF ] | ^ )
-		[ \uDC00 - \uDFFF ]
-	)
+    # Non-Combining
+    (
+        [
+            \0 - \u02FF
+            \u0370 - \u1AAF
+            \u1B00 - \u1DBF
+            \u1E00 - \u20CF
+            \u2100 - \uD7FF
+            \uE000 - \uFE1F
+            \uFE30 - \uFFFF
+        ]
+    |
+        [ \uD800 - \uDBFF ][ \uDC00 - \uDFFF]
+    |
+        [ \uD800 - \uDBFF ](?! [ \uDC00 - \uDFFF ] )
+    |
+        (?: [^ \uD800 - \uDBFF ] | ^ )
+        [ \uDC00 - \uDFFF ]
+    )
 
-	# Combining
-	(
-		[
-			\u0300 - \u036F
-			\u1AB0 - \u1AFF
-			\u1DC0 - \u1DFF
-			\u20D0 - \u20FF
-			\uFE20 - \uFE2F
-		]+
-	)
+    # Combining
+    (
+        [
+            \u0300 - \u036F
+            \u1AB0 - \u1AFF
+            \u1DC0 - \u1DFF
+            \u20D0 - \u20FF
+            \uFE20 - \uFE2F
+        ]+
+    )
 ///g
 
 transforms.reverse = ( s ) ->
-	s = s.replace(
-		reverseTransformCombining,
-		( _, original, marks ) ->
-			transforms.reverse( marks ) + original
-	).replace(
-		/([\uD800-\uDBFF])([\uDC00-\uDFFF])/g,
-		'$2$1'
-	)
+    s = s.replace(
+        reverseTransformCombining,
+        ( _, original, marks ) ->
+            transforms.reverse( marks ) + original
+    ).replace(
+        /([\uD800-\uDBFF])([\uDC00-\uDFFF])/g,
+        '$2$1'
+    )
 
-	return ( s.charAt( i ) for i in [s.length..0] ).join("")
+    return ( s.charAt( i ) for i in [s.length..0] ).join("")
 
 ########################### CHARACTER MAP TRANSFORMS ###########################
 
@@ -208,67 +208,67 @@ transforms.circled = genStringTransform "
 "
 
 transforms.superscript = genMapTransform
-	"0": "\u2070"
-	"1": "\u00b9"
-	"2": "\u00b2"
-	"3": "\u00b3"
-	"4": "\u2074"
-	"5": "\u2075"
-	"6": "\u2076"
-	"7": "\u2077"
-	"8": "\u2078"
-	"9": "\u2079"
+    "0": "\u2070"
+    "1": "\u00b9"
+    "2": "\u00b2"
+    "3": "\u00b3"
+    "4": "\u2074"
+    "5": "\u2075"
+    "6": "\u2076"
+    "7": "\u2077"
+    "8": "\u2078"
+    "9": "\u2079"
 
-	"a": "\u1d43"
-	"b": "\u1d47"
-	"c": ""
-	"d": "\u1d48"
-	"e": "\u1d49"
-	"f": ""
-	"g": "\u1d4d"
-	"h": "\u02b0"
-	"i": ""
-	"j": "\u02b2"
-	"k": "\u1d4f"
-	"l": ""
-	"m": "\u1d50"
-	"n": ""
-	"o": "\u1d52"
-	"p": "\u1d56"
-	"q": ""
-	"r": "\u02b3"
-	"s": ""
-	"t": "\u1d57"
-	"u": "\u1d58"
-	"v": "\u1d5b"
-	"w": "\u02b7"
-	"x": "\u02b8"
-	"y": "\u02b8"
-	"z": ""
+    "a": "\u1d43"
+    "b": "\u1d47"
+    "c": ""
+    "d": "\u1d48"
+    "e": "\u1d49"
+    "f": ""
+    "g": "\u1d4d"
+    "h": "\u02b0"
+    "i": ""
+    "j": "\u02b2"
+    "k": "\u1d4f"
+    "l": ""
+    "m": "\u1d50"
+    "n": ""
+    "o": "\u1d52"
+    "p": "\u1d56"
+    "q": ""
+    "r": "\u02b3"
+    "s": ""
+    "t": "\u1d57"
+    "u": "\u1d58"
+    "v": "\u1d5b"
+    "w": "\u02b7"
+    "x": "\u02b8"
+    "y": "\u02b8"
+    "z": ""
 
-	"A": "\u1d2c"
-	"B": "\u1d2e"
-	"C": ""
-	"D": "\u1d30"
-	"E": "\u1d31"
-	"F": ""
-	"G": "\u1d33"
-	"H": "\u1d34"
-	"I": "\u1d35"
-	"J": "\u1d36"
-	"K": "\u1d37"
-	"L": "\u1d38"
-	"M": "\u1d39"
-	"N": "\u1d3a"
-	"O": "\u1d3c"
-	"P": "\u1d3e"
-	"Q": ""
-	"R": "\u1d3f"
-	"S": ""
-	"T": "\u1d40"
-	"U": "\u1d41"
-	"V": ""
-	"W": "\u1d42"
-	"X": ""
-	"Y": ""
-	"Z": ""
+    "A": "\u1d2c"
+    "B": "\u1d2e"
+    "C": ""
+    "D": "\u1d30"
+    "E": "\u1d31"
+    "F": ""
+    "G": "\u1d33"
+    "H": "\u1d34"
+    "I": "\u1d35"
+    "J": "\u1d36"
+    "K": "\u1d37"
+    "L": "\u1d38"
+    "M": "\u1d39"
+    "N": "\u1d3a"
+    "O": "\u1d3c"
+    "P": "\u1d3e"
+    "Q": ""
+    "R": "\u1d3f"
+    "S": ""
+    "T": "\u1d40"
+    "U": "\u1d41"
+    "V": ""
+    "W": "\u1d42"
+    "X": ""
+    "Y": ""
+    "Z": ""

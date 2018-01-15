@@ -1,42 +1,42 @@
 //-
-	# Dropdown List ########
+    # Dropdown List ########
 
-	Dropdown List is widget that provides support for nestable, toggle-able
-	unordered lists.
+    Dropdown List is widget that provides support for nestable, toggle-able
+    unordered lists.
 
-	+dropdown-list-toggle creates an anchor element that will toggle the
-	dropdown-list-contents' visibility when clicked.
+    +dropdown-list-toggle creates an anchor element that will toggle the
+    dropdown-list-contents' visibility when clicked.
 
-	+dropdown-list-contents is the container that has its visibility toggled.
+    +dropdown-list-contents is the container that has its visibility toggled.
 
-	Example Usage:
+    Example Usage:
 
-	+dropdown-list
-		li
-			+dropdown-list-toggle Spoiler
-			+dropdown-list-contents
-				p Harry Potter dies
+    +dropdown-list
+        li
+            +dropdown-list-toggle Spoiler
+            +dropdown-list-contents
+                p Harry Potter dies
 
 append scripts
-	script( src = ROOT + "/resources/layouts/main/util/dropdownlist.js" )
+    script( src = ROOT + "/resources/layouts/main/util/dropdownlist.js" )
 
 prepend head
-	link(
-		rel = "stylesheet"
-		href = ROOT + "/resources/layouts/main/util/dropdownlist.css"
-	)
+    link(
+        rel = "stylesheet"
+        href = ROOT + "/resources/layouts/main/util/dropdownlist.css"
+    )
 
 mixin dropdown-list
-	ul.dropdown--list&attributes( attributes )
-		if block
-			block
+    ul.dropdown--list&attributes( attributes )
+        if block
+            block
 
 mixin dropdown-list-toggle
-	a( href = "#" ).dropdown--list--toggle&attributes( attributes )
-		if block
-			block
+    a( href = "#" ).dropdown--list--toggle&attributes( attributes )
+        if block
+            block
 
 mixin dropdown-list-contents
-	.dropdown--list--contents&attributes( attributes )
-		if block
-			block
+    .dropdown--list--contents&attributes( attributes )
+        if block
+            block

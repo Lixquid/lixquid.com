@@ -2,64 +2,64 @@ extends /resources/layouts/main/main
 include /resources/layouts/main/util/tabs
 
 append head
-	link(
-		rel = "stylesheet"
-		href = "index.css"
-	)
+    link(
+        rel = "stylesheet"
+        href = "index.css"
+    )
 
 block main
 
-	include palettes
+    include palettes
 
-	h1 Palettes
+    h1 Palettes
 
-	input( readonly, type = "text", value = "#000000" )#output--input
-	.row
-		.col-sm-6
-			.form-check
-				label.form-check-label
-					input.form-check-input( type = "checkbox" )#output--copy
-					= " "
-					| Copy on select
-		.col-sm-3
-			.form-check
-				label.form-check-label
-					input.form-check-label(
-						type = "radio"
-						name = "colortype"
-						checked
-					)#output--hex
-					= " "
-					| Hex
-		.col-sm-3
-			.form-check
-				label.form-check-label
-					input.form-check-label(
-						type = "radio"
-						name = "colortype"
-					)#output--hex
-					= " "
-					| RGB
+    input( readonly, type = "text", value = "#000000" )#output--input
+    .row
+        .col-sm-6
+            .form-check
+                label.form-check-label
+                    input.form-check-input( type = "checkbox" )#output--copy
+                    = " "
+                    | Copy on select
+        .col-sm-3
+            .form-check
+                label.form-check-label
+                    input.form-check-label(
+                        type = "radio"
+                        name = "colortype"
+                        checked
+                    )#output--hex
+                    = " "
+                    | Hex
+        .col-sm-3
+            .form-check
+                label.form-check-label
+                    input.form-check-label(
+                        type = "radio"
+                        name = "colortype"
+                    )#output--hex
+                    = " "
+                    | RGB
 
 
-	.card
-		+tab-nav
-			each name, id in names
-				+tab-nav-link( name, `palette--${id}` )
-		each palette, id in palettes
-			+tab-page( `palette--${id}` )
-				table.palette--table
-					each row in palette
-						tr
-							each col in row
-								td
-									button.palette--color(
-										style = `background: #${toHex(col)}`
-										data-color-r = col[0]
-										data-color-g = col[1]
-										data-color-b = col[2]
-										data-color-hex = toHex(col)
-									)
+    .card
+        +tab-nav
+            each name, id in names
+                +tab-nav-link( name, `palette--${id}` )
+        each palette, id in palettes
+            +tab-page( `palette--${id}` )
+                table.palette--table
+                    each row in palette
+                        tr
+                            each col in row
+                                td
+                                    button.palette--color(
+                                        style = `background: #${toHex(col)}`
+                                        data-color-r = col[0]
+                                        data-color-g = col[1]
+                                        data-color-b = col[2]
+                                        data-color-hex = toHex(col)
+                                    )
 
 append scripts
-	script( src = "index.js" )
+    script( src = "index.js" )

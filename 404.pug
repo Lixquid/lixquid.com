@@ -1,48 +1,48 @@
 extends /resources/layouts/main/main
 
 append head
-	style
-		:stylus
-			#error--main
-				width 100%
+    style
+        :stylus
+            #error--main
+                width 100%
 
-				font-size 12rem
-				font-weight bold
-				text-align center
+                font-size 12rem
+                font-weight bold
+                text-align center
 
-			#error--sub
-				width 100%
+            #error--sub
+                width 100%
 
-				font-size 3rem
-				text-align center
+                font-size 3rem
+                text-align center
 
 block main
-	#error--main 404
-	#error--sub bad
+    #error--main 404
+    #error--sub bad
 
-	script
-		:coffee-script
-			phrases = [
-				"Doubleplus ungood"
-				"That's an error"
-				"rats"
-				"ow"
-				"unforeseen consequences"
-				"Wrong fork, sir"
-				"You are the weakest link, goodbye"
-				"fake news"
-				":("
-				"downvoted"
-				"report hanzo"
-				"sage"
-				"(USER WAS BANNED FOR THIS POST)"
-				"user is not in the sudoers file. This incident will be
-					reported."
-				"help"
-				"b&"
-				"rekt"
-				"You chose poorly"
-				"You are likely to be eaten by a grue"
-			]
-			document.getElementById( "error--sub" ).textContent =
-				phrases[ Math.floor( Math.random() * phrases.length ) ]
+    script
+        :coffee-script
+            phrases = [
+                "Doubleplus ungood"
+                "That's an error"
+                "rats"
+                "ow"
+                "unforeseen consequences"
+                "Wrong fork, sir"
+                "You are the weakest link, goodbye"
+                "fake news"
+                ":("
+                "downvoted"
+                "report hanzo"
+                "sage"
+                "(USER WAS BANNED FOR THIS POST)"
+                "user is not in the sudoers file. This incident will be
+                    reported."
+                "help"
+                "b&"
+                "rekt"
+                "You chose poorly"
+                "You are likely to be eaten by a grue"
+            ]
+            document.getElementById( "error--sub" ).textContent =
+                phrases[ Math.floor( Math.random() * phrases.length ) ]

@@ -3,54 +3,54 @@ extends /resources/layouts/base/base
 //- Blocks -------------------------------------------------------------------//
 
 append head
-	link(
-		href = ROOT +
-			"/resources/external/bootstrap-4.0.0-beta/css/bootstrap.min.css"
-		rel = "stylesheet"
-	)
-	link(
-		href = ROOT + "/resources/layouts/main/main.css"
-		rel = "stylesheet"
-	)
-	meta(
-		name = "viewport"
-		content = "width=device-width, initial-scale=1"
-	)
-	meta(
-		encoding = "utf-8"
-	)
+    link(
+        href = ROOT +
+            "/resources/external/bootstrap-4.0.0-beta/css/bootstrap.min.css"
+        rel = "stylesheet"
+    )
+    link(
+        href = ROOT + "/resources/layouts/main/main.css"
+        rel = "stylesheet"
+    )
+    meta(
+        name = "viewport"
+        content = "width=device-width, initial-scale=1"
+    )
+    meta(
+        encoding = "utf-8"
+    )
 
 append body
 
-	.main--container
-		header.main--nav
-			hr.main--nav--hr
-			a( href = ROOT + "/" ).main--logo
-				img(
-					src = ROOT + "/resources/layouts/main/logo.png"
-					alt = "Lixquid"
-				)
-			hr.main--nav--hr
-			nav
-				mixin main--nav--separator
-					span.main--nav--separator /
+    .main--container
+        header.main--nav
+            hr.main--nav--hr
+            a( href = ROOT + "/" ).main--logo
+                img(
+                    src = ROOT + "/resources/layouts/main/logo.png"
+                    alt = "Lixquid"
+                )
+            hr.main--nav--hr
+            nav
+                mixin main--nav--separator
+                    span.main--nav--separator /
 
-				a( href = ROOT + "/projects" ) Projects
-				+main--nav--separator
-				a( href = ROOT + "/gadgets" ) Gadgets
-				+main--nav--separator
-				a( href = ROOT + "/blog" ) Blog
+                a( href = ROOT + "/projects" ) Projects
+                +main--nav--separator
+                a( href = ROOT + "/gadgets" ) Gadgets
+                +main--nav--separator
+                a( href = ROOT + "/blog" ) Blog
 
-		main#main--main
-			block main
-				h1 Hello World!
+        main#main--main
+            block main
+                h1 Hello World!
 
 
 
-		footer.main--footer#main--footer--quote
-			p Inspirational Quote
+        footer.main--footer#main--footer--quote
+            p Inspirational Quote
 
 append scripts
-	script( src = ROOT + "/resources/layouts/main/main.js" )
+    script( src = ROOT + "/resources/layouts/main/main.js" )
 
 //- Includes -----------------------------------------------------------------//

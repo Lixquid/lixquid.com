@@ -2,76 +2,76 @@ extends /resources/layouts/main/main
 include /resources/external/bootstrap-4.0.0-beta/pug
 
 append head
-	style
-		:stylus
-			.dropdown-arrow
-				&:after
-					display inline-block
+    style
+        :stylus
+            .dropdown-arrow
+                &:after
+                    display inline-block
 
-					width 0
-					height 0
-					margin-left .255em
+                    width 0
+                    height 0
+                    margin-left .255em
 
-					border-top .3em solid
-					border-right .3em solid transparent
-					border-left .3em solid transparent
+                    border-top .3em solid
+                    border-right .3em solid transparent
+                    border-left .3em solid transparent
 
-					vertical-align @margin-left
+                    vertical-align @margin-left
 
-					content ""
-				&._toggled:after
-					border-top none
-					border-bottom .3em solid
+                    content ""
+                &._toggled:after
+                    border-top none
+                    border-bottom .3em solid
 
 block main
-	h1 Regex Tester
+    h1 Regex Tester
 
-	.form-group
-		label( for = "input--regex" )
-			small.text-muted Regex
-		.input-group
-			span.input-group-addon /
-			input#input--regex.form-control( type = "text" )
-			.input-group-btn
-				button.btn.btn-secondary.dropdown-toggle#dropdown--text(
-					data-toggle = "dropdown"
-				) /
-				.dropdown-menu.dropdown-menu-right#dropdown--flags
-					button#flag--g.dropdown-item( href = "#" ).
-						#[code g] #[em.text-muted Global]
-					button#flag--i.dropdown-item( href = "#" ).
-						#[code i] #[em.text-muted Ignore Case]
-					button#flag--m.dropdown-item( href = "#" ).
-						#[code m] #[em.text-muted Multiline]
-					button#flag--u.dropdown-item( href = "#" ).
-						#[code u] #[em.text-muted Unicode]
+    .form-group
+        label( for = "input--regex" )
+            small.text-muted Regex
+        .input-group
+            span.input-group-addon /
+            input#input--regex.form-control( type = "text" )
+            .input-group-btn
+                button.btn.btn-secondary.dropdown-toggle#dropdown--text(
+                    data-toggle = "dropdown"
+                ) /
+                .dropdown-menu.dropdown-menu-right#dropdown--flags
+                    button#flag--g.dropdown-item( href = "#" ).
+                        #[code g] #[em.text-muted Global]
+                    button#flag--i.dropdown-item( href = "#" ).
+                        #[code i] #[em.text-muted Ignore Case]
+                    button#flag--m.dropdown-item( href = "#" ).
+                        #[code m] #[em.text-muted Multiline]
+                    button#flag--u.dropdown-item( href = "#" ).
+                        #[code u] #[em.text-muted Unicode]
 
-	.form-group
-		label( for = "input--input" )
-			small.text-muted Input
-		textarea.form-control#input--input
+    .form-group
+        label( for = "input--input" )
+            small.text-muted Input
+        textarea.form-control#input--input
 
-	button.btn.btn-primary#input--match Match
+    button.btn.btn-primary#input--match Match
 
-	#single--div( style = "display: none" )
-		h4.mt-3 Match
-		code#single--match
+    #single--div( style = "display: none" )
+        h4.mt-3 Match
+        code#single--match
 
-		h4.mt-3 Groups
-		ol#single--groups
+        h4.mt-3 Groups
+        ol#single--groups
 
-		h4.mt-3 Position
-		button.btn.btn-outline-secondary.dropdown-arrow#single--toggle Show
-		.card.border-secondary.mt-2( style = "display: none" )#single--position
-			.card-body
-				pre#single--position--contents
+        h4.mt-3 Position
+        button.btn.btn-outline-secondary.dropdown-arrow#single--toggle Show
+        .card.border-secondary.mt-2( style = "display: none" )#single--position
+            .card-body
+                pre#single--position--contents
 
-	#multi--div( style = "display: none" ).mt-2
-		h2 Matches
+    #multi--div( style = "display: none" ).mt-2
+        h2 Matches
 
-		ul#multi--list
+        ul#multi--list
 
-	.alert.alert-danger.mt-2( style = "display: none" )#error
+    .alert.alert-danger.mt-2( style = "display: none" )#error
 
 append scripts
-	script( src = "index.js" )
+    script( src = "index.js" )

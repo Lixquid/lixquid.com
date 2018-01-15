@@ -2,125 +2,125 @@ extends /resources/layouts/main/main
 include /resources/layouts/main/util/tabs
 
 append head
-	link( rel="stylesheet", href="index.css" )
+    link( rel="stylesheet", href="index.css" )
 
 append scripts
-	script( src = "index.js" )
+    script( src = "index.js" )
 
 block main
-	.row
-		.col-xs-12
-			h1 Converter
+    .row
+        .col-xs-12
+            h1 Converter
 
-	.card
-		+tab-nav
-			+tab-nav-link( "Colour", "tab--colour" )
-		+tab-page( "tab--colour" )
-			h3 RGB
-			.row
-				.col-md-3
-					.input-group
-						span.input-group-addon Red
-						input#colour--rgb--r.form-control(
-							type = "number"
-							step = 1
-							min = 0
-							max = 255
-							value = 97
-						)
-				.col-md-3
-					.input-group
-						span.input-group-addon Green
-						input#colour--rgb--g.form-control(
-							type = "number"
-							step = 1
-							min = 0
-							max = 255
-							value = 147
-						)
-				.col-md-3
-					.input-group
-						span.input-group-addon Blue
-						input#colour--rgb--b.form-control(
-							type = "number"
-							step = 1
-							min = 0
-							max = 255
-							value = 207
-						)
-				.col-md-3
-					.input-group
-						span.input-group-addon Alpha
-						input#colour--rgb--a.form-control(
-							type = "number"
-							step = 1
-							min = 0
-							max = 255
-							value = 255
-						)
-			br
-			h3 Hex
-			.input-group
-				span.input-group-addon #
-				input#colour--hex.form-control(
-					type = "text"
-					value = "6193CF"
-				)
-			br
-			h3 CMYK
-			.row
-				.col-md-3
-					.input-group
-						span.input-group-addon Cyan
-						input#colour--cmyk--c.form-control(
-							type = "number"
-							step = 0.001
-							min = 0
-							max = 1
-							value = 0.531
-						)
-				.col-md-3
-					.input-group
-						span.input-group-addon Magenta
-						input#colour--cmyk--m.form-control(
-							type = "number"
-							step = 0.001
-							min = 0
-							max = 1
-							value = 0.29
-						)
-				.col-md-3
-					.input-group
-						span.input-group-addon Yellow
-						input#colour--cmyk--y.form-control(
-							type = "number"
-							step = 0.001
-							min = 0
-							max = 1
-							value = 0
-						)
-				.col-md-3
-					.input-group
-						span.input-group-addon Key
-						input#colour--cmyk--k.form-control(
-							type = "number"
-							step = 0.001
-							min = 0
-							max = 1
-							value = 0.188
-						)
-			br
-			h3 Display
-			.checkered-bg
-				.card#colour--display--card( style="background-color: #6193CF" )
-					.card-body
-						p.text-dark Dark Text
-						span.text-light Light Text
-			.card.bg-light.mt-2
-				.card-body
-					span#colour--display--lightbg( style = "color: #6193CF" )
-						| On a light background
-			.card.bg-dark.mt-2
-				.card-body
-					span#colour--display--darkbg( style = "color: #6193CF" )
-						| On a dark background
+    .card
+        +tab-nav
+            +tab-nav-link( "Colour", "tab--colour" )
+        +tab-page( "tab--colour" )
+            h3 RGB
+            .row
+                .col-md-3
+                    .input-group
+                        span.input-group-addon Red
+                        input#colour--rgb--r.form-control(
+                            type = "number"
+                            step = 1
+                            min = 0
+                            max = 255
+                            value = 97
+                        )
+                .col-md-3
+                    .input-group
+                        span.input-group-addon Green
+                        input#colour--rgb--g.form-control(
+                            type = "number"
+                            step = 1
+                            min = 0
+                            max = 255
+                            value = 147
+                        )
+                .col-md-3
+                    .input-group
+                        span.input-group-addon Blue
+                        input#colour--rgb--b.form-control(
+                            type = "number"
+                            step = 1
+                            min = 0
+                            max = 255
+                            value = 207
+                        )
+                .col-md-3
+                    .input-group
+                        span.input-group-addon Alpha
+                        input#colour--rgb--a.form-control(
+                            type = "number"
+                            step = 1
+                            min = 0
+                            max = 255
+                            value = 255
+                        )
+            br
+            h3 Hex
+            .input-group
+                span.input-group-addon #
+                input#colour--hex.form-control(
+                    type = "text"
+                    value = "6193CF"
+                )
+            br
+            h3 CMYK
+            .row
+                .col-md-3
+                    .input-group
+                        span.input-group-addon Cyan
+                        input#colour--cmyk--c.form-control(
+                            type = "number"
+                            step = 0.001
+                            min = 0
+                            max = 1
+                            value = 0.531
+                        )
+                .col-md-3
+                    .input-group
+                        span.input-group-addon Magenta
+                        input#colour--cmyk--m.form-control(
+                            type = "number"
+                            step = 0.001
+                            min = 0
+                            max = 1
+                            value = 0.29
+                        )
+                .col-md-3
+                    .input-group
+                        span.input-group-addon Yellow
+                        input#colour--cmyk--y.form-control(
+                            type = "number"
+                            step = 0.001
+                            min = 0
+                            max = 1
+                            value = 0
+                        )
+                .col-md-3
+                    .input-group
+                        span.input-group-addon Key
+                        input#colour--cmyk--k.form-control(
+                            type = "number"
+                            step = 0.001
+                            min = 0
+                            max = 1
+                            value = 0.188
+                        )
+            br
+            h3 Display
+            .checkered-bg
+                .card#colour--display--card( style="background-color: #6193CF" )
+                    .card-body
+                        p.text-dark Dark Text
+                        span.text-light Light Text
+            .card.bg-light.mt-2
+                .card-body
+                    span#colour--display--lightbg( style = "color: #6193CF" )
+                        | On a light background
+            .card.bg-dark.mt-2
+                .card-body
+                    span#colour--display--darkbg( style = "color: #6193CF" )
+                        | On a dark background

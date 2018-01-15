@@ -1,10 +1,10 @@
 ## Variables ###################################################################
 
 regexFlags =
-	g: false
-	i: false
-	m: false
-	u: false
+    g: false
+    i: false
+    m: false
+    u: false
 
 ## Elements ####################################################################
 
@@ -29,99 +29,99 @@ updateFlagsText = -> eDropdownText.innerText = "/" + flagsText()
 ## Events ######################################################################
 
 document.getElementById( "dropdown--flags" ).addEventListener(
-	"click.bs.dropdown",
-	( ev ) ->
-		ev.stopPropagation()
-		ev.preventDefault()
+    "click.bs.dropdown",
+    ( ev ) ->
+        ev.stopPropagation()
+        ev.preventDefault()
 )
 document.getElementById( "flag--g" ).addEventListener "click", ->
-	regexFlags.g = not regexFlags.g
-	updateFlagsText()
+    regexFlags.g = not regexFlags.g
+    updateFlagsText()
 document.getElementById( "flag--i" ).addEventListener "click", ->
-	regexFlags.i = not regexFlags.i
-	updateFlagsText()
+    regexFlags.i = not regexFlags.i
+    updateFlagsText()
 document.getElementById( "flag--m" ).addEventListener "click", ->
-	regexFlags.m = not regexFlags.m
-	updateFlagsText()
+    regexFlags.m = not regexFlags.m
+    updateFlagsText()
 document.getElementById( "flag--u" ).addEventListener "click", ->
-	regexFlags.u = not regexFlags.u
-	updateFlagsText()
+    regexFlags.u = not regexFlags.u
+    updateFlagsText()
 
 eSingleToggle.addEventListener "click", ->
-	if eSinglePosition.style.display
-		eSinglePosition.style.display = null
-		eSingleToggle.classList.add( "_toggled" )
-	else
-		eSinglePosition.style.display = "none"
-		eSingleToggle.classList.remove( "_toggled" )
+    if eSinglePosition.style.display
+        eSinglePosition.style.display = null
+        eSingleToggle.classList.add( "_toggled" )
+    else
+        eSinglePosition.style.display = "none"
+        eSingleToggle.classList.remove( "_toggled" )
 
 document.getElementById( "input--match" ).addEventListener "click", ->
 
-	eError.style.display = "none"
-	eMultiDiv.style.display = "none"
-	eSingleDiv.style.display = "none"
+    eError.style.display = "none"
+    eMultiDiv.style.display = "none"
+    eSingleDiv.style.display = "none"
 
-	try
-		data = eInputInput.value.match(
-			new RegExp( eInputRegex.value, flagsText() ) )
-	catch ex
-		eError.style.display = null
-		eError.innerText = "Regex input is not valid!"
-		console.error ex
-		return
+    try
+        data = eInputInput.value.match(
+            new RegExp( eInputRegex.value, flagsText() ) )
+    catch ex
+        eError.style.display = null
+        eError.innerText = "Regex input is not valid!"
+        console.error ex
+        return
 
-	## No match
+    ## No match
 
-	if not data
-		eError.style.display = null
-		eError.innerText = "No Matches Found"
-		return
+    if not data
+        eError.style.display = null
+        eError.innerText = "No Matches Found"
+        return
 
-	## Single
+    ## Single
 
-	if not regexFlags.g
-		eSingleDiv.style.display = null
-		eSingleMatch.innerText = data[0]
+    if not regexFlags.g
+        eSingleDiv.style.display = null
+        eSingleMatch.innerText = data[0]
 
-		if data.length == 1
-			eSingleGroups.innerText = "No groups captured"
-		else
-			eSingleGroups.innerHTML = ""
-			for group, num in data when num != 0
-				eCode = document.createElement "code"
-				eCode.innerText = group
+        if data.length == 1
+            eSingleGroups.innerText = "No groups captured"
+        else
+            eSingleGroups.innerHTML = ""
+            for group, num in data when num != 0
+                eCode = document.createElement "code"
+                eCode.innerText = group
 
-				eLi = document.createElement "li"
-				eLi.appendChild( eCode )
+                eLi = document.createElement "li"
+                eLi.appendChild( eCode )
 
-				eSingleGroups.appendChild( eLi )
+                eSingleGroups.appendChild( eLi )
 
-		eSinglePositionContents.innerHTML = ""
+        eSinglePositionContents.innerHTML = ""
 
-		eSinglePositionContents.appendChild( document.createTextNode(
-			data.input.substr( 0, data.index )
-		) )
+        eSinglePositionContents.appendChild( document.createTextNode(
+            data.input.substr( 0, data.index )
+        ) )
 
-		e = document.createElement "strong"
-		e.innerText = data.input.substr( data.index, data[0].length )
-		eSinglePositionContents.appendChild( e )
+        e = document.createElement "strong"
+        e.innerText = data.input.substr( data.index, data[0].length )
+        eSinglePositionContents.appendChild( e )
 
-		eSinglePositionContents.appendChild( document.createTextNode(
-			data.input.substr( data.index + data[0].length )
-		) )
+        eSinglePositionContents.appendChild( document.createTextNode(
+            data.input.substr( data.index + data[0].length )
+        ) )
 
-		return
+        return
 
-	## Multi
+    ## Multi
 
-	if regexFlags.g
-		eMultiDiv.style.display = null
-		eMultiList.innerHTML = ""
-		for match in data
-			eCode = document.createElement "code"
-			eCode.innerText = match
+    if regexFlags.g
+        eMultiDiv.style.display = null
+        eMultiList.innerHTML = ""
+        for match in data
+            eCode = document.createElement "code"
+            eCode.innerText = match
 
-			eLi = document.createElement "li"
-			eLi.appendChild( eCode )
+            eLi = document.createElement "li"
+            eLi.appendChild( eCode )
 
-			eMultiList.appendChild( eLi )
+            eMultiList.appendChild( eLi )

@@ -1,60 +1,60 @@
 extends /resources/layouts/main/main
 
 block title
-	title #{post.title} - Lixquid
+    title #{post.title} - Lixquid
 
 block main
 
-	-
-		function getOrdinal( num ) {
-			const i = num % 10, k = num % 100;
-			if ( i == 1 && k != 11 ) return "st";
-			if ( i == 2 && k != 12 ) return "nd";
-			if ( i == 3 && k != 13 ) return "rd";
-			return "th";
-		}
-		const monthList = [
-			"January",
-			"February",
-			"March",
-			"April",
-			"May",
-			"June",
-			"July",
-			"August",
-			"September",
-			"October",
-			"November",
-			"December"
-		];
-		function formatDate( date ) {
-			return date.getDate() + getOrdinal( date.getDate() )
-				+ " " + monthList[ date.getMonth() ]
-				+ " " + date.getFullYear();
-		}
-		function formatEditedDate( date ) {
-			if ( !date ) return "";
-			return " / Edited " + formatDate( date );
-		}
-		function formatTags( tags ) {
-			if ( !tags ) return "";
-			return " / Tags: " +
-				tags.map( function( t ) {
-					return `<a href="${ROOT}/blog/#search=tag:${t}">${t}</a>`
-				} ).join( ", " );
-		}
+    -
+        function getOrdinal( num ) {
+            const i = num % 10, k = num % 100;
+            if ( i == 1 && k != 11 ) return "st";
+            if ( i == 2 && k != 12 ) return "nd";
+            if ( i == 3 && k != 13 ) return "rd";
+            return "th";
+        }
+        const monthList = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"
+        ];
+        function formatDate( date ) {
+            return date.getDate() + getOrdinal( date.getDate() )
+                + " " + monthList[ date.getMonth() ]
+                + " " + date.getFullYear();
+        }
+        function formatEditedDate( date ) {
+            if ( !date ) return "";
+            return " / Edited " + formatDate( date );
+        }
+        function formatTags( tags ) {
+            if ( !tags ) return "";
+            return " / Tags: " +
+                tags.map( function( t ) {
+                    return `<a href="${ROOT}/blog/#search=tag:${t}">${t}</a>`
+                } ).join( ", " );
+        }
 
-	-
-		if ( post.date && typeof post.date != "number" )
-			post.date = new Date( post.date );
-		if ( post.dateEdited && typeof post.dateEdited != "number" )
-			post.dateEdited = new Date( post.dateEdited );
+    -
+        if ( post.date && typeof post.date != "number" )
+            post.date = new Date( post.date );
+        if ( post.dateEdited && typeof post.dateEdited != "number" )
+            post.dateEdited = new Date( post.dateEdited );
 
-	h1.mb-0= post.title
-	small.text-muted.d-block.mb-4
-		= formatDate( post.date )
-		= formatEditedDate( post.dateEdited )
-		!= formatTags( post.tags )
+    h1.mb-0= post.title
+    small.text-muted.d-block.mb-4
+        = formatDate( post.date )
+        = formatEditedDate( post.dateEdited )
+        != formatTags( post.tags )
 
-	article
-		block post
+    article
+        block post

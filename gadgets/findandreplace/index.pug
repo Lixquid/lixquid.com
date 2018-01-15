@@ -2,82 +2,82 @@ extends /resources/layouts/main/main
 include /resources/external/bootstrap-4.0.0-beta/pug
 
 append scripts
-	script( src="index.js" )
+    script( src="index.js" )
 
 block main
-	h1 Find and Replace
+    h1 Find and Replace
 
-	.row
-		.col-md-6.form-group
-			label( for="input--find" ) Find
-			input.form-control#input--find
-		.col-md-6.form-group
-			label( for="input--replace" ) Replace
-			input.form-control#input--replace
-	.row.mb-2
-		.col-sm-3
-			label.form-check-label
-				input.form-check-input( type="checkbox" )#input--case
-				= " "
-				| Ignore Case
-		.col-sm-3
-			label.form-check-label
-				input.form-check-input( type="checkbox" )#input--whole
-				= " "
-				| Find Whole Word
-		.col-sm-3
-			label.form-check-label
-				input.form-check-input( type="checkbox" )#input--regex
-				= " "
-				| Regex Find
-			br
-			label.form-check-label
-				input.form-check-input(
-					type="checkbox"
-					disabled
-				)#input--multiline
-				= " "
-				| Multiline
-		.col-sm-3
-			label.form-check-label
-				input.form-check-input( type="checkbox" )#input--escapes
-				= " "
-				| Replace Escapes
-				br
-				small
-					button.btn.btn-link.btn-sm(
-						data-toggle = "modal"
-						data-target = "#escapesHelp"
-					) Help?
+    .row
+        .col-md-6.form-group
+            label( for="input--find" ) Find
+            input.form-control#input--find
+        .col-md-6.form-group
+            label( for="input--replace" ) Replace
+            input.form-control#input--replace
+    .row.mb-2
+        .col-sm-3
+            label.form-check-label
+                input.form-check-input( type="checkbox" )#input--case
+                = " "
+                | Ignore Case
+        .col-sm-3
+            label.form-check-label
+                input.form-check-input( type="checkbox" )#input--whole
+                = " "
+                | Find Whole Word
+        .col-sm-3
+            label.form-check-label
+                input.form-check-input( type="checkbox" )#input--regex
+                = " "
+                | Regex Find
+            br
+            label.form-check-label
+                input.form-check-input(
+                    type="checkbox"
+                    disabled
+                )#input--multiline
+                = " "
+                | Multiline
+        .col-sm-3
+            label.form-check-label
+                input.form-check-input( type="checkbox" )#input--escapes
+                = " "
+                | Replace Escapes
+                br
+                small
+                    button.btn.btn-link.btn-sm(
+                        data-toggle = "modal"
+                        data-target = "#escapesHelp"
+                    ) Help?
 
-	.form-group.mt-4
-		label( for="input--input" ) Input
-		textarea.form-control( rows=4 )#input--input
-	.text-right
-		button.btn.btn-outline-secondary( disabled )#input--undo Undo
-		= " "
-		button.btn.btn-primary.btn-lg#input--match Replace
+    .form-group.mt-4
+        label( for="input--input" ) Input
+        textarea.form-control( rows=4 )#input--input
+    .text-right
+        button.btn.btn-outline-secondary( disabled )#input--undo Undo
+        = " "
+        button.btn.btn-primary.btn-lg#input--match Replace
 
-	.modal.fade( tabindex = -1 )#escapesHelp
-		.modal-dialog
-			.modal-content
-				.modal-header
-					h5.modal-total Replace Escapes
-					button.close( data-dismiss = "modal" ) &times;
-				.modal-body
-					:markdown-it
-						When *Replace Escapes* is enabled, certain escape
-						sequences will be replaced:
+    .modal.fade( tabindex = -1 )#escapesHelp
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    h5.modal-total Replace Escapes
+                    button.close( data-dismiss = "modal" ) &times;
+                .modal-body
+                    :markdown-it
+                        When *Replace Escapes* is enabled, certain escape
+                        sequences will be replaced:
 
-						- `$$`: Replaced with a literal `$`
-						- `$&`: Replaced with the string that matched the Find
-						query.
-						- `` $` ``: Replaced with the input that occurs before
-						the matched string.
-						- `$'`: Replaced with the input that occurs after the
-						matched string.
-						- `$n`: Where `n` is a positive integer, inserts the
-						`n`th group from the Find query. Only applies if *Regex
-						Find* is enabled.
-				.modal-footer
-					button.btn.btn-secondary( data-dismiss = "modal" ) Close
+                        - `$$`: Replaced with a literal `$`
+                        - `$&`: Replaced with the string that matched the Find
+                        query.
+                        - `` $` ``: Replaced with the input that occurs before
+                        the matched string.
+                        - `$'`: Replaced with the input that occurs after the
+                        matched string.
+                        - `$n`: Where `n` is a positive integer, inserts the
+                        `n`th group from the Find query. Only applies if *Regex
+                        Find* is enabled.
+                .modal-footer
+                    button.btn.btn-secondary( data-dismiss = "modal" ) Close

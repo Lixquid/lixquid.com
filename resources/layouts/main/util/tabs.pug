@@ -1,29 +1,29 @@
 mixin tab-nav
-	- _tabNavFirst = true;
-	- _tabPageFirst = true;
-	.card-header
-		ul.nav.nav-tabs.card-header-tabs
-			if block
-				block
+    - _tabNavFirst = true;
+    - _tabPageFirst = true;
+    .card-header
+        ul.nav.nav-tabs.card-header-tabs
+            if block
+                block
 mixin tab-nav-link( name, target, id = null )
-	li.nav-item
-		a(
-			href = "#"
-			class = "nav-link tab--nav" +
-				( _tabNavFirst ? " active" : "" )
-			data-target = target
-			id = id
-		)= name
-		- _tabNavFirst = false;
+    li.nav-item
+        a(
+            href = "#"
+            class = "nav-link tab--nav" +
+                ( _tabNavFirst ? " active" : "" )
+            data-target = target
+            id = id
+        )= name
+        - _tabNavFirst = false;
 
 mixin tab-page( id )
-	.card-body.tab--page(
-		style = _tabPageFirst ? "" : "display: none"
-		id = id
-	)
-		if block
-			block
-		- _tabPageFirst = false;
+    .card-body.tab--page(
+        style = _tabPageFirst ? "" : "display: none"
+        id = id
+    )
+        if block
+            block
+        - _tabPageFirst = false;
 
 append scripts
-	script( src = ROOT + "/resources/layouts/main/util/tabs.js" )
+    script( src = ROOT + "/resources/layouts/main/util/tabs.js" )

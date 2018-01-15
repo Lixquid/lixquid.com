@@ -3,14 +3,14 @@ include /resources/external/fontawesome-4.7.0/pug
 
 block main
 
-	p Say Hello!
+    p Say Hello!
 
-	mixin link( url, name, icon )
-		a( href = url ).list-group-item.list-group-item-action
-			h4.mb-0.text-primary #[+fa( class = icon )] #{name}
-			small.text-muted= url
+    mixin link( url, name, icon )
+        a( href = url ).list-group-item.list-group-item-action
+            h4.mb-0.text-primary #[+fa( class = icon )] #{name}
+            small.text-muted= url
 
-	.list-group
-		+link( "https://github.com/lixquid", "GitHub", "github" )
-		+link( "https://gitlab.com/lixquid", "GitLab", "gitlab" )
-		+link( "https://steamcommunity.com/lixquid", "Steam", "steam" )
+    .list-group
+        +link( "https://github.com/lixquid", "GitHub", "github" )
+        +link( "https://gitlab.com/lixquid", "GitLab", "gitlab" )
+        +link( "https://steamcommunity.com/lixquid", "Steam", "steam" )

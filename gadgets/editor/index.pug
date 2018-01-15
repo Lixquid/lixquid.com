@@ -2,42 +2,42 @@ extends /resources/layouts/base/base
 include /resources/external/fontawesome-4.7.0/pug
 
 append head
-	link(
-		rel = "stylesheet"
-		href = "index.css"
-	)
+    link(
+        rel = "stylesheet"
+        href = "index.css"
+    )
 
 append body
 
-	//- Editor /////////////////////////////////////////////////////////////////
+    //- Editor /////////////////////////////////////////////////////////////////
 
-	#editor--toolbar
-		mixin icon( icon, title )
-			button.editor--toolbar--link&attributes( attributes )(
-				title=title
-			)
-				i( class = "fa fa-" + icon )
+    #editor--toolbar
+        mixin icon( icon, title )
+            button.editor--toolbar--link&attributes( attributes )(
+                title=title
+            )
+                i( class = "fa fa-" + icon )
 
-		+icon( "file-o", "New" )#button--new
-		+icon( "floppy-o", "Save" )#button--save
+        +icon( "file-o", "New" )#button--new
+        +icon( "floppy-o", "Save" )#button--save
 
-		.editor--section--right
-			+icon( "close" )( href = ROOT + "/gadgets" )
+        .editor--section--right
+            +icon( "close" )( href = ROOT + "/gadgets" )
 
 
-	#editor
+    #editor
 
-	#editor--statusbar
-		span#editor--statusbar--output My editor is ready
-		.editor--section--right
-			#editor--statusbar--linecol Ln 1, Col 1
+    #editor--statusbar
+        span#editor--statusbar--output My editor is ready
+        .editor--section--right
+            #editor--statusbar--linecol Ln 1, Col 1
 
-	//- Modals /////////////////////////////////////////////////////////////////
+    //- Modals /////////////////////////////////////////////////////////////////
 
-	#modal
-		.modal--box#modal--save
-			h2 Save
+    #modal
+        .modal--box#modal--save
+            h2 Save
 
 append scripts
-	script( src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.8/ace.js" )
-	script( src="index.js" )
+    script( src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.8/ace.js" )
+    script( src="index.js" )

@@ -2,57 +2,57 @@ extends /resources/layouts/main/main
 include /resources/external/bootstrap-4.0.0-beta/pug
 
 append pre
-	-
-		SETTINGS = [
-			{
-				id: "codebreaker--amount",
-				type: "number",
-				name: "Amount of numbers to solve",
-				default: 4,
-				attr: {
-					step: 0,
-					min: 1
-				}
-			},
-			{
-				id: "codebreaker--max",
-				type: "number",
-				name: "Maximum value each number can be",
-				default: 9,
-				attr: {
-					step: 0,
-					min: 2
-				}
-			},
-			{
-				id: "codebreaker--unique",
-				type: "checkbox",
-				name: "No duplicated numbers in code",
-				default: true
-			}
-		];
-		SETTINGS_EXTRA = "<small>Note: Changing these settings will reset" +
-			" the game in-progress!";
+    -
+        SETTINGS = [
+            {
+                id: "codebreaker--amount",
+                type: "number",
+                name: "Amount of numbers to solve",
+                default: 4,
+                attr: {
+                    step: 0,
+                    min: 1
+                }
+            },
+            {
+                id: "codebreaker--max",
+                type: "number",
+                name: "Maximum value each number can be",
+                default: 9,
+                attr: {
+                    step: 0,
+                    min: 2
+                }
+            },
+            {
+                id: "codebreaker--unique",
+                type: "checkbox",
+                name: "No duplicated numbers in code",
+                default: true
+            }
+        ];
+        SETTINGS_EXTRA = "<small>Note: Changing these settings will reset" +
+            " the game in-progress!";
 include /resources/layouts/main/util/settings
 
 block main
-	.row
-		.col-sm-10
-			h1 Codebreaker
-		.col-sm-2.text-right
-			+settings-show
+    .row
+        .col-sm-10
+            h1 Codebreaker
+        .col-sm-2.text-right
+            +settings-show
 
-	.card#game--card
-		.card-body
-			.row#game--input--row
-			br
-			button.btn.btn-success.btn-block.btn-lg#game--guess Guess
-			br
-			button.btn.btn-sm.btn-warning#game--giveup Give Up
-			= " "
-			button.btn.btn-sm.btn-danger#game--reset New Game
-			.alert.alert-danger.mt-2#game--error( style="display:none" )
-			.mt-2#game--output
+    .card#game--card
+        .card-body
+            .row#game--input--row
+            br
+            button.btn.btn-success.btn-block.btn-lg#game--guess Guess
+            br
+            button.btn.btn-sm.btn-warning#game--giveup Give Up
+            = " "
+            button.btn.btn-sm.btn-danger#game--reset New Game
+            .alert.alert-danger.mt-2#game--error( style="display:none" )
+            .mt-2#game--output
 
 append scripts
-	script( src = "index.js" )
+    script( src = "index.js" )

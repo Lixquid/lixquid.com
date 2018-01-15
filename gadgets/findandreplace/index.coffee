@@ -20,34 +20,34 @@ undoList = []
 ## Events ##
 
 document.getElementById( "input--match" ).addEventListener "click", ->
-	input = eFind.value
-	replace = eReplace.value
+    input = eFind.value
+    replace = eReplace.value
 
-	if not eRegex.checked
-		input = escapeInput( input )
-	if eWhole.checked
-		input = "\\b" + input + "\\b"
-	if not eEscapes.checked
-		replace = escapeReplace( replace )
+    if not eRegex.checked
+        input = escapeInput( input )
+    if eWhole.checked
+        input = "\\b" + input + "\\b"
+    if not eEscapes.checked
+        replace = escapeReplace( replace )
 
-	regex = new RegExp( input, "g" +
-		( if eCase.checked then "i" else "" ) +
-		( if eMultiline.checked then "m" else "" )
-	)
+    regex = new RegExp( input, "g" +
+        ( if eCase.checked then "i" else "" ) +
+        ( if eMultiline.checked then "m" else "" )
+    )
 
-	undoList.push eInput.value
-	eUndo.disabled = false
+    undoList.push eInput.value
+    eUndo.disabled = false
 
-	eInput.value = eInput.value.replace( regex, replace )
+    eInput.value = eInput.value.replace( regex, replace )
 
 eRegex.addEventListener "change", ->
-	if eRegex.checked
-		eFind.style.fontFamily = "monospace"
-	else
-		eFind.style.fontFamily = null
-	eMultiline.disabled = not eRegex.checked
+    if eRegex.checked
+        eFind.style.fontFamily = "monospace"
+    else
+        eFind.style.fontFamily = null
+    eMultiline.disabled = not eRegex.checked
 
 eUndo.addEventListener "click", ->
-	eInput.value = undoList.pop()
-	if undoList.length == 0
-		eUndo.disabled = true
+    eInput.value = undoList.pop()
+    if undoList.length == 0
+        eUndo.disabled = true

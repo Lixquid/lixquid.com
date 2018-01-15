@@ -1,48 +1,48 @@
 @require "/resources/layouts/main/util/colors"
 
 .alert--1
-	position relative
+    position relative
 
-	padding .5em
-	padding-top 1.5em
-	margin .5em 0
+    padding .5em
+    padding-top 1.5em
+    margin .5em 0
 
-	border-radius .3em
+    border-radius .3em
 
-	&.warning
-		background lighten( $cRed, 95% )
-		border 1px solid $cRed
-		border-left .3em solid $cRed
-		&:before
-			color darken( $cRed, 50% )
-			content "Warning"
-	&.note
-		$customYellow = darken( $cYellow, 15% )
+    &.warning
+        background lighten( $cRed, 95% )
+        border 1px solid $cRed
+        border-left .3em solid $cRed
+        &:before
+            color darken( $cRed, 50% )
+            content "Warning"
+    &.note
+        $customYellow = darken( $cYellow, 15% )
 
-		background lighten( $customYellow, 95% )
-		border 1px solid $customYellow
-		border-left .3em solid $customYellow
-		&:before
-			color darken( $customYellow, 50% )
-			content "Note"
-	&.tip
-		background lighten( $cGreen, 95% )
-		border 1px solid $cGreen
-		border-left .3em solid $cGreen
-		&:before
-			color darken( $cGreen, 50% )
-			content "Tip"
-	&.info
-		background lighten( $cBlue, 95% )
-		border 1px solid $cBlue
-		border-left .3em solid $cBlue
-		&:before
-			color darken( $cBlue, 50% )
-			content "Info"
+        background lighten( $customYellow, 95% )
+        border 1px solid $customYellow
+        border-left .3em solid $customYellow
+        &:before
+            color darken( $customYellow, 50% )
+            content "Note"
+    &.tip
+        background lighten( $cGreen, 95% )
+        border 1px solid $cGreen
+        border-left .3em solid $cGreen
+        &:before
+            color darken( $cGreen, 50% )
+            content "Tip"
+    &.info
+        background lighten( $cBlue, 95% )
+        border 1px solid $cBlue
+        border-left .3em solid $cBlue
+        &:before
+            color darken( $cBlue, 50% )
+            content "Info"
 
-	&:before
-		position absolute
-		top .2em
-		left .4em
+    &:before
+        position absolute
+        top .2em
+        left .4em
 
-		font-size .7em
+        font-size .7em

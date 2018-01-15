@@ -1,52 +1,52 @@
 extends /resources/layouts/main/main
 
 append pre
-	-
-		SETTINGS = [
-			{
-				id: "debtresolver--precision",
-				type: "number",
-				name: "Number Precision",
-				default: 2,
-				attr: {
-					step: 0
-				}
-			}
-		];
+    -
+        SETTINGS = [
+            {
+                id: "debtresolver--precision",
+                type: "number",
+                name: "Number Precision",
+                default: 2,
+                attr: {
+                    step: 0
+                }
+            }
+        ];
 include /resources/layouts/main/util/settings
 
 append scripts
-	script( src = "index.js" )
+    script( src = "index.js" )
 
 block main
 
-	.row
-		.col-sm-10
-			h1 Debt Resolver
-		.col-sm-2.text-right
-			+settings-show
-	.card.mb-2
-		.card-body#input--list
-			.row.mb-2.input--row( style = "display: none" )#ref--row
-				.col
-					input.form-control.input--from(
-						placeholder = "Alice"
-					)
-				.col-xs-1 owes
-				.col
-					input.form-control.input--amount(
-						placeholder = "0.00"
-						type = "number"
-					)
-				.col-xs-1 to
-				.col
-					input.form-control.input--to(
-						placeholder = "Bob"
-					)
-				.col-xs-1
-					button.btn.btn-outline-danger.input--close &times;
-			button.btn.btn-outline-success#input--new.btn-block.
-				Add new row
-	.text-right
-		button.btn.btn-primary( disabled )#input--resolve Resolve
-	pre#output--temp
+    .row
+        .col-sm-10
+            h1 Debt Resolver
+        .col-sm-2.text-right
+            +settings-show
+    .card.mb-2
+        .card-body#input--list
+            .row.mb-2.input--row( style = "display: none" )#ref--row
+                .col
+                    input.form-control.input--from(
+                        placeholder = "Alice"
+                    )
+                .col-xs-1 owes
+                .col
+                    input.form-control.input--amount(
+                        placeholder = "0.00"
+                        type = "number"
+                    )
+                .col-xs-1 to
+                .col
+                    input.form-control.input--to(
+                        placeholder = "Bob"
+                    )
+                .col-xs-1
+                    button.btn.btn-outline-danger.input--close &times;
+            button.btn.btn-outline-success#input--new.btn-block.
+                Add new row
+    .text-right
+        button.btn.btn-primary( disabled )#input--resolve Resolve
+    pre#output--temp

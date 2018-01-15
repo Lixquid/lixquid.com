@@ -1,12 +1,12 @@
 mixin fa
-	- attributes.class = "fa fa-" + attributes.class;
-	i&attributes( attributes )
+    - attributes.class = "fa fa-" + attributes.class;
+    i&attributes( attributes )
 
 prepend head
-	if !INCLUDED[ "fontawesome-4.7.0" ]
-		- INCLUDED[ "fontawesome-4.7.0" ] = true;
-		link(
-			rel = "stylesheet"
-			href = ROOT +
-				"/resources/external/fontawesome-4.7.0/css/font-awesome.min.css"
-		)
+    if !INCLUDED[ "fontawesome-4.7.0" ]
+        - INCLUDED[ "fontawesome-4.7.0" ] = true;
+        link(
+            rel = "stylesheet"
+            href = ROOT +
+                "/resources/external/fontawesome-4.7.0/css/font-awesome.min.css"
+        )

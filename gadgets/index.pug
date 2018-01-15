@@ -2,59 +2,59 @@ extends /resources/layouts/main/main
 include /resources/layouts/main/util/search
 
 block main
-	h1 Gadgets
-	p.
-		Some small experimental JavaScript apps. JavaScript needs to be enabled
-		for all of them!
+    h1 Gadgets
+    p.
+        Some small experimental JavaScript apps. JavaScript needs to be enabled
+        for all of them!
 
-	-
-		search_tags = {
-			"Desktop Only": "#007bff",
-			"WIP": "#dc3545",
-			"Tool": "#BABDB6",
-			"Game": "#37A42C"
-		};
-	+search-list
-		.list-group-item.disabled Large
-		//-
-			+search-item-link( "Editor", "editor", "Desktop Only", "WIP" )
-				small.text-muted.
-					A full-screen Ace Editor. Supports some common editing actions.
-		+search-item-link( "Password Tool", "passwordtool", "Tool" )
-			small.text-muted.
-				A tool to generate and evaluate strong passwords.
-		+search-item-link( "Find and Replace", "findandreplace", "Tool" )
-			small.text-muted.
-				A tool to find and replace text. Support Regexes and escape
-				codes.
-		+search-item-link( "Regex Tester", "regextester", "Tool" )
-			small.text-muted.
-				Supports testing Javascript regexes against input.
-		+search-item-link( "Debt Resolver", "debtresolver", "Tool" )
-			small.text-muted.
-				Solves complicated debt graphs. Supports chained and cyclic
-				graphs.
-		+search-item-link( "Converter", "converter", "Tool" )
-			small.text-muted.
-				Converts between values. Supports colour.
-		+search-item-link( "Codebreaker", "codebreaker", "Game" )
-			small.text-muted.
-				Guess the hidden code in as few attempts as possible!
-		.list-group-item.disabled Small
-		+search-item-link( "SVG Arcs", "svgarcs", "Desktop Only", "Tool" )
-			small.text-muted.
-				A small gadget for displaying SVG Arcs.
-		+search-item-link( "Color Palette", "colorpalette", "Tool" )
-			small.text-muted.
-				A selection of color palettes.
-		+search-item-link( "Text Transform", "texttransform", "Tool" )
-			small.text-muted
-				| A widget for performing transforms on text.
-				br
-				| Supports URI Encoding, ROT transforms.
-		+search-item-link( "BPM Tester", "bpmtester", "Tool" )
-			small.text-muted.
-				Tap in time with the beat to get the BPM.
-		+search-item-link( "Reaction Tester", "reactiontester", "Tool" )
-			small.text-muted.
-				Test your reaction speed!
+    -
+        search_tags = {
+            "Desktop Only": "#007bff",
+            "WIP": "#dc3545",
+            "Tool": "#BABDB6",
+            "Game": "#37A42C"
+        };
+    +search-list
+        .list-group-item.disabled Large
+        //-
+            +search-item-link( "Editor", "editor", "Desktop Only", "WIP" )
+                small.text-muted.
+                    A full-screen Ace Editor. Supports some common editing actions.
+        +search-item-link( "Password Tool", "passwordtool", "Tool" )
+            small.text-muted.
+                A tool to generate and evaluate strong passwords.
+        +search-item-link( "Find and Replace", "findandreplace", "Tool" )
+            small.text-muted.
+                A tool to find and replace text. Support Regexes and escape
+                codes.
+        +search-item-link( "Regex Tester", "regextester", "Tool" )
+            small.text-muted.
+                Supports testing Javascript regexes against input.
+        +search-item-link( "Debt Resolver", "debtresolver", "Tool" )
+            small.text-muted.
+                Solves complicated debt graphs. Supports chained and cyclic
+                graphs.
+        +search-item-link( "Converter", "converter", "Tool" )
+            small.text-muted.
+                Converts between values. Supports colour.
+        +search-item-link( "Codebreaker", "codebreaker", "Game" )
+            small.text-muted.
+                Guess the hidden code in as few attempts as possible!
+        .list-group-item.disabled Small
+        +search-item-link( "SVG Arcs", "svgarcs", "Desktop Only", "Tool" )
+            small.text-muted.
+                A small gadget for displaying SVG Arcs.
+        +search-item-link( "Color Palette", "colorpalette", "Tool" )
+            small.text-muted.
+                A selection of color palettes.
+        +search-item-link( "Text Transform", "texttransform", "Tool" )
+            small.text-muted
+                | A widget for performing transforms on text.
+                br
+                | Supports URI Encoding, ROT transforms.
+        +search-item-link( "BPM Tester", "bpmtester", "Tool" )
+            small.text-muted.
+                Tap in time with the beat to get the BPM.
+        +search-item-link( "Reaction Tester", "reactiontester", "Tool" )
+            small.text-muted.
+                Test your reaction speed!

@@ -1,55 +1,55 @@
 append scripts
-	script( src = ROOT + "/resources/layouts/main/util/search.js" )
+    script( src = ROOT + "/resources/layouts/main/util/search.js" )
 
 mixin search
-	.input-group.input-group-sm.mb-2
-		.input-group-addon Search
-		input.form-control#search--input
-		.input-group-btn#search--cancel--container( style = "display: none" )
-			button.btn.btn-danger#search--cancel.
-				&times; #[.sr-only Cancel Search]
-	- search_tags = search_tags || {};
-	if block
-		block
-	ul.pagination.pagination-lg.justify-content-center#search--pagination
+    .input-group.input-group-sm.mb-2
+        .input-group-addon Search
+        input.form-control#search--input
+        .input-group-btn#search--cancel--container( style = "display: none" )
+            button.btn.btn-danger#search--cancel.
+                &times; #[.sr-only Cancel Search]
+    - search_tags = search_tags || {};
+    if block
+        block
+    ul.pagination.pagination-lg.justify-content-center#search--pagination
 
 mixin search-list
-	+search
-		ul.list-group.mb-4#search--list
-			if block
-				block
+    +search
+        ul.list-group.mb-4#search--list
+            if block
+                block
 
 mixin search-item( title, ...tags )
-	li.list-group-item.search--item(
-		data-title = title
-		data-tags = tags.join( "|" )
-	)
-		div
-			h3.search--title.d-inline= title
-			.float-right
-				each tag in tags
-					= " "
-					.badge.badge-primary(
-						style = "background-color: " +
-							( search_tags[ tag ] || "" )
-					)= tag
-		if block
-			block
+    li.list-group-item.search--item(
+        data-title = title
+        data-tags = tags.join( "|" )
+    )
+        div
+            h3.search--title.d-inline= title
+            .float-right
+                each tag in tags
+                    = " "
+                    .badge.badge-primary(
+                        style = "background-color: " +
+                            ( search_tags[ tag ] || "" )
+                    )= tag
+        if block
+            block
 
 mixin search-item-link( title, url, ...tags )
-	a.list-group-item.search--item(
-		href = url
-		data-title = title
-		data-tags = tags.join( "|" )
-	)
-		div
-			h3.search--title.d-inline= title
-			.float-right
-				each tag in tags
-					= " "
-					.badge.badge-primary(
-						style = "background-color: " +
-							( search_tags[ tag ] || "" )
-					)= tag
-		if block
-			block
+    a.list-group-item.search--item(
+        href = url
+        data-title = title
+        data-tags = tags.join( "|" )
+    )
+        div
+            h3.search--title.d-inline= title
+            .float-right
+                each tag in tags
+                    = " "
+                    .badge.badge-primary(
+                        style = "background-color: " +
+                            ( search_tags[ tag ] || "" )
+                    )= tag
+        if block
+            block

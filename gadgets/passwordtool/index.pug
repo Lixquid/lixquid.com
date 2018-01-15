@@ -2,264 +2,264 @@ extends /resources/layouts/main/main
 include /resources/layouts/main/util/tabs
 
 append scripts
-	script( src = "zxcvbn.js" )
-	script( src = "index.js" )
+    script( src = "zxcvbn.js" )
+    script( src = "index.js" )
 
 append head
-	style
-		:stylus
-			.card-body._border-top
-				border-top 1px solid rgba( 0, 0, 0, .125 )
+    style
+        :stylus
+            .card-body._border-top
+                border-top 1px solid rgba( 0, 0, 0, .125 )
 
-			.progress-bar
-				transition:
-					width .6s ease,
-					background-color .6s ease
+            .progress-bar
+                transition:
+                    width .6s ease,
+                    background-color .6s ease
 
-			.dropdown-arrow
-				&:after
-					display inline-block
+            .dropdown-arrow
+                &:after
+                    display inline-block
 
-					width 0
-					height 0
-					margin-left .255em
+                    width 0
+                    height 0
+                    margin-left .255em
 
-					border-top .3em solid
-					border-right .3em solid transparent
-					border-left .3em solid transparent
+                    border-top .3em solid
+                    border-right .3em solid transparent
+                    border-left .3em solid transparent
 
-					vertical-align @margin-left
+                    vertical-align @margin-left
 
-					content ""
-				&._toggled:after
-					border-top none
-					border-bottom .3em solid
+                    content ""
+                &._toggled:after
+                    border-top none
+                    border-bottom .3em solid
 
 block main
-	h1 Password Tool
+    h1 Password Tool
 
-	.card
-		+tab-nav
-			+tab-nav-link( "Brute", "brute--div", "brute--nav" )
-			+tab-nav-link( "Dictionary", "dict--div", "dict--nav" )
-			+tab-nav-link( "Evaluate", "eval--div", "eval--nav" )
-		+tab-page( "brute--div" )
-			h4.card-title Generate Brute Password
+    .card
+        +tab-nav
+            +tab-nav-link( "Brute", "brute--div", "brute--nav" )
+            +tab-nav-link( "Dictionary", "dict--div", "dict--nav" )
+            +tab-nav-link( "Evaluate", "eval--div", "eval--nav" )
+        +tab-page( "brute--div" )
+            h4.card-title Generate Brute Password
 
-			.form-group.row
-				label( for = "brute--length" ).col-sm-3.col-form-label Length
-				.col-sm-9
-					input(
-						type = "number"
-						step = "1"
-						min = "1"
-						max = "128"
-						value = "32"
-					).form-control#brute--length
+            .form-group.row
+                label( for = "brute--length" ).col-sm-3.col-form-label Length
+                .col-sm-9
+                    input(
+                        type = "number"
+                        step = "1"
+                        min = "1"
+                        max = "128"
+                        value = "32"
+                    ).form-control#brute--length
 
-			.text-right
-				button#brute--adv--toggle(
-					class = `
-						btn
-						btn-outline-warning
-						dropdown-arrow
-					`
-				) Toggle Advanced
-			.card.border-warning.mt-2#brute--adv--div( style = "display: none" )
-				.card-body
-					.form-group.row
-						.col-md-3
-							label.form-check-label
-								input.form-check-input(
-									type = "checkbox"
-									checked
-								)#brute--upper
-								= " "
-								| Uppercase Letters
-						.col-md-3
-							label.form-check-label
-								input.form-check-input(
-									type = "checkbox"
-									checked
-								)#brute--lower
-								= " "
-								| Lowercase Letters
-						.col-md-3
-							label.form-check-label
-								input.form-check-input(
-									type = "checkbox"
-									checked
-								)#brute--digits
-								= " "
-								| Digits
-						.col-md-3
-							label.form-check-label
-								input.form-check-input(
-									type = "checkbox"
-								)#brute--symbols
-								= " "
-								| Symbols
-					.form-group.row
-						.col-md-6
-							.form-check
-								label.form-check-label
-									input.form-check-input(
-										type = "checkbox"
-									)#brute--ambiguous
-									= " "
-									| Avoid ambiguous characters
-						label(
-							for = "setting--mindigits"
-						).col-form-label.col-md-3 Minimum Digits
-						.col-md-3
-							input(
-								type = "number"
-								step = "1"
-								min = "0"
-								max = "128"
-								value = "0"
-							).form-control#brute--mindigits
+            .text-right
+                button#brute--adv--toggle(
+                    class = `
+                        btn
+                        btn-outline-warning
+                        dropdown-arrow
+                    `
+                ) Toggle Advanced
+            .card.border-warning.mt-2#brute--adv--div( style = "display: none" )
+                .card-body
+                    .form-group.row
+                        .col-md-3
+                            label.form-check-label
+                                input.form-check-input(
+                                    type = "checkbox"
+                                    checked
+                                )#brute--upper
+                                = " "
+                                | Uppercase Letters
+                        .col-md-3
+                            label.form-check-label
+                                input.form-check-input(
+                                    type = "checkbox"
+                                    checked
+                                )#brute--lower
+                                = " "
+                                | Lowercase Letters
+                        .col-md-3
+                            label.form-check-label
+                                input.form-check-input(
+                                    type = "checkbox"
+                                    checked
+                                )#brute--digits
+                                = " "
+                                | Digits
+                        .col-md-3
+                            label.form-check-label
+                                input.form-check-input(
+                                    type = "checkbox"
+                                )#brute--symbols
+                                = " "
+                                | Symbols
+                    .form-group.row
+                        .col-md-6
+                            .form-check
+                                label.form-check-label
+                                    input.form-check-input(
+                                        type = "checkbox"
+                                    )#brute--ambiguous
+                                    = " "
+                                    | Avoid ambiguous characters
+                        label(
+                            for = "setting--mindigits"
+                        ).col-form-label.col-md-3 Minimum Digits
+                        .col-md-3
+                            input(
+                                type = "number"
+                                step = "1"
+                                min = "0"
+                                max = "128"
+                                value = "0"
+                            ).form-control#brute--mindigits
 
-		+tab-page( "dict--div" )
-			h4.card-title Generate Dictionary Password
+        +tab-page( "dict--div" )
+            h4.card-title Generate Dictionary Password
 
-			.form-group.row
-				label( for = "dict--words" ).col-sm-3.col-form-label.
-					Word Count
-				.col-sm-9
-					input(
-						type = "number"
-						step = "1"
-						min = "1"
-						max = "16"
-						value = "4"
-					).form-control#dict--words
+            .form-group.row
+                label( for = "dict--words" ).col-sm-3.col-form-label.
+                    Word Count
+                .col-sm-9
+                    input(
+                        type = "number"
+                        step = "1"
+                        min = "1"
+                        max = "16"
+                        value = "4"
+                    ).form-control#dict--words
 
-			.alert.alert-info#dict--downloading
-				| Downloading Word List..
-				.progress
-					div(
-						class = `
-							progress-bar
-							progress-bar-striped
-							progress-bar-animated
-							w-100
-						`
-					)
+            .alert.alert-info#dict--downloading
+                | Downloading Word List..
+                .progress
+                    div(
+                        class = `
+                            progress-bar
+                            progress-bar-striped
+                            progress-bar-animated
+                            w-100
+                        `
+                    )
 
-		+tab-page( "eval--div" )
-			h4.card-title Evaluate Password
+        +tab-page( "eval--div" )
+            h4.card-title Evaluate Password
 
-			input.form-control.form-control-lg(
-				type = "text"
-				placeholder = "password123"
-			)#eval--input
+            input.form-control.form-control-lg(
+                type = "text"
+                placeholder = "password123"
+            )#eval--input
 
-		.card-body._border-top#output--div
-			h4.card-title Output
+        .card-body._border-top#output--div
+            h4.card-title Output
 
-			.alert.alert-danger(
-				style = "display: none"
-			)#output--error
+            .alert.alert-danger(
+                style = "display: none"
+            )#output--error
 
-			input.form-control.form-control-lg.mb-2(
-				type="text"
-				readonly
-			)#output--text
+            input.form-control.form-control-lg.mb-2(
+                type="text"
+                readonly
+            )#output--text
 
-			= " "
-			button.btn.btn-outline-secondary.btn-sm#output--copy.
-				&#x1f4cb; Copy to Clipboard
-			= " "
-			button.btn.btn-outline-secondary.btn-sm#output--refresh.
-				&#x21bb; Refresh
+            = " "
+            button.btn.btn-outline-secondary.btn-sm#output--copy.
+                &#x1f4cb; Copy to Clipboard
+            = " "
+            button.btn.btn-outline-secondary.btn-sm#output--refresh.
+                &#x21bb; Refresh
 
-		.card-body._border-top#an--div
-			h4.card-title Strength Analysis
+        .card-body._border-top#an--div
+            h4.card-title Strength Analysis
 
-			.alert.alert-danger( style = "display: none" )#an--error.
-				Strength Analysis is only performed on passwords that are 100
-				characters or less.
+            .alert.alert-danger( style = "display: none" )#an--error.
+                Strength Analysis is only performed on passwords that are 100
+                characters or less.
 
-			#an--div--output( style = "display: none" )
-				.form-group.row
-					.col-md-3 Guesses
-					.col-md-9
-						input.form-control( readonly )#an--guesses
-				.form-group.row
-					.col-md-3 Strength
-					.col-md-9
-						.progress
-							.progress-bar(
-								style = "min-width: 5em"
-							)#an--strength
-				.alert.alert-warning( style = "display: none" )#an--warning
-				#an--suggestions
+            #an--div--output( style = "display: none" )
+                .form-group.row
+                    .col-md-3 Guesses
+                    .col-md-9
+                        input.form-control( readonly )#an--guesses
+                .form-group.row
+                    .col-md-3 Strength
+                    .col-md-9
+                        .progress
+                            .progress-bar(
+                                style = "min-width: 5em"
+                            )#an--strength
+                .alert.alert-warning( style = "display: none" )#an--warning
+                #an--suggestions
 
-				hr
+                hr
 
-				h5.text-center Time to crack
-				.form-group.row
-					.col-md-3 Online Throttled (100/hr)
-					.col-md-9
-						input.form-control( readonly )#an--crack--1
-				.form-group.row
-					.col-md-3 Online Un-throttled (10/s)
-					.col-md-9
-						input.form-control( readonly )#an--crack--2
-				.form-group.row
-					.col-md-3 Offline Slow Hash (10k/s)
-					.col-md-9
-						input.form-control( readonly )#an--crack--3
-				.form-group.row
-					.col-md-3 Offline Fast Hash (10B/s)
-					.col-md-9
-						input.form-control( readonly )#an--crack--4
-				.form-group.row
-					.col-md-3 Energy Expenditure
-					.col-md-9
-						input.form-control( readonly )#an--crack--5
+                h5.text-center Time to crack
+                .form-group.row
+                    .col-md-3 Online Throttled (100/hr)
+                    .col-md-9
+                        input.form-control( readonly )#an--crack--1
+                .form-group.row
+                    .col-md-3 Online Un-throttled (10/s)
+                    .col-md-9
+                        input.form-control( readonly )#an--crack--2
+                .form-group.row
+                    .col-md-3 Offline Slow Hash (10k/s)
+                    .col-md-9
+                        input.form-control( readonly )#an--crack--3
+                .form-group.row
+                    .col-md-3 Offline Fast Hash (10B/s)
+                    .col-md-9
+                        input.form-control( readonly )#an--crack--4
+                .form-group.row
+                    .col-md-3 Energy Expenditure
+                    .col-md-9
+                        input.form-control( readonly )#an--crack--5
 
-				.text-right
-					button.btn.btn-outline-info.dropdown-arrow#an--help--toggle.
-						What's This?
-				.card.mt-2( style = "display: none" )#an--help--div
-					.card-body
-						:markdown-it( plugins = [ "markdown-it-deflist" ] )
-							Online Throttled (`100 guesses per hour`)
-							:   Guessing via a web service that successfully
-								throttles guess attempts.
+                .text-right
+                    button.btn.btn-outline-info.dropdown-arrow#an--help--toggle.
+                        What's This?
+                .card.mt-2( style = "display: none" )#an--help--div
+                    .card-body
+                        :markdown-it( plugins = [ "markdown-it-deflist" ] )
+                            Online Throttled (`100 guesses per hour`)
+                            :   Guessing via a web service that successfully
+                                throttles guess attempts.
 
-							Online Un-Throttled (`10 guesses per second`)
-							:   Guessing via a web service that implements no
-								throttling, or has had its throttling bypassed.
+                            Online Un-Throttled (`10 guesses per second`)
+                            :   Guessing via a web service that implements no
+                                throttling, or has had its throttling bypassed.
 
-							Offline Slow Hash (`10,000 guesses per second`)
-							:   Guessing on an offline database that has its
-								passwords per-user salted, and hashed with a
-								slow hash function with high work factor.
+                            Offline Slow Hash (`10,000 guesses per second`)
+                            :   Guessing on an offline database that has its
+                                passwords per-user salted, and hashed with a
+                                slow hash function with high work factor.
 
-							Offline Fast Hash (`10,000,000,000 guesses per second`)
-							:   Guessing on an offline database that has its
-								passwords hashed with a fast hash function with
-								low work factor.
+                            Offline Fast Hash (`10,000,000,000 guesses per second`)
+                            :   Guessing on an offline database that has its
+                                passwords hashed with a fast hash function with
+                                low work factor.
 
-							Energy Expenditure
-							:   Calculates very roughly how much energy would be
-								consumed guessing the password.
+                            Energy Expenditure
+                            :   Calculates very roughly how much energy would be
+                                consumed guessing the password.
 
-								Assumes that completing one guess would consume
-								36 microJoules.
+                                Assumes that completing one guess would consume
+                                36 microJoules.
 
-				hr
+                hr
 
-				h5.text-center Token Analyzer
+                h5.text-center Token Analyzer
 
-				#an--seq--list
+                #an--seq--list
 
-				pre#an--seq--output
+                pre#an--seq--output
 
-			div.text-right
-				small.text-muted.
-					Powered by
-					#[a(href="https://github.com/dropbox/zxcvbn") zxcvbn].
+            div.text-right
+                small.text-muted.
+                    Powered by
+                    #[a(href="https://github.com/dropbox/zxcvbn") zxcvbn].

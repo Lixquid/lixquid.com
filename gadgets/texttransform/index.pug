@@ -1,59 +1,59 @@
 extends /resources/layouts/main/main
 append pre
-	-
-		SETTINGS = [
-			{
-				"id": "texttransform--inline",
-				"name": "Inline Transforms",
-				"type": "checkbox",
-				"default": true
-			},
-			{
-				"id": "texttransform--instant",
-				"name": "Instant Transforms",
-				"type": "checkbox",
-				"default": false
-			}
-		];
+    -
+        SETTINGS = [
+            {
+                "id": "texttransform--inline",
+                "name": "Inline Transforms",
+                "type": "checkbox",
+                "default": true
+            },
+            {
+                "id": "texttransform--instant",
+                "name": "Instant Transforms",
+                "type": "checkbox",
+                "default": false
+            }
+        ];
 include /resources/layouts/main/util/settings
 
 append scripts
-	script( src = "index.js" )
+    script( src = "index.js" )
 
 block main
-	.row
-		.col-sm-10
-			h1 Text Transform
-		.col-sm-2.text-right
-			+settings-show
+    .row
+        .col-sm-10
+            h1 Text Transform
+        .col-sm-2.text-right
+            +settings-show
 
-	.row
-		.col-sm-9
-			select.custom-select.w-100#input--filter
-				optgroup( label = "Simple" )
-					option( value = "uppercase" ) Uppercase
-					option( value = "lowercase" ) Lowercase
-					option( value = "reverse" ) Reverse
-				optgroup( label = "Formatting" )
-					option( value = "circled" ) Circled
-				optgroup( label = "Encoding" )
-					option( value = "uriencode" ) URI Encode
-					option( value = "uridecode" ) URI Decode
-					option( value = "base64encode" ) Base64 Encode
-					option( value = "base64decode" ) Base64 Decode
-					option( value = "htmlescape" ) HTML Escape
-				optgroup( label = "Ciphers" )
-					option( value = "rot5" ) ROT5
-					option( value = "rot13" ) ROT13
-					option( value = "rot135" ) ROT13.5
-					option( value = "rot47" ) ROT47
-		.col
-			button.btn.btn-block.btn-primary#input--go Transform
+    .row
+        .col-sm-9
+            select.custom-select.w-100#input--filter
+                optgroup( label = "Simple" )
+                    option( value = "uppercase" ) Uppercase
+                    option( value = "lowercase" ) Lowercase
+                    option( value = "reverse" ) Reverse
+                optgroup( label = "Formatting" )
+                    option( value = "circled" ) Circled
+                optgroup( label = "Encoding" )
+                    option( value = "uriencode" ) URI Encode
+                    option( value = "uridecode" ) URI Decode
+                    option( value = "base64encode" ) Base64 Encode
+                    option( value = "base64decode" ) Base64 Decode
+                    option( value = "htmlescape" ) HTML Escape
+                optgroup( label = "Ciphers" )
+                    option( value = "rot5" ) ROT5
+                    option( value = "rot13" ) ROT13
+                    option( value = "rot135" ) ROT13.5
+                    option( value = "rot47" ) ROT47
+        .col
+            button.btn.btn-block.btn-primary#input--go Transform
 
-	.mt-3
-		label( for = "#input--input" ).mb-0 Input
-		textarea.form-control( rows = 4 )#input--input
+    .mt-3
+        label( for = "#input--input" ).mb-0 Input
+        textarea.form-control( rows = 4 )#input--input
 
-	#input--output--div.mt-3
-		label( for = "#input--output" ).mb-0 Output
-		textarea.form-control( rows = 4, readonly )#input--output
+    #input--output--div.mt-3
+        label( for = "#input--output" ).mb-0 Output
+        textarea.form-control( rows = 4, readonly )#input--output

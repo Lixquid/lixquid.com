@@ -1,38 +1,38 @@
 extends /resources/layouts/main/main
 
 append head
-	link(
-		rel = "stylesheet"
-		href = "index.css"
-	)
+    link(
+        rel = "stylesheet"
+        href = "index.css"
+    )
 
 block main
-	h1 SVG Arcs
+    h1 SVG Arcs
 
-	.svg--code
-		= '<path d="M '
-		button#svg--code--from( title = "From Position" ) 100,100
-		input( type = "text", title="hello" )#svg--input--from
-		= ' A '
-		button#svg--code--radius( title = "Radius" ) 50,50
-		input( type = "text" )#svg--input--radius
-		= ' '
-		button#svg--code--rotation( title = "Rotation" ) 0
-		input( type = "text" )#svg--input--rotation
-		= ' '
-		button#svg--code--large( title = "Large Arc Flag" ) 1
-		= ' '
-		button#svg--code--sweep( title = "Sweep Flag" ) 1
-		= ' '
-		button#svg--code--to( title = "Destination Position" ) 300,200
-		input( type = "text" )#svg--input--to
-		= '">'
-	svg#svg--area
-		rect( x=0, y=0, width=50, height=50 )#svg--radiusrect
-		path( d="M100,100A50 50 0 1 1 300 200" )#svg--path
-		circle( cx=50, cy=50, r=5 )#svg--radius
-		circle( cx=100, cy=100, r=5 )#svg--from
-		circle( cx=300, cy=200, r=5 )#svg--to
+    .svg--code
+        = '<path d="M '
+        button#svg--code--from( title = "From Position" ) 100,100
+        input( type = "text", title="hello" )#svg--input--from
+        = ' A '
+        button#svg--code--radius( title = "Radius" ) 50,50
+        input( type = "text" )#svg--input--radius
+        = ' '
+        button#svg--code--rotation( title = "Rotation" ) 0
+        input( type = "text" )#svg--input--rotation
+        = ' '
+        button#svg--code--large( title = "Large Arc Flag" ) 1
+        = ' '
+        button#svg--code--sweep( title = "Sweep Flag" ) 1
+        = ' '
+        button#svg--code--to( title = "Destination Position" ) 300,200
+        input( type = "text" )#svg--input--to
+        = '">'
+    svg#svg--area
+        rect( x=0, y=0, width=50, height=50 )#svg--radiusrect
+        path( d="M100,100A50 50 0 1 1 300 200" )#svg--path
+        circle( cx=50, cy=50, r=5 )#svg--radius
+        circle( cx=100, cy=100, r=5 )#svg--from
+        circle( cx=300, cy=200, r=5 )#svg--to
 
 append scripts
-	script( src = "index.js" )
+    script( src = "index.js" )

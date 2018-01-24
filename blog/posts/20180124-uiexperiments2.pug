@@ -1,0 +1,93 @@
+//-
+    title: "UI Experiments 2"
+    date: "2018/01/24"
+    tags: [ "ui" ]
+
+extends /resources/layouts/blog/blog
+include /resources/external/fontawesome-4.7.0/pug
+
+block post
+
+    //- CALLOUTS -------------------------------------------------------------//
+
+    mixin callout( icon )
+        .callout&attributes( attributes )
+            .callout--icon
+                +fa( class = ( icon || "sticky-note-o" ) + " fa-lg" )
+            .callout--body
+                block
+
+    +callout Generic Callout
+    +callout( "info" )._info Info Callout
+    +callout( "check" )._success Success Callout
+    +callout( "exclamation" )._warning Warning Callout
+    +callout( "times" )._danger Danger Callout
+
+
+    style
+        :stylus
+            .callout
+                position relative
+
+                box-sizing border-box
+
+                width 100%
+
+                .callout--icon
+                    position absolute
+                    top 0
+                    left 0
+                    bottom 0
+
+                    padding-top 1em
+                    width 3em
+
+                    background #D3D7CF
+
+                    color #fff
+                    text-align center
+
+                    border-radius .3em 0 0 .3em
+
+                .callout--body
+                    margin-left 3em
+                    padding 1em
+
+                    background lighten( #D3D7CF, 90% )
+                    border 1px solid #D3D7CF
+
+                    border-radius 0 .3em .3em 0
+
+                &._danger
+                    $color = #F08682
+                    .callout--icon
+                        background $color
+                    .callout--body
+                        border-color $color
+                        background lighten( @border-color, 90% )
+                &._warning
+                    $color = #F2BB88
+                    .callout--icon
+                        background $color
+                    .callout--body
+                        border-color $color
+                        background lighten( @border-color, 90% )
+                &._success
+                    $color = #B1D28F
+                    .callout--icon
+                        background $color
+                    .callout--body
+                        border-color $color
+                        background lighten( @border-color, 90% )
+                &._info
+                    $color = #A4C0E4
+                    .callout--icon
+                        background $color
+                    .callout--body
+                        border-color $color
+                        background lighten( @border-color, 90% )
+
+    //- HTML -----------------------------------------------------------------//
+
+    //- CSS ------------------------------------------------------------------//
+    //- JS -------------------------------------------------------------------//

@@ -1,0 +1,5 @@
+append scripts
+    - INCLUDED_FILES = INCLUDED_FILES || {};
+    if !INCLUDED_FILES["jquery"]
+        - INCLUDED_FILES["jquery"] = true;
+        script( src = ROOT + "/resources/vendor/jquery/jquery.min.js" )

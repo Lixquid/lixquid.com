@@ -1,0 +1,74 @@
+// DOM /////////////////////////////////////////////////////////////////////////
+
+body
+    color #346
+    font-family "Helvetica Neue", Helvetica, Arial, sans-serif
+
+// Main Elements ///////////////////////////////////////////////////////////////
+
+#main--container
+    width 100%
+    max-width 900px
+    padding 0 1em
+    margin 3em auto
+
+#main--header
+    width 100%
+    height 64px
+    margin-bottom 1em
+
+    text-align center
+
+    .main--header--detail
+        display inline-block
+
+        width 200px
+        height 1px
+        margin 0 32px
+
+        background #0004
+        vertical-align middle
+
+        @media (max-width 650px)
+            width 25%
+            margin 0 5%
+
+    &--logo
+        display inline-block
+
+#main--nav
+    font-size 1.2em
+    text-align center
+
+    ul
+        padding-left 0
+
+        list-style none
+
+    li
+        display inline
+
+        & + li::before
+            margin 0 .3em
+
+            color #ccc
+
+            content "/"
+
+    a
+        color #557
+        text-decoration none
+
+        &:hover
+            color #57d
+
+#main--body
+    margin 3em 0
+
+#main--footer--quote
+    float right
+    max-width 400px
+
+    color #aaa
+    font-size .9em
+    text-align right

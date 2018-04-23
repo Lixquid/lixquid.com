@@ -1,0 +1,40 @@
+extends /resources/layouts/base
+include /resources/vendor/bootstrap/cssonly
+include /resources/vendor/fontawesome
+
+append head
+    link(
+        rel = "stylesheet"
+        href = ROOT + "/resources/layouts/main/main.css"
+    )
+append scripts
+    script(
+        src = ROOT + "/resources/layouts/main/main.js"
+    )
+
+block body
+    #main--container
+        #main--header
+            .main--header--detail
+            a( href = ROOT + "/" )
+                img#main--header--logo(
+                    src = ROOT + "/resources/layouts/main/logo.png"
+                    alt = "Lixquid"
+                    width = 64
+                    height = 64
+                )
+            .main--header--detail
+        nav#main--nav
+            ul
+                li
+                    a( href = ROOT + "/projects" ) Projects
+                li
+                    a( href = ROOT + "/gadgets" ) Gadgets
+                li
+                    a( href = ROOT + "/experiments" ) Experiments
+                li
+                    a( href = ROOT + "/blog" ) Blog
+        main#main--body
+            block main
+        #main--footer
+            #main--footer--quote Inspirational Quote

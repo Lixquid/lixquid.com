@@ -1,0 +1,5 @@
+append scripts
+    - INCLUDED_FILES = INCLUDED_FILES || {};
+    if !INCLUDED_FILES["vue"]
+        - INCLUDED_FILES["vue"] = true;
+        script( src = ROOT + "/resources/vendor/vue/vue.js" )

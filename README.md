@@ -1,0 +1,42 @@
+<!--
+LAYOUT:
+
+- /
+    - blog/
+        - posts/
+            - 20180101-postname.md
+        - index.pug
+        - all.pug
+    - gadgets/
+        - gadgetname/
+            - index.pug
+        - index.pug
+    - projects/
+        - index.pug
+    - resources/
+        - vendor/
+            - bootstrap/
+                - bootstrap.css.min
+                - bootstrap.js
+                - cssonly.pug
+            - bootstrap.pug
+        - layouts/
+            - base.pug
+            - main.pug
+            - main/
+                - logo.png
+                - main.styl
+                - util
+                    - tabs.pug
+                    - tabs/
+                        - tabs.ts
+        - lib/
+            - SomeLibrary.ts
+        - favicon.png
+        - favicon_180.png
+        - favicon_196.pug
+    - .gitignore
+    - 404.pug
+    - index.pug
+
+-->

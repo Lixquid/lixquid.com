@@ -1,0 +1,3 @@
+[submodule "blog/posts"]
+	path = blog/posts
+	url = https://gitlab.com/lixquid/blog

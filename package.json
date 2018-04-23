@@ -1,0 +1,29 @@
+{
+  "name": "lixquids-site",
+  "version": "0.7.0",
+  "description": "Lixquid's Personal Site",
+  "repository": "git+https://gitlab.com/lixquid/lixquid.gitlab.io.git",
+  "author": {
+    "name": "Lixquid",
+    "url": "http://lixquid.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/lixquid/lixquid.gitlab.io/issues"
+  },
+  "scripts": {
+    "start": "ts-node build.ts"
+  },
+  "homepage": "https://gitlab.com/lixquid/lixquid.gitlab.io#readme",
+  "private": true,
+  "dependencies": {
+    "js-yaml": "^3.11.0",
+    "pug": "^2.0.3",
+    "stylus": "^0.54.5",
+    "ts-node": "^6.0.0",
+    "typescript": "^2.8.1"
+  },
+  "devDependencies": {
+    "http-serve": "^1.0.1"
+  }
+}

@@ -1,0 +1,28 @@
+mixin fa
+    - attributes.class = "fa fa-" + attributes.class
+    i&attributes( attributes )
+
+mixin fas
+    - attributes.class = "fas fa-" + attributes.class
+    i&attributes( attributes )
+
+mixin far
+    - attributes.class = "far fa-" + attributes.class
+    i&attributes( attributes )
+
+mixin fal
+    - attributes.class = "fal fa-" + attributes.class
+    i&attributes( attributes )
+
+mixin fab
+    - attributes.class = "fab fa-" + attributes.class
+    i&attributes( attributes )
+
+append head
+    - INCLUDED_FILES = INCLUDED_FILES || {};
+    if !INCLUDED_FILES["fontawesome"]
+        - INCLUDED_FILES["fontawesome"] = true;
+        link(
+            rel = "stylesheet"
+            href = ROOT + "/resources/vendor/fontawesome/css/fontawesome-all.min.css"
+        )

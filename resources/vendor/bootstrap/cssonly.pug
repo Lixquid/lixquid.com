@@ -1,0 +1,9 @@
+append head
+    - INCLUDED_FILES = INCLUDED_FILES || {};
+    if !INCLUDED_FILES["bootstrap/css"]
+        - INCLUDED_FILES["bootstrap/css"] = true;
+        - INCLUDED_FILES["reboot"] = true;
+        link(
+            rel = "stylesheet"
+            href = ROOT + "/resources/vendor/bootstrap/bootstrap.min.css"
+        )

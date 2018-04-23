@@ -1,0 +1,10 @@
+include /resources/vendor/jquery
+include /resources/vendor/bootstrap/cssonly
+
+append scripts
+    - INCLUDED_FILES = INCLUDED_FILES || {};
+    if !INCLUDED_FILES["bootstrap/js"]
+        - INCLUDED_FILES["bootstrap/js"] = true;
+        script(
+            src = ROOT + "/resources/vendor/bootstrap/bootstrap.bundle.min.js"
+        )

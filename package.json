@@ -12,7 +12,7 @@
     "url": "https://gitlab.com/lixquid/lixquid.gitlab.io/issues"
   },
   "scripts": {
-    "start": "ts-node build.ts"
+    "start": "http-serve"
   },
   "homepage": "https://gitlab.com/lixquid/lixquid.gitlab.io#readme",
   "private": true,
@@ -24,6 +24,7 @@
     "typescript": "^2.8.1"
   },
   "devDependencies": {
-    "http-serve": "^1.0.1"
+    "http-serve": "^1.0.1",
+    "pug-cli": "^1.0.0-alpha6"
   }
 }

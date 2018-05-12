@@ -1,1 +1,21 @@
 extends /resources/layouts/main
+include /resources/vendor/fontawesome
+
+block main
+    h1 Hello!
+
+    .container
+        .row
+            .col.px-1.mb-2
+                a( href="#" ).btn.btn-primary.p-3.d-block
+                    span.h2
+                        | #[+fa.wrench] Gadgets
+        .row
+            .col-md.px-1.mb-2
+                a( href="#" ).btn.btn-primary.p-3.d-block
+                    span.h2
+                        | #[+fa.folder-open] Projects
+            //- .col-md.px-1.mb-2
+            //-     a( href="#" ).btn.btn-primary.p-3.d-block
+            //-         span.h2
+            //-             | #[+fa.comment-slash] Offline

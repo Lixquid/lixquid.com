@@ -1,0 +1,5 @@
+{
+    "include": [
+        "./resources/vendor/vue/vue-global.d-ts"
+    ]
+}

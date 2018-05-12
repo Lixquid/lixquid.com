@@ -1,13 +1,20 @@
+## Configuration ###############################################################
+
 HTMLCOMPILE=pug --obj "{ROOT: ''}" --basedir "."
 CSSCOMPILE=stylus
 JSCOMPILE=tsc
 
 HTMLFILES=\
-	index.pug
+	index.pug \
+	gadgets/lennygenerator/index.pug
 CSSFILES=\
 	resources/layouts/main/main.styl
 JSFILES=\
-	resources/lib/TextTransforms.ts
+	resources/layouts/main/main.ts \
+	resources/lib/TextTransforms.ts \
+	gadgets/lennygenerator/index.ts
+
+## Tasks #######################################################################
 
 all: html css js
 
@@ -20,4 +27,11 @@ css: $(CSSFILES)
 js: $(JSFILES)
 	$(JSCOMPILE) $^
 
-.PHONY: all html css js
+watch:
+	which inotifywait
+	while true; do \
+		make -j all; \
+		inotifywait -qre close_write .; \
+	done
+
+.PHONY: all html css js watch

@@ -1,3 +1,5 @@
+"use strict";
+exports.__esModule = true;
 var TextTransforms;
 (function (TextTransforms) {
     // Interfaces //////////////////////////////////////////////////////////////
@@ -18,4 +20,4 @@ var TextTransforms;
         Uppercase, Lowercase,
         URIEncode, URIDecode,
     ];
-})(TextTransforms || (TextTransforms = {}));
+})(TextTransforms = exports.TextTransforms || (exports.TextTransforms = {}));

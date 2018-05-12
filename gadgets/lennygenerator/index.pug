@@ -1,0 +1,66 @@
+extends /resources/layouts/main
+include /resources/vendor/fontawesome
+include /resources/vendor/vue/dev
+
+append scripts
+    script( src = "index.js" )
+
+block main
+    h1 test
+
+    .display-1.text-center.mb-3
+        | {{ output }}
+    .container
+        .input-group.mb-3
+            .input-group-prepend
+                .input-group-text Ears
+            select(
+                type = "text"
+                v-model = "selectedEars"
+            ).custom-select
+                option(
+                    v-for = "d in availableEars"
+                    v-bind:value = "d.name"
+                ) {{d.left}} {{d.right}}
+            .input-group-append
+                button.btn.btn-outline-secondary
+                    +fa.random
+        .input-group.mb-3
+            .input-group-prepend
+                .input-group-text Eyes
+            select(
+                type = "text"
+                v-model = "selectedEyes"
+            ).custom-select
+                option(
+                    v-for = "d in availableEyes"
+                    v-bind:value = "d.name"
+                ) {{d.left}} {{d.right}}
+            .input-group-append
+                button.btn.btn-outline-secondary
+                    +fa.random
+        .input-group.mb-3
+            .input-group-prepend
+                .input-group-text Mouth
+            select(
+                type = "text"
+                v-model = "selectedMouth"
+            ).custom-select
+                option(
+                    v-for = "d in availableMouths"
+                    v-bind:value = "d.name"
+                ) {{d.value}}
+            .input-group-append
+                button.btn.btn-outline-secondary
+                    +fa.random
+        .row
+            .col
+        .text-right
+            button.btn.btn-outline-info( v-on:click="undo" )
+                | #[+fa.undo] Undo
+            = " "
+            button.btn.btn-outline-secondary( v-on:click="random" )
+                | #[+fa.random] Random
+            = " "
+            button.btn.btn-primary( v-on:click="copy" )
+                | #[+fa.copy] Copy to Clipboard

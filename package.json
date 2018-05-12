@@ -24,7 +24,9 @@
     "typescript": "^2.8.1"
   },
   "devDependencies": {
+    "@types/jquery": "^3.3.1",
     "http-serve": "^1.0.1",
-    "pug-cli": "^1.0.0-alpha6"
+    "pug-cli": "^1.0.0-alpha6",
+    "vue": "^2.5.16"
   }
 }

@@ -1,6 +1,5 @@
 extends /resources/layouts/base
 include /resources/vendor/bootstrap/cssonly
-include /resources/vendor/fontawesome
 
 append head
     link(
@@ -8,6 +7,10 @@ append head
         href = ROOT + "/resources/layouts/main/main.css"
     )
 append scripts
+    script.
+        // HACK: Terrible Horrible No-Good ES2016 module hack
+        exports = {};
+        function require() {};
     script(
         src = ROOT + "/resources/layouts/main/main.js"
     )
@@ -30,8 +33,9 @@ block body
                     a( href = ROOT + "/projects" ) Projects
                 li
                     a( href = ROOT + "/gadgets" ) Gadgets
-                li
-                    a( href = ROOT + "/blog" ) Blog
+                //- Soon (TM)
+                //- li
+                //-     a( href = ROOT + "/blog" ) Blog
         main#main--body
             block main
         #main--footer

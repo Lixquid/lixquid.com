@@ -2,7 +2,7 @@
 
 HTMLCOMPILE=pug --obj "{ROOT: ''}" --basedir "."
 CSSCOMPILE=stylus
-JSCOMPILE=tsc
+JSCOMPILE=tsc --noImplicitThis
 
 HTMLFILES=\
 	index.pug \

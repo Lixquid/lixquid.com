@@ -6,61 +6,61 @@ append scripts
     script( src = "index.js" )
 
 block main
-    h1 test
+    h1 Lenny Generator
 
     .display-1.text-center.mb-3
         | {{ output }}
     .container
-        .input-group.mb-3
+        .input-group.input-group-lg.mb-3
             .input-group-prepend
                 .input-group-text Ears
             select(
                 type = "text"
                 v-model = "selectedEars"
-            ).custom-select
+            ).custom-select.custom-select-lg
                 option(
                     v-for = "d in availableEars"
-                    v-bind:value = "d.name"
+                    v-bind:value = "d.id"
                 ) {{d.left}} {{d.right}}
             .input-group-append
-                button.btn.btn-outline-secondary
+                button.btn.btn-outline-secondary( @click="random('ears')" )
                     +fa.random
-        .input-group.mb-3
+        .input-group.input-group-lg.mb-3
             .input-group-prepend
                 .input-group-text Eyes
             select(
                 type = "text"
                 v-model = "selectedEyes"
-            ).custom-select
+            ).custom-select.custom-select-lg
                 option(
                     v-for = "d in availableEyes"
-                    v-bind:value = "d.name"
+                    v-bind:value = "d.id"
                 ) {{d.left}} {{d.right}}
             .input-group-append
-                button.btn.btn-outline-secondary
+                button.btn.btn-outline-secondary( @click="random('eyes')" )
                     +fa.random
-        .input-group.mb-3
+        .input-group.input-group-lg.mb-3
             .input-group-prepend
                 .input-group-text Mouth
             select(
                 type = "text"
                 v-model = "selectedMouth"
-            ).custom-select
+            ).custom-select.custom-select-lg
                 option(
                     v-for = "d in availableMouths"
-                    v-bind:value = "d.name"
+                    v-bind:value = "d.id"
                 ) {{d.value}}
             .input-group-append
-                button.btn.btn-outline-secondary
+                button.btn.btn-outline-secondary( @click="random('mouth')" )
                     +fa.random
         .row
             .col
         .text-right
-            button.btn.btn-outline-info( v-on:click="undo" )
+            button.btn.btn-outline-info( @click="undo", disabled )
                 | #[+fa.undo] Undo
             = " "
-            button.btn.btn-outline-secondary( v-on:click="random" )
+            button.btn.btn-outline-secondary( @click="random" )
                 | #[+fa.random] Random
             = " "
-            button.btn.btn-primary( v-on:click="copy" )
+            button.btn.btn-primary( @click="copy", disabled )
                 | #[+fa.copy] Copy to Clipboard

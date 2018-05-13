@@ -1,35 +1,41 @@
+/// <reference path="../../resources/vendor/vue/vue-global.d.ts" />
+
 namespace LennyGenerator {
 
     // Components //////////////////////////////////////////////////////////////
 
     export const ears: ReadonlyArray<Ears> = [
-        { id: 0, name: "None", left: "", right: "" },
-        { id: 1, name: "The Round", left: "(", right: ")" }
+        { id: 0, left: "", right: "" },
+        { id: 1, left: "(", right: ")" }
     ];
     export const eyes: ReadonlyArray<Eyes> = [
-        { id: 0, name: "None", left: "", right: "" },
-        { id: 1, name: "The Happy", left: "^", right: "^" }
+        { id: 0, left: "", right: "" },
+        { id: 1, left: " ͡°", right: " ͡°" },
+        { id: 2, left: "^", right: "^" },
+        { id: 3, left: "X", right: "X" },
+        { id: 4, left: "o", right: "O" },
+        { id: 5, left: ".", right: "." }
     ];
     export const mouths: ReadonlyArray<Mouth> = [
-        { id: 0, name: "None", value: "" },
-        { id: 1, name: "The Neutral", value: "_" }
+        { id: 0, value: "" },
+        { id: 1, value: " ͜ʖ" },
+        { id: 2, value: " ͜o" },
+        { id: 3, value: " ʖ̯" },
+        { id: 4, value: "_" }
     ];
 
     interface Ears {
         readonly id: number,
-        readonly name: string,
         readonly left: string,
         readonly right: string
     }
     interface Eyes {
         readonly id: number,
-        readonly name: string,
         readonly left: string,
         readonly right: string
     }
     interface Mouth {
         readonly id: number,
-        readonly name: string,
         readonly value: string
     }
 
@@ -49,24 +55,55 @@ namespace LennyGenerator {
 
     export function random(): { ears: Ears, eyes: Eyes, mouth: Mouth } {
         return {
-            ears: ears[Math.floor(Math.random() * ears.length)],
-            eyes: eyes[Math.floor(Math.random() * eyes.length)],
-            mouth: mouths[Math.floor(Math.random() * mouths.length)]
+            ears: ears[Math.floor(Math.random() * (ears.length - 1)) + 1],
+            eyes: eyes[Math.floor(Math.random() * (eyes.length - 1)) + 1],
+            mouth: mouths[Math.floor(Math.random() * (mouths.length - 1)) + 1]
         };
     }
 }
 
 // Application /////////////////////////////////////////////////////////////////
 
-var app = new Vue({
+const app = new Vue({
     el: "#main--body",
     data: {
-        selectedEars: 1,
+        selectedEars: 1 as number,
         selectedEyes: 1,
         selectedMouth: 1,
-        ears: LennyGenerator.ears,
-        eyes: LennyGenerator.eyes,
-        mouths: LennyGenerator.mouths,
-        output: ""
+        availableEars: LennyGenerator.ears,
+        availableEyes: LennyGenerator.eyes,
+        availableMouths: LennyGenerator.mouths
+    },
+    computed: {
+        output: function (): string {
+            return LennyGenerator.ears[this.selectedEars].left +
+                LennyGenerator.eyes[this.selectedEyes].left +
+                LennyGenerator.mouths[this.selectedMouth].value +
+                LennyGenerator.eyes[this.selectedEyes].right +
+                LennyGenerator.ears[this.selectedEars].right;
+        }
+    },
+    methods: {
+        random: function (type?: string): void {
+            const r = LennyGenerator.random();
+            switch (type) {
+                case "ears":
+                    this.selectedEars = r.ears.id;
+                    return;
+                case "eyes":
+                    this.selectedEyes = r.eyes.id;
+                    return;
+                case "mouth":
+                    this.selectedMouth = r.mouth.id;
+                    return;
+            }
+            this.selectedEars = r.ears.id;
+            this.selectedEyes = r.eyes.id;
+            this.selectedMouth = r.mouth.id;
+        },
+        copy: function (): void { },
+        undo: function (): void { }
+    },
+    watch: {
     }
 });

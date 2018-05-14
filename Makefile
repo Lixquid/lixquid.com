@@ -6,12 +6,16 @@ JSCOMPILE=tsc --noImplicitThis
 
 HTMLFILES=\
 	index.pug \
+	\
+	gadgets/index.pug \
 	gadgets/lennygenerator/index.pug
 CSSFILES=\
 	resources/layouts/main/main.styl
 JSFILES=\
 	resources/layouts/main/main.ts \
+	\
 	resources/lib/TextTransforms.ts \
+	\
 	gadgets/lennygenerator/index.ts
 
 ## Tasks #######################################################################

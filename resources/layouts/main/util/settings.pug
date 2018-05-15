@@ -1,0 +1,49 @@
+include /resources/vendor/bootstrap
+
+append scripts
+    script( src = ROOT + "/resources/layouts/main/util/settings/settings.js" )
+
+mixin settings-button
+    button.btn.btn-outline-info(
+        data-toggle = "modal"
+        data-target = "#settings--modal"
+    )
+        | &#9874; Settings
+
+mixin settings-modal
+    .modal.fade#settings--modal(
+        tabindex = "-1"
+        role = "dialog"
+        aria-hidden = "true"
+    )
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    span.h5.modal-title Settings
+                    button.close(
+                        type = "button"
+                        data-dismiss = "modal"
+                        aria-label = "Close"
+                    )
+                        span( aria-hidden="true" ) &times;
+                .modal-body
+                    if block
+                        block
+                .modal-footer
+                    button.btn.btn-secondary(
+                        type = "button"
+                        data-dismiss = "modal"
+                    ) Close
+
+mixin setting-number( text )
+    -
+        var settingId = settingId || 0;
+        settingId++;
+    .form-group
+        label( for = `setting--${settingId}` )= text
+        input.form-control(
+            type = "number"
+            id = `setting--${settingId}`
+        )&attributes( attributes )
+        if block
+            block

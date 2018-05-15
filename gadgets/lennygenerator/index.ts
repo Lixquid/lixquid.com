@@ -64,7 +64,7 @@ namespace LennyGenerator {
 
 // Application /////////////////////////////////////////////////////////////////
 
-const app = new Vue({
+const lennyGeneratorApp = new Vue({
     el: "#main--body",
     data: {
         selectedEars: 1 as number,

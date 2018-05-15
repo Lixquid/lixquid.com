@@ -1,0 +1,53 @@
+extends /resources/layouts/main
+include /resources/vendor/fontawesome
+include /resources/vendor/vue/dev
+
+append scripts
+    script( src = ROOT + "/resources/lib/DebtResolver.js" )
+    script( src = "index.js" )
+
+block main
+    h1 Debt Resolver
+
+    .card.container-fluid.mb-3.py-3
+        .row.mb-3( v-for="( debtRow, i ) in debts" )
+            .col-sm
+                input(
+                    type = "text"
+                    placeholder = "Alice"
+                    ref = "debtInputTextbox"
+                    v-model = "debtRow.from"
+                    v-bind:class="{ 'is-invalid': !debtRow.from.length }"
+                ).form-control
+            .col-sm-auto owes
+            .col-sm
+                input(
+                    type = "number"
+                    v-model="debtRow.amount"
+                    placeholder = "0.00"
+                ).form-control
+            .col-sm-auto to
+            .col-sm
+                input(
+                    type = "text"
+                    v-model = "debtRow.to"
+                    placeholder = "Bob"
+                    v-bind:class="{ 'is-invalid': !debtRow.to.length }"
+                ).form-control
+            .col-sm-auto
+                button.btn.btn-outline-danger( v-on:click="remove(i)" )
+                    +fa.times
+        .row
+            .col
+                button.btn.btn-outline-success.w-100( v-on:click="add" )
+                    | #[+fa.plus-square] Add Row
+    .text-right.mb-3
+        button.btn.btn-primary.btn-lg(
+            v-bind:disabled="!debtsIsValid"
+            v-on:click="resolve"
+        )
+            | #[+fa.exchange-alt] Resolve
+    .card.container-fluid.mb-3.p-3( v-if="resolvedOutput.length" )
+        .row( v-for="debt in resolvedOutput" )
+            .col
+                | {{debt.from}} owes {{debt.amount}} to {{debt.to}}

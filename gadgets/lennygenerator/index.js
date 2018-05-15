@@ -44,7 +44,7 @@ var LennyGenerator;
     LennyGenerator.random = random;
 })(LennyGenerator || (LennyGenerator = {}));
 // Application /////////////////////////////////////////////////////////////////
-var app = new Vue({
+var lennyGeneratorApp = new Vue({
     el: "#main--body",
     data: {
         selectedEars: 1,

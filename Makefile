@@ -8,15 +8,18 @@ HTMLFILES=\
 	index.pug \
 	\
 	gadgets/index.pug \
-	gadgets/lennygenerator/index.pug
+	gadgets/lennygenerator/index.pug \
+	gadgets/debtresolver/index.pug
 CSSFILES=\
 	resources/layouts/main/main.styl
 JSFILES=\
 	resources/layouts/main/main.ts \
 	\
 	resources/lib/TextTransforms.ts \
+	resources/lib/DebtResolver.ts \
 	\
-	gadgets/lennygenerator/index.ts
+	gadgets/lennygenerator/index.ts \
+	gadgets/debtresolver/index.ts
 
 ## Tasks #######################################################################
 

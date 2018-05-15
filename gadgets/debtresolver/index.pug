@@ -1,4 +1,5 @@
 extends /resources/layouts/main
+include /resources/layouts/main/util/settings
 include /resources/vendor/fontawesome
 include /resources/vendor/vue/dev
 
@@ -7,9 +8,15 @@ append scripts
     script( src = "index.js" )
 
 block main
-    h1 Debt Resolver
+    .row
+        h1.col Debt Resolver
+        .col-auto
+            +settings-button
 
-    .card.container-fluid.mb-3.py-3
+    form.card.container-fluid.mb-3.py-3(
+        ref = "debtForm"
+        v-bind:class = "{ 'was-validated': debtsValidated }"
+    )
         .row.mb-3( v-for="( debtRow, i ) in debts" )
             .col-sm
                 input(
@@ -17,37 +24,67 @@ block main
                     placeholder = "Alice"
                     ref = "debtInputTextbox"
                     v-model = "debtRow.from"
-                    v-bind:class="{ 'is-invalid': !debtRow.from.length }"
+                    required
                 ).form-control
+                .invalid-feedback Please enter a name
             .col-sm-auto owes
             .col-sm
                 input(
                     type = "number"
                     v-model="debtRow.amount"
+                    v-bind:step = "Math.pow( 10, -sPrecision )"
                     placeholder = "0.00"
                 ).form-control
+                .invalid-feedback The denomination is incorrect
             .col-sm-auto to
             .col-sm
                 input(
                     type = "text"
                     v-model = "debtRow.to"
                     placeholder = "Bob"
-                    v-bind:class="{ 'is-invalid': !debtRow.to.length }"
+                    required
                 ).form-control
+                .invalid-feedback Please enter a name
             .col-sm-auto
                 button.btn.btn-outline-danger( v-on:click="remove(i)" )
                     +fa.times
         .row
             .col
-                button.btn.btn-outline-success.w-100( v-on:click="add" )
+                button.btn.btn-outline-success.w-100(
+                    v-on:click.prevent = "add"
+                )
                     | #[+fa.plus-square] Add Row
     .text-right.mb-3
+        button.btn.btn-outline-danger(
+            v-bind:disabled="!debts.length"
+            v-on:click="clearDebts"
+        ) Clear
+        = " "
         button.btn.btn-primary.btn-lg(
-            v-bind:disabled="!debtsIsValid"
+            v-bind:disabled="!debts.length"
             v-on:click="resolve"
         )
             | #[+fa.exchange-alt] Resolve
-    .card.container-fluid.mb-3.p-3( v-if="resolvedOutput.length" )
+    .card.container-fluid.mb-3.p-3( v-if="resolvedOutput" )
+        .text-right
+            button.btn.btn-link.close( v-on:click="clearOutput" )
+                | &times;
+        .row( v-if="!resolvedOutput.length" )
+            .col No-one owes anyone anything!
         .row( v-for="debt in resolvedOutput" )
-            .col
-                | {{debt.from}} owes {{debt.amount}} to {{debt.to}}
+            .col.
+                #[strong {{debt.from}}] owes
+                {{debt.amount}} to
+                #[strong {{debt.to}}]
+    +settings-modal
+        +setting-number( "Precision" )(
+            step = 0
+            min = 0
+            max = 10
+            v-model = "sPrecision"
+        )
+            small.text-muted.form-text.
+                The amount of precision to apply to debt amounts. Higher numbers
+                mean more digits after the decimal point.
+            small.text-muted.form-text.
+                Common values: 2 for USD ($) / GBP (&pound;), 0 for JPY (&yen;)

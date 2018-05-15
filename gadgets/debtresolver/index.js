@@ -2,8 +2,10 @@
 var debtResolverApp = new Vue({
     el: "#main--body",
     data: {
+        sPrecision: 2,
         debts: [],
-        resolvedOutput: []
+        debtsValidated: false,
+        resolvedOutput: null
     },
     methods: {
         remove: function (index) {
@@ -17,21 +19,28 @@ var debtResolverApp = new Vue({
             });
         },
         resolve: function () {
-            this.resolvedOutput = DebtResolver.resolve(this.debts);
+            if (this.$refs.debtForm.checkValidity() === false) {
+                this.debtsValidated = true;
+                return;
+            }
+            this.resolvedOutput = DebtResolver.resolve(this.debts, this.sPrecision);
+        },
+        clearOutput: function () {
+            this.resolvedOutput = null;
+        },
+        clearDebts: function () {
+            this.debts = [];
+            this.debtsValidated = false;
+            this.clearOutput();
         }
     },
-    computed: {
-        debtsIsValid: function () {
-            if (!this.debts.length) {
-                return false;
-            }
-            for (var _i = 0, _a = this.debts; _i < _a.length; _i++) {
-                var debt = _a[_i];
-                if (!debt.from.length || !debt.to.length) {
-                    return false;
-                }
-            }
-            return true;
+    watch: {
+        sPrecision: function (val) {
+            localStorage.setItem("debtResolver--precision", this.sPrecision.toString());
         }
+    },
+    mounted: function () {
+        var sPrecision = parseInt(localStorage.getItem("debtResolver--precision"), 10);
+        this.sPrecision = isNaN(sPrecision) ? this.sPrecision : sPrecision;
     }
 });

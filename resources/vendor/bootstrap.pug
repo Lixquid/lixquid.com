@@ -1,0 +1,7 @@
+include /resources/vendor/bootstrap/cssonly
+include /resources/vendor/jquery
+
+append scripts
+    if !INCLUDED.bootstrap_js
+        - INCLUDED.bootstrap_js = true;
+        script(src = "/resources/vendor/bootstrap/bootstrap.bundle.min.js")

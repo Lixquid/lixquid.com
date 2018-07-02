@@ -1,0 +1,7 @@
+append head
+    if !INCLUDED.bootstrap_css
+        - INCLUDED.bootstrap_css = true;
+        link(
+            rel = "stylesheet"
+            href = "/resources/vendor/bootstrap/bootstrap.min.css"
+        )

@@ -1,0 +1,31 @@
+extends /resources/layouts/base
+include /resources/vendor/bootstrap/cssonly
+
+append head
+    link(rel = "stylesheet", href = "/resources/layouts/main/main.css")
+
+append scripts
+    script(src = "/resources/layouts/main/main.js")
+
+block body
+    #main--container
+        #main--header
+            .main--header--detail
+            a(href = "/")
+                img#main--header--logo(
+                    src = "/resources/layouts/main/logo.png"
+                    alt = "Lixquid"
+                    width = 64
+                    height = 64
+                )
+            .main--header--detail
+        nav#main--nav
+            ul
+                li
+                    a(href = "/projects") Projects
+                li
+                    a(href = "/gadgets") Gadgets
+        main#main--body
+            block main
+        #main--footer
+            #main--footer--quote Inspirational Quote

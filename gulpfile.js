@@ -21,6 +21,7 @@ const CSSTargets = [
 ];
 const JSTargets = [
     "**/*.ts",
+    "!resources/vendor/**",
     "!node_modules/**"
 ];
 

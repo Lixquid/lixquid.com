@@ -1,0 +1,13 @@
+extends /resources/layouts/main
+include /resources/vendor/fontawesome
+
+block main
+    h1.mb-3 Hello!
+
+    .row
+        .col
+            a.btn.btn-primary.btn-block.btn-lg(href = "/gadgets").
+                #[+fas.wrench] Gadgets
+        .col
+            a.btn.btn-primary.btn-block.btn-lg(href = "/projects").
+                #[+fas.project-diagram] Projects

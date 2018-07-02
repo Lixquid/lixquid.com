@@ -1,0 +1,17 @@
+append scripts
+    if !INCLUDED.fontawesome
+        - INCLUDED.fontawesome = true;
+        script(src = "/resources/vendor/fontawesome/all.js")
+
+mixin fas
+    - attributes.class = "fas fa-" + attributes.class;
+    i&attributes(attributes)
+mixin fam
+    - attributes.class = "fam fa-" + attributes.class;
+    i&attributes(attributes)
+mixin fal
+    - attributes.class = "fal fa-" + attributes.class;
+    i&attributes(attributes)
+mixin fab
+    - attributes.class = "fab fa-" + attributes.class;
+    i&attributes(attributes)

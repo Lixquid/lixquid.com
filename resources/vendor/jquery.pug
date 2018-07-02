@@ -1,0 +1,4 @@
+append scripts
+    if !INCLUDED.jquery
+        - INCLUDED.jquery = true;
+        script(src = "/resources/vendor/jquery/jquery.min.js")

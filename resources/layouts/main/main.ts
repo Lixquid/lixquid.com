@@ -141,4 +141,32 @@ namespace MainLayout {
         "\"What about Ron magic?\" offered Ron.",
         "Ron was going to be spiders. He just was.",
     ];
+    document.getElementById("main--footer--quote").innerHTML =
+        Quotes[Math.floor(Math.random() * Quotes.length)];
+
+    /**
+     * Activates fullscreen mode.
+     * @param active If true, fullscreen mode is activated. If false, fullscreen
+     *               mode is deactivated.
+     */
+    export function Fullscreen(active: boolean = true): void {
+        const body = document.getElementById("main--body");
+        if (active) {
+            body.style.position = "absolute";
+            body.style.top = "0";
+            body.style.left = "0";
+            body.style.right = "0";
+            body.style.bottom = "0";
+            body.style.background = "white";
+            body.style.margin = "0";
+        } else {
+            body.style.position = "";
+            body.style.top = "";
+            body.style.left = "";
+            body.style.right = "";
+            body.style.bottom = "";
+            body.style.background = "";
+            body.style.margin = "";
+        }
+    }
 }

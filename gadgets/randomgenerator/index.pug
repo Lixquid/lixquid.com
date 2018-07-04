@@ -2,6 +2,7 @@ extends /resources/layouts/main
 include /resources/vendor/bootstrap
 include /resources/vendor/vue/dev
 include /resources/vendor/fontawesome
+include /resources/vendor/clipboardjs
 
 append scripts
     script(src = "/resources/lib/RandomNumberGenerator.js")
@@ -147,7 +148,16 @@ block main
                         button.btn.btn-success(v-on:click = "generate")
                             | Generate
                 .card-body.border-top.text-center(v-if = "output.length === 1")
-                    pre.text-monospace.h3 {{output[0]}}
+                    .input-group.input-group-lg
+                        input.form-control.text-monospace#random--strings--1output(
+                            type = "text"
+                            readonly
+                            v-bind:value = "output[0]"
+                        )
+                        .input-group-append
+                            button.btn.btn-secondary(
+                                data-clipboard-target = "#random--strings--1output"
+                            ) #[+fas.copy] Copy
                 .card-body.border-top(v-if = "output.length > 1")
                     ol.h3
                         li(v-for = "i in output")

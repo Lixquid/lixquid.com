@@ -105,4 +105,39 @@ const RandomGeneratorCoinflip = new Vue({
             return this.output.reduce((a, b) => a + (b ? 0 : 1), 0);
         }
     }
+});
+const RandomGeneratorFromList = new Vue({
+    el: "#random--fromlist",
+    data: {
+        list: "",
+        amount: 1,
+        unique: false,
+        output: [] as string[]
+    },
+    methods: {
+        generate: function(): void {
+            if (this.unique) {
+                if (parseInt(this.amount) > this.listParsed.length) {
+                    this.amount = this.listParsed.length;
+                }
+                const array = this.listParsed.slice();
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(RandomNumberGenerator.GenerateRandom() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+                this.output = array.slice(0, this.amount);
+            } else {
+                this.output = [];
+                for (let i = 0; i < this.amount; i++)
+                    this.output.push(
+                        this.listParsed[RandomNumberGenerator.GenerateRandomNumber(
+                            0, this.listParsed.length - 1
+                        )]
+                    );
+            }
+        }
+    },
+    computed: {
+        listParsed: function(): string[] { return this.list.split("\n"); }
+    }
 })

@@ -1,6 +1,7 @@
 extends /resources/layouts/main
 include /resources/vendor/bootstrap
 include /resources/vendor/vue/dev
+include /resources/vendor/lodash
 include /resources/vendor/fontawesome
 include /resources/vendor/clipboardjs
 
@@ -30,6 +31,10 @@ block main
                     data-toggle = "tab"
                     href = "#random--coinflip"
                 ) Coin Flips
+                a.nav-item.nav-link(
+                    data-toggle = "tab"
+                    href = "#random--fromlist"
+                ) From List
         .tab-content
             .tab-pane.fade.show.active#random--numbers
                 .card-body
@@ -185,3 +190,38 @@ block main
                                 +fas.dot-circle.text-secondary.fa-3x
                     .h3
                         | Heads: {{heads}}, Tails: {{tails}}
+            .tab-pane.fade#random--fromlist
+                .card-body
+                    label.form-group.row
+                        .col-md-3.col-form-label List
+                        .col-md-9
+                            textarea.form-control(
+                                rows = 3
+                                v-model = "list"
+                            )
+                    label.form-group.row
+                        .col-md-3.col-form-label Amount
+                        .col-md-9
+                            input.form-control(
+                                type = "number"
+                                v-model = "amount"
+                                min = 1
+                                v-bind:max = "unique ? listParsed.length : ''"
+                                step = 1
+                            )
+                    .form-group.row
+                        .col-md-9.offset-md-3
+                            label
+                                input(
+                                    type = "checkbox"
+                                    v-model = "unique"
+                                )
+                                |
+                                | Unique
+                    .text-right
+                        button.btn.btn-success(v-on:click = "generate")
+                            | Generate
+                .card-body.border-top(v-if = "output.length")
+                    ol.h1
+                        li(v-for = "i in output")
+                            strong {{i}}

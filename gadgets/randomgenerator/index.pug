@@ -98,6 +98,7 @@ block main
                                 input.form-check-input(
                                     type = "checkbox"
                                     v-model = "charsUpper"
+                                    v-bind:disabled = "charsCustom"
                                 )
                                 .form-check-label Uppercase Letters
                         .col
@@ -105,6 +106,7 @@ block main
                                 input.form-check-input(
                                     type = "checkbox"
                                     v-model = "charsLower"
+                                    v-bind:disabled = "charsCustom"
                                 )
                                 .form-check-label Lowercase Letters
                         .col
@@ -112,6 +114,7 @@ block main
                                 input.form-check-input(
                                     type = "checkbox"
                                     v-model = "charsNumber"
+                                    v-bind:disabled = "charsCustom"
                                 )
                                 .form-check-label Numbers
                         .col
@@ -119,14 +122,29 @@ block main
                                 input.form-check-input(
                                     type = "checkbox"
                                     v-model = "charsSymbol"
+                                    v-bind:disabled = "charsCustom"
                                 )
                                 .form-check-label Symbols
+                    .form-group.row
+                        .col-md-3
+                            label.form-check
+                                input.form-check-input(
+                                    type = "checkbox"
+                                    v-model = "charsCustom"
+                                )
+                                .form-check-label Custom Source
+                        .col-md-9
+                            input.form-control(
+                                type = "text"
+                                v-model = "charsCustomInput"
+                                v-bind:disabled = "!charsCustom"
+                            )
                     .text-right
                         button.btn.btn-success(v-on:click = "generate")
                             | Generate
                 .card-body.border-top.text-center(v-if = "output.length === 1")
-                    .text-monospace.h3 {{output[0]}}
+                    pre.text-monospace.h3 {{output[0]}}
                 .card-body.border-top(v-if = "output.length > 1")
                     ol.h3
                         li(v-for = "i in output")
-                            .text-monospace {{i}}
+                            pre.text-monospace {{i}}

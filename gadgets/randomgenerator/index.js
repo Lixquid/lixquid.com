@@ -34,14 +34,26 @@ var RandomGeneratorStrings = new Vue({
         length: 10,
         amount: 1,
         charsUpper: true, charsLower: true, charsNumber: true, charsSymbol: false,
+        charsCustom: false,
+        charsCustomInput: "",
         output: []
     },
     methods: {
         generate: function () {
-            var sourceString = this.prebuiltChars;
-            if (sourceString === "") {
-                window.alert("Please select at least one class of characters!");
-                return;
+            var sourceString;
+            if (this.charsCustom) {
+                sourceString = this.charsCustomInput;
+                if (sourceString === "") {
+                    window.alert("Please enter some text in the Custom Source input!");
+                    return;
+                }
+            }
+            else {
+                sourceString = this.prebuiltChars;
+                if (sourceString === "") {
+                    window.alert("Please select at least one class of characters!");
+                    return;
+                }
             }
             this.output = [];
             for (var i = 0; i < this.amount; i++)

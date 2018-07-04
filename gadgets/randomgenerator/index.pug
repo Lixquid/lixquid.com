@@ -35,6 +35,10 @@ block main
                     data-toggle = "tab"
                     href = "#random--fromlist"
                 ) From List
+                a.nav-item.nav-link(
+                    data-toggle = "tab"
+                    href = "#random--guid"
+                ) GUID
         .tab-content
             .tab-pane.fade.show.active#random--numbers
                 .card-body
@@ -225,3 +229,45 @@ block main
                     ol.h1
                         li(v-for = "i in output")
                             strong {{i}}
+            .tab-pane.fade#random--guid
+                .card-body
+                    label.form-group.row
+                        .col-md-3.col-form-label Amount
+                        .col-md-9
+                            input.form-control(
+                                type = "number"
+                                v-model = "amount"
+                                min = 1
+                                step = 1
+                            )
+                    .row
+                        label.col
+                            input(type = "checkbox", v-model = "casing")
+                            |
+                            | Uppercase
+                        label.col
+                            input(type = "checkbox", v-model = "braces")
+                            |
+                            | Braces
+                        label.col
+                            input(type = "checkbox", v-model = "hyphens")
+                            |
+                            | Hyphens
+                    .text-right
+                        button.btn.btn-success(v-on:click = "generate")
+                            | Generate
+                .card-body.border-top.text-center(v-if = "output.length === 1")
+                    .input-group.input-group-lg
+                        input.form-control.text-monospace#random--guid--1output(
+                            type = "text"
+                            readonly
+                            v-bind:value = "output[0]"
+                        )
+                        .input-group-append
+                            button.btn.btn-secondary(
+                                data-clipboard-target = "#random--guid--1output"
+                            ) #[+fas.copy] Copy
+                .card-body.border-top(v-if = "output.length > 1")
+                    ol.h3
+                        li(v-for = "i in output")
+                            pre.text-monospace {{i}}

@@ -140,4 +140,41 @@ const RandomGeneratorFromList = new Vue({
     computed: {
         listParsed: function(): string[] { return this.list.split("\n"); }
     }
-})
+});
+const RandomGeneratorGuid = new Vue({
+    el: "#random--guid",
+    data: {
+        amount: 1,
+        casing: false,
+        braces: false,
+        hyphens: true,
+        output: []
+    },
+    methods: {
+        generate: function(): void {
+            this.output = [];
+            for (let i = 0; i < this.amount; i++)
+                this.output.push(this.generateGuid());
+        },
+        generateGuid: function(): string {
+            let out = "";
+            if (this.braces) out += "{";
+            out += _.padStart(RandomNumberGenerator.GenerateRandomNumber(0, 0xffffffff).toString(16), 8, "0");
+            if (this.hyphens) out += "-";
+            out += _.padStart(RandomNumberGenerator.GenerateRandomNumber(0, 0xffff).toString(16), 4, "0");
+            if (this.hyphens) out += "-";
+            out += "4"; // Version 4
+            out += _.padStart(RandomNumberGenerator.GenerateRandomNumber(0, 0xfff).toString(16), 3, "0");
+            if (this.hyphens) out += "-";
+            out += RandomNumberGenerator.GenerateRandomNumber(8,0xb).toString(16); // Variant 1
+            out += _.padStart(RandomNumberGenerator.GenerateRandomNumber(0, 0xfff).toString(16), 3, "0");
+            if (this.hyphens) out += "-";
+            out += _.padStart(RandomNumberGenerator.GenerateRandomNumber(0, 0xffffffff).toString(16), 8, "0");
+            out += _.padStart(RandomNumberGenerator.GenerateRandomNumber(0, 0xffff).toString(16), 4, "0");
+            if (this.braces) out += "}";
+
+            if (this.casing) out = out.toUpperCase();
+            return out;
+        }
+    }
+});

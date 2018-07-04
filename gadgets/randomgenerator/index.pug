@@ -1,0 +1,103 @@
+extends /resources/layouts/main
+include /resources/vendor/bootstrap
+include /resources/vendor/vue/dev
+include /resources/vendor/fontawesome
+
+append scripts
+    script(src = "/resources/lib/RandomNumberGenerator.js")
+    script(src = "index.js")
+
+block main
+    h1 Random Generator
+
+    .alert.alert-danger.mb-3#insecure--warning
+        strong Warning
+        | : Your browser does not support generating securely random numbers.
+
+    .card
+        .card-header
+            nav.nav.nav-tabs.card-header-tabs
+                a.nav-item.nav-link.active(
+                    data-toggle = "tab"
+                    href = "#random--numbers"
+                ) Numbers
+                a.nav-item.nav-link(
+                    data-toggle = "tab"
+                    href = "#random--strings"
+                ) Strings
+        .tab-content
+            .tab-pane.fade.show.active#random--numbers
+                .card-body
+                    label.form-group.row
+                        .col-md-3.col-form-label Minimum
+                        .col-md-9
+                            input.form-control(
+                                type = "number"
+                                v-model = "minimum"
+                                v-bind:step = "precisionStep"
+                            )
+                    label.form-group.row
+                        .col-md-3.form-label Maximum
+                        .col-md-9
+                            input.form-control(
+                                type = "number"
+                                v-model = "maximum"
+                                v-bind:step = "precisionStep"
+                            )
+                    label.form-group.row
+                        .col-md-3.form-label Decimal Places
+                        .col-md-9
+                            input.form-control(
+                                type = "number"
+                                v-model = "precision"
+                                step = 1
+                            )
+                    label.form-group.row
+                        .col-md-3.form-label Amount
+                        .col-md-9
+                            input.form-control(
+                                type = "number"
+                                v-model = "amount"
+                                min = 1
+                                step = 1
+                            )
+                    .text-right
+                        button.btn.btn-success(v-on:click="generate")
+                            | Generate
+                .card-body.border-top.text-center(v-if = "output.length === 1")
+                    span.display-2 {{output[0]}}
+                .card-body.border-top(v-if = "output.length > 1")
+                    ol.h1
+                        li(v-for = "i in output")
+                            strong {{i}}
+                    .h3
+                        | Total: {{outputSum}}
+            .tab-pane.fade#random--strings
+                .card-body
+                    label.form-group.row
+                        .col-md-3.col-form-label Length
+                        .col-md-9
+                            input.form-control(
+                                type = "number"
+                                v-model = "length"
+                                min = 1
+                                step = 1
+                            )
+                    label.form-group.row
+                        .col-md-3.col-form-label Amount
+                        .col-md-9
+                            input.form-control(
+                                type = "number"
+                                v-model = "amount"
+                                min = 1
+                                step = 1
+                            )
+                    .text-right
+                        button.btn.btn-success(v-on:click = "generate")
+                            | Generate
+                .card-body.border-top.text-center(v-if = "output.length === 1")
+                    .text-monospace.h3 {{output[0]}}
+                .card-body.border-top(v-if = "output.length > 1")
+                    ol.h3
+                        li(v-for = "i in output")
+                            .text-monospace {{i}}

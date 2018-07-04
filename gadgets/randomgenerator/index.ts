@@ -84,3 +84,25 @@ const RandomGeneratorStrings = new Vue({
         }
     }
 });
+const RandomGeneratorCoinflip = new Vue({
+    el: "#random--coinflip",
+    data: {
+        amount: 10,
+        output: []
+    },
+    methods: {
+        generate: function(): void {
+            this.output = [];
+            for (let i = 0; i < this.amount; i++)
+                this.output.push(RandomNumberGenerator.GenerateRandom() >= 0.5);
+        }
+    },
+    computed: {
+        heads: function(): number {
+            return this.output.reduce((a, b) => a + (b ? 1 : 0), 0);
+        },
+        tails: function(): number {
+            return this.output.reduce((a, b) => a + (b ? 0 : 1), 0);
+        }
+    }
+})

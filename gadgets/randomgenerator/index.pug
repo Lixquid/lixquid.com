@@ -25,6 +25,10 @@ block main
                     data-toggle = "tab"
                     href = "#random--strings"
                 ) Strings
+                a.nav-item.nav-link(
+                    data-toggle = "tab"
+                    href = "#random--coinflip"
+                ) Coin Flips
         .tab-content
             .tab-pane.fade.show.active#random--numbers
                 .card-body
@@ -148,3 +152,26 @@ block main
                     ol.h3
                         li(v-for = "i in output")
                             pre.text-monospace {{i}}
+            .tab-pane.fade#random--coinflip
+                .card-body
+                    label.form-group.row
+                        .col-md-3.col-form-label Coins
+                        .col-md-9
+                            input.form-control(
+                                type = "number"
+                                v-model = "amount"
+                                min = 1
+                                step = 1
+                            )
+                    .text-right
+                        button.btn.btn-success(v-on:click = "generate")
+                            | Generate
+                .card-body.border-top.text-center#random--coinflip--output(v-if = "output.length")
+                    div
+                        span(v-for = "i in output")
+                            span(v-bind:class = "{ 'd-none': !i }")
+                                +fas.user-circle.text-primary.fa-3x
+                            span(v-bind:class = "{ 'd-none': i }")
+                                +fas.dot-circle.text-secondary.fa-3x
+                    .h3
+                        | Heads: {{heads}}, Tails: {{tails}}

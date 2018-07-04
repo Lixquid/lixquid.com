@@ -75,8 +75,9 @@ namespace RandomNumberGenerator {
     ): string {
         const output: string[] = [];
 
-        for (let i = 0; i < length; i++)
-            output.push(source[GenerateRandomNumber(0,source.length)]);
+        for (let i = 0; i < length; i++) {
+            output.push(source[GenerateRandomNumber(0,source.length - 1)]);
+        }
 
         return output.join("");
     }

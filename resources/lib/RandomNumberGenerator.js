@@ -70,8 +70,9 @@ var RandomNumberGenerator;
     function GenerateRandomString(length, source) {
         if (source === void 0) { source = "abcdefghijklmnopqrstuvwxyz1234567890"; }
         var output = [];
-        for (var i = 0; i < length; i++)
-            output.push(source[GenerateRandomNumber(0, source.length)]);
+        for (var i = 0; i < length; i++) {
+            output.push(source[GenerateRandomNumber(0, source.length - 1)]);
+        }
         return output.join("");
     }
     RandomNumberGenerator.GenerateRandomString = GenerateRandomString;

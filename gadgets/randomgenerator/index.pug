@@ -92,6 +92,35 @@ block main
                                 min = 1
                                 step = 1
                             )
+                    .row
+                        .col
+                            label.form-check
+                                input.form-check-input(
+                                    type = "checkbox"
+                                    v-model = "charsUpper"
+                                )
+                                .form-check-label Uppercase Letters
+                        .col
+                            label.form-check
+                                input.form-check-input(
+                                    type = "checkbox"
+                                    v-model = "charsLower"
+                                )
+                                .form-check-label Lowercase Letters
+                        .col
+                            label.form-check
+                                input.form-check-input(
+                                    type = "checkbox"
+                                    v-model = "charsNumber"
+                                )
+                                .form-check-label Numbers
+                        .col
+                            label.form-check
+                                input.form-check-input(
+                                    type = "checkbox"
+                                    v-model = "charsSymbol"
+                                )
+                                .form-check-label Symbols
                     .text-right
                         button.btn.btn-success(v-on:click = "generate")
                             | Generate

@@ -39,15 +39,37 @@ const RandomGeneratorStrings = new Vue({
     data: {
         length: 10,
         amount: 1,
+        charsUpper: true, charsLower: true, charsNumber: true, charsSymbol: false,
         output: []
     },
     methods: {
         generate: function(): void {
+            let sourceString = this.prebuiltChars;
+            if (sourceString === "") {
+                window.alert("Please select at least one class of characters!");
+                return;
+            }
+
             this.output = [];
             for (let i = 0; i < this.amount; i++)
                 this.output.push(RandomNumberGenerator.GenerateRandomString(
-                    this.length
+                    this.length,
+                    sourceString
                 ));
+        }
+    },
+    computed: {
+        prebuiltChars: function(): string {
+            let output = "";
+            if (this.charsUpper)
+                output += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            if (this.charsLower)
+                output += "abcdefghijklmnopqrstuvwxyz";
+            if (this.charsNumber)
+                output += "1234567890";
+            if (this.charsSymbol)
+                output += "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+            return output;
         }
     }
 });

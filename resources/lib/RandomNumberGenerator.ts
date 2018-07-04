@@ -43,13 +43,13 @@ namespace RandomNumberGenerator {
     }
 
     /**
-     * Generates a random number between the specified minimum (inclusive)
-     * and maximum (exclusive).
+     * Generates a random number between the specified minimum and maximum,
+     * inclusive.
      *
      * If the maximum is below the minimum, the values will be inverted to
      * support negative ranges.
-     * @param min The minimum value to generate (inclusive).
-     * @param max The maximum value to generate (exclusive).
+     * @param min The minimum value to generate.
+     * @param max The maximum value to generate.
      * @param precision The number of decimal places to generate numbers with.
      */
     export function GenerateRandomNumber(
@@ -58,6 +58,7 @@ namespace RandomNumberGenerator {
         precision: number = 0
     ): number {
         if (max < min) [min, max] = [max, min];
+        max += 10 ** -precision;
         return Math.floor(
             (GenerateRandom() * (max - min) + min) * 10 ** precision)
             / 10 ** precision;

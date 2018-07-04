@@ -43,13 +43,13 @@ var RandomNumberGenerator;
     }
     RandomNumberGenerator.GenerateRandom = GenerateRandom;
     /**
-     * Generates a random number between the specified minimum (inclusive)
-     * and maximum (exclusive).
+     * Generates a random number between the specified minimum and maximum,
+     * inclusive.
      *
      * If the maximum is below the minimum, the values will be inverted to
      * support negative ranges.
-     * @param min The minimum value to generate (inclusive).
-     * @param max The maximum value to generate (exclusive).
+     * @param min The minimum value to generate.
+     * @param max The maximum value to generate.
      * @param precision The number of decimal places to generate numbers with.
      */
     function GenerateRandomNumber(min, max, precision) {
@@ -57,6 +57,7 @@ var RandomNumberGenerator;
         var _a;
         if (max < min)
             _a = [max, min], min = _a[0], max = _a[1];
+        max += Math.pow(10, -precision);
         return Math.floor((GenerateRandom() * (max - min) + min) * Math.pow(10, precision))
             / Math.pow(10, precision);
     }

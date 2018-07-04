@@ -1,0 +1,5 @@
+append scripts
+    if !INCLUDED.clipboardjs
+        - INCLUDED.clipboardjs = true;
+        script(src = "/resources/vendor/clipboardjs/clipboard.min.js")
+        script(src = "/resources/vendor/clipboardjs/clipboard.extra.js")

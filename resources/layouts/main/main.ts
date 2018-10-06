@@ -93,6 +93,7 @@ namespace MainLayout {
         "As with most of life's problems, this one can be solved by a box of pure radiation.",
         "Only an idiot would keep that thing near the Hab. So anyway, I brought it back to the Hab.",
         "Problem is (follow me closely here, the science is pretty complicated), if I cut a hole in the Hab, the air won't stay inside anymore.",
+        "In space, no one can hear you scream like a little girl.",
         "All the subtlety and finesse of a napalm enema.",
         "\"I'm running away with your wife!\", \"Great!\"",
         "If you see my wife, tell her I said \"Hello\".",

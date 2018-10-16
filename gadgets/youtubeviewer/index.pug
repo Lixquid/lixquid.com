@@ -1,0 +1,31 @@
+extends /resources/layouts/main
+include /resources/vendor/bootstrap
+include /resources/vendor/vue
+
+append scripts
+    script(src = "index.js")
+
+block main
+    h1 Youtube Viewer
+
+    .input-group.input-group-lg.mb-3
+        input.form-control(
+            type = "text"
+            v-model = "targetUrl"
+        )
+        .input-group-append
+            button.btn.btn-outline-secondary(
+                type = "button"
+                v-on:click = "toggleLoop"
+                v-bind:class = "{ 'active': loop }"
+            ) Loop
+
+    iframe.mx-auto.d-block(
+        type = "text/html"
+        width = "800"
+        v-bind:height = "videoHeight"
+        v-bind:src = "getYoutubeUrl"
+        v-if = "getYoutubeUrl"
+        frameborder = "0"
+        allowfullscreen
+    )

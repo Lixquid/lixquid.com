@@ -8,10 +8,10 @@
         <b-button size="lg" variant="primary" class="w-100 my-3" @click="triggerBeat">Beat</b-button>
 
         <b-form-group label="BPM" label-cols-sm="2">
-            <b-form-input readonly :value="Math.round(getBPM())" />
+            <b-form-input readonly :value="Math.round(bpm)" />
         </b-form-group>
         <b-form-group label="Average Period (ms)" label-cols-sm="2">
-            <b-form-input readonly :value="Math.round(getAveragePeriod())" />
+            <b-form-input readonly :value="Math.round(averagePeriod)" />
         </b-form-group>
         <b-form-group label="Beats" label-cols-sm="2">
             <b-form-input readonly :value="beatCount" />
@@ -45,12 +45,12 @@ export default class BPMTesterGadget extends Vue {
         this.beatCount = 0;
     }
 
-    public getBPM() {
+    public get bpm() {
         if (this.periods.length === 0) return 0;
-        return 60000 / this.getAveragePeriod();
+        return 60000 / this.averagePeriod;
     }
 
-    public getAveragePeriod() {
+    public get averagePeriod() {
         if (this.periods.length === 0) return 0;
         return this.periods.reduce((p, c) => p + c) / this.periods.length;
     }

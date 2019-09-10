@@ -17,7 +17,7 @@
         <nav class="nav">
             <router-link to="/">Home</router-link>
             <span class="separator">/</span>
-            <router-link to="/">Home</router-link>
+            <router-link to="/gadgets">Gadgets</router-link>
         </nav>
         <router-view />
     </div>

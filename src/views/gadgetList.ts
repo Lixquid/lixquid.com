@@ -3,6 +3,7 @@ import { VueClass } from "vue-class-component/lib/declarations";
 import BPMTesterGadget from "./gadgets/BPMTesterGadget.vue";
 import CounterGadget from "./gadgets/CounterGadget.vue";
 import DebtResolverGadget from "./gadgets/DebtResolverGadget.vue";
+import FindAndReplaceGadget from "./gadgets/FindAndReplaceGadget.vue";
 import ReactionTesterGadget from "./gadgets/ReactionTesterGadget.vue";
 
 export interface IGadgetDefinition {
@@ -36,6 +37,12 @@ const gadgetList: ReadonlyArray<IGadgetDefinition> = [
         description: "Solves complicated debt graphs. Supports chained and cycling graphs.",
         slug: "debtresolver",
         component: DebtResolverGadget
+    },
+    {
+        name: "Find and Replace",
+        description: "Find and replace items in large sections of text. Supports Regular Expressions and Escape Codes.",
+        slug: "findandreplace",
+        component: FindAndReplaceGadget
     }
 ];
 export default gadgetList;

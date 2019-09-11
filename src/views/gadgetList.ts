@@ -2,6 +2,7 @@ import Vue from "vue";
 import { VueClass } from "vue-class-component/lib/declarations";
 import BPMTesterGadget from "./gadgets/BPMTesterGadget.vue";
 import CounterGadget from "./gadgets/CounterGadget.vue";
+import DebtResolverGadget from "./gadgets/DebtResolverGadget.vue";
 import ReactionTesterGadget from "./gadgets/ReactionTesterGadget.vue";
 
 export interface IGadgetDefinition {
@@ -29,6 +30,12 @@ const gadgetList: ReadonlyArray<IGadgetDefinition> = [
         description: "Test your reaction speed with a simple tap.",
         slug: "reactiontester",
         component: ReactionTesterGadget
+    },
+    {
+        name: "Debt Resolver",
+        description: "Solves complicated debt graphs. Supports chained and cycling graphs.",
+        slug: "debtresolver",
+        component: DebtResolverGadget
     }
 ];
 export default gadgetList;

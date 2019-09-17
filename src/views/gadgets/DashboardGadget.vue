@@ -63,7 +63,7 @@
         border-color transparent
 
     &:hover .widget-container
-        filter blur(8px) brightness(.5)
+        filter blur(8px)
 
     &:hover .widget-overlay
         opacity 1

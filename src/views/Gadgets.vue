@@ -16,7 +16,7 @@
 <script lang="ts">
 import VueType from "vue";
 import { Component, Vue } from "vue-property-decorator";
-import gadgetList from "./gadgetList";
+import gadgetList from "./gadgets/gadgetList";
 
 @Component
 export default class Gadgets extends Vue {

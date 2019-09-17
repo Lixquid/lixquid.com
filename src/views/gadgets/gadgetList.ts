@@ -1,16 +1,17 @@
 import Vue from "vue";
 import { VueClass } from "vue-class-component/lib/declarations";
-import BPMTesterGadget from "./gadgets/BPMTesterGadget.vue";
-import CounterGadget from "./gadgets/CounterGadget.vue";
-import DebtResolverGadget from "./gadgets/DebtResolverGadget.vue";
-import FindAndReplaceGadget from "./gadgets/FindAndReplaceGadget.vue";
-import ReactionTesterGadget from "./gadgets/ReactionTesterGadget.vue";
+import BPMTesterGadget from "./BPMTesterGadget.vue";
+import CounterGadget from "./CounterGadget.vue";
+import DashboardGadget from "./DashboardGadget.vue";
+import DebtResolverGadget from "./DebtResolverGadget.vue";
+import FindAndReplaceGadget from "./FindAndReplaceGadget.vue";
+import ReactionTesterGadget from "./ReactionTesterGadget.vue";
 
 export interface IGadgetDefinition {
-    name: string;
-    description: string;
-    slug: string;
-    component: VueClass<Vue>;
+    readonly name: string;
+    readonly description: string;
+    readonly slug: string;
+    readonly component: VueClass<Vue>;
 }
 
 const gadgetList: ReadonlyArray<IGadgetDefinition> = [
@@ -43,6 +44,12 @@ const gadgetList: ReadonlyArray<IGadgetDefinition> = [
         description: "Find and replace items in large sections of text. Supports Regular Expressions and Escape Codes.",
         slug: "findandreplace",
         component: FindAndReplaceGadget
+    },
+    {
+        name: "Dashboard",
+        description: "A fully customizable dashboard display.",
+        slug: "dashboard",
+        component: DashboardGadget
     }
 ];
 export default gadgetList;

@@ -1,6 +1,6 @@
 <template>
     <div class="digital-clock">
-        <div>{{this.outputString}}</div>
+        <div class="digital-clock-text" :style="{fontSize: outputSize + 'px'}" ref="outputRef">{{this.outputString}}</div>
     </div>
 </template>
 
@@ -15,17 +15,22 @@
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
+import { sizeToContainer } from "@/lib/DOMHelper";
 
 const Formatter = new Intl.DateTimeFormat(undefined, { hour: "2-digit", minute: "2-digit", second: "2-digit" });
+const SPACING_FACTOR = 0.8;
 
 @Component
 export default class DigitalClockWidget extends Vue {
     public outputString = "";
+    public outputSize = 12;
 
     private timerHandle: number | undefined;
 
-    private computeOutputString() {
+    private async computeOutputString() {
         this.outputString = Formatter.format(new Date());
+        await this.$nextTick();
+        this.outputSize = sizeToContainer(this.$refs.outputRef as Element, this.outputSize);
     }
     public mounted() {
         this.computeOutputString();

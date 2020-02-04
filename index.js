@@ -1,5 +1,7 @@
 (function() {
     var bg = document.querySelector(".lead--bg");
+    var searchInput = document.querySelector(".deck--search--input");
+
     window.addEventListener("load", function() {
         // https://jakearchibald.com/2013/animated-line-drawing-svg/
         var path = document.querySelector(".lead--logo").contentDocument.getElementById("logoPath");
@@ -23,6 +25,16 @@
             bg.style.opacity = "1";
             bg.style.filter = "blur(0)";
         }, 3000);
+
+        searchInput.style.display = "initial";
+        searchInput.addEventListener("keyup", function(ev) {
+            document.querySelectorAll(".gadget--list .deck--container").forEach(function(el) {
+                el.style.display =
+                    ev.target.value === "" || el.innerText.toLowerCase().indexOf(ev.target.value.toLowerCase()) > -1
+                        ? ""
+                        : "none";
+            });
+        });
     });
     // window.addEventListener(
     //     "scroll",

@@ -119,6 +119,24 @@ a {
     overflow: hidden;
 }
 
+.deck--search {
+    float: right;
+    width: 12rem;
+}
+
+.deck--search--input {
+    display: none; /* Overridden by JavaScript if available */
+
+    width: 100%;
+    background: #333;
+    border: 1px solid #555;
+    color: #eee;
+
+    box-sizing: border-box;
+    padding-left: 0.3rem;
+    border-radius: 0.25rem;
+}
+
 .deck--image {
     flex-basis: 6rem;
 

@@ -132,6 +132,32 @@ a {
     background: #444;
     transition: background-color 0.1s ease-in-out;
 }
+.deck--link {
+    position: relative;
+    flex-basis: 5rem;
+    background: #4e4e4e;
+    font-size: 3rem;
+    transition: background-color 0.1s ease-in-out, flex-basis 0.1s ease-in-out;
+    overflow: hidden;
+}
+.deck--link i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.deck--link:hover {
+    background: #666;
+}
+
+.deck--link {
+    flex-basis: 0;
+}
+.deck--container:hover .deck--link,
+.deck--content:focus + .deck--link,
+.deck--link:focus {
+    flex-basis: 5rem;
+}
 
 .deck--content:hover {
     background: #555;

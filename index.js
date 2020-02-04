@@ -24,11 +24,11 @@
             bg.style.filter = "blur(0)";
         }, 3000);
     });
-    window.addEventListener(
-        "scroll",
-        function() {
-            bg.style.top = window.scrollY / 2 + "px";
-        },
-        { passive: true }
-    );
+    // window.addEventListener(
+    //     "scroll",
+    //     function() {
+    //         bg.style.top = window.scrollY / 2 + "px";
+    //     },
+    //     { passive: true }
+    // );
 })();

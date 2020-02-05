@@ -142,6 +142,7 @@ a {
 
     background-position: center;
     background-size: cover;
+    background-image: url("unknownGadget.png");
 }
 .deck--content {
     flex-grow: 1;

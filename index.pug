@@ -31,8 +31,9 @@ html(lang="en")
                         if block
                             block
                     if codeLink
-                        a.deck--link(title="Source Code", href=codeLink)
-                            i.fas.fa-code
+                        .deck--link--container
+                            a.deck--link(title="Source Code", href=codeLink)
+                                i.fas.fa-code
 
             h2 Things I've made
             ul.deck--list

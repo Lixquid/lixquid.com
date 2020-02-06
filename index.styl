@@ -1,0 +1,145 @@
+@import "normalize.css"
+@import "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+
+html
+    margin 0
+    padding 0
+    width 100%
+    height @width
+
+body
+    @extends html
+    background #2d2f33
+    color #eee
+    font-family Arial, Helvetica, sans-serif
+
+a
+    color #eee
+    text-decoration none
+
+.lead
+    &--container
+        position relative
+        overflow hidden
+        width 100%
+        height @width
+        background #111
+
+    &--bg
+        position relative
+        width 100%
+        height @width
+        background url("bg.png") center / cover rgba(0, 0, 0, .7)
+        filter blur(20px)
+        opacity 0
+        transition opacity 1s ease-in-out, filter 3s ease-in-out
+
+    &--logo
+        position absolute
+        top 50%
+        left 50%
+        width 30%
+        transition width 1s
+        transform translate(-50%, -50%)
+
+        @media (max-width: 700px)
+            width 60%
+
+    &--links
+        position absolute
+        top 80%
+        left 50%
+        white-space nowrap
+        font-size 3rem
+        transition font-size 1s
+        transform translate(-50%, -50%)
+
+        @media (max-width: 700px)
+            font-size 2rem
+
+        a
+            color #ccc
+
+            & + a
+                margin-left 1rem
+
+            &:hover
+                color #fff
+
+    &--scrolldown
+        position absolute
+        bottom .5rem
+        left 50%
+        font-size 2rem
+        opacity .2
+        transform translateX(-50%)
+
+.main--container
+    margin 3rem auto
+    max-width 800px
+
+.deck
+    &--list
+        list-style none
+
+        & li + li
+            margin-top 1rem
+
+    &--container
+        display flex
+        overflow hidden
+        min-height 4rem
+        border-radius .3rem
+
+    &--search
+        float right
+        width 12rem
+
+        &--input
+            display none // - This is overridden by javascript is available
+            box-sizing border-box
+            padding-left .3rem
+            width 100%
+            border 1px solid #555
+            border-radius .25rem
+            background #333
+            color #eee
+
+    &--image
+        flex 0 0 6rem
+        background-image url("unknownGadget.png")
+        background-position center
+        background-size cover
+
+    &--content
+        flex-grow 1
+        padding .5rem
+        background #444
+        transition background-color .1s ease-in-out
+
+        &:hover
+            background lighten(@background, 8%)
+
+        h3
+            margin-top 0
+            margin-bottom .75em
+
+    &--link
+        position relative
+        flex-basis 0
+        overflow hidden
+        background #4e4e4e
+        font-size 3rem
+        transition background-color .1s ease-in-out, flex-basis .1s ease-in-out
+
+        &:hover
+            background lighten(@background, 8%)
+
+        i
+            position absolute
+            top 50%
+            left @top
+            transform translate(-50%, -50%)
+
+        .deck--container:hover &,.deck--content:focus + &,&:focus
+            flex-basis 5rem

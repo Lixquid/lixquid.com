@@ -6,9 +6,19 @@
         "name": "Lixquid",
         "url": "https://lixquid.com"
     },
+    "scripts": {
+        "build:html": "pug -w *.pug",
+        "build:css": "stylus -w *.styl",
+        "serve:plain": "http-server",
+        "serve": "run-p build:* serve:plain"
+    },
     "license": "MIT",
     "devDependencies": {
-        "http-server": "^0.12.1"
+        "http-server": "^0.12.1",
+        "npm-run-all": "^4.1.5",
+        "pug": "^2.0.4",
+        "pug-cli": "^1.0.0-alpha6",
+        "stylus": "^0.54.7"
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.12.0"

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Lixquid
+
+        link(rel="icon", href="favicon.png")
+        link(rel="stylesheet", href="index.css")
+    body
+        .lead--container
+            .lead--bg
+            object.lead--logo(data="logo.svg", type="image/svg+xml")
+            nav.lead--links
+                mixin link(name, link, icon)
+                    a(href=link, title=name)
+                        i(class=`fab fa-${icon}`)
+                +link("GitLab", "https://gitlab.com/lixquid", "gitlab")
+                +link("GitHub", "https://github.com/lixquid", "github")
+                +link("Steam", "https://steamcommunity.com/lixquid", "steam")
+                +link("Discord (Lixquid#8008)", "https://discord.gg/PDjFHV9", "discord")
+                +link("Twitter", "https://twitter.com/lixquid", "twitter")
+            .lead--scrolldown
+                i.fas.fa-chevron-down
+        .main--container
+            mixin card(link, image, codeLink)
+                li.deck--container
+                    .deck--image(style = image ? `background-image: url('${image}')` : undefined)
+                    a.deck--content(href=link)
+                        if block
+                            block
+                    if codeLink
+                        a.deck--link(title="Source Code", href=codeLink)
+                            i.fas.fa-code
+
+            h2 Things I've made
+            ul.deck--list
+                +card("https://gitlab.com/lixquid/powershell-modules", "https://assets.gitlab-static.net/uploads/-/system/project/avatar/8590631/powershell.png")
+                    h3 Powershell Modules
+                    span A collection of Powershell modules and utilities.
+                +card("https://gitlab.com/lixquid/typescript-modules", "https://assets.gitlab-static.net/uploads/-/system/project/avatar/10134474/typescript.png")
+                    h3 TypeScript Modules
+                    span A collection of Typescript / JavaScript modules and utilities.
+                +card("https://gitlab.com/lixquid/LUtil", "https://assets.gitlab-static.net/uploads/-/system/project/avatar/6517704/csharp.png")
+                    h3 LUtil
+                    span A C# Utilities library.
+                +card("https://gitlab.com/lixquid/go-genetic-math", "https://assets.gitlab-static.net/uploads/-/system/project/avatar/15405314/output.png")
+                    h3 Go - Genetic Math
+                    span A small experiment with genetic algorithms in Go.
+            h2
+                | Doodads, widgets, and gizmos
+                .deck--search
+                    input.deck--search--input(placeholder="Search...")
+            ul.deck--list.gadget--list
+                +card("https://fallout-hacking-solver.lixquid.com", undefined, "https://gitlab.com/lixquid/app-fallout-hacking-solver")
+                    h3 Fallout Hacking Solver
+                    span A small Javascript gadget to solve the fallout games' likeness word matching minigame.
+                +card("https://betrayal-character-sheet.lixquid.com", undefined, "https://gitlab.com/lixquid/app-betrayal-character-sheet")
+                    h3 Betrayal Character Sheet
+                    span A digital, significantly less fiddly character sheet for the board game "Betrayal at House on the Hill".
+        script(src="index.js")

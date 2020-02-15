@@ -17,6 +17,9 @@ a
     color #eee
     text-decoration none
 
+h2
+    margin-left 1em
+
 .lead
     &--container
         position relative
@@ -75,11 +78,14 @@ a
         transform translateX(-50%)
 
 .main--container
+    box-sizing border-box
     margin 3rem auto
+    padding 0 1rem
     max-width 800px
 
 .deck
     &--list
+        padding-left 0
         list-style none
 
         & li + li
@@ -98,6 +104,9 @@ a
     &--search
         float right
         width 12rem
+
+        @media (max-width: 600px)
+            float initial
 
         &--input
             display none // - This is overridden by javascript is available
@@ -127,6 +136,9 @@ a
     &--link--container
         flex 0 0 5rem
         overflow hidden
+
+        @media (max-width: 600px)
+            display none
 
     &--link
         position relative

@@ -16,6 +16,9 @@ a {
   color: #eee;
   text-decoration: none;
 }
+h2 {
+  margin-left: 1em;
+}
 .lead--container {
   position: relative;
   overflow: hidden;
@@ -77,10 +80,13 @@ a {
   transform: translateX(-50%);
 }
 .main--container {
+  box-sizing: border-box;
   margin: 3rem auto;
+  padding: 0 1rem;
   max-width: 800px;
 }
 .deck--list {
+  padding-left: 0;
   list-style: none;
 }
 .deck--list li + li {
@@ -99,6 +105,11 @@ a {
 .deck--search {
   float: right;
   width: 12rem;
+}
+@media (max-width: 600px) {
+  .deck--search {
+    float: initial;
+  }
 }
 .deck--search--input {
   display: none;
@@ -128,6 +139,11 @@ a {
 .deck--link--container {
   flex: 0 0 5rem;
   overflow: hidden;
+}
+@media (max-width: 600px) {
+  .deck--link--container {
+    display: none;
+  }
 }
 .deck--link {
   position: relative;

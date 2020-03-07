@@ -4,6 +4,8 @@ pages:
     stage: deploy
     script:
         - yarn
+        - yarn pug .
+        - yarn stylus .
         - mkdir .public
         - cp -r * .public
         - mv .public public

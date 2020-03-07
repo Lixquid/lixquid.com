@@ -7,8 +7,8 @@
         "url": "https://lixquid.com"
     },
     "scripts": {
-        "build:html": "pug -w *.pug",
-        "build:css": "stylus -w *.styl",
+        "build:html": "pug -w .",
+        "build:css": "stylus -w .",
         "serve:plain": "http-server",
         "serve": "run-p build:* serve:plain"
     },

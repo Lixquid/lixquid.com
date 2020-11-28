@@ -1,7 +1,5 @@
-import text from "bundle-text:/QUOTES.txt";
-
 // Set the Inspirational Quote (tm)
-const quotes = text.split("\n").filter(t => !!t);
+const quotes = "Inspirational Quote".split("\n").filter(t => !!t);
 const quoteDiv = document.querySelector(".footer--quote") as HTMLDivElement;
 quoteDiv.innerHTML = quotes[Math.floor(Math.random() * quotes.length)];
 

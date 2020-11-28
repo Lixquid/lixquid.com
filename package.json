@@ -1,0 +1,24 @@
+{
+    "name": "lixquids-site",
+    "version": "0.9.0",
+    "private": true,
+    "author": {
+        "name": "Lixquid",
+        "url": "https://lixquid.com"
+    },
+    "license": "MIT",
+    "scripts": {
+        "serve": "parcel src/index.pug",
+        "build": "parcel build src/index.pug"
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome-free": "^5.15.1",
+        "bootstrap": "^4.5.3"
+    },
+    "devDependencies": {
+        "parcel": "^1.12.4",
+        "pug": "^3.0.0",
+        "stylus": "^0.54.8",
+        "typescript": "^4.1.2"
+    }
+}

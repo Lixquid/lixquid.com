@@ -61,7 +61,16 @@ html(lang="en")
                                 |
                                 | Source Code
 
-            h1 Things I've made
+            h1
+                | Things I've made
+                .float-right.btn-group.js-only(role="group")
+                    button.btn.btn-secondary.active.card--layout--mason(title="Masonry Layout")
+                        span.fas.fa-th-large
+                        .sr-only Masonry Layout
+                    button.btn.btn-secondary.card--layout--list(title="List Layout")
+                        span.fas.fa-th-list
+                        .sr-only List Layout
+
             .row
                 .col-md-6
                     +card(

@@ -79,11 +79,13 @@ body
 h1
     margin 2rem 0
 
+$cardSpacing = 2rem
+
 .main--card
     background #fff
 
     & + .main--card
-        margin-top 1rem
+        margin-top $cardSpacing
 
     .main--card--header
         position relative
@@ -136,7 +138,7 @@ h1
 
 @media (max-width 767px)
     .col-md-6 + .col-md-6
-        margin-top 1rem
+        margin-top $cardSpacing
 
 .footer--quote
     margin-top 3rem
@@ -148,3 +150,17 @@ h1
     @media (max-width 767px)
         margin-left 0
         width 100%
+
+.js-only
+    display none
+
+    html.js-enabled &
+        display initial
+
+html.card-listlayout
+    .col-md-6
+        flex 0 0 100%
+        max-width 100%
+
+        & + .col-md-6
+            margin-top $cardSpacing

@@ -5,6 +5,25 @@ const quotes = text.split("\n").filter(t => !!t);
 const quoteDiv = document.querySelector(".footer--quote") as HTMLDivElement;
 quoteDiv.innerHTML = quotes[Math.floor(Math.random() * quotes.length)];
 
+// Shows JS only elements via CSS rules
+const html = document.querySelector("html");
+html.classList.add("js-enabled");
+
+{
+    const masonButton = document.querySelector(".card--layout--mason") as HTMLButtonElement;
+    masonButton.addEventListener("click", () => {
+        html.classList.remove("card-listlayout");
+        masonButton.classList.add("active");
+        listButton.classList.remove("active");
+    });
+    const listButton = document.querySelector(".card--layout--list") as HTMLButtonElement;
+    listButton.addEventListener("click", () => {
+        html.classList.add("card-listlayout");
+        masonButton.classList.remove("active");
+        listButton.classList.add("active");
+    });
+}
+
 window.addEventListener("load", () => {
     // Fade in the background
     const bg = document.querySelector(".header--bg") as HTMLDivElement;

@@ -134,9 +134,17 @@ h1
     a:hover
         text-decoration none
 
+@media (max-width 767px)
+    .col-md-6 + .col-md-6
+        margin-top 1rem
+
 .footer--quote
     margin-top 3rem
     margin-left 50%
     width 50%
     text-align right
     opacity 0.6
+
+    @media (max-width 767px)
+        margin-left 0
+        width 100%

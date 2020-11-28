@@ -43,7 +43,7 @@ html(lang="en")
                 .main--card(style=`
                     --card-color: ${options.color || "#666"};
                     --card-color-text: ${options.colorDark ? '#333' : 'white'};
-                    --card-bg: url(${options.bgUrl})
+                    ${options.bgUrl ? `--card-bg: url(${options.bgUrl})` : ""}
                 `)
                     a(href=url)
                         .main--card--header
@@ -127,5 +127,73 @@ html(lang="en")
                         }
                     )
                         span An NPM package to create a ref that stores / retrieves from localStorage.
+
+            h1 Doodads, Widgets, and Gizmos
+            .row
+                .col-md-6
+                    +card(
+                        "Fallout Hacking Solver",
+                        "https://fallout-hacking-solver.lixquid.com",
+                        {
+                            tags: ["Gadget", "Fallout"],
+                            srcUrl: "https://gitlab.com/lixquid/app-fallout-hacking-solver"
+                        }
+                    )
+                        span A small Javascript gadget to solve the fallout games' likeness word matching minigame.
+                    +card(
+                        "Betrayal Character Sheet",
+                        "https://betrayal-character-sheet.lixquid.com",
+                        {
+                            tags: ["Gadget"],
+                            srcUrl: "https://gitlab.com/lixquid/app-betrayal-character-sheet"
+                        }
+                    )
+                        span A digital, significantly less fiddly character sheet for the board game "Betrayal at House on the Hill".
+                    +card(
+                        "Reaction Tester",
+                        "https://reaction-tester.lixquid.com",
+                        {
+                            tags: ["Gadget", "Game"],
+                            srcUrl: "https://gitlab.com/lixquid/app-reaction-tester"
+                        }
+                    )
+                        span A small tool to check your reaction times.
+                .col-md-6
+                    +card(
+                        "Color Picker",
+                        "https://color-picker.lixquid.com",
+                        {
+                            tags: ["Gadget"],
+                            srcUrl: "https://gitlab.com/lixquid/app-color-picker"
+                        }
+                    )
+                        span A small app to pick colours from different sources and output them in a variety of formats.
+                    +card(
+                        "Text Icon Generator",
+                        "https://text-icon-generator.lixquid.com",
+                        {
+                            tags: ["Gadget"],
+                            srcUrl: "https://gitlab.com/lixquid/app-text-icon-generator"
+                        }
+                    )
+                        span A tool to generate SVG icons / banners from text / icon fonts.
+                    +card(
+                        "Debt Resolver",
+                        "https://debt-resolver.lixquid.com",
+                        {
+                            tags: ["Gadget"],
+                            srcUrl: "https://gitlab.com/lixquid/app-debt-resolver"
+                        }
+                    )
+                        span An app to plan and minimize money transfers between parties.
+                    +card(
+                        "Unit Calculator",
+                        "https://unit-calc.lixquid.com",
+                        {
+                            tags: ["Gadget", "Incomplete"],
+                            srcUrl: "https://gitlab.com/lixquid/app-unit-calc"
+                        }
+                    )
+                        span A calculator for working with units such as metres, kilograms, and more.
 
         script(src="/index.ts")

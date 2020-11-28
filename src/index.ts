@@ -1,4 +1,11 @@
+import text from "bundle-text:/QUOTES.txt";
+
 window.addEventListener("load", () => {
+    // Set the Inspirational Quote (tm)
+    const quotes = text.split("\n").filter(t => !!t);
+    const quoteDiv = document.querySelector(".footer--quote") as HTMLDivElement;
+    quoteDiv.innerHTML = quotes[Math.floor(Math.random() * quotes.length)];
+
     // Fade in the background
     const bg = document.querySelector(".header--bg") as HTMLDivElement;
     setTimeout(() => {

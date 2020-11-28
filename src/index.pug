@@ -10,7 +10,7 @@ html(lang="en")
         link(rel="stylesheet", href="/../node_modules/@fortawesome/fontawesome-free/css/all.min.css")
         link(rel="stylesheet", href="/index.styl")
     body
-        .header--container
+        header.header--container
             .header--bg
             .header--content
                 object.header--logo(data="/images/logo.svg", type="image/svg+xml")
@@ -18,6 +18,7 @@ html(lang="en")
                     mixin link(name, link, icon)
                         a(href=link, title=name)
                             i(class=`fab fa-${icon}`)
+                            .sr-only= name
                     +link("GitLab", "https://gitlab.com/lixquid", "gitlab")
                     +link("GitHub", "https://github.com/lixquid", "github")
                     +link("Steam", "https://steamcommunity.com/lixquid", "steam")
@@ -31,4 +32,100 @@ html(lang="en")
                         opacity: 1 !important;
                         filter: blur(6px) !important;
                     }
+        main.container.mx-auto.my-5
+            //- Valid options:
+            //-     tags: string[]
+            //-     srcUrl: string
+            //-     color: string
+            //-     colorDark: boolean
+            //-     bgUrl: string
+            mixin card(title, url, options)
+                .main--card(style=`
+                    --card-color: ${options.color || "#666"};
+                    --card-color-text: ${options.colorDark ? '#333' : 'white'};
+                    --card-bg: url(${options.bgUrl})
+                `)
+                    a(href=url)
+                        .main--card--header
+                            span= title
+                        .main--card--content
+                            block
+                    .d-flex
+                        .flex-grow-1
+                            if options.tags
+                                for tag in options.tags
+                                    .main--card--tag.badge= tag
+                        if options.srcUrl
+                            a.main--card--source(href=options.srcUrl)
+                                i.fas.fa-code
+                                |
+                                | Source Code
+
+            h1 Things I've made
+            .row
+                .col-md-6
+                    +card(
+                        "PowerShell Modules",
+                        "https://gitlab.com/lixquid/powershell-modules",
+                        {
+                            tags: ["PowerShell", "Library"],
+                            color: "#2C72C7",
+                            bgUrl: "/cards/powershell.png"
+                        }
+                    )
+                        span A collection of Powershell modules and utilities
+                    +card(
+                        "TypeScript Modules",
+                        "https://gitlab.com/lixquid/typescript-modules",
+                        {
+                            tags: ["TypeScript", "JavaScript", "Library"],
+                            color: "#2C72C7",
+                            bgUrl: "/cards/typescript.png"
+                        }
+                    )
+                        span A collection of TypeScript / JavaScript modules and utilities
+                    +card(
+                        "LUtil",
+                        "https://gitlab.com/lixquid/LUtil",
+                        {
+                            tags: ["C#", "Library"],
+                            color: "#37A42C",
+                            bgUrl: "/cards/csharp.png"
+                        }
+                    )
+                        span A C# Utilities library.
+                .col-md-6
+                    +card(
+                        "Go - Genetic Math",
+                        "https://gitlab.com/lixquid/go-genetic-math",
+                        {
+                            tags: ["Go", "Experiment"],
+                            color: "#00ACD7",
+                            bgUrl: "/cards/go.png"
+                        }
+                    )
+                        span A small experiment with genetic algorithms in Go.
+                    +card(
+                        "dualbounce",
+                        "https://gitlab.com/lixquid/dualbounce",
+                        {
+                            tags: ["TypeScript", "NPM", "Library"],
+                            color: "#F7DF1E",
+                            colorDark: true,
+                            bgUrl: "/cards/typescript.png"
+                        }
+                    )
+                        span An NPM package to Debounce stuttering changes into a single change.
+                    +card(
+                        "Vue LocalStorage Ref",
+                        "https://gitlab.com/lixquid/vue-localstorage-ref",
+                        {
+                            tags: ["TypeScript", "NPM", "Library"],
+                            color: "#F7DF1E",
+                            colorDark: true,
+                            bgUrl: "/cards/typescript.png"
+                        }
+                    )
+                        span An NPM package to create a ref that stores / retrieves from localStorage.
+
         script(src="/index.ts")

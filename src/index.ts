@@ -1,5 +1,5 @@
+import quotes from "./QUOTES.json";
 // Set the Inspirational Quote (tm)
-const quotes = "Inspirational Quote".split("\n").filter(t => !!t);
 const quoteDiv = document.querySelector(".footer--quote") as HTMLDivElement;
 quoteDiv.innerHTML = quotes[Math.floor(Math.random() * quotes.length)];
 

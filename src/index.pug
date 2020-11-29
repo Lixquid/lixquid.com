@@ -40,189 +40,183 @@ html(lang="en")
             //-     colorDark: boolean
             //-     bgUrl: string
             mixin card(title, url, options)
-                .main--card(style=`
-                    --card-color: ${options.color || "#666"};
-                    --card-color-text: ${options.colorDark ? '#333' : 'white'};
-                    ${options.bgUrl ? `--card-bg: url(${options.bgUrl})` : ""}
-                `)
-                    a.main--card--link(href=url)
-                        .main--card--header
-                            span= title
-                        .main--card--content
-                            block
-                    .d-flex
-                        .flex-grow-1
-                            if options.tags
-                                for tag in options.tags
-                                    .main--card--tag.badge= tag
-                        if options.srcUrl
-                            a.main--card--source(href=options.srcUrl)
-                                i.fas.fa-code
-                                |
-                                | Source Code
+                .col-xl-6
+                    .main--card(style=`
+                        --card-color: ${options.color || "#666"};
+                        --card-color-text: ${options.colorDark ? '#333' : 'white'};
+                        ${options.bgUrl ? `--card-bg: url(${options.bgUrl})` : ""}
+                    `)
+                        a.main--card--link(href=url)
+                            .main--card--header
+                                span= title
+                            .main--card--content
+                                block
+                        .d-flex
+                            .flex-grow-1
+                                if options.tags
+                                    for tag in options.tags
+                                        .main--card--tag.badge= tag
+                            if options.srcUrl
+                                a.main--card--source(href=options.srcUrl)
+                                    i.fas.fa-code
+                                    |
+                                    | Source Code
 
-            .d-flex.js-only
-                .btn-group(role="group")
-                    button.btn.btn-secondary.active.card--layout--mason(title="Masonry Layout")
-                        span.fas.fa-th-large
-                        .sr-only Masonry Layout
-                    button.btn.btn-secondary.card--layout--list(title="List Layout")
-                        span.fas.fa-th-list
-                        .sr-only List Layout
-                .ml-3.flex-grow-1
-                    .input-group
-                        .input-group-prepend
-                            span.input-group-text
-                                span.fas.fa-search
-                        input.form-control.card--search--input(
-                            placeholder="Search"
-                        )
-                        .input-group-append
-                            button.btn.btn-outline-danger.card--search--clear.d-none
-                                span.fas.fa-times
+            .card--search--container.js-only
+                .input-group
+                    .input-group-prepend
+                        span.input-group-text
+                            span.fas.fa-search
+                    input.form-control.card--search--input(
+                        placeholder="Search"
+                    )
+                    .input-group-append
+                        button.btn.btn-outline-danger.card--search--clear.d-none
+                            span.fas.fa-times
 
             h1 Things I've made
 
             .row
-                .col-md-6
-                    +card(
-                        "PowerShell Modules",
-                        "https://gitlab.com/lixquid/powershell-modules",
-                        {
-                            tags: ["PowerShell", "Library"],
-                            color: "#2C72C7",
-                            bgUrl: "/cards/powershell.png"
-                        }
-                    )
-                        span A collection of Powershell modules and utilities
-                    +card(
-                        "TypeScript Modules",
-                        "https://gitlab.com/lixquid/typescript-modules",
-                        {
-                            tags: ["TypeScript", "JavaScript", "Library"],
-                            color: "#2C72C7",
-                            bgUrl: "/cards/typescript.png"
-                        }
-                    )
-                        span A collection of TypeScript / JavaScript modules and utilities
-                    +card(
-                        "LUtil",
-                        "https://gitlab.com/lixquid/LUtil",
-                        {
-                            tags: ["C#", "Library"],
-                            color: "#37A42C",
-                            bgUrl: "/cards/csharp.png"
-                        }
-                    )
-                        span A C# Utilities library.
-                .col-md-6
-                    +card(
-                        "Go - Genetic Math",
-                        "https://gitlab.com/lixquid/go-genetic-math",
-                        {
-                            tags: ["Go", "Experiment"],
-                            color: "#00ACD7",
-                            bgUrl: "/cards/go.png"
-                        }
-                    )
-                        span A small experiment with genetic algorithms in Go.
-                    +card(
-                        "dualbounce",
-                        "https://gitlab.com/lixquid/dualbounce",
-                        {
-                            tags: ["TypeScript", "NPM", "Library"],
-                            color: "#F7DF1E",
-                            colorDark: true,
-                            bgUrl: "/cards/typescript.png"
-                        }
-                    )
-                        span An NPM package to Debounce stuttering changes into a single change.
-                    +card(
-                        "Vue LocalStorage Ref",
-                        "https://gitlab.com/lixquid/vue-localstorage-ref",
-                        {
-                            tags: ["TypeScript", "NPM", "Library"],
-                            color: "#F7DF1E",
-                            colorDark: true,
-                            bgUrl: "/cards/typescript.png"
-                        }
-                    )
-                        span An NPM package to create a ref that stores / retrieves from localStorage.
+                +card(
+                    "PowerShell Modules",
+                    "https://gitlab.com/lixquid/powershell-modules",
+                    {
+                        tags: ["PowerShell", "Library"],
+                        color: "#2C72C7",
+                        bgUrl: "/cards/powershell.png"
+                    }
+                )
+                    span A collection of Powershell modules and utilities
+                +card(
+                    "TypeScript Modules",
+                    "https://gitlab.com/lixquid/typescript-modules",
+                    {
+                        tags: ["TypeScript", "JavaScript", "Library"],
+                        color: "#2C72C7",
+                        bgUrl: "/cards/typescript.png"
+                    }
+                )
+                    span A collection of TypeScript / JavaScript modules and utilities
+            .row
+                +card(
+                    "LUtil",
+                    "https://gitlab.com/lixquid/LUtil",
+                    {
+                        tags: ["C#", "Library"],
+                        color: "#37A42C",
+                        bgUrl: "/cards/csharp.png"
+                    }
+                )
+                    span A C# Utilities library.
+                +card(
+                    "Go - Genetic Math",
+                    "https://gitlab.com/lixquid/go-genetic-math",
+                    {
+                        tags: ["Go", "Experiment"],
+                        color: "#00ACD7",
+                        bgUrl: "/cards/go.png"
+                    }
+                )
+                    span A small experiment with genetic algorithms in Go.
+            .row
+                +card(
+                    "dualbounce",
+                    "https://gitlab.com/lixquid/dualbounce",
+                    {
+                        tags: ["TypeScript", "NPM", "Library"],
+                        color: "#F7DF1E",
+                        colorDark: true,
+                        bgUrl: "/cards/typescript.png"
+                    }
+                )
+                    span An NPM package to Debounce stuttering changes into a single change.
+                +card(
+                    "Vue LocalStorage Ref",
+                    "https://gitlab.com/lixquid/vue-localstorage-ref",
+                    {
+                        tags: ["TypeScript", "NPM", "Library"],
+                        color: "#F7DF1E",
+                        colorDark: true,
+                        bgUrl: "/cards/typescript.png"
+                    }
+                )
+                    span An NPM package to create a ref that stores / retrieves from localStorage.
 
             h1 Doodads, Widgets, and Gizmos
             .row
-                .col-md-6
-                    +card(
-                        "Fallout Hacking Solver",
-                        "https://fallout-hacking-solver.lixquid.com",
-                        {
-                            tags: ["Gadget", "Fallout"],
-                            srcUrl: "https://gitlab.com/lixquid/app-fallout-hacking-solver",
-                            bgUrl: "/cards/app.png"
-                        }
-                    )
-                        span A small Javascript gadget to solve the fallout games' likeness word matching minigame.
-                    +card(
-                        "Betrayal Character Sheet",
-                        "https://betrayal-character-sheet.lixquid.com",
-                        {
-                            tags: ["Gadget"],
-                            srcUrl: "https://gitlab.com/lixquid/app-betrayal-character-sheet",
-                            bgUrl: "/cards/app.png"
-                        }
-                    )
-                        span A digital, significantly less fiddly character sheet for the board game "Betrayal at House on the Hill".
-                    +card(
-                        "Reaction Tester",
-                        "https://reaction-tester.lixquid.com",
-                        {
-                            tags: ["Gadget", "Game"],
-                            srcUrl: "https://gitlab.com/lixquid/app-reaction-tester",
-                            bgUrl: "/cards/app.png"
-                        }
-                    )
-                        span A small tool to check your reaction times.
-                .col-md-6
-                    +card(
-                        "Color Picker",
-                        "https://color-picker.lixquid.com",
-                        {
-                            tags: ["Gadget"],
-                            srcUrl: "https://gitlab.com/lixquid/app-color-picker",
-                            bgUrl: "/cards/app.png"
-                        }
-                    )
-                        span A small app to pick colours from different sources and output them in a variety of formats.
-                    +card(
-                        "Text Icon Generator",
-                        "https://text-icon-generator.lixquid.com",
-                        {
-                            tags: ["Gadget"],
-                            srcUrl: "https://gitlab.com/lixquid/app-text-icon-generator",
-                            bgUrl: "/cards/app.png"
-                        }
-                    )
-                        span A tool to generate SVG icons / banners from text / icon fonts.
-                    +card(
-                        "Debt Resolver",
-                        "https://debt-resolver.lixquid.com",
-                        {
-                            tags: ["Gadget"],
-                            srcUrl: "https://gitlab.com/lixquid/app-debt-resolver",
-                            bgUrl: "/cards/app.png"
-                        }
-                    )
-                        span An app to plan and minimize money transfers between parties.
-                    +card(
-                        "Unit Calculator",
-                        "https://unit-calc.lixquid.com",
-                        {
-                            tags: ["Gadget", "Incomplete"],
-                            srcUrl: "https://gitlab.com/lixquid/app-unit-calc",
-                            bgUrl: "/cards/app.png"
-                        }
-                    )
-                        span A calculator for working with units such as metres, kilograms, and more.
+                +card(
+                    "Fallout Hacking Solver",
+                    "https://fallout-hacking-solver.lixquid.com",
+                    {
+                        tags: ["Gadget", "Fallout"],
+                        srcUrl: "https://gitlab.com/lixquid/app-fallout-hacking-solver",
+                        bgUrl: "/cards/app.png"
+                    }
+                )
+                    span A small Javascript gadget to solve the fallout games' likeness word matching minigame.
+                +card(
+                    "Betrayal Character Sheet",
+                    "https://betrayal-character-sheet.lixquid.com",
+                    {
+                        tags: ["Gadget"],
+                        srcUrl: "https://gitlab.com/lixquid/app-betrayal-character-sheet",
+                        bgUrl: "/cards/app.png"
+                    }
+                )
+                    span A digital, significantly less fiddly character sheet for the board game "Betrayal at House on the Hill".
+            .row
+                +card(
+                    "Reaction Tester",
+                    "https://reaction-tester.lixquid.com",
+                    {
+                        tags: ["Gadget", "Game"],
+                        srcUrl: "https://gitlab.com/lixquid/app-reaction-tester",
+                        bgUrl: "/cards/app.png"
+                    }
+                )
+                    span A small tool to check your reaction times.
+                +card(
+                    "Color Picker",
+                    "https://color-picker.lixquid.com",
+                    {
+                        tags: ["Gadget"],
+                        srcUrl: "https://gitlab.com/lixquid/app-color-picker",
+                        bgUrl: "/cards/app.png"
+                    }
+                )
+                    span A small app to pick colours from different sources and output them in a variety of formats.
+            .row
+                +card(
+                    "Text Icon Generator",
+                    "https://text-icon-generator.lixquid.com",
+                    {
+                        tags: ["Gadget"],
+                        srcUrl: "https://gitlab.com/lixquid/app-text-icon-generator",
+                        bgUrl: "/cards/app.png"
+                    }
+                )
+                    span A tool to generate SVG icons / banners from text / icon fonts.
+                +card(
+                    "Debt Resolver",
+                    "https://debt-resolver.lixquid.com",
+                    {
+                        tags: ["Gadget"],
+                        srcUrl: "https://gitlab.com/lixquid/app-debt-resolver",
+                        bgUrl: "/cards/app.png"
+                    }
+                )
+                    span An app to plan and minimize money transfers between parties.
+            .row
+                +card(
+                    "Unit Calculator",
+                    "https://unit-calc.lixquid.com",
+                    {
+                        tags: ["Gadget", "Incomplete"],
+                        srcUrl: "https://gitlab.com/lixquid/app-unit-calc",
+                        bgUrl: "/cards/app.png"
+                    }
+                )
+                    span A calculator for working with units such as metres, kilograms, and more.
 
             .footer--quote Inspirational Quote
 

@@ -82,6 +82,7 @@ h1
 $cardSpacing = 2rem
 
 .main--card
+    border 1px solid var(--card-color)
     background #fff
 
     &.search-hidden
@@ -139,8 +140,19 @@ $cardSpacing = 2rem
     a:hover
         text-decoration none
 
-@media (max-width 767px)
-    .col-md-6 + .col-md-6
+.card--search--container
+    display block
+    margin 0 auto
+    width 50%
+
+    @media (max-width 991px)
+        width 100%
+
+.row + .row
+    margin-top $cardSpacing
+
+@media (max-width 1199px)
+    .col-xl-6 + .col-xl-6
         margin-top $cardSpacing
 
 .footer--quote
@@ -154,16 +166,5 @@ $cardSpacing = 2rem
         margin-left 0
         width 100%
 
-.js-only
+html:not(.js-enabled) .js-only
     display none
-
-    html.js-enabled &
-        display initial
-
-html.card-listlayout
-    .col-md-6
-        flex 0 0 100%
-        max-width 100%
-
-        & + .col-md-6
-            margin-top $cardSpacing

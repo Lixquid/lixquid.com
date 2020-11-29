@@ -7,22 +7,6 @@ quoteDiv.innerHTML = quotes[Math.floor(Math.random() * quotes.length)];
 const html = document.querySelector("html");
 html.classList.add("js-enabled");
 
-// Card Layout Icons
-{
-    const masonButton = document.querySelector(".card--layout--mason") as HTMLButtonElement;
-    masonButton.addEventListener("click", () => {
-        html.classList.remove("card-listlayout");
-        masonButton.classList.add("active");
-        listButton.classList.remove("active");
-    });
-    const listButton = document.querySelector(".card--layout--list") as HTMLButtonElement;
-    listButton.addEventListener("click", () => {
-        html.classList.add("card-listlayout");
-        masonButton.classList.remove("active");
-        listButton.classList.add("active");
-    });
-}
-
 // Card Search Box
 {
     const searchBox = document.querySelector(".card--search--input") as HTMLInputElement;

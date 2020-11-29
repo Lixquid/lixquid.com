@@ -7,6 +7,7 @@ quoteDiv.innerHTML = quotes[Math.floor(Math.random() * quotes.length)];
 const html = document.querySelector("html");
 html.classList.add("js-enabled");
 
+// Card Layout Icons
 {
     const masonButton = document.querySelector(".card--layout--mason") as HTMLButtonElement;
     masonButton.addEventListener("click", () => {
@@ -19,6 +20,33 @@ html.classList.add("js-enabled");
         html.classList.add("card-listlayout");
         masonButton.classList.remove("active");
         listButton.classList.add("active");
+    });
+}
+
+// Card Search Box
+{
+    const searchBox = document.querySelector(".card--search--input") as HTMLInputElement;
+    const searchBoxClear = document.querySelector(".card--search--clear") as HTMLButtonElement;
+    const updateSearchValue = () => {
+        const searchTerm = searchBox.value.toLowerCase();
+        document.querySelectorAll(".main--card--link").forEach((card: HTMLDivElement) => {
+            const parent = card.closest(".main--card");
+            if (card.innerText.toLowerCase().indexOf(searchTerm) > -1) {
+                parent.classList.remove("d-none");
+            } else {
+                parent.classList.add("d-none");
+            }
+        });
+        if (searchTerm) {
+            searchBoxClear.classList.remove("d-none");
+        } else {
+            searchBoxClear.classList.add("d-none");
+        }
+    };
+    searchBox.addEventListener("input", updateSearchValue);
+    searchBoxClear.addEventListener("click", () => {
+        searchBox.value = "";
+        updateSearchValue();
     });
 }
 

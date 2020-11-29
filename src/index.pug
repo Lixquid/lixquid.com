@@ -61,15 +61,27 @@ html(lang="en")
                                 |
                                 | Source Code
 
-            h1
-                | Things I've made
-                .float-right.btn-group.js-only(role="group")
+            .d-flex.js-only
+                .btn-group(role="group")
                     button.btn.btn-secondary.active.card--layout--mason(title="Masonry Layout")
                         span.fas.fa-th-large
                         .sr-only Masonry Layout
                     button.btn.btn-secondary.card--layout--list(title="List Layout")
                         span.fas.fa-th-list
                         .sr-only List Layout
+                .ml-3.flex-grow-1
+                    .input-group
+                        .input-group-prepend
+                            span.input-group-text
+                                span.fas.fa-search
+                        input.form-control.card--search--input(
+                            placeholder="Search"
+                        )
+                        .input-group-append
+                            button.btn.btn-outline-danger.card--search--clear.d-none
+                                span.fas.fa-times
+
+            h1 Things I've made
 
             .row
                 .col-md-6

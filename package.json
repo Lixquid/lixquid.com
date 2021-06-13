@@ -1,0 +1,20 @@
+{
+  "name": "lixquids-site",
+  "version": "0.10.0",
+  "author": {
+    "name": "Lixquid",
+    "url": "https://lixquid.com"
+  },
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "parcel serve src/index.pug",
+    "build": "parcel build src/index.pug"
+  },
+  "dependencies": {
+    "parcel": "^2.0.0-beta.3.1"
+  },
+  "devDependencies": {
+    "@parcel/transformer-pug": "2.0.0-beta.3.1"
+  }
+}

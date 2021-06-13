@@ -1,0 +1,39 @@
+html,
+body
+    margin 0
+    padding 0
+    width 100%
+    height 100%
+    background #111
+    color #ccc
+
+.header
+    width 100%
+    height 100%
+
+    &--bg
+        position absolute
+        top 0
+        right 0
+        bottom 0
+        left 0
+        background url("~/src/assets/bg.png") center / cover
+        filter blur(10px)
+        opacity 0
+        transition opacity 1s ease-in, filter 3s ease-in
+
+    &--contents
+        position absolute
+        top 50%
+        width 100%
+        text-align center
+        transform translateY(-50%)
+
+    &--logo
+        width calc(min(30vw, 30vh))
+        height @width
+        transition width 0.2s, height 0.2s
+
+        @media (max-width 767px), (max-height 767px)
+            width calc(min(50vw, 50vh))
+            height @width

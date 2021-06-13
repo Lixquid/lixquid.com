@@ -12,6 +12,7 @@
     "build": "parcel build src/index.pug"
   },
   "dependencies": {
+    "bootstrap": "^5.0.1",
     "parcel": "^2.0.0-beta.3.1"
   },
   "devDependencies": {

@@ -1,3 +1,13 @@
+mixin async-css(href)
+    link(
+        rel="stylesheet"
+        href=href
+        media="print"
+        onload="this.media='all'"
+    )
+    noscript
+        link(rel="stylesheet", href=href)
+
 doctype html
 html(lang="en")
     head
@@ -9,8 +19,20 @@ html(lang="en")
         link(rel="icon", href="~/src/assets/favicon.png")
         link(rel="stylesheet", href="~/node_modules/bootstrap/dist/css/bootstrap-reboot.min.css")
         link(rel="stylesheet", href="~/src/index.styl")
+        +async-css("~/node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css")
+        +async-css("~/node_modules/@fortawesome/fontawesome-free/css/brands.min.css")
     body
         .header
             .header--bg
             .header--contents
                 object.header--logo(data="~/src/assets/logo.svg",type="image/svg+xml")
+                nav.header--links
+                    mixin link(name, link, icon)
+                        a(href=link, title=name)
+                            i(class=`fab fa-${icon}`)
+                            .visually-hidden= name
+                    +link("GitHub", "https://github.com/lixquid", "github")
+                    +link("GitLab", "https://gitlab.com/lixquid", "gitlab")
+                    +link("Steam", "https://steamcommunity.com/lixquid", "steam")
+                    +link("Discord (Lixquid#8008)", "https://discord.gg/PDjFHV9", "discord")
+                    +link("Twitter", "https://twitter.com/lixquid", "twitter")

@@ -7,25 +7,31 @@
 }
 /* #endregion */
 
+html {
+    --color-bg: #040608;
+}
+
 html,
 body {
     padding: 0;
     margin: 0;
     font-family: "WixMadeForDisplay", sans-serif;
-    background-color: #040608;
+    background-color: var(--color-bg);
     color: #adb5bd;
     font-size: 16px;
 }
 
-/* #region Landing Page */
-
 #landing {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
     border-bottom: 1px solid #181b1e;
-}
 
-/* #endregion */
+    > #landing-canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "name": "lixquid.com",
+    "version": "0.10.0",
+    "private": true,
+    "author": {
+        "name": "Lixquid",
+        "url": "https://lixquid.com"
+    },
+    "license": "MIT",
+    "scripts": {
+        "start": "echo TODO && exit 1",
+        "build": "echo TODO && exit 1"
+    },
+    "dependencies": {
+        "vite": "^4.4.7"
+    }
+}

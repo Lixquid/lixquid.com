@@ -8,8 +8,8 @@
     },
     "license": "MIT",
     "scripts": {
-        "start": "echo TODO && exit 1",
-        "build": "echo TODO && exit 1"
+        "start": "yarn vite",
+        "build": "yarn vite build"
     },
     "dependencies": {
         "vite": "^4.4.7"

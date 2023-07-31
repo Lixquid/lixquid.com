@@ -7,6 +7,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="./src/assets/favicon.png" />
 
+        <!--
+            TODO: We're currently pulling in the entire fontawesome library.
+            We should only pull in the icons we need.
+
+            Used:
+                - fas fa-pause
+                - fas fa-play
+         -->
+        <link
+            rel="stylesheet"
+            href="./node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+        />
         <link
             rel="stylesheet"
             href="./node_modules/bootstrap/dist/css/bootstrap-reboot.min.css"
@@ -16,7 +28,14 @@
     <body>
         <div id="landing">
             <canvas id="landing-canvas"></canvas>
+            <div id="landing-cover"></div>
+            <div id="landing-controls">
+                <span id="landing-controls-title">Gradient</span>
+                <button id="landing-controls-toggle" title="Stop Animation">
+                    <i class="fas fa-fw fa-pause"></i>
+                </button>
+            </div>
         </div>
-        hello
+        <script src="./src/index.ts" type="module"></script>
     </body>
 </html>

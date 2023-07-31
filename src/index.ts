@@ -1,4 +1,3 @@
-import { cellularAutomaton_walledCities } from "./backgrounds/cellularAutomaton_walledCities";
 import { codeRain } from "./backgrounds/codeRain";
 import { gameOfLife } from "./backgrounds/gameOfLife";
 import { smoothGradients } from "./backgrounds/smoothGradients";
@@ -36,7 +35,6 @@ window.addEventListener("load", () => {
 const animations = [
     ["Smooth Gradients", smoothGradients],
     ["Game of Life", gameOfLife],
-    ["Cellular Automaton - Walled Cities", cellularAutomaton_walledCities],
     ["Code Rain", codeRain],
 ] as const satisfies ReadonlyArray<
     readonly [

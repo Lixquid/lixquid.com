@@ -1,3 +1,4 @@
+import { cellularAutomaton_walledCities } from "./backgrounds/cellularAutomaton_walledCities";
 import { gameOfLife } from "./backgrounds/gameOfLife";
 import { smoothGradients } from "./backgrounds/smoothGradients";
 
@@ -34,6 +35,7 @@ window.addEventListener("load", () => {
 const animations = [
     ["Smooth Gradients", smoothGradients],
     ["Game of Life", gameOfLife],
+    ["Cellular Automaton - Walled Cities", cellularAutomaton_walledCities],
 ] as const satisfies ReadonlyArray<
     readonly [
         string,
@@ -41,8 +43,8 @@ const animations = [
     ]
 >;
 const selectedAnimation =
-    // animations[Math.floor(Math.random() * animations.length)]!;
-    animations[1];
+    animations[Math.floor(Math.random() * animations.length)]!;
+// animations[2];
 
 const stopSignal = { stop: false };
 const ctx = canvas.getContext("2d", {

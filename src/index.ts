@@ -1,5 +1,6 @@
 import { codeRain } from "./backgrounds/codeRain";
 import { gameOfLife } from "./backgrounds/gameOfLife";
+import { shiftingNetwork } from "./backgrounds/shiftingNetwork";
 import { smoothGradients } from "./backgrounds/smoothGradients";
 
 const canvas = document.getElementById("landing-canvas") as HTMLCanvasElement;
@@ -36,6 +37,7 @@ const animations = [
     ["Smooth Gradients", smoothGradients],
     ["Game of Life", gameOfLife],
     ["Code Rain", codeRain],
+    ["Shifting Network", shiftingNetwork],
 ] as const satisfies ReadonlyArray<
     readonly [
         string,

@@ -14,9 +14,12 @@
 
         "checkJs": true,
         "forceConsistentCasingInFileNames": true,
-        "skipLibCheck": true
+        "skipLibCheck": true,
+
+        "module": "ES2022"
     },
     "include": [
-        "src/**/*"
+        "src/**/*",
+        "_types.d.ts"
     ]
 }

@@ -73,7 +73,7 @@ body {
             }
 
             > .links {
-                font-size: 4em;
+                font-size: 3.5em;
 
                 a {
                     color: var(--color-text);

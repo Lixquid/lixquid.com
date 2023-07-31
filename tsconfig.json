@@ -17,6 +17,7 @@
         "skipLibCheck": true,
 
         "module": "ES2022",
+        "target": "ES2015",
         "lib": ["DOM", "ES2015"]
     },
     "include": [

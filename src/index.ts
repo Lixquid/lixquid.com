@@ -5,6 +5,7 @@ import { dvdJoy } from "./backgrounds/dvdJoy";
 import { gameOfLife } from "./backgrounds/gameOfLife";
 import { shiftingNetwork } from "./backgrounds/shiftingNetwork";
 import { smoothGradients } from "./backgrounds/smoothGradients";
+import { triangleTunnel } from "./backgrounds/triangleTunnel";
 import quotesStr from "./blog/QUOTES.txt?raw";
 
 const cover = document.getElementById("landing-cover") as HTMLDivElement;
@@ -67,6 +68,7 @@ const animations = [
     ["Blueprint Sine Waves", blueprintSineWaves],
     ["Curious Fellers", curiousFellers],
     ["DVD Joy", dvdJoy],
+    ["Traingle Tunnel", triangleTunnel],
 ] as const satisfies ReadonlyArray<
     readonly [
         string,
@@ -75,7 +77,7 @@ const animations = [
 >;
 const selectedAnimation =
     animations[Math.floor(Math.random() * animations.length)]!;
-// animations[6];
+// animations[7];
 
 const canvas = document.getElementById("landing-canvas") as HTMLCanvasElement;
 const animToggleButton = document.getElementById(

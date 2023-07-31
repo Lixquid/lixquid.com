@@ -5,6 +5,7 @@ import { dvdJoy } from "./backgrounds/dvdJoy";
 import { gameOfLife } from "./backgrounds/gameOfLife";
 import { shiftingNetwork } from "./backgrounds/shiftingNetwork";
 import { smoothGradients } from "./backgrounds/smoothGradients";
+import quotesStr from "./blog/QUOTES.txt?raw";
 
 const canvas = document.getElementById("landing-canvas") as HTMLCanvasElement;
 const cover = document.getElementById("landing-cover") as HTMLDivElement;
@@ -17,6 +18,7 @@ const animToggleButton = document.getElementById(
 const animTitle = document.getElementById(
     "landing-controls-title"
 ) as HTMLHeadingElement;
+const footer = document.getElementById("footer") as HTMLDivElement;
 
 //#region Intro Animation
 window.addEventListener("load", () => {
@@ -131,4 +133,9 @@ animToggleButton.addEventListener("click", () => {
         localStorage.setItem("disableBgAnim", "true");
     }
 });
+//#endregion
+
+//#region Inspirational Quotes
+const quotes = quotesStr.split("\n").filter((line) => line.length > 0);
+footer.innerHTML = quotes[Math.floor(Math.random() * quotes.length)]!;
 //#endregion

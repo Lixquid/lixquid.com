@@ -104,6 +104,42 @@ body {
         }
     }
 
+    > .bottom {
+        position: absolute;
+        bottom: 0.5em;
+        left: 0;
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        font-size: 1.5em;
+
+        > .bg {
+            backdrop-filter: blur(20px);
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 1em;
+            padding: 0.8em 1em;
+
+            a {
+                color: var(--color-text);
+                opacity: 0.5;
+                text-decoration: none;
+                transition: opacity 0.2s ease-in-out;
+
+                &:hover {
+                    opacity: 1;
+                }
+
+                & + & {
+                    margin-left: 0.3em;
+                }
+            }
+        }
+    }
+
     > #landing-controls {
         position: absolute;
         top: 1em;

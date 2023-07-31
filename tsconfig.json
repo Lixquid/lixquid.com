@@ -16,7 +16,8 @@
         "forceConsistentCasingInFileNames": true,
         "skipLibCheck": true,
 
-        "module": "ES2022"
+        "module": "ES2022",
+        "lib": ["DOM", "ES2015"]
     },
     "include": [
         "src/**/*",

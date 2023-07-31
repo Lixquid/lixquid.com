@@ -10,6 +10,7 @@
 html {
     --color-text: #adb5bd;
     --color-bg: #040608;
+    --color-bg-light: #161616;
 
     /* Language colors */
     --lang-powershell: #023988;
@@ -232,7 +233,7 @@ main {
     }
 
     .card {
-        background: #161616;
+        background: var(--color-bg-light);
         border-left-width: 0.2em;
         border-left-style: solid;
 
@@ -303,6 +304,23 @@ main {
                 padding: 0.2em 0.5em;
                 border-radius: 0.3em;
             }
+        }
+    }
+
+    .search {
+        font-size: 1.5em;
+        margin-top: 2.5em;
+        text-align: center;
+
+        > input {
+            background: var(--color-bg);
+            border: 1px solid var(--color-bg-light);
+            max-width: 500px;
+            width: 100%;
+            color: var(--color-text);
+            padding: 0.2em 0.5em;
+
+            border-radius: 0.25em;
         }
     }
 }

@@ -7,18 +7,10 @@ import { shiftingNetwork } from "./backgrounds/shiftingNetwork";
 import { smoothGradients } from "./backgrounds/smoothGradients";
 import quotesStr from "./blog/QUOTES.txt?raw";
 
-const canvas = document.getElementById("landing-canvas") as HTMLCanvasElement;
 const cover = document.getElementById("landing-cover") as HTMLDivElement;
 const animControls = document.getElementById(
     "landing-controls"
 ) as HTMLDivElement;
-const animToggleButton = document.getElementById(
-    "landing-controls-toggle"
-) as HTMLButtonElement;
-const animTitle = document.getElementById(
-    "landing-controls-title"
-) as HTMLHeadingElement;
-const footer = document.getElementById("footer") as HTMLDivElement;
 
 //#region Intro Animation
 window.addEventListener("load", () => {
@@ -85,6 +77,13 @@ const selectedAnimation =
     animations[Math.floor(Math.random() * animations.length)]!;
 // animations[6];
 
+const canvas = document.getElementById("landing-canvas") as HTMLCanvasElement;
+const animToggleButton = document.getElementById(
+    "landing-controls-toggle"
+) as HTMLButtonElement;
+const animTitle = document.getElementById(
+    "landing-controls-title"
+) as HTMLHeadingElement;
 const stopSignal = { stop: false };
 const ctx = canvas.getContext("2d", {
     alpha: false,
@@ -137,5 +136,37 @@ animToggleButton.addEventListener("click", () => {
 
 //#region Inspirational Quotes
 const quotes = quotesStr.split("\n").filter((line) => line.length > 0);
-footer.innerHTML = quotes[Math.floor(Math.random() * quotes.length)]!;
+document.getElementById("footer")!.innerHTML =
+    quotes[Math.floor(Math.random() * quotes.length)]!;
+//#endregion
+
+//#region Search
+const search = document.getElementById("search") as HTMLInputElement;
+search.addEventListener("input", () => {
+    const query = search.value.toLowerCase();
+
+    // Hide or show the cards that contain the query
+    for (const card of Array.from(
+        document.querySelectorAll(".card")
+    ) as HTMLDivElement[]) {
+        card.style.display = card.innerText.toLowerCase().includes(query)
+            ? ""
+            : "none";
+    }
+
+    // Hide or show the headers if there are no cards
+    for (const header of Array.from(
+        document.querySelectorAll(".title")
+    ) as HTMLDivElement[]) {
+        header.style.display =
+            Array.from(
+                header.nextElementSibling!.querySelectorAll(
+                    ".card"
+                ) as NodeListOf<HTMLDivElement>
+            ).filter((card) => card.style.display !== "none").length > 0
+                ? ""
+                : "none";
+    }
+});
+
 //#endregion

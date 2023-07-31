@@ -20,11 +20,38 @@ const animTitle = document.getElementById(
 
 //#region Intro Animation
 window.addEventListener("load", () => {
-    // Fade out the canvas cover and fade in the animation controls
-    animControls.style.opacity = "1";
-    if (!localStorage.getItem("disableBgAnim")) {
-        cover.style.opacity = "0.5";
+    // Remove the no-js class
+    document.querySelector("html")!.classList.remove("no-js");
+
+    // Start the logo animation
+    const logoPath = (
+        document.getElementById("landing-logo") as HTMLObjectElement
+    ).contentDocument?.querySelector("path") as SVGPathElement | undefined;
+    if (logoPath) {
+        logoPath.style.fillOpacity = "0";
+        logoPath.style.strokeOpacity = "1";
+
+        const len = logoPath.getTotalLength();
+        logoPath.style.strokeDasharray = `${len} ${len}`;
+        logoPath.style.strokeDashoffset = `${len}`;
+        // Trigger a reflow so the animation starts from the beginning
+        logoPath.getBoundingClientRect();
+        logoPath.style.transition =
+            "stroke-dashoffset 3s ease-in-out, fill-opacity 1s ease-in-out, stroke-opacity 1s ease-in-out";
+        logoPath.style.strokeDashoffset = "0";
+        setTimeout(() => {
+            logoPath.style.fillOpacity = "1";
+            logoPath.style.strokeOpacity = "0";
+        }, 3000);
     }
+
+    // Fade out the canvas cover and fade in the animation controls after 3 seconds
+    setTimeout(() => {
+        animControls.style.opacity = "1";
+        if (!localStorage.getItem("disableBgAnim")) {
+            cover.style.opacity = "0.5";
+        }
+    }, 3000);
 });
 //#endregion
 

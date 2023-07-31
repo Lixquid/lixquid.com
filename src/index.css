@@ -70,6 +70,17 @@ body {
                 max-width: 400px;
 
                 margin-bottom: 1em;
+
+                html.no-js & {
+                    opacity: 0;
+                    animation-name: landing-logo-fadein;
+                    animation-duration: 2s;
+                    animation-timing-function: ease-out;
+                    animation-delay: 2s;
+                    animation-iteration-count: 1;
+                    animation-direction: forwards;
+                    animation-fill-mode: forwards;
+                }
             }
 
             > .links {
@@ -121,5 +132,14 @@ body {
                 opacity: 1;
             }
         }
+    }
+}
+
+@keyframes landing-logo-fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }

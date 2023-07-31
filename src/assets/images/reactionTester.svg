@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="32"
+   height="32"
+   viewBox="0 0 32 32"
+   version="1.1"
+   id="svg5"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2" />
+  <g
+     id="layer1">
+    <circle
+       style="fill:none;stroke:#999999;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       id="path236"
+       cx="16"
+       cy="16"
+       r="12" />
+    <path
+       style="fill:none;stroke:#999999;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       id="path238"
+       d="m 10.083345,3.3116908 a 14,14 0 0 1 11.833311,2e-7" />
+    <path
+       style="fill:none;stroke:#cb4b19;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       id="path902"
+       d="m 16,6 a 10,10 0 0 1 9.063078,5.773817 10,10 0 0 1 -1.402634,10.654059 L 16,16 Z" />
+    <path
+       style="fill:none;stroke:#cb4b19;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       id="path906"
+       d="m 16,6 a 10,10 0 0 1 8.19152,4.264236 10,10 0 0 1 1.205406,9.155965 L 16,16 Z" />
+    <path
+       style="fill:none;stroke:#999999;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       d="M 16,27 V 25"
+       id="path1025" />
+    <path
+       style="fill:none;stroke:#999999;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       d="M 5,16 H 7"
+       id="path1027" />
+    <path
+       style="fill:none;stroke:#999999;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       d="M 5.3748159,13.152991 6.3407417,13.41181"
+       id="path1031" />
+    <path
+       style="fill:none;stroke:#999999;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       d="M 6.4737204,10.500001 7.3397458,11"
+       id="path1033" />
+    <path
+       style="fill:none;stroke:#999999;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       d="M 8.221825,8.2218264 8.928932,8.9289322"
+       id="path1035" />
+    <path
+       style="fill:none;stroke:#999999;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       d="M 10.499999,6.4737215 11,7.339746"
+       id="path1037" />
+    <path
+       style="fill:none;stroke:#999999;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       d="M 13.152989,5.3748166 13.41181,6.3407418"
+       id="path1039" />
+    <path
+       style="fill:none;stroke:#999999;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       d="M 5.3748162,18.847011 6.3407414,18.58819"
+       id="path1041" />
+    <path
+       style="fill:none;stroke:#999999;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       d="M 6.4737212,21.500001 7.3397455,21"
+       id="path1043" />
+    <path
+       style="fill:none;stroke:#999999;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       d="M 8.2218262,23.778175 8.9289317,23.071068"
+       id="path1045" />
+    <path
+       style="fill:none;stroke:#999999;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       d="M 10.500001,25.52628 11,24.660254"
+       id="path1047" />
+    <path
+       style="fill:none;stroke:#999999;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       d="m 13.152992,26.625184 0.258817,-0.965926"
+       id="path1049" />
+    <path
+       style="fill:none;stroke:#999999;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       d="M 18.847011,26.625183 18.58819,25.659258"
+       id="path1051" />
+    <path
+       style="fill:none;stroke:#999999;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       d="M 21.500001,25.526278 21,24.660254"
+       id="path1053" />
+    <path
+       style="fill:none;stroke:#999999;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       id="path904"
+       d="M 16,6 A 10,10 0 0 1 26,16 H 16 Z" />
+    <path
+       style="fill:none;stroke:#cb4b19;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       d="m 10,12 h 4 l -1,6 h -2 z"
+       id="path1844" />
+    <circle
+       style="fill:none;stroke:#cb4b19;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       id="path1994"
+       cx="12"
+       cy="20"
+       r="1" />
+  </g>
+</svg>

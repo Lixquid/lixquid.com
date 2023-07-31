@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="32"
+   height="32"
+   viewBox="0 0 32 32"
+   version="1.1"
+   id="svg5"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2" />
+  <g
+     id="layer1">
+    <path
+       id="rect1980"
+       style="fill:none;stroke:#999999;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       d="M 22 -20.929688 L 28.310547 -10 L 29.085938 -10 C 29.592194 -10 30 -9.5921955 30 -9.0859375 L 30 -29.085938 C 30 -29.592194 29.592194 -30 29.085938 -30 L 22.914062 -30 C 22.407806 -30 22 -29.592194 22 -29.085938 L 22 -20.929688 z "
+       transform="rotate(90)" />
+    <circle
+       style="fill:none;stroke:#999999;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       id="path1060"
+       cx="6"
+       cy="26"
+       r="1.5" />
+    <path
+       id="rect1918"
+       style="fill:none;stroke:#d33682;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       d="m 14.598318,-4.3282535 c -0.243003,0.1638994 -0.403374,0.4419551 -0.403374,0.758367 l 4.66e-4,8.1570584 8.000977,13.8580981 -1.58e-4,-22.0158987 c 0,-0.5062589 -0.408695,-0.9128715 -0.914954,-0.9128715 l -6.170792,-6.253e-4 c -0.189847,0 -0.366364,0.057532 -0.512165,0.155872 z"
+       transform="rotate(30)" />
+    <path
+       id="rect1972"
+       style="fill:none;stroke:#d33682;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       d="M 21.605073 -15.678897 C 21.54768 -15.559318 21.516584 -15.425827 21.516584 -15.283442 L 21.516832 -7.1237152 L 28.44527 4.8758788 L 29.517653 5.4950194 L 29.517869 -15.282699 C 29.517869 -15.788958 29.108588 -16.196938 28.60233 -16.196938 L 22.431538 -16.196313 C 22.115126 -16.196313 21.835379 -16.036917 21.671479 -15.793916 C 21.646894 -15.757465 21.624204 -15.718756 21.605073 -15.678897 z "
+       transform="rotate(60)" />
+    <rect
+       style="fill:none;stroke:#999999;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       id="rect1190"
+       width="8"
+       height="28"
+       x="2"
+       y="2"
+       ry="0.91382581" />
+  </g>
+</svg>

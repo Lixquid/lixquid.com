@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="32.0px"
+   height="32.0px"
+   viewBox="0 0 32.0 32.0"
+   version="1.1"
+   id="SVGRoot"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2804" />
+  <path
+     style="fill:none;stroke:#999999;stroke-width:0.5;stroke-linecap:round;stroke-opacity:1"
+     d="m 3,1 c 0,8 3,15 13,15 10,0 13,7 13,15"
+     id="path2939" />
+  <path
+     style="fill:none;stroke:#999999;stroke-width:0.5;stroke-linecap:round;stroke-opacity:1"
+     d="M 3,31 C 3,23 5,20 9,18"
+     id="path5971" />
+  <path
+     style="fill:none;stroke:#999999;stroke-width:0.5;stroke-linecap:round;stroke-opacity:1"
+     d="m 29,1 c 0,8 -2,11 -6,13"
+     id="path7425" />
+  <path
+     style="fill:none;stroke:#00acd7;stroke-width:0.5;stroke-linecap:round;stroke-opacity:1"
+     d="M 8,7 H 24"
+     id="path7427" />
+  <path
+     style="fill:none;stroke:#00acd7;stroke-width:0.5;stroke-linecap:round;stroke-opacity:1"
+     d="M 8,25 H 24"
+     id="path7431" />
+  <path
+     style="fill:none;stroke:#999999;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round"
+     d="m 12,9 v 4"
+     id="path364" />
+  <path
+     style="fill:none;stroke:#999999;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round"
+     d="m 10,11 h 4"
+     id="path366" />
+  <path
+     style="fill:none;stroke:#999999;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round"
+     d="m 18,11 h 4"
+     id="path368" />
+  <path
+     style="fill:none;stroke:#999999;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round"
+     d="m 11,20 2,2"
+     id="path370" />
+  <path
+     style="fill:none;stroke:#999999;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round"
+     d="m 11,22 2,-2"
+     id="path372" />
+  <path
+     style="fill:none;stroke:#999999;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round"
+     d="m 18,21 h 4"
+     id="path374" />
+  <path
+     style="fill:none;fill-opacity:1;stroke:#999999;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+     d="m 19.75,19.5 h 0.5"
+     id="path2040" />
+  <path
+     style="fill:none;fill-opacity:1;stroke:#999999;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+     d="m 19.75,22.5 h 0.5"
+     id="path2042" />
+</svg>

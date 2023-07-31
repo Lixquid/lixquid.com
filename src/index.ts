@@ -1,3 +1,4 @@
+import { gameOfLife } from "./backgrounds/gameOfLife";
 import { smoothGradients } from "./backgrounds/smoothGradients";
 
 const canvas = document.getElementById("landing-canvas") as HTMLCanvasElement;
@@ -32,6 +33,7 @@ window.addEventListener("load", () => {
 
 const animations = [
     ["Smooth Gradients", smoothGradients],
+    ["Game of Life", gameOfLife],
 ] as const satisfies ReadonlyArray<
     readonly [
         string,
@@ -39,7 +41,8 @@ const animations = [
     ]
 >;
 const selectedAnimation =
-    animations[Math.floor(Math.random() * animations.length)]!;
+    // animations[Math.floor(Math.random() * animations.length)]!;
+    animations[1];
 
 const stopSignal = { stop: false };
 const ctx = canvas.getContext("2d", {

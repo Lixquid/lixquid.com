@@ -47,6 +47,52 @@ body {
         transition: opacity 3s ease-in-out;
     }
 
+    > .center {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        > .bg {
+            backdrop-filter: blur(20px);
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 3em;
+            padding: 2em;
+
+            > #landing-logo {
+                width: 100%;
+                max-width: 400px;
+
+                margin-bottom: 1em;
+            }
+
+            > .links {
+                font-size: 4em;
+
+                a {
+                    color: var(--color-text);
+                    opacity: 0.5;
+                    text-decoration: none;
+                    transition: opacity 0.2s ease-in-out;
+
+                    &:hover {
+                        opacity: 1;
+                    }
+
+                    & + & {
+                        margin-left: 0.3em;
+                    }
+                }
+            }
+        }
+    }
+
     > #landing-controls {
         position: absolute;
         top: 1em;

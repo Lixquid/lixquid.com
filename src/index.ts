@@ -1,5 +1,6 @@
 import { blueprintSineWaves } from "./backgrounds/blueprintSineWaves";
 import { codeRain } from "./backgrounds/codeRain";
+import { curiousFellers } from "./backgrounds/curiousFellers";
 import { gameOfLife } from "./backgrounds/gameOfLife";
 import { shiftingNetwork } from "./backgrounds/shiftingNetwork";
 import { smoothGradients } from "./backgrounds/smoothGradients";
@@ -40,6 +41,7 @@ const animations = [
     ["Code Rain", codeRain],
     ["Shifting Network", shiftingNetwork],
     ["Blueprint Sine Waves", blueprintSineWaves],
+    ["Curious Fellers", curiousFellers],
 ] as const satisfies ReadonlyArray<
     readonly [
         string,
@@ -47,8 +49,8 @@ const animations = [
     ]
 >;
 const selectedAnimation =
-    // animations[Math.floor(Math.random() * animations.length)]!;
-    animations[4];
+    animations[Math.floor(Math.random() * animations.length)]!;
+// animations[5];
 
 const stopSignal = { stop: false };
 const ctx = canvas.getContext("2d", {

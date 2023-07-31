@@ -21,8 +21,10 @@ const animTitle = document.getElementById(
 //#region Intro Animation
 window.addEventListener("load", () => {
     // Fade out the canvas cover and fade in the animation controls
-    cover.style.opacity = "0.5";
     animControls.style.opacity = "1";
+    if (!localStorage.getItem("disableBgAnim")) {
+        cover.style.opacity = "0.5";
+    }
 });
 //#endregion
 

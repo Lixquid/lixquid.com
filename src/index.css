@@ -40,6 +40,7 @@ body {
     background-color: var(--color-bg);
     color: var(--color-text);
     font-size: 16px;
+    overflow-x: hidden;
 }
 
 #landing {

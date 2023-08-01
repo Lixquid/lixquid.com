@@ -7,6 +7,7 @@ packages:
     - hut
 environment:
     site: lixquid.com
+    site_alias: lixqu.id
 sources:
     - https://github.com/lixquid/lixquid.com
 tasks:
@@ -18,3 +19,4 @@ tasks:
           cd */dist
           tar czvf ../dist.tgz *
           hut pages publish -d $site ../dist.tgz
+          hut pages publish -d $site_alias ../dist.tgz

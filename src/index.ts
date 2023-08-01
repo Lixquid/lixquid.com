@@ -14,7 +14,7 @@ const animControls = document.getElementById(
 ) as HTMLDivElement;
 
 //#region Intro Animation
-window.addEventListener("load", () => {
+addEventListener("load", () => {
     // Remove the no-js class
     document.querySelector("html")!.classList.remove("no-js");
 

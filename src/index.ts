@@ -64,11 +64,11 @@ const animations = [
     ["Smooth Gradients", smoothGradients],
     ["Game of Life", gameOfLife],
     ["Code Rain", codeRain],
-    ["Shifting Network", shiftingNetwork],
-    ["Blueprint Sine Waves", blueprintSineWaves],
+    ["Interconnection", shiftingNetwork],
+    ["The Composite Waveform", blueprintSineWaves],
     ["Curious Fellers", curiousFellers],
     ["DVD Joy", dvdJoy],
-    ["Traingle Tunnel", triangleTunnel],
+    ["Triangle Tunnel", triangleTunnel],
 ] as const satisfies ReadonlyArray<
     readonly [
         string,
@@ -170,5 +170,4 @@ search.addEventListener("input", () => {
                 : "none";
     }
 });
-
 //#endregion

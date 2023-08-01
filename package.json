@@ -9,7 +9,8 @@
     "license": "MIT",
     "scripts": {
         "start": "vite",
-        "build": "deno lint && tsc --noEmit && vite build"
+        "build": "vite build",
+        "lint": "deno lint && tsc --noEmit"
     },
     "dependencies": {
         "bootstrap": "^5.3.1",

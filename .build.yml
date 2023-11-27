@@ -13,6 +13,10 @@ sources:
 tasks:
     - build: |
           cd *
+          cd src/blog
+          git fetch
+          git reset --hard origin/master
+          cd ../..
           yarn install
           yarn build
     - package: |

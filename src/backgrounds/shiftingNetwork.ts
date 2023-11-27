@@ -8,8 +8,8 @@ export function shiftingNetwork(
     const startOffset = new Date().getTime();
 
     const bg = ctx.createLinearGradient(0, 0, 0, canvas.height);
-    bg.addColorStop(0, "#444");
-    bg.addColorStop(1, "#123");
+    bg.addColorStop(0, "#333");
+    bg.addColorStop(1, "#111");
 
     const xNodes = Math.ceil(canvas.width / 40);
     const yNodes = Math.ceil(canvas.height / 40);

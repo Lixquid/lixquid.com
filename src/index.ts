@@ -1,6 +1,4 @@
-import { blueprintSineWaves } from "./backgrounds/blueprintSineWaves";
 import { codeRain } from "./backgrounds/codeRain";
-import { curiousFellers } from "./backgrounds/curiousFellers";
 import { dvdJoy } from "./backgrounds/dvdJoy";
 import { gameOfLife } from "./backgrounds/gameOfLife";
 import { shiftingNetwork } from "./backgrounds/shiftingNetwork";
@@ -65,8 +63,6 @@ const animations = [
     ["Game of Life", gameOfLife],
     ["Code Rain", codeRain],
     ["Interconnection", shiftingNetwork],
-    ["The Composite Waveform", blueprintSineWaves],
-    ["Curious Fellers", curiousFellers],
     ["DVD Joy", dvdJoy],
     ["Triangle Tunnel", triangleTunnel],
 ] as const satisfies ReadonlyArray<
@@ -77,7 +73,7 @@ const animations = [
 >;
 const selectedAnimation =
     animations[Math.floor(Math.random() * animations.length)]!;
-// animations[7];
+// animations[5];
 
 const canvas = document.getElementById("landing-canvas") as HTMLCanvasElement;
 const animToggleButton = document.getElementById(
@@ -91,14 +87,15 @@ const ctx = canvas.getContext("2d", {
     alpha: false,
 }) as CanvasRenderingContext2D;
 
-// Set the longest side of the canvas to 500px, and the other side to a ratio
-// based on the window size.
+// Set the longest side of the canvas to a static size, and the other side to a
+// ratio based on the window size.
+const canvasResolution = 500;
 if (window.innerWidth > window.innerHeight) {
-    canvas.width = 500;
-    canvas.height = (500 * window.innerHeight) / window.innerWidth;
+    canvas.width = canvasResolution;
+    canvas.height = (canvasResolution * window.innerHeight) / window.innerWidth;
 } else {
-    canvas.width = (500 * window.innerWidth) / window.innerHeight;
-    canvas.height = 500;
+    canvas.width = (canvasResolution * window.innerWidth) / window.innerHeight;
+    canvas.height = canvasResolution;
 }
 
 // Set the little animation title

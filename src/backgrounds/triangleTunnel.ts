@@ -17,7 +17,9 @@ export function triangleTunnel(
         for (const t of triangles.values()) {
             const [init, r, g, b, rot] = t;
             const size = (now - init) / 10;
-            ctx.strokeStyle = `rgb(${size - r}, ${size - g}, ${size - b})`;
+            ctx.strokeStyle = `rgba(${r - size}, ${g - size}, ${b - size}, ${
+                (400 - size) / 400
+            })`;
             ctx.beginPath();
             ctx.moveTo(
                 cx + Math.sin((size / 400) * rot) * size,

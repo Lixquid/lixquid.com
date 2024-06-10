@@ -1,6 +1,6 @@
+import { cellularAutomata } from "./backgrounds/cellularAutomata";
 import { codeRain } from "./backgrounds/codeRain";
 import { dvdJoy } from "./backgrounds/dvdJoy";
-import { gameOfLife } from "./backgrounds/gameOfLife";
 import { hexDump } from "./backgrounds/hexDump";
 import { shiftingNetwork } from "./backgrounds/shiftingNetwork";
 import { smoothGradients } from "./backgrounds/smoothGradients";
@@ -61,7 +61,7 @@ addEventListener("load", () => {
 
 const animations = [
 	["Smooth Gradients", smoothGradients],
-	["Game of Life", gameOfLife],
+	["Cellular Automata", cellularAutomata],
 	["Code Rain", codeRain],
 	["Interconnection", shiftingNetwork],
 	["DVD Joy", dvdJoy],

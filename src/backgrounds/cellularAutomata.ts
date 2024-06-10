@@ -1,9 +1,11 @@
-// Render a grid of cells that simulates Conway's Game of Life
+// Render a grid of cells that simulates various Cellular Automata rules.
 
 const cellSize = 10;
 const fps = 2.5;
+const surviveNeighbors = [2, 3];
+const reproduceNeighbors = [3];
 
-export function gameOfLife(
+export function cellularAutomata(
 	ctx: CanvasRenderingContext2D,
 	stopSignal: { stop: boolean },
 ) {
@@ -61,10 +63,10 @@ export function gameOfLife(
 
 				if (cells[y]![x]) {
 					// Survive with 2 or 3 neighbors
-					newCells[y]![x] = neighbors === 2 || neighbors === 3;
+					newCells[y]![x] = surviveNeighbors.indexOf(neighbors) !== -1;
 				} else {
 					// Reproduce with 3 neighbors
-					newCells[y]![x] = neighbors === 3;
+					newCells[y]![x] = reproduceNeighbors.indexOf(neighbors) !== -1;
 				}
 			}
 		}

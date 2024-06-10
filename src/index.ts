@@ -1,6 +1,7 @@
 import { codeRain } from "./backgrounds/codeRain";
 import { dvdJoy } from "./backgrounds/dvdJoy";
 import { gameOfLife } from "./backgrounds/gameOfLife";
+import { hexDump } from "./backgrounds/hexDump";
 import { shiftingNetwork } from "./backgrounds/shiftingNetwork";
 import { smoothGradients } from "./backgrounds/smoothGradients";
 import { triangleTunnel } from "./backgrounds/triangleTunnel";
@@ -65,6 +66,7 @@ const animations = [
     ["Interconnection", shiftingNetwork],
     ["DVD Joy", dvdJoy],
     ["Triangle Tunnel", triangleTunnel],
+	["Hex Dump", hexDump],
 ] as const satisfies ReadonlyArray<
     readonly [
         string,

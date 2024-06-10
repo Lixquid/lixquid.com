@@ -14,6 +14,7 @@ const automata = {
 
 const cellSize = 10;
 const fps = 2.5;
+const resetInterval = 25_000; //ms
 
 const variant = Object.keys(automata)[
 	Math.floor(Math.random() * Object.keys(automata).length)
@@ -32,13 +33,18 @@ export function cellularAutomata(
 	const cellCountY = Math.floor(canvas.height / cellSize);
 
 	let cells: boolean[][] = [];
-	for (let y = 0; y < cellCountY; y++) {
-		cells[y] = [];
-		for (let x = 0; x < cellCountX; x++) {
-			cells[y]![x] = Math.random() > 0.5;
+	function resetCells() {
+		for (let y = 0; y < cellCountY; y++) {
+			cells[y] = [];
+			for (let x = 0; x < cellCountX; x++) {
+				cells[y]![x] = Math.random() > 0.5;
+			}
 		}
 	}
+	resetCells();
 
+	let clearTime = Date.now() + resetInterval;
+	let resetTime = Date.now() + resetInterval + 3000 / fps;
 	let lastTime = Date.now();
 
 	function render() {
@@ -49,12 +55,21 @@ export function cellularAutomata(
 		}
 		lastTime = Date.now();
 
-		// Render the cells
-		ctx.fillStyle = variantColor;
-		for (let y = 0; y < cellCountY; y++) {
-			for (let x = 0; x < cellCountX; x++) {
-				if (cells[y]![x]) {
-					ctx.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
+		// If we're past the reset time, reset the cells
+		if (Date.now() > resetTime) {
+			resetCells();
+			clearTime = Date.now() + resetInterval;
+			resetTime = Date.now() + resetInterval + 3000 / fps;
+		}
+
+		// Render the cells, if we're not past the clear time
+		if (Date.now() < clearTime) {
+			ctx.fillStyle = variantColor;
+			for (let y = 0; y < cellCountY; y++) {
+				for (let x = 0; x < cellCountX; x++) {
+					if (cells[y]![x]) {
+						ctx.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
+					}
 				}
 			}
 		}

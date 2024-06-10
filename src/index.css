@@ -1,349 +1,349 @@
 /* #region Fonts */
 @font-face {
-    font-family: "WixMadeForDisplay";
-    src: url("./assets/fonts/WixMadeforDisplay-Regular.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
+	font-family: "WixMadeForDisplay";
+	src: url("./assets/fonts/WixMadeforDisplay-Regular.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
 }
 /* #endregion */
 
 html {
-    --color-text: #adb5bd;
-    --color-bg: #040608;
-    --color-bg-light: #161616;
+	--color-text: #adb5bd;
+	--color-bg: #040608;
+	--color-bg-light: #161616;
 
-    /* Language colors */
-    --lang-powershell: #023988;
-    --lang-go: #00acd7;
-    --lang-typescript: #007acc;
-    --lang-monkeyc: #00a99d;
-    --lang-lua: #3c3ce2;
-    --lang-vimscript: #199f4b;
+	/* Language colors */
+	--lang-powershell: #023988;
+	--lang-go: #00acd7;
+	--lang-typescript: #007acc;
+	--lang-monkeyc: #00a99d;
+	--lang-lua: #3c3ce2;
+	--lang-vimscript: #199f4b;
 
-    /* General colors */
-    --color-red: #dc322f;
-    --color-orange: #cb4b16;
-    --color-yellow: #b58900;
-    --color-green: #859900;
-    --color-cyan: #2aa198;
-    --color-blue: #268bd2;
-    --color-purple: #6c71c4;
-    --color-pink: #d33682;
-    --color-white: #eee8d5;
+	/* General colors */
+	--color-red: #dc322f;
+	--color-orange: #cb4b16;
+	--color-yellow: #b58900;
+	--color-green: #859900;
+	--color-cyan: #2aa198;
+	--color-blue: #268bd2;
+	--color-purple: #6c71c4;
+	--color-pink: #d33682;
+	--color-white: #eee8d5;
 }
 
 html,
 body {
-    padding: 0;
-    margin: 0;
-    font-family: "WixMadeForDisplay", sans-serif;
-    background-color: var(--color-bg);
-    color: var(--color-text);
-    font-size: 16px;
-    overflow-x: hidden;
+	padding: 0;
+	margin: 0;
+	font-family: "WixMadeForDisplay", sans-serif;
+	background-color: var(--color-bg);
+	color: var(--color-text);
+	font-size: 16px;
+	overflow-x: hidden;
 }
 
 #landing {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    border-bottom: 1px solid #181b1e;
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	border-bottom: 1px solid #181b1e;
 
-    > #landing-canvas {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
+	> #landing-canvas {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
 
-    > #landing-cover {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: var(--color-bg);
-        opacity: 1;
-        transition: opacity 3s ease-in-out;
-    }
+	> #landing-cover {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: var(--color-bg);
+		opacity: 1;
+		transition: opacity 3s ease-in-out;
+	}
 
-    > .center {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+	> .center {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
 
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 
-        > .bg {
-            backdrop-filter: blur(20px);
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 3em;
-            padding: 2em;
+		> .bg {
+			backdrop-filter: blur(20px);
+			background: rgba(0, 0, 0, 0.3);
+			border-radius: 3em;
+			padding: 2em;
 
-            > #landing-logo {
-                width: 100%;
-                max-width: 400px;
+			> #landing-logo {
+				width: 100%;
+				max-width: 400px;
 
-                margin-bottom: 1em;
+				margin-bottom: 1em;
 
-                html.no-js & {
-                    opacity: 0;
-                    animation-name: landing-logo-fadein;
-                    animation-duration: 2s;
-                    animation-timing-function: ease-out;
-                    animation-delay: 2s;
-                    animation-iteration-count: 1;
-                    animation-direction: forwards;
-                    animation-fill-mode: forwards;
-                }
-            }
+				html.no-js & {
+					opacity: 0;
+					animation-name: landing-logo-fadein;
+					animation-duration: 2s;
+					animation-timing-function: ease-out;
+					animation-delay: 2s;
+					animation-iteration-count: 1;
+					animation-direction: forwards;
+					animation-fill-mode: forwards;
+				}
+			}
 
-            > .links {
-                font-size: 3.5em;
+			> .links {
+				font-size: 3.5em;
 
-                a {
-                    color: var(--color-text);
-                    opacity: 0.5;
-                    text-decoration: none;
-                    transition: opacity 0.2s ease-in-out;
+				a {
+					color: var(--color-text);
+					opacity: 0.5;
+					text-decoration: none;
+					transition: opacity 0.2s ease-in-out;
 
-                    &:hover {
-                        opacity: 1;
-                    }
+					&:hover {
+						opacity: 1;
+					}
 
-                    & + & {
-                        margin-left: 0.3em;
-                    }
-                }
-            }
-        }
-    }
+					& + & {
+						margin-left: 0.3em;
+					}
+				}
+			}
+		}
+	}
 
-    > .bottom {
-        position: absolute;
-        bottom: 0.5em;
-        left: 0;
-        width: 100%;
+	> .bottom {
+		position: absolute;
+		bottom: 0.5em;
+		left: 0;
+		width: 100%;
 
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 
-        font-size: 1.5em;
+		font-size: 1.5em;
 
-        > .bg {
-            backdrop-filter: blur(20px);
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 1em;
-            padding: 0.8em 1em;
+		> .bg {
+			backdrop-filter: blur(20px);
+			background: rgba(0, 0, 0, 0.3);
+			border-radius: 1em;
+			padding: 0.8em 1em;
 
-            a {
-                color: var(--color-text);
-                opacity: 0.5;
-                text-decoration: none;
-                transition: opacity 0.2s ease-in-out;
+			a {
+				color: var(--color-text);
+				opacity: 0.5;
+				text-decoration: none;
+				transition: opacity 0.2s ease-in-out;
 
-                &:hover {
-                    opacity: 1;
-                }
+				&:hover {
+					opacity: 1;
+				}
 
-                & + & {
-                    margin-left: 0.3em;
-                }
-            }
-        }
-    }
+				& + & {
+					margin-left: 0.3em;
+				}
+			}
+		}
+	}
 
-    > #landing-controls {
-        position: absolute;
-        top: 1em;
-        right: 1em;
-        line-height: 1;
-        opacity: 0;
-        transition: opacity 3s ease-in-out;
-        display: flex;
-        align-items: center;
+	> #landing-controls {
+		position: absolute;
+		top: 1em;
+		right: 1em;
+		line-height: 1;
+		opacity: 0;
+		transition: opacity 3s ease-in-out;
+		display: flex;
+		align-items: center;
 
-        > #landing-controls-title {
-            opacity: 0.7;
-            font-size: 0.8em;
-            text-transform: uppercase;
-        }
+		> #landing-controls-title {
+			opacity: 0.7;
+			font-size: 0.8em;
+			text-transform: uppercase;
+		}
 
-        > #landing-controls-toggle {
-            border: none;
-            background: none;
-            font-size: 2.5em;
-            color: var(--color-text);
-            transition: opacity 0.2s ease-in-out;
-            opacity: 0.5;
+		> #landing-controls-toggle {
+			border: none;
+			background: none;
+			font-size: 2.5em;
+			color: var(--color-text);
+			transition: opacity 0.2s ease-in-out;
+			opacity: 0.5;
 
-            &:hover {
-                opacity: 1;
-            }
-        }
-    }
+			&:hover {
+				opacity: 1;
+			}
+		}
+	}
 }
 
 main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1em 3em 1em;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 1em 3em 1em;
 
-    > .title {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 2.5em;
-        margin-top: 4em;
-        flex-wrap: wrap;
+	> .title {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 2.5em;
+		margin-top: 4em;
+		flex-wrap: wrap;
 
-        > h1 {
-            margin-bottom: 0;
-            text-transform: uppercase;
-            font-size: 1.5em;
-            color: #eee;
-        }
+		> h1 {
+			margin-bottom: 0;
+			text-transform: uppercase;
+			font-size: 1.5em;
+			color: #eee;
+		}
 
-        > .subtitle {
-            margin-bottom: 0;
-            opacity: 0.8;
-        }
-    }
+		> .subtitle {
+			margin-bottom: 0;
+			opacity: 0.8;
+		}
+	}
 
-    .columns {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: flex-start;
-        gap: 2em;
+	.columns {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: flex-start;
+		gap: 2em;
 
-        .column {
-            width: 100%;
-            flex: 1 1 25em;
-        }
-    }
+		.column {
+			width: 100%;
+			flex: 1 1 25em;
+		}
+	}
 
-    .card {
-        background: var(--color-bg-light);
-        border-left-width: 0.2em;
-        border-left-style: solid;
+	.card {
+		background: var(--color-bg-light);
+		border-left-width: 0.2em;
+		border-left-style: solid;
 
-        margin-bottom: 2em;
+		margin-bottom: 2em;
 
-        padding: 1em 1em;
+		padding: 1em 1em;
 
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        text-align: right;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		text-align: right;
 
-        @media (max-width: 600px) {
-            & {
-                flex-direction: column;
-                text-align: left;
-            }
+		@media (max-width: 600px) {
+			& {
+				flex-direction: column;
+				text-align: left;
+			}
 
-            & img {
-                margin-right: 0 !important;
-                margin-bottom: 2em;
-            }
-        }
+			& img {
+				margin-right: 0 !important;
+				margin-bottom: 2em;
+			}
+		}
 
-        img {
-            width: 8em;
-            margin-right: 2em;
-        }
+		img {
+			width: 8em;
+			margin-right: 2em;
+		}
 
-        a {
-            display: block;
-            text-decoration: none;
-            color: #999;
+		a {
+			display: block;
+			text-decoration: none;
+			color: #999;
 
-            &:hover {
-                color: #bbb;
-            }
-        }
+			&:hover {
+				color: #bbb;
+			}
+		}
 
-        h2 {
-            font-size: 1.5em;
-            color: #bbc;
-        }
+		h2 {
+			font-size: 1.5em;
+			color: #bbc;
+		}
 
-        .footer {
-            display: flex;
-            flex-direction: row-reverse;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
+		.footer {
+			display: flex;
+			flex-direction: row-reverse;
+			justify-content: space-between;
+			align-items: center;
+			flex-wrap: wrap;
 
-            > a {
-                display: block;
-                transition: color 0.2s ease-in-out;
+			> a {
+				display: block;
+				transition: color 0.2s ease-in-out;
 
-                &:hover {
-                    color: #eee;
-                }
+				&:hover {
+					color: #eee;
+				}
 
-                i {
-                    margin-right: 0.5em;
-                }
-            }
+				i {
+					margin-right: 0.5em;
+				}
+			}
 
-            .tag {
-                background: #282828;
-                padding: 0.2em 0.5em;
-                border-radius: 0.3em;
-            }
-        }
-    }
+			.tag {
+				background: #282828;
+				padding: 0.2em 0.5em;
+				border-radius: 0.3em;
+			}
+		}
+	}
 
-    .search {
-        font-size: 1.5em;
-        margin-top: 2.5em;
-        text-align: center;
+	.search {
+		font-size: 1.5em;
+		margin-top: 2.5em;
+		text-align: center;
 
-        > input {
-            background: var(--color-bg);
-            border: 1px solid var(--color-bg-light);
-            max-width: 500px;
-            width: 100%;
-            color: var(--color-text);
-            padding: 0.2em 0.5em;
+		> input {
+			background: var(--color-bg);
+			border: 1px solid var(--color-bg-light);
+			max-width: 500px;
+			width: 100%;
+			color: var(--color-text);
+			padding: 0.2em 0.5em;
 
-            border-radius: 0.25em;
-        }
-    }
+			border-radius: 0.25em;
+		}
+	}
 }
 
 #footer {
-    margin-top: 4em;
-    opacity: 0.5;
-    padding-left: 50%;
-    text-align: right;
+	margin-top: 4em;
+	opacity: 0.5;
+	padding-left: 50%;
+	text-align: right;
 
-    @media (max-width: 600px) {
-        & {
-            padding-left: 0;
-        }
-    }
+	@media (max-width: 600px) {
+		& {
+			padding-left: 0;
+		}
+	}
 }
 
 @keyframes landing-logo-fadein {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }

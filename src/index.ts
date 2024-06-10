@@ -74,8 +74,11 @@ const animations = [
 	]
 >;
 const selectedAnimation =
-	// animations[Math.floor(Math.random() * animations.length)]!;
-	animations[6];
+	(localStorage.getItem("forceBgAnim") !== null &&
+		animations.find(
+			([name]) => name === localStorage.getItem("forceBgAnim"),
+		)) ||
+	animations[Math.floor(Math.random() * animations.length)]!;
 
 const canvas = document.getElementById("landing-canvas") as HTMLCanvasElement;
 const animToggleButton = document.getElementById(
@@ -133,6 +136,27 @@ animToggleButton.addEventListener("click", () => {
 		localStorage.setItem("disableBgAnim", "true");
 	}
 });
+
+(globalThis as any).forceBackgroundAnimation = (name: string) => {
+	if (!animations.some(([n]) => n === name)) {
+		console.error(`Unknown animation "${name}"`);
+		return;
+	}
+	console.log(`Forcing background animation to "${name}" and reloading...`);
+	localStorage.setItem("forceBgAnim", name);
+	location.reload();
+};
+(globalThis as any).resetBackgroundAnimation = () => {
+	console.log("Resetting background animation to random and reloading...");
+	localStorage.removeItem("forceBgAnim");
+	location.reload();
+};
+console.log(`Hello!
+If you'd like to see a specific background animation, run forceBackgroundAnimation('Animation Name') in the console.
+To reset the background animation to random, run resetBackgroundAnimation() in the console.
+Available animations:
+${animations.map(([name]) => `    ${name}`).join("\n")}`);
+
 //#endregion
 
 //#region Inspirational Quotes

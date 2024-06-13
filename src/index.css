@@ -11,6 +11,7 @@ html {
 	--color-text: #adb5bd;
 	--color-bg: #040608;
 	--color-bg-light: #161616;
+	--color-bg-lighter: #282828;
 
 	/* Language colors */
 	--lang-go: #00acd7;
@@ -261,6 +262,10 @@ main {
 			}
 		}
 
+		&:has(a:not(.source-link):hover), &:has(a:not(.source-link):focus) {
+			background: var(--color-bg-lighter);
+		}
+
 		img {
 			width: 8em;
 			margin-right: 2em;
@@ -272,8 +277,9 @@ main {
 			color: #999;
 
 			&:hover {
-				color: #bbb;
+				color: #ccc;
 			}
+
 		}
 
 		h2 {
@@ -290,14 +296,22 @@ main {
 
 			> a {
 				display: block;
-				transition: color 0.2s ease-in-out;
 
 				&:hover {
-					color: #eee;
+					color: #ccc;
 				}
 
 				i {
 					margin-right: 0.5em;
+				}
+			}
+
+			.source-link {
+				padding: 0.2em 0.5em;
+				border-radius: 0.3em;
+
+				&:hover {
+					background: var(--color-bg-lighter);
 				}
 			}
 

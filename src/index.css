@@ -13,11 +13,12 @@ html {
 	--color-bg-light: #161616;
 
 	/* Language colors */
-	--lang-powershell: #023988;
 	--lang-go: #00acd7;
-	--lang-typescript: #007acc;
-	--lang-monkeyc: #00a99d;
 	--lang-lua: #3c3ce2;
+	--lang-monkeyc: #00a99d;
+	--lang-powershell: #023988;
+	--lang-react: #58c4dc;
+	--lang-typescript: #007acc;
 	--lang-vimscript: #199f4b;
 
 	/* General colors */

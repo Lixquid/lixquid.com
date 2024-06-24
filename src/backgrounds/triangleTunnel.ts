@@ -10,6 +10,10 @@ export function triangleTunnel(
 	const triangles: Set<[number, number, number, number, number]> = new Set();
 
 	function render() {
+		if (stopSignal.stop) {
+			return;
+		}
+
 		const now = Date.now();
 
 		// Draw the triangles
@@ -57,9 +61,7 @@ export function triangleTunnel(
 			]);
 		}
 
-		if (!stopSignal.stop) {
-			requestAnimationFrame(render);
-		}
+		requestAnimationFrame(render);
 	}
 	render();
 }

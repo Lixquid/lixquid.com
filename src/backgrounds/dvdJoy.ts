@@ -31,6 +31,10 @@ export function dvdJoy(
 
 	// Render the logo
 	function render() {
+		if (stopSignal.stop) {
+			return;
+		}
+
 		// Clear the canvas
 		ctx.fillStyle = "#000000";
 		ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
@@ -54,7 +58,6 @@ export function dvdJoy(
 		ctx.fillRect(logo.x, logo.y, logo.width, logo.height);
 		ctx.drawImage(img, logo.x, logo.y, logo.width, logo.height);
 
-		if (stopSignal.stop) return;
 		requestAnimationFrame(render);
 	}
 	requestAnimationFrame(render);

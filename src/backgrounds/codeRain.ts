@@ -17,6 +17,10 @@ export function codeRain(
 
 	let lastRender = Date.now();
 	function render() {
+		if (stopSignal.stop) {
+			return;
+		}
+
 		// Limit the framerate
 		if (Date.now() - lastRender < 1000 / maxFps) {
 			requestAnimationFrame(render);
@@ -43,9 +47,7 @@ export function codeRain(
 		ctx.fillStyle = "rgba(0, 0, 0, 0.15)";
 		ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-		if (!stopSignal.stop) {
-			requestAnimationFrame(render);
-		}
+		requestAnimationFrame(render);
 	}
 	requestAnimationFrame(render);
 }

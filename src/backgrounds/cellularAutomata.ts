@@ -48,6 +48,10 @@ export function cellularAutomata(
 	let lastTime = Date.now();
 
 	function render() {
+		if (stopSignal.stop) {
+			return;
+		}
+
 		// Limit the framerate
 		if (Date.now() - lastTime < 1000 / fps) {
 			requestAnimationFrame(render);
@@ -111,9 +115,7 @@ export function cellularAutomata(
 		ctx.textAlign = "center";
 		ctx.fillText(variant, canvas.width / 2, 12);
 
-		if (!stopSignal.stop) {
-			requestAnimationFrame(render);
-		}
+		requestAnimationFrame(render);
 	}
 	requestAnimationFrame(render);
 }

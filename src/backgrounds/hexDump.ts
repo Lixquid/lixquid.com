@@ -46,6 +46,10 @@ export function hexDump(
 
 	let lastRender = Date.now();
 	function render() {
+		if (stopSignal.stop) {
+			return;
+		}
+
 		// Limit the framerate
 		if (Date.now() - lastRender < delay) {
 			requestAnimationFrame(render);
@@ -79,9 +83,7 @@ export function hexDump(
 			ctx.fillRect(0, i, canvas.width, 1);
 		}
 
-		if (!stopSignal.stop) {
-			requestAnimationFrame(render);
-		}
+		requestAnimationFrame(render);
 	}
 	requestAnimationFrame(render);
 }

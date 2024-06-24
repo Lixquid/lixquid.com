@@ -44,6 +44,10 @@ export function shiftingNetwork(
 	}
 
 	function render() {
+		if (stopSignal.stop) {
+			return;
+		}
+
 		const d = (new Date().getTime() - startOffset) / 1000;
 
 		// Render the background
@@ -82,7 +86,7 @@ export function shiftingNetwork(
 			ctx.stroke();
 		}
 
-		if (!stopSignal.stop) requestAnimationFrame(render);
+		requestAnimationFrame(render);
 	}
 	render();
 }

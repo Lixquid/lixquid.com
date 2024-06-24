@@ -5,6 +5,10 @@ export function smoothGradients(
 	stopSignal: { stop: boolean },
 ) {
 	function render() {
+		if (stopSignal.stop) {
+			return;
+		}
+
 		const gradient = ctx.createLinearGradient(
 			0,
 			0,
@@ -19,9 +23,7 @@ export function smoothGradients(
 		ctx.fillStyle = gradient;
 		ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
-		if (!stopSignal.stop) {
-			requestAnimationFrame(render);
-		}
+		requestAnimationFrame(render);
 	}
 	requestAnimationFrame(render);
 }

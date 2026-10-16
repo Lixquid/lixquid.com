@@ -194,3 +194,30 @@ search.addEventListener("input", () => {
 	}
 });
 //#endregion
+
+//#region Friend Badges
+// Randomize the order of the friend badges, seeded by the current day
+const day = new Date();
+let seed = day.getFullYear() * 10000 + (day.getMonth() + 1) * 100 + day.getDate();
+const random = () => {
+	seed = (seed + 0x6d2b79f5) >>> 0;
+	let t = seed;
+	t = Math.imul(t ^ (t >>> 15), t | 1);
+	t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+	return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+};
+
+const friendBadges = document.getElementById(
+	"friend-badges",
+) as HTMLDivElement;
+const badges = Array.from(
+	friendBadges.children,
+) as unknown as HTMLAnchorElement[];
+for (let i = badges.length - 1; i > 0; i--) {
+	const j = Math.floor(random() * (i + 1));
+	[badges[i], badges[j]] = [badges[j]!, badges[i]!];
+}
+for (const badge of badges) {
+	friendBadges.appendChild(badge);
+}
+//#endregion

@@ -339,6 +339,19 @@ main {
 			border-radius: 0.25em;
 		}
 	}
+
+	.friend-badge {
+		width: 176px;
+		height: auto;
+		image-rendering: pixelated;
+	}
+	#friend-badges {
+		text-align: center;
+	}
+	.friend-badge-holder {
+		text-align: center;
+		margin-bottom: 1em;
+	}
 }
 
 #footer {

@@ -171,16 +171,23 @@ document.getElementById("footer")!.innerHTML =
 
 //#region Search
 const search = document.getElementById("search") as HTMLInputElement;
-search.addEventListener("input", () => {
+const noAiToggle = document.getElementById("search-no-ai") as HTMLButtonElement;
+
+const applyFilters = () => {
 	const query = search.value.toLowerCase();
 
-	// Hide or show the cards that contain the query
+	// Hide or show the cards that contain the query, and hide AI-Built cards
+	// if the toggle is enabled
 	for (const card of Array.from(
 		document.querySelectorAll(".card"),
 	) as HTMLDivElement[]) {
-		card.style.display = card.innerText.toLowerCase().includes(query)
-			? ""
-			: "none";
+		const matchesQuery = card.innerText.toLowerCase().includes(query);
+		const isAiBuilt =
+			noAiToggle.getAttribute("aria-pressed") === "true" &&
+			Array.from(card.querySelectorAll(".tag")).some(
+				(tag) => tag.textContent === "AI-Built",
+			);
+		card.style.display = matchesQuery && !isAiBuilt ? "" : "none";
 	}
 
 	// Hide or show the headers if there are no cards
@@ -196,6 +203,15 @@ search.addEventListener("input", () => {
 				? ""
 				: "none";
 	}
+};
+
+search.addEventListener("input", applyFilters);
+noAiToggle.addEventListener("click", () => {
+	noAiToggle.setAttribute(
+		"aria-pressed",
+		noAiToggle.getAttribute("aria-pressed") === "true" ? "false" : "true",
+	);
+	applyFilters();
 });
 //#endregion
 

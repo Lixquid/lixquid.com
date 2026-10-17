@@ -338,6 +338,25 @@ main {
 
 			border-radius: 0.25em;
 		}
+
+		> button {
+			background: var(--color-bg);
+			border: 1px solid var(--color-bg-light);
+			color: var(--color-text);
+			padding: 0.2em 0.5em;
+			border-radius: 0.25em;
+			margin-left: 0.5em;
+			cursor: pointer;
+
+			&:hover {
+				border-color: var(--color-bg-lighter);
+			}
+
+			&[aria-pressed="true"] {
+				background: var(--color-bg-light);
+				border-color: var(--color-bg-lighter);
+			}
+		}
 	}
 
 	.friend-badge {

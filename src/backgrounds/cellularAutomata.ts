@@ -72,7 +72,12 @@ export function cellularAutomata(
 			for (let y = 0; y < cellCountY; y++) {
 				for (let x = 0; x < cellCountX; x++) {
 					if (cells[y]![x]) {
-						ctx.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
+						ctx.fillRect(
+							x * cellSize,
+							y * cellSize,
+							cellSize,
+							cellSize,
+						);
 					}
 				}
 			}
@@ -100,10 +105,12 @@ export function cellularAutomata(
 
 				if (cells[y]![x]) {
 					// Survive with 2 or 3 neighbors
-					newCells[y]![x] = surviveNeighbors.indexOf(neighbors) !== -1;
+					newCells[y]![x] =
+						surviveNeighbors.indexOf(neighbors) !== -1;
 				} else {
 					// Reproduce with 3 neighbors
-					newCells[y]![x] = reproduceNeighbors.indexOf(neighbors) !== -1;
+					newCells[y]![x] =
+						reproduceNeighbors.indexOf(neighbors) !== -1;
 				}
 			}
 		}

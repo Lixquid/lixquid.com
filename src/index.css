@@ -262,7 +262,8 @@ main {
 			}
 		}
 
-		&:has(a:not(.source-link):hover), &:has(a:not(.source-link):focus) {
+		&:has(a:not(.source-link):hover),
+		&:has(a:not(.source-link):focus) {
 			background: var(--color-bg-lighter);
 		}
 
@@ -279,7 +280,6 @@ main {
 			&:hover {
 				color: #ccc;
 			}
-
 		}
 
 		h2 {

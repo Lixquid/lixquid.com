@@ -137,7 +137,11 @@ animToggleButton.addEventListener("click", () => {
 	}
 });
 
-(globalThis as any).forceBackgroundAnimation = (name: string) => {
+const debugGlobals = globalThis as typeof globalThis & {
+	forceBackgroundAnimation?: (name: string) => void;
+	resetBackgroundAnimation?: () => void;
+};
+debugGlobals.forceBackgroundAnimation = (name: string) => {
 	if (!animations.some(([n]) => n === name)) {
 		console.error(`Unknown animation "${name}"`);
 		return;
@@ -146,7 +150,7 @@ animToggleButton.addEventListener("click", () => {
 	localStorage.setItem("forceBgAnim", name);
 	location.reload();
 };
-(globalThis as any).resetBackgroundAnimation = () => {
+debugGlobals.resetBackgroundAnimation = () => {
 	console.log("Resetting background animation to random and reloading...");
 	localStorage.removeItem("forceBgAnim");
 	location.reload();
@@ -198,7 +202,8 @@ search.addEventListener("input", () => {
 //#region Friend Badges
 // Randomize the order of the friend badges, seeded by the current day
 const day = new Date();
-let seed = day.getFullYear() * 10000 + (day.getMonth() + 1) * 100 + day.getDate();
+let seed =
+	day.getFullYear() * 10000 + (day.getMonth() + 1) * 100 + day.getDate();
 const random = () => {
 	seed = (seed + 0x6d2b79f5) >>> 0;
 	let t = seed;
@@ -207,9 +212,7 @@ const random = () => {
 	return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
 };
 
-const friendBadges = document.getElementById(
-	"friend-badges",
-) as HTMLDivElement;
+const friendBadges = document.getElementById("friend-badges") as HTMLDivElement;
 const badges = Array.from(
 	friendBadges.children,
 ) as unknown as HTMLAnchorElement[];

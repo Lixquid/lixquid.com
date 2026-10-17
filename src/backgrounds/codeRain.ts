@@ -32,13 +32,14 @@ export function codeRain(
 		ctx.fillStyle = "#0f0";
 		ctx.font = `${fontSize}px monospace`;
 		for (let i = 0; i < columnCount; i++) {
+			const pos = charPos[i] ?? 0;
 			ctx.fillText(
 				String.fromCharCode(Math.random() * 95 + 32),
 				i * fontSize,
-				charPos[i]!,
+				pos,
 			);
-			charPos[i] += fontSize;
-			if (charPos[i]! > canvas.height && Math.random() > 0.975) {
+			charPos[i] = pos + fontSize;
+			if (pos + fontSize > canvas.height && Math.random() > 0.975) {
 				charPos[i] = 0;
 			}
 		}

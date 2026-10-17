@@ -1,657 +1,699 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="no-js">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Lixquid</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" href="./src/assets/favicon.png" />
+	<head>
+		<meta charset="UTF-8" />
+		<title>Lixquid</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" href="./src/assets/favicon.png" />
 
-        <link rel="stylesheet" href="./src/assets/fonts/fa-subset.css" />
-        <link
-            rel="stylesheet"
-            href="./node_modules/bootstrap/dist/css/bootstrap-reboot.min.css"
-        />
-        <link rel="stylesheet" href="./src/index.css" />
+		<link rel="stylesheet" href="./src/assets/fonts/fa-subset.css" />
+		<link
+			rel="stylesheet"
+			href="./node_modules/bootstrap/dist/css/bootstrap-reboot.min.css"
+		/>
+		<link rel="stylesheet" href="./src/index.css" />
 
-        <meta name="title" content="Lixquid" />
-        <meta name="description" content="Tools, toys, tepid." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://lixquid.com" />
-        <meta property="og:title" content="Lixquid" />
-        <meta property="og:description" content="Tools, toys, tepid." />
-        <meta property="og:image" content="/socialLogo.png" />
-        <meta property="twitter:card" content="summary_large_image" />
-    </head>
-    <body>
-        <div id="landing">
-            <!-- Background Canvas / Cover -->
-            <canvas id="landing-canvas"></canvas>
-            <div id="landing-cover"></div>
-            <!-- Central Content -->
-            <div class="center">
-                <div class="bg">
-                    <object
-                        id="landing-logo"
-                        type="image/svg+xml"
-                        data="/logo.svg"
-                    ></object>
-                    <div class="links">
-                        <a
-                            href="https://github.com/lixquid"
-                            target="_blank"
-                            title="GitHub"
-                            ><i class="fab fa-fw fa-github"></i
-                        ></a>
-                        <a
-                            href="https://discord.gg/PDjFHV9"
-                            target="_blank"
-                            title="Discord (lixquid)"
-                            ><i class="fab fa-fw fa-discord"></i
-                        ></a>
-                        <a
-                            href="https://blog.lixquid.com"
-                            target="_blank"
-                            title="Blog"
-                            ><i class="fas fa-fw fa-blog"></i
-                        ></a>
-                    </div>
-                </div>
-            </div>
-            <!-- Jump Links -->
-            <div class="bottom">
-                <div class="bg">
-                    <a href="#projects">Projects</a>
-                    <span class="separator">&bullet;</span>
-                    <a href="#tools">Tools</a>
-                    <span class="separator">&bullet;</span>
-                    <a href="#toys">Toys</a>
-                </div>
-            </div>
-            <!-- Top-Right Animation Controls -->
-            <div id="landing-controls">
-                <span id="landing-controls-title">None</span>
-                <button id="landing-controls-toggle" title="Stop Animation">
-                    <i class="fas fa-fw fa-pause"></i>
-                </button>
-            </div>
-        </div>
-        <main>
-            <form class="search">
-                <input
-                    type="search"
-                    id="search"
-                    placeholder="Search..."
-                    autocomplete="off"
-                />
-            </form>
+		<meta name="title" content="Lixquid" />
+		<meta name="description" content="Tools, toys, tepid." />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://lixquid.com" />
+		<meta property="og:title" content="Lixquid" />
+		<meta property="og:description" content="Tools, toys, tepid." />
+		<meta property="og:image" content="/socialLogo.png" />
+		<meta property="twitter:card" content="summary_large_image" />
+	</head>
+	<body>
+		<div id="landing">
+			<!-- Background Canvas / Cover -->
+			<canvas id="landing-canvas"></canvas>
+			<div id="landing-cover"></div>
+			<!-- Central Content -->
+			<div class="center">
+				<div class="bg">
+					<object
+						id="landing-logo"
+						type="image/svg+xml"
+						data="/logo.svg"
+					></object>
+					<div class="links">
+						<a
+							href="https://github.com/lixquid"
+							target="_blank"
+							title="GitHub"
+							><i class="fab fa-fw fa-github"></i
+						></a>
+						<a
+							href="https://discord.gg/PDjFHV9"
+							target="_blank"
+							title="Discord (lixquid)"
+							><i class="fab fa-fw fa-discord"></i
+						></a>
+						<a
+							href="https://blog.lixquid.com"
+							target="_blank"
+							title="Blog"
+							><i class="fas fa-fw fa-blog"></i
+						></a>
+					</div>
+				</div>
+			</div>
+			<!-- Jump Links -->
+			<div class="bottom">
+				<div class="bg">
+					<a href="#projects">Projects</a>
+					<span class="separator">&bullet;</span>
+					<a href="#tools">Tools</a>
+					<span class="separator">&bullet;</span>
+					<a href="#toys">Toys</a>
+				</div>
+			</div>
+			<!-- Top-Right Animation Controls -->
+			<div id="landing-controls">
+				<span id="landing-controls-title">None</span>
+				<button id="landing-controls-toggle" title="Stop Animation">
+					<i class="fas fa-fw fa-pause"></i>
+				</button>
+			</div>
+		</div>
+		<main>
+			<form class="search">
+				<input
+					type="search"
+					id="search"
+					placeholder="Search..."
+					autocomplete="off"
+				/>
+			</form>
 
-            <!------------------- PROJECTS -------------------->
-            <div class="title">
-                <h1 id="projects">Projects</h1>
-                <p class="subtitle">
-                    Libraries, applications, and other projects.
-                </p>
-            </div>
-            <div class="columns">
-                <div class="column">
-                    <div class="card" style="border-color: var(--lang-monkeyc)">
-                        <a
-                            href="https://apps.garmin.com/en-US/apps/caa15d02-543b-4e58-aa57-0c9a2f93339d"
-                            tabindex="-1"
-                        >
-                            <img
-                                src="./src/assets/images/garminLxCalculator.png"
-                            />
-                        </a>
-                        <div>
-                            <a
-                                href="https://apps.garmin.com/en-US/apps/caa15d02-543b-4e58-aa57-0c9a2f93339d"
-                            >
-                                <h2>Garmin: Lx Calculator</h2>
-                                <p>
-                                    A touch calculator app for Garmin devices.
-                                </p>
-                                <p>
-                                    Features a large input area with history,
-                                    memory, trigonometry, unit conversion, and
-                                    more.
-                                </p>
-                            </a>
-                            <div class="footer">
-                                <div class="tags">
-                                    <span class="tag">Monkey C</span>
-                                    <span class="tag">App</span>
-                                </div>
-                                <a
-                                    href="https://github.com/lixquid/garmin-lxcalculator"
-                                    class="source-link"
-                                >
-                                    <i class="fas fa-fw fa-code"></i>
-                                    Source
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card" style="border-color: var(--lang-monkeyc)">
-                        <a
-                            href="https://apps.garmin.com/en-US/apps/7cde0f59-cd68-4097-861c-b28549bcea0f"
-                            tabindex="-1"
-                        >
-                            <img src="./src/assets/images/garminLxRandom.png" />
-                        </a>
-                        <div>
-                            <a
-                                href="https://apps.garmin.com/en-US/apps/7cde0f59-cd68-4097-861c-b28549bcea0f"
-                            >
-                                <h2>Garmin: Lx Random</h2>
-                                <p>
-                                    An app for creating random numbers and
-                                    values for Garmin devices.
-                                </p>
-                            </a>
-                            <div class="footer">
-                                <div class="tags">
-                                    <span class="tag">Monkey C</span>
-                                    <span class="tag">App</span>
-                                </div>
-                                <a
-                                    href="https://github.com/lixquid/garmin-lxrandom"
-                                    class="source-link"
-                                >
-                                    <i class="fas fa-fw fa-code"></i>
-                                    Source
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card" style="border-color: var(--lang-monkeyc)">
-                        <a
-                            href="https://apps.garmin.com/en-US/apps/05ad2697-7c7d-49e1-9cd3-951274f99db7"
-                            tabindex="-1"
-                        >
-                            <img src="./src/assets/images/garminLxFArcs.png" />
-                        </a>
-                        <div>
-                            <a
-                                href="https://apps.garmin.com/en-US/apps/05ad2697-7c7d-49e1-9cd3-951274f99db7"
-                            >
-                                <h2>Garmin: LxF Arcs</h2>
-                                <p>
-                                    A watchface inspired by geometric arcs for
-                                    Garmin devices.
-                                </p>
-                            </a>
-                            <div class="footer">
-                                <div class="tags">
-                                    <span class="tag">Monkey C</span>
-                                    <span class="tag">Watch Face</span>
-                                </div>
-                                <a
-                                    href="https://github.com/lixquid/garmin-lxfarcs"
-                                    class="source-link"
-                                >
-                                    <i class="fas fa-fw fa-code"></i>
-                                    Source
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card" style="border-color: var(--lang-go)">
-                        <a
-                            href="https://github.com/lixquid/go-genetic-math"
-                            tabindex="-1"
-                        >
-                            <img
-                                src="./src/assets/images/golangGeneticMath.png"
-                            />
-                        </a>
-                        <div>
-                            <a
-                                href="https://github.com/lixquid/go-genetic-math"
-                            >
-                                <h2>Golang Genetic Math</h2>
-                                <p>
-                                    A small experiment with genetic algorithms
-                                    in Go.
-                                </p>
-                                <p>
-                                    Using a genetic algorithm, and given a
-                                    target number, the program will attempt to
-                                    find a mathematical expression that
-                                    evaluates to the target number.
-                                </p>
-                            </a>
-                            <div class="footer">
-                                <div class="tags">
-                                    <span class="tag">Demo</span>
-                                    <span class="tag">Go</span>
-                                    <span class="tag">Program</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <div
-                        class="card"
-                        style="border-color: var(--lang-react)"
-                    >
-                        <a
-                            href="https://jsr.io/@lixquid/util-react"
-                            tabindex="-1"
-                        >
-                            <img src="./src/assets/images/utilReact.png" />
-                        </a>
-                        <div>
-                            <a href="https://jsr.io/@lixquid/util-react">
-                                <h2>React Utilites</h2>
-                                <p>
-                                    Utility functions and hooks for a variety of
-                                    React-style frameworks.
-                                </p>
-                            </a>
-                            <div class="footer">
-                                <div class="tags">
-                                    <span class="tag">React</span>
-                                    <span class="tag">Library</span>
-                                </div>
-                                <a
-                                    href="https://github.com/Lixquid/js-lixquid-util-react"
-                                    class="source-link"
-                                >
-                                    <i class="fas fa-fw fa-code"></i>
-                                    Source
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        class="card"
-                        style="border-color: var(--lang-vimscript)"
-                    >
-                        <a
-                            href="https://github.com/lixquid/vim-align"
-                            tabindex="-1"
-                        >
-                            <img src="./src/assets/images/vimAlign.png" />
-                        </a>
-                        <div>
-                            <a href="https://github.com/lixquid/vim-align">
-                                <h2>Vim Align</h2>
-                                <p>Simple Text Aligning in Vim.</p>
-                            </a>
-                            <div class="footer">
-                                <div class="tags">
-                                    <span class="tag">Vimscript</span>
-                                    <span class="tag">Plugin</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card" style="border-color: var(--lang-lua)">
-                        <a
-                            href="https://github.com/lixquid/pandoc-steam"
-                            tabindex="-1"
-                        >
-                            <img src="./src/assets/images/pandocSteam.png" />
-                        </a>
-                        <div>
-                            <a href="https://github.com/lixquid/pandoc-steam">
-                                <h2>Pandoc Steam</h2>
-                                <p>
-                                    A small Lua filter to output Steam BBCode.
-                                </p>
-                            </a>
-                            <div class="footer">
-                                <div class="tags">
-                                    <span class="tag">Lua</span>
-                                    <span class="tag">Pandoc</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        class="card"
-                        style="border-color: var(--lang-typescript)"
-                    >
-                        <a
-                            href="https://marketplace.visualstudio.com/items?itemName=lixquid.calculator"
-                            tabindex="-1"
-                        >
-                            <img
-                                src="./src/assets/images/vscodeCalculator.png"
-                            />
-                        </a>
-                        <div>
-                            <a
-                                href="https://marketplace.visualstudio.com/items?itemName=lixquid.calculator"
-                            >
-                                <h2>VSCode Calculator</h2>
-                                <p>
-                                    Calculation commands and tools for VS Code.
-                                </p>
-                                <p>
-                                    Supports displaying calculation results in
-                                    the status bar, and inserting / replacing
-                                    the current selection with the result.
-                                </p>
-                            </a>
-                            <div class="footer">
-                                <div class="tags">
-                                    <span class="tag">TypeScript</span>
-                                    <span class="tag">VSCode</span>
-                                    <span class="tag">Plugin</span>
-                                </div>
-                                <a
-                                    href="https://github.com/lixquid/vscode-calculator"
-                                    class="source-link"
-                                >
-                                    <i class="fas fa-fw fa-code"></i> Source
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+			<!------------------- PROJECTS -------------------->
+			<div class="title">
+				<h1 id="projects">Projects</h1>
+				<p class="subtitle">
+					Libraries, applications, and other projects.
+				</p>
+			</div>
+			<div class="columns">
+				<div class="column">
+					<div class="card" style="border-color: var(--lang-monkeyc)">
+						<a
+							href="https://apps.garmin.com/en-US/apps/caa15d02-543b-4e58-aa57-0c9a2f93339d"
+							tabindex="-1"
+						>
+							<img
+								src="./src/assets/images/garminLxCalculator.png"
+							/>
+						</a>
+						<div>
+							<a
+								href="https://apps.garmin.com/en-US/apps/caa15d02-543b-4e58-aa57-0c9a2f93339d"
+							>
+								<h2>Garmin: Lx Calculator</h2>
+								<p>
+									A touch calculator app for Garmin devices.
+								</p>
+								<p>
+									Features a large input area with history,
+									memory, trigonometry, unit conversion, and
+									more.
+								</p>
+							</a>
+							<div class="footer">
+								<div class="tags">
+									<span class="tag">Monkey C</span>
+									<span class="tag">App</span>
+								</div>
+								<a
+									href="https://github.com/lixquid/garmin-lxcalculator"
+									class="source-link"
+								>
+									<i class="fas fa-fw fa-code"></i>
+									Source
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="card" style="border-color: var(--lang-monkeyc)">
+						<a
+							href="https://apps.garmin.com/en-US/apps/7cde0f59-cd68-4097-861c-b28549bcea0f"
+							tabindex="-1"
+						>
+							<img src="./src/assets/images/garminLxRandom.png" />
+						</a>
+						<div>
+							<a
+								href="https://apps.garmin.com/en-US/apps/7cde0f59-cd68-4097-861c-b28549bcea0f"
+							>
+								<h2>Garmin: Lx Random</h2>
+								<p>
+									An app for creating random numbers and
+									values for Garmin devices.
+								</p>
+							</a>
+							<div class="footer">
+								<div class="tags">
+									<span class="tag">Monkey C</span>
+									<span class="tag">App</span>
+								</div>
+								<a
+									href="https://github.com/lixquid/garmin-lxrandom"
+									class="source-link"
+								>
+									<i class="fas fa-fw fa-code"></i>
+									Source
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="card" style="border-color: var(--lang-monkeyc)">
+						<a
+							href="https://apps.garmin.com/en-US/apps/05ad2697-7c7d-49e1-9cd3-951274f99db7"
+							tabindex="-1"
+						>
+							<img src="./src/assets/images/garminLxFArcs.png" />
+						</a>
+						<div>
+							<a
+								href="https://apps.garmin.com/en-US/apps/05ad2697-7c7d-49e1-9cd3-951274f99db7"
+							>
+								<h2>Garmin: LxF Arcs</h2>
+								<p>
+									A watchface inspired by geometric arcs for
+									Garmin devices.
+								</p>
+							</a>
+							<div class="footer">
+								<div class="tags">
+									<span class="tag">Monkey C</span>
+									<span class="tag">Watch Face</span>
+								</div>
+								<a
+									href="https://github.com/lixquid/garmin-lxfarcs"
+									class="source-link"
+								>
+									<i class="fas fa-fw fa-code"></i>
+									Source
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="card" style="border-color: var(--lang-go)">
+						<a
+							href="https://github.com/lixquid/go-genetic-math"
+							tabindex="-1"
+						>
+							<img
+								src="./src/assets/images/golangGeneticMath.png"
+							/>
+						</a>
+						<div>
+							<a
+								href="https://github.com/lixquid/go-genetic-math"
+							>
+								<h2>Golang Genetic Math</h2>
+								<p>
+									A small experiment with genetic algorithms
+									in Go.
+								</p>
+								<p>
+									Using a genetic algorithm, and given a
+									target number, the program will attempt to
+									find a mathematical expression that
+									evaluates to the target number.
+								</p>
+							</a>
+							<div class="footer">
+								<div class="tags">
+									<span class="tag">Demo</span>
+									<span class="tag">Go</span>
+									<span class="tag">Program</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="column">
+					<div class="card" style="border-color: var(--lang-react)">
+						<a
+							href="https://jsr.io/@lixquid/util-react"
+							tabindex="-1"
+						>
+							<img src="./src/assets/images/utilReact.png" />
+						</a>
+						<div>
+							<a href="https://jsr.io/@lixquid/util-react">
+								<h2>React Utilites</h2>
+								<p>
+									Utility functions and hooks for a variety of
+									React-style frameworks.
+								</p>
+							</a>
+							<div class="footer">
+								<div class="tags">
+									<span class="tag">React</span>
+									<span class="tag">Library</span>
+								</div>
+								<a
+									href="https://github.com/Lixquid/js-lixquid-util-react"
+									class="source-link"
+								>
+									<i class="fas fa-fw fa-code"></i>
+									Source
+								</a>
+							</div>
+						</div>
+					</div>
+					<div
+						class="card"
+						style="border-color: var(--lang-vimscript)"
+					>
+						<a
+							href="https://github.com/lixquid/vim-align"
+							tabindex="-1"
+						>
+							<img src="./src/assets/images/vimAlign.png" />
+						</a>
+						<div>
+							<a href="https://github.com/lixquid/vim-align">
+								<h2>Vim Align</h2>
+								<p>Simple Text Aligning in Vim.</p>
+							</a>
+							<div class="footer">
+								<div class="tags">
+									<span class="tag">Vimscript</span>
+									<span class="tag">Plugin</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="card" style="border-color: var(--lang-lua)">
+						<a
+							href="https://github.com/lixquid/pandoc-steam"
+							tabindex="-1"
+						>
+							<img src="./src/assets/images/pandocSteam.png" />
+						</a>
+						<div>
+							<a href="https://github.com/lixquid/pandoc-steam">
+								<h2>Pandoc Steam</h2>
+								<p>
+									A small Lua filter to output Steam BBCode.
+								</p>
+							</a>
+							<div class="footer">
+								<div class="tags">
+									<span class="tag">Lua</span>
+									<span class="tag">Pandoc</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div
+						class="card"
+						style="border-color: var(--lang-typescript)"
+					>
+						<a
+							href="https://marketplace.visualstudio.com/items?itemName=lixquid.calculator"
+							tabindex="-1"
+						>
+							<img
+								src="./src/assets/images/vscodeCalculator.png"
+							/>
+						</a>
+						<div>
+							<a
+								href="https://marketplace.visualstudio.com/items?itemName=lixquid.calculator"
+							>
+								<h2>VSCode Calculator</h2>
+								<p>
+									Calculation commands and tools for VS Code.
+								</p>
+								<p>
+									Supports displaying calculation results in
+									the status bar, and inserting / replacing
+									the current selection with the result.
+								</p>
+							</a>
+							<div class="footer">
+								<div class="tags">
+									<span class="tag">TypeScript</span>
+									<span class="tag">VSCode</span>
+									<span class="tag">Plugin</span>
+								</div>
+								<a
+									href="https://github.com/lixquid/vscode-calculator"
+									class="source-link"
+								>
+									<i class="fas fa-fw fa-code"></i> Source
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
-            <!------------------- TOOLS -------------------->
-            <div class="title">
-                <h1 id="tools">Tools</h1>
-                <p class="subtitle">Online tools and utilities.</p>
-            </div>
-            <div class="columns">
-                <div class="column">
-                    <div class="card" style="border-color: var(--color-pink)">
-                        <a href="https://color-picker.lixquid.com">
-                            <img src="./src/assets/images/colorPicker.png" />
-                        </a>
-                        <div>
-                            <a href="https://color-picker.lixquid.com">
-                                <h2>Color Picker</h2>
-                                <p>
-                                    A small app to pick colours from different
-                                    sources and output them in a variety of
-                                    formats.
-                                </p>
-                                <p>
-                                    Supports palettes, picking from images,
-                                    generating variations, and more.
-                                </p>
-                            </a>
-                            <div class="footer">
-                                <div class="tags">
-                                    <span class="tag">Tool</span>
-                                </div>
-                                <a
-                                    href="https://github.com/lixquid/app-color-picker"
-                                    class="source-link"
-                                >
-                                    <i class="fas fa-fw fa-code"></i> Source
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card" style="border-color: var(--color-green)">
-                        <a href="https://fallout-hacking-solver.lixquid.com">
-                            <img
-                                src="./src/assets/images/falloutHackingSolver.png"
-                            />
-                        </a>
-                        <div>
-                            <a
-                                href="https://fallout-hacking-solver.lixquid.com"
-                            >
-                                <h2>Fallout Hacking Solver</h2>
-                                <p>
-                                    A tool to solve the hacking minigame in the
-                                    Fallout series.
-                                </p>
-                            </a>
-                            <div class="footer">
-                                <div class="tags">
-                                    <span class="tag">Tool</span>
-                                </div>
-                                <a
-                                    href="https://github.com/lixquid/app-fallout-hacking-solver"
-                                    class="source-link"
-                                >
-                                    <i class="fas fa-fw fa-code"></i> Source
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card" style="border-color: var(--color-yellow)">
-                        <a
-                            href="https://cyberpunk-2077-hacking-solver.lixquid.com"
-                        >
-                            <img
-                                src="./src/assets/images/cyberpunk2077HackingSolver.png"
-                            />
-                        </a>
-                        <div>
-                            <a
-                                href="https://cyberpunk-2077-hacking-solver.lixquid.com"
-                            >
-                                <h2>Cyberpunk 2077 Hacking Solver</h2>
-                                <p>
-                                    A tool to solve the hacking minigame in
-                                    Cyberpunk 2077.
-                                </p>
-                            </a>
-                            <div class="footer">
-                                <div class="tags">
-                                    <span class="tag">Tool</span>
-                                </div>
-                                <a
-                                    href="https://github.com/lixquid/app-cyberpunk-2077-hacking-solver"
-                                    class="source-link"
-                                >
-                                    <i class="fas fa-fw fa-code"></i> Source
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="card" style="border-color: var(--color-orange)">
-                        <a href="https://reaction-tester.lixquid.com">
-                            <img src="./src/assets/images/reactionTester.png" />
-                        </a>
-                        <div>
-                            <a href="https://reaction-tester.lixquid.com">
-                                <h2>Reaction Tester</h2>
-                                <p>
-                                    A small tool to check your reaction times.
-                                </p>
-                                <p>
-                                    Supports multiple game modes, and analysis
-                                    of your best, worst, and average times.
-                                </p>
-                            </a>
-                            <div class="footer">
-                                <div class="tags">
-                                    <span class="tag">Tool</span>
-                                </div>
-                                <a
-                                    href="https://github.com/lixquid/app-reaction-tester"
-                                    class="source-link"
-                                >
-                                    <i class="fas fa-fw fa-code"></i> Source
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card" style="border-color: var(--color-white)">
-                        <a
-                            href="https://unexpected-keyboard-layout-editor.lixquid.com"
-                        >
-                            <img
-                                src="./src/assets/images/unexpectedKeyboardLayoutEditor.png"
-                            />
-                        </a>
-                        <div>
-                            <a
-                                href="https://unexpected-keyboard-layout-editor.lixquid.com"
-                            >
-                                <h2>Unexpected Keyboard Layout Editor</h2>
-                                <p>
-                                    A tool for creating layouts for the
-                                    Unexpected Keyboard for Android devices.
-                                </p>
-                            </a>
-                            <div class="footer">
-                                <div class="tags">
-                                    <span class="tag">Tool</span>
-                                </div>
-                                <a
-                                    href="https://github.com/lixquid/app-unexpected-keyboard-layout-editor"
-                                    class="source-link"
-                                >
-                                    <i class="fas fa-fw fa-code"></i> Source
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card" style="border-color: var(--color-red)">
-                        <a href="https://password-tool.lixquid.com">
-                            <img src="./src/assets/images/passwordTool.png" />
-                        </a>
-                        <div>
-                            <a href="https://password-tool.lixquid.com">
-                                <h2>Password Tool</h2>
-                                <p>
-                                    A tool to generate and analyze passwords
-                                    for complexity and strength.
-                                </p>
-                                <p>
-                                    Supports generating passwords with
-                                    characters or dictionary words, and
-                                    analyzing passwords for strength and leaks
-                                    in the Have I Been Pwned database.
-                                </p>
-                            </a>
-                            <div class="footer">
-                                <div class="tags">
-                                    <span class="tag">Tool</span>
-                                </div>
-                                <a
-                                    href="https://github.com/lixquid/app-password-tool"
-                                    class="source-link"
-                                >
-                                    <i class="fas fa-fw fa-code"></i> Source
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+			<!------------------- TOOLS -------------------->
+			<div class="title">
+				<h1 id="tools">Tools</h1>
+				<p class="subtitle">Online tools and utilities.</p>
+			</div>
+			<div class="columns">
+				<div class="column">
+					<div class="card" style="border-color: var(--color-pink)">
+						<a href="https://color-picker.lixquid.com">
+							<img src="./src/assets/images/colorPicker.png" />
+						</a>
+						<div>
+							<a href="https://color-picker.lixquid.com">
+								<h2>Color Picker</h2>
+								<p>
+									A small app to pick colours from different
+									sources and output them in a variety of
+									formats.
+								</p>
+								<p>
+									Supports palettes, picking from images,
+									generating variations, and more.
+								</p>
+							</a>
+							<div class="footer">
+								<div class="tags">
+									<span class="tag">Tool</span>
+								</div>
+								<a
+									href="https://github.com/lixquid/app-color-picker"
+									class="source-link"
+								>
+									<i class="fas fa-fw fa-code"></i> Source
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="card" style="border-color: var(--color-green)">
+						<a href="https://fallout-hacking-solver.lixquid.com">
+							<img
+								src="./src/assets/images/falloutHackingSolver.png"
+							/>
+						</a>
+						<div>
+							<a
+								href="https://fallout-hacking-solver.lixquid.com"
+							>
+								<h2>Fallout Hacking Solver</h2>
+								<p>
+									A tool to solve the hacking minigame in the
+									Fallout series.
+								</p>
+							</a>
+							<div class="footer">
+								<div class="tags">
+									<span class="tag">Tool</span>
+								</div>
+								<a
+									href="https://github.com/lixquid/app-fallout-hacking-solver"
+									class="source-link"
+								>
+									<i class="fas fa-fw fa-code"></i> Source
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="card" style="border-color: var(--color-yellow)">
+						<a
+							href="https://cyberpunk-2077-hacking-solver.lixquid.com"
+						>
+							<img
+								src="./src/assets/images/cyberpunk2077HackingSolver.png"
+							/>
+						</a>
+						<div>
+							<a
+								href="https://cyberpunk-2077-hacking-solver.lixquid.com"
+							>
+								<h2>Cyberpunk 2077 Hacking Solver</h2>
+								<p>
+									A tool to solve the hacking minigame in
+									Cyberpunk 2077.
+								</p>
+							</a>
+							<div class="footer">
+								<div class="tags">
+									<span class="tag">Tool</span>
+								</div>
+								<a
+									href="https://github.com/lixquid/app-cyberpunk-2077-hacking-solver"
+									class="source-link"
+								>
+									<i class="fas fa-fw fa-code"></i> Source
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="column">
+					<div class="card" style="border-color: var(--color-orange)">
+						<a href="https://reaction-tester.lixquid.com">
+							<img src="./src/assets/images/reactionTester.png" />
+						</a>
+						<div>
+							<a href="https://reaction-tester.lixquid.com">
+								<h2>Reaction Tester</h2>
+								<p>
+									A small tool to check your reaction times.
+								</p>
+								<p>
+									Supports multiple game modes, and analysis
+									of your best, worst, and average times.
+								</p>
+							</a>
+							<div class="footer">
+								<div class="tags">
+									<span class="tag">Tool</span>
+								</div>
+								<a
+									href="https://github.com/lixquid/app-reaction-tester"
+									class="source-link"
+								>
+									<i class="fas fa-fw fa-code"></i> Source
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="card" style="border-color: var(--color-white)">
+						<a
+							href="https://unexpected-keyboard-layout-editor.lixquid.com"
+						>
+							<img
+								src="./src/assets/images/unexpectedKeyboardLayoutEditor.png"
+							/>
+						</a>
+						<div>
+							<a
+								href="https://unexpected-keyboard-layout-editor.lixquid.com"
+							>
+								<h2>Unexpected Keyboard Layout Editor</h2>
+								<p>
+									A tool for creating layouts for the
+									Unexpected Keyboard for Android devices.
+								</p>
+							</a>
+							<div class="footer">
+								<div class="tags">
+									<span class="tag">Tool</span>
+								</div>
+								<a
+									href="https://github.com/lixquid/app-unexpected-keyboard-layout-editor"
+									class="source-link"
+								>
+									<i class="fas fa-fw fa-code"></i> Source
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="card" style="border-color: var(--color-red)">
+						<a href="https://password-tool.lixquid.com">
+							<img src="./src/assets/images/passwordTool.png" />
+						</a>
+						<div>
+							<a href="https://password-tool.lixquid.com">
+								<h2>Password Tool</h2>
+								<p>
+									A tool to generate and analyze passwords for
+									complexity and strength.
+								</p>
+								<p>
+									Supports generating passwords with
+									characters or dictionary words, and
+									analyzing passwords for strength and leaks
+									in the Have I Been Pwned database.
+								</p>
+							</a>
+							<div class="footer">
+								<div class="tags">
+									<span class="tag">Tool</span>
+								</div>
+								<a
+									href="https://github.com/lixquid/app-password-tool"
+									class="source-link"
+								>
+									<i class="fas fa-fw fa-code"></i> Source
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
-            <!------------------- TOYS -------------------->
-            <div class="title">
-                <h1 id="toys">Toys</h1>
-                <p class="subtitle">Games, experiments, and other toys.</p>
-            </div>
-            <div class="columns">
-                <div class="column">
-                    <div class="card" style="border-color: var(--color-green)">
-                        <a href="https://mastermind-game.lixquid.com">
-                            <img src="./src/assets/images/mastermindGame.png" />
-                        </a>
-                        <div>
-                            <a href="https://mastermind-game.lixquid.com">
-                                <h2>Mastermind Game</h2>
-                                <p>
-                                    An online implementation of the classic
-                                    Mastermind game. Guess the secret code using
-                                    deductive reasoning.
-                                </p>
-                            </a>
-                            <div class="footer">
-                                <div class="tags">
-                                    <span class="tag">Game</span>
-                                </div>
-                                <a
-                                    href="https://github.com/lixquid/app-mastermind-game"
-                                    class="source-link"
-                                >
-                                    <i class="fas fa-fw fa-code"></i>
-                                    Source
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card" style="border-color: var(--color-yellow)">
-                        <a href="https://lobo-game.lixquid.com">
-                            <img src="./src/assets/images/loboGame.png" />
-                        </a>
-                        <div>
-                            <a href="https://lobo-game.lixquid.com">
-                                <h2>Lobo Game</h2>
-                                <p>
-                                    An online implementation of the solitaire game Lobo, designed by James Ernest.
-                                </p>
-                            </a>
-                            <div class="footer">
-                                <div class="tags">
-                                    <span class="tag">Game</span>
-                                </div>
-                                <a
-                                    href="https://github.com/lixquid/app-lobo-game"
-                                    class="source-link"
-                                >
-                                    <i class="fas fa-fw fa-code"></i>
-                                    Source
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="card" style="border-color: var(--color-red)">
-                        <a href="https://lightsout-game.lixquid.com">
-                            <img src="./src/assets/images/lightsoutGame.png" />
-                        </a>
-                        <div>
-                            <a href="https://lightsout-game.lixquid.com">
-                                <h2>Lights Out</h2>
-                                <p>
-                                    An online implementation of the Lights Out
-                                    game. Try to turn off all the lights!
-                                </p>
-                            </a>
-                            <div class="footer">
-                                <div class="tags">
-                                    <span class="tag">Game</span>
-                                </div>
-                                <a
-                                    href="https://github.com/lixquid/app-lightsout-game"
-                                    class="source-link"
-                                >
-                                    <i class="fas fa-fw fa-code"></i>
-                                    Source
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!------------------- FRIENDS -------------------->
-            <div class="title">
-                <h1 id="friends">Friends</h1>
-                <p class="subtitle">&lt;3</p>
-            </div>
-            <div class="friend-badge-holder">
-                <a href="https://lixquid.com" target="_blank" rel="noopener noreferrer"><img src="https://lixquid.com/88x31.gif" alt="Lixquid" class="friend-badge"></a>
-            </div>
-            <br>
-            <div id="friend-badges">
-                <a href="https://alizard.gay/" target="_blank" rel="noopener noreferrer"><img src="https://alizard.gay/assets/images/alizardgaybutton.gif" width="88" height="31" class="friend-badge"></a>
-                <a href="https://pandashellhole.com/" target="_blank" rel="noopener noreferrer"><img src="https://pandashellhole.com/resources/phh.png" width="88" height="31" class="friend-badge"></a>
-                <a href="https://pollygeist.com/" target="_blank" rel="noopener noreferrer"><img src="https://raw.githubusercontent.com/Polly-Geist/link-stuff/refs/heads/main/pollygeist-button.gif" width="88" height="31" class="friend-badge"></a>
-                <a href="https://mentalish.fyi" target="_blank" rel="noopener noreferrer"><img src="https://mentalish.fyi/images/badges/SlimeBadge2.png" width="88" height="31" class="friend-badge"></a>
-            </div>
-            <footer id="footer">Inspirational Quote</footer>
-        </main>
-        <script src="./src/index.ts" type="module"></script>
-    </body>
+			<!------------------- TOYS -------------------->
+			<div class="title">
+				<h1 id="toys">Toys</h1>
+				<p class="subtitle">Games, experiments, and other toys.</p>
+			</div>
+			<div class="columns">
+				<div class="column">
+					<div class="card" style="border-color: var(--color-green)">
+						<a href="https://mastermind-game.lixquid.com">
+							<img src="./src/assets/images/mastermindGame.png" />
+						</a>
+						<div>
+							<a href="https://mastermind-game.lixquid.com">
+								<h2>Mastermind Game</h2>
+								<p>
+									An online implementation of the classic
+									Mastermind game. Guess the secret code using
+									deductive reasoning.
+								</p>
+							</a>
+							<div class="footer">
+								<div class="tags">
+									<span class="tag">Game</span>
+								</div>
+								<a
+									href="https://github.com/lixquid/app-mastermind-game"
+									class="source-link"
+								>
+									<i class="fas fa-fw fa-code"></i>
+									Source
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="card" style="border-color: var(--color-yellow)">
+						<a href="https://lobo-game.lixquid.com">
+							<img src="./src/assets/images/loboGame.png" />
+						</a>
+						<div>
+							<a href="https://lobo-game.lixquid.com">
+								<h2>Lobo Game</h2>
+								<p>
+									An online implementation of the solitaire
+									game Lobo, designed by James Ernest.
+								</p>
+							</a>
+							<div class="footer">
+								<div class="tags">
+									<span class="tag">Game</span>
+								</div>
+								<a
+									href="https://github.com/lixquid/app-lobo-game"
+									class="source-link"
+								>
+									<i class="fas fa-fw fa-code"></i>
+									Source
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="column">
+					<div class="card" style="border-color: var(--color-red)">
+						<a href="https://lightsout-game.lixquid.com">
+							<img src="./src/assets/images/lightsoutGame.png" />
+						</a>
+						<div>
+							<a href="https://lightsout-game.lixquid.com">
+								<h2>Lights Out</h2>
+								<p>
+									An online implementation of the Lights Out
+									game. Try to turn off all the lights!
+								</p>
+							</a>
+							<div class="footer">
+								<div class="tags">
+									<span class="tag">Game</span>
+								</div>
+								<a
+									href="https://github.com/lixquid/app-lightsout-game"
+									class="source-link"
+								>
+									<i class="fas fa-fw fa-code"></i>
+									Source
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!------------------- FRIENDS -------------------->
+			<div class="title">
+				<h1 id="friends">Friends</h1>
+				<p class="subtitle">&lt;3</p>
+			</div>
+			<div class="friend-badge-holder">
+				<a
+					href="https://lixquid.com"
+					target="_blank"
+					rel="noopener noreferrer"
+					><img
+						src="https://lixquid.com/88x31.gif"
+						alt="Lixquid"
+						class="friend-badge"
+				/></a>
+			</div>
+			<br />
+			<div id="friend-badges">
+				<a
+					href="https://alizard.gay/"
+					target="_blank"
+					rel="noopener noreferrer"
+					><img
+						src="https://alizard.gay/assets/images/alizardgaybutton.gif"
+						width="88"
+						height="31"
+						class="friend-badge"
+				/></a>
+				<a
+					href="https://pandashellhole.com/"
+					target="_blank"
+					rel="noopener noreferrer"
+					><img
+						src="https://pandashellhole.com/resources/phh.png"
+						width="88"
+						height="31"
+						class="friend-badge"
+				/></a>
+				<a
+					href="https://pollygeist.com/"
+					target="_blank"
+					rel="noopener noreferrer"
+					><img
+						src="https://raw.githubusercontent.com/Polly-Geist/link-stuff/refs/heads/main/pollygeist-button.gif"
+						width="88"
+						height="31"
+						class="friend-badge"
+				/></a>
+				<a
+					href="https://mentalish.fyi"
+					target="_blank"
+					rel="noopener noreferrer"
+					><img
+						src="https://mentalish.fyi/images/badges/SlimeBadge2.png"
+						width="88"
+						height="31"
+						class="friend-badge"
+				/></a>
+			</div>
+			<footer id="footer">Inspirational Quote</footer>
+		</main>
+		<script src="./src/index.ts" type="module"></script>
+	</body>
 </html>

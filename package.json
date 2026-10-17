@@ -1,22 +1,30 @@
 {
-    "name": "lixquid.com",
-    "version": "0.10.0",
-    "private": true,
-    "author": {
-        "name": "Lixquid",
-        "url": "https://lixquid.com"
-    },
-    "license": "MIT",
-    "scripts": {
-        "start": "vite",
-        "build": "vite build",
-        "lint": "deno lint && tsc --noEmit"
-    },
-    "dependencies": {
-        "bootstrap": "^5.3.1",
-        "postcss": "^8.4.27",
-        "postcss-nesting": "^12.0.0",
-        "typescript": "^5.1.6",
-        "vite": "^4.4.7"
-    }
+	"name": "lixquid.com",
+	"version": "0.10.0",
+	"private": true,
+	"author": {
+		"name": "Lixquid",
+		"url": "https://lixquid.com"
+	},
+	"license": "MIT",
+	"scripts": {
+		"start": "vite",
+		"build": "vite build",
+		"lint": "prettier --check . && eslint . && tsc --noEmit",
+		"format": "prettier --write ."
+	},
+	"dependencies": {
+		"bootstrap": "^5.3.1",
+		"postcss": "^8.4.27",
+		"postcss-nesting": "^12.0.0",
+		"typescript": "^5.1.6",
+		"vite": "^4.4.7"
+	},
+	"devDependencies": {
+		"@eslint/js": "^10.0.1",
+		"eslint": "^10.13.0",
+		"eslint-config-prettier": "^10.1.8",
+		"prettier": "^3.9.10",
+		"typescript-eslint": "^8.71.2"
+	}
 }

@@ -94,7 +94,12 @@ export function shiftingNetwork(
 		}
 
 		// Posterize the offscreen layer's alpha to get an aliased effect
-		const image = shapeCtx.getImageData( 0, 0, shapeCanvas.width, shapeCanvas.height,); 
+		const image = shapeCtx.getImageData(
+			0,
+			0,
+			shapeCanvas.width,
+			shapeCanvas.height,
+		);
 		const data = image.data;
 		for (let i = 3; i < data.length; i += 4) {
 			data[i] = data[i]! >= 128 ? 255 : 0;

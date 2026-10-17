@@ -11,6 +11,14 @@ export function shiftingNetwork(
 	bg.addColorStop(0, "#333");
 	bg.addColorStop(1, "#111");
 
+	// Render to offscreen layer so we can posterize alpha to 0 or 255 after
+	const shapeCanvas = document.createElement("canvas");
+	shapeCanvas.width = canvas.width;
+	shapeCanvas.height = canvas.height;
+	const shapeCtx = shapeCanvas.getContext("2d", {
+		willReadFrequently: true,
+	})!;
+
 	const xNodes = Math.ceil(canvas.width / 40);
 	const yNodes = Math.ceil(canvas.height / 40);
 
@@ -54,19 +62,11 @@ export function shiftingNetwork(
 		ctx.fillStyle = bg;
 		ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-		// Render the nodes
-		for (let i = 0; i < nodes.length; i++) {
-			const [x, y, v] = nodes[i]!;
-			const xWobble = Math.sin(d + x / 78 + v) * 10;
-			const yWobble = Math.sin(d + y / 69 + v) * 10;
-			ctx.fillStyle = "#fff";
-			ctx.beginPath();
-			ctx.arc(x + xWobble, y + yWobble, 3, 0, Math.PI * 2);
-			ctx.fill();
-		}
+		// Clear the offscreen layer
+		shapeCtx.clearRect(0, 0, shapeCanvas.width, shapeCanvas.height);
 
-		// Render the edges
-		ctx.lineWidth = 1;
+		// Render the edges first
+		shapeCtx.lineWidth = 2;
 		for (const [a, b] of edges) {
 			const [x1, y1, v1] = nodes[a]!;
 			const [x2, y2, v2] = nodes[b]!;
@@ -74,17 +74,35 @@ export function shiftingNetwork(
 			const yWobble1 = Math.sin(d + y1 / 69 + v1) * 10;
 			const xWobble2 = Math.sin(d + x2 / 78 + v2) * 10;
 			const yWobble2 = Math.sin(d + y2 / 69 + v2) * 10;
-			// Set the opacity based on the distance between the nodes
-			const dx = x1 - x2;
-			const dy = y1 - y2;
-			const dist = Math.sqrt(dx * dx + dy * dy);
-			const opacity = Math.max(0, 1 - dist / 80);
-			ctx.strokeStyle = `rgba(255, 255, 255, ${opacity})`;
-			ctx.beginPath();
-			ctx.moveTo(x1 + xWobble1, y1 + yWobble1);
-			ctx.lineTo(x2 + xWobble2, y2 + yWobble2);
-			ctx.stroke();
+			// Half brightness
+			shapeCtx.strokeStyle = "rgba(128, 128, 128, 1)";
+			shapeCtx.beginPath();
+			shapeCtx.moveTo(x1 + xWobble1, y1 + yWobble1);
+			shapeCtx.lineTo(x2 + xWobble2, y2 + yWobble2);
+			shapeCtx.stroke();
 		}
+
+		// Render the nodes on top
+		for (let i = 0; i < nodes.length; i++) {
+			const [x, y, v] = nodes[i]!;
+			const xWobble = Math.sin(d + x / 78 + v) * 10;
+			const yWobble = Math.sin(d + y / 69 + v) * 10;
+			shapeCtx.fillStyle = "#fff";
+			shapeCtx.beginPath();
+			shapeCtx.arc(x + xWobble, y + yWobble, 3, 0, Math.PI * 2);
+			shapeCtx.fill();
+		}
+
+		// Posterize the offscreen layer's alpha to get an aliased effect
+		const image = shapeCtx.getImageData( 0, 0, shapeCanvas.width, shapeCanvas.height,); 
+		const data = image.data;
+		for (let i = 3; i < data.length; i += 4) {
+			data[i] = data[i]! >= 128 ? 255 : 0;
+		}
+		shapeCtx.putImageData(image, 0, 0);
+
+		// Draw the aliased image
+		ctx.drawImage(shapeCanvas, 0, 0);
 
 		requestAnimationFrame(render);
 	}

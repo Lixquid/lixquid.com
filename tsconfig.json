@@ -20,5 +20,6 @@
 		"target": "ES2015",
 		"lib": ["DOM", "ES2015"]
 	},
-	"include": ["src/**/*", "_types.d.ts"]
+	"include": ["src/**/*", "_types.d.ts"],
+	"exclude": ["src/blog"]
 }

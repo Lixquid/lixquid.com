@@ -190,16 +190,20 @@ const applyFilters = () => {
 		card.style.display = matchesQuery && !isAiBuilt ? "" : "none";
 	}
 
-	// Hide or show the headers if there are no cards
+	// Hide or show the headers if there are no cards. Headers whose next
+	// sibling doesn't contain any cards at all (e.g. the Friends header) are
+	// left untouched.
 	for (const header of Array.from(
 		document.querySelectorAll(".title"),
 	) as HTMLDivElement[]) {
+		const cards = Array.from(
+			header.nextElementSibling!.querySelectorAll(
+				".card",
+			) as NodeListOf<HTMLDivElement>,
+		);
+		if (cards.length === 0) continue;
 		header.style.display =
-			Array.from(
-				header.nextElementSibling!.querySelectorAll(
-					".card",
-				) as NodeListOf<HTMLDivElement>,
-			).filter((card) => card.style.display !== "none").length > 0
+			cards.filter((card) => card.style.display !== "none").length > 0
 				? ""
 				: "none";
 	}

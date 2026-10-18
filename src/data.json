@@ -218,6 +218,17 @@
 					"source": "https://github.com/lixquid/app-lightsout-game",
 					"image": "./src/assets/images/lightsoutGame.svg",
 					"color": "--color-red"
+				},
+				{
+					"title": "Rebel Chess",
+					"description": [
+						"Rebel Chess is a chess variant where moves are chosen randomly from a piece's valid moves. Click a piece and it immediately moves to a random legal destination!"
+					],
+					"tags": ["Game", "AI-Built"],
+					"link": "https://rebelchess-game.lixquid.com/",
+					"source": "https://github.com/Lixquid/app-rebelchess-game",
+					"image": "./src/assets/images/rebelchessGame.svg",
+					"color": "--color-orange"
 				}
 			]
 		}

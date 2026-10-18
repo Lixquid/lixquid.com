@@ -100,16 +100,15 @@
 			"subtitle": "Online tools and utilities.",
 			"cards": [
 				{
-					"title": "Color Picker",
+					"title": "PeerChat",
 					"description": [
-						"A small app to pick colours from different sources and output them in a variety of formats.",
-						"Supports palettes, picking from images, generating variations, and more."
+						"Peer to peer chat and file sharing with WebRTC and PeerJS, and optional E2E encryption."
 					],
-					"tags": ["Tool"],
-					"link": "https://color-picker.lixquid.com",
-					"source": "https://github.com/lixquid/app-color-picker",
-					"image": "./src/assets/images/colorPicker.svg",
-					"color": "--color-pink"
+					"tags": ["Tool", "AI-Built"],
+					"link": "https://peerchat.lixquid.com",
+					"source": "https://github.com/Lixquid/app-peerchat",
+					"image": "./src/assets/images/peerchat.svg",
+					"color": "--color-blue"
 				},
 				{
 					"title": "Fallout Hacking Solver",
@@ -134,17 +133,6 @@
 					"color": "--color-yellow"
 				},
 				{
-					"title": "PeerChat",
-					"description": [
-						"Peer to peer chat and file sharing with WebRTC and PeerJS, and optional E2E encryption."
-					],
-					"tags": ["Tool", "AI-Built"],
-					"link": "https://peerchat.lixquid.com",
-					"source": "https://github.com/Lixquid/app-peerchat",
-					"image": "./src/assets/images/peerchat.svg",
-					"color": "--color-blue"
-				},
-				{
 					"title": "Reaction Tester",
 					"description": [
 						"A small tool to check your reaction times.",
@@ -157,15 +145,16 @@
 					"color": "--color-orange"
 				},
 				{
-					"title": "Unexpected Keyboard Layout Editor",
+					"title": "Color Picker",
 					"description": [
-						"A tool for creating layouts for the Unexpected Keyboard for Android devices."
+						"A small app to pick colours from different sources and output them in a variety of formats.",
+						"Supports palettes, picking from images, generating variations, and more."
 					],
 					"tags": ["Tool"],
-					"link": "https://unexpected-keyboard-layout-editor.lixquid.com",
-					"source": "https://github.com/lixquid/app-unexpected-keyboard-layout-editor",
-					"image": "./src/assets/images/unexpectedKeyboardLayoutEditor.svg",
-					"color": "--color-white"
+					"link": "https://color-picker.lixquid.com",
+					"source": "https://github.com/lixquid/app-color-picker",
+					"image": "./src/assets/images/colorPicker.svg",
+					"color": "--color-pink"
 				},
 				{
 					"title": "Password Tool",
@@ -178,6 +167,17 @@
 					"source": "https://github.com/lixquid/app-password-tool",
 					"image": "./src/assets/images/passwordTool.svg",
 					"color": "--color-red"
+				},
+				{
+					"title": "Unexpected Keyboard Layout Editor",
+					"description": [
+						"A tool for creating layouts for the Unexpected Keyboard for Android devices."
+					],
+					"tags": ["Tool"],
+					"link": "https://unexpected-keyboard-layout-editor.lixquid.com",
+					"source": "https://github.com/lixquid/app-unexpected-keyboard-layout-editor",
+					"image": "./src/assets/images/unexpectedKeyboardLayoutEditor.svg",
+					"color": "--color-white"
 				}
 			]
 		},

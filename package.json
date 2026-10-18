@@ -22,8 +22,10 @@
 	},
 	"devDependencies": {
 		"@eslint/js": "^10.0.1",
+		"@types/node": "^26.6.5",
 		"eslint": "^10.13.0",
 		"eslint-config-prettier": "^10.1.8",
+		"handlebars": "^4.7.10",
 		"prettier": "^3.9.10",
 		"typescript-eslint": "^8.71.2"
 	}

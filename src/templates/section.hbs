@@ -1,0 +1,16 @@
+<div class="title">
+	<h1 id="{{id}}">{{title}}</h1>
+	<p class="subtitle">{{subtitle}}</p>
+</div>
+<div class="columns">
+	<div class="column">
+		{{#each (column cards 0)}}
+			{{~> card ~}}
+		{{/each}}
+	</div>
+	<div class="column">
+		{{#each (column cards 1)}}
+			{{~> card ~}}
+		{{/each}}
+	</div>
+</div>

@@ -1,0 +1,26 @@
+<div class="card" style="border-color: var({{color}})">
+	<a href="{{link}}" tabindex="-1">
+		<img src="{{image}}" />
+	</a>
+	<div>
+		<a href="{{link}}">
+			<h2>{{title}}</h2>
+			{{#each description}}
+				<p>{{this}}</p>
+			{{/each}}
+		</a>
+		<div class="footer">
+			<div class="tags">
+				{{#each tags}}
+					<span class="tag">{{this}}</span>
+				{{/each}}
+			</div>
+			{{#if source}}
+				<a href="{{source}}" class="source-link">
+					<i class="fas fa-fw fa-code"></i>
+					Source
+				</a>
+			{{/if}}
+		</div>
+	</div>
+</div>

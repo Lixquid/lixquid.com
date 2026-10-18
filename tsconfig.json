@@ -1,25 +1,28 @@
 {
-	"compilerOptions": {
-		"strict": true,
-		"allowUnusedLabels": false,
-		"allowUnreachableCode": false,
-		"exactOptionalPropertyTypes": true,
-		"noFallthroughCasesInSwitch": true,
-		"noImplicitOverride": true,
-		"noImplicitReturns": true,
-		"noPropertyAccessFromIndexSignature": true,
-		"noUncheckedIndexedAccess": true,
-		"noUnusedLocals": true,
-		"noUnusedParameters": true,
+    "compilerOptions": {
+        "strict": true,
+        "allowUnusedLabels": false,
+        "allowUnreachableCode": false,
+        "exactOptionalPropertyTypes": true,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitOverride": true,
+        "noImplicitReturns": true,
+        "noPropertyAccessFromIndexSignature": true,
+        "noUncheckedIndexedAccess": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
 
-		"checkJs": true,
-		"forceConsistentCasingInFileNames": true,
-		"skipLibCheck": true,
+        "checkJs": true,
+        "forceConsistentCasingInFileNames": true,
+        "skipLibCheck": true,
 
-		"module": "ES2022",
-		"target": "ES2015",
-		"lib": ["DOM", "ES2015"]
-	},
-	"include": ["src/**/*", "_types.d.ts"],
-	"exclude": ["src/blog"]
+        "module": "ES2022",
+        "moduleResolution": "bundler",
+        "esModuleInterop": true,
+        "types": ["node"],
+        "target": "ES2015",
+        "lib": ["DOM", "ES2022"]
+    },
+    "include": ["src/**/*", "vite.config.ts"],
+    "exclude": ["src/blog"]
 }

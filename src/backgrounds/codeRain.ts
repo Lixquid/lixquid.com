@@ -4,51 +4,51 @@ const fontSize = 8;
 const maxFps = 20;
 
 export function codeRain(
-	ctx: CanvasRenderingContext2D,
-	stopSignal: { stop: boolean },
+    ctx: CanvasRenderingContext2D,
+    stopSignal: { stop: boolean },
 ) {
-	const canvas = ctx.canvas;
-	const columnCount = Math.floor(canvas.width / fontSize);
+    const canvas = ctx.canvas;
+    const columnCount = Math.floor(canvas.width / fontSize);
 
-	const charPos: number[] = [];
-	for (let i = 0; i < columnCount; i++) {
-		charPos[i] = 0;
-	}
+    const charPos: number[] = [];
+    for (let i = 0; i < columnCount; i++) {
+        charPos[i] = 0;
+    }
 
-	let lastRender = Date.now();
-	function render() {
-		if (stopSignal.stop) {
-			return;
-		}
+    let lastRender = Date.now();
+    function render() {
+        if (stopSignal.stop) {
+            return;
+        }
 
-		// Limit the framerate
-		if (Date.now() - lastRender < 1000 / maxFps) {
-			requestAnimationFrame(render);
-			return;
-		}
-		lastRender = Date.now();
+        // Limit the framerate
+        if (Date.now() - lastRender < 1000 / maxFps) {
+            requestAnimationFrame(render);
+            return;
+        }
+        lastRender = Date.now();
 
-		// Render and move the leading characters
-		ctx.fillStyle = "#0f0";
-		ctx.font = `${fontSize}px monospace`;
-		for (let i = 0; i < columnCount; i++) {
-			const pos = charPos[i] ?? 0;
-			ctx.fillText(
-				String.fromCharCode(Math.random() * 95 + 32),
-				i * fontSize,
-				pos,
-			);
-			charPos[i] = pos + fontSize;
-			if (pos + fontSize > canvas.height && Math.random() > 0.975) {
-				charPos[i] = 0;
-			}
-		}
+        // Render and move the leading characters
+        ctx.fillStyle = "#0f0";
+        ctx.font = `${fontSize}px monospace`;
+        for (let i = 0; i < columnCount; i++) {
+            const pos = charPos[i] ?? 0;
+            ctx.fillText(
+                String.fromCharCode(Math.random() * 95 + 32),
+                i * fontSize,
+                pos,
+            );
+            charPos[i] = pos + fontSize;
+            if (pos + fontSize > canvas.height && Math.random() > 0.975) {
+                charPos[i] = 0;
+            }
+        }
 
-		// Fade the characters rendered on previous frames
-		ctx.fillStyle = "rgba(0, 0, 0, 0.15)";
-		ctx.fillRect(0, 0, canvas.width, canvas.height);
+        // Fade the characters rendered on previous frames
+        ctx.fillStyle = "rgba(0, 0, 0, 0.15)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-		requestAnimationFrame(render);
-	}
-	requestAnimationFrame(render);
+        requestAnimationFrame(render);
+    }
+    requestAnimationFrame(render);
 }

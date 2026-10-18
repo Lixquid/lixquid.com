@@ -1,254 +1,254 @@
 {
-	"cards": [
-		{
-			"id": "projects",
-			"title": "Projects",
-			"subtitle": "Libraries, applications, and other projects.",
-			"cards": [
-				{
-					"title": "Catt",
-					"description": [
-						"cat for humans.",
-						"catt prints files with rendering or highlighting to make them easier to read for humans, not tooling."
-					],
-					"tags": ["Go", "Program", "AI-Built"],
-					"link": "https://github.com/Lixquid/go-catt",
-					"source": "https://github.com/Lixquid/go-catt",
-					"image": "./src/assets/images/catt.svg",
-					"color": "--color-orange"
-				},
-				{
-					"title": "Garmin: Lx Calculator",
-					"description": [
-						"A touch calculator app for Garmin devices.",
-						"Features a large input area with history, memory, trigonometry, unit conversion, and more."
-					],
-					"tags": ["Monkey C", "App"],
-					"link": "https://apps.garmin.com/en-US/apps/caa15d02-543b-4e58-aa57-0c9a2f93339d",
-					"source": "https://github.com/lixquid/garmin-lxcalculator",
-					"image": "./src/assets/images/garminLxCalculator.svg",
-					"color": "--lang-monkeyc"
-				},
-				{
-					"title": "Garmin: Lx Random",
-					"description": [
-						"An app for creating random numbers and values for Garmin devices."
-					],
-					"tags": ["Monkey C", "App"],
-					"link": "https://apps.garmin.com/en-US/apps/7cde0f59-cd68-4097-861c-b28549bcea0f",
-					"source": "https://github.com/lixquid/garmin-lxrandom",
-					"image": "./src/assets/images/garminLxRandom.svg",
-					"color": "--lang-monkeyc"
-				},
-				{
-					"title": "Garmin: LxF Arcs",
-					"description": [
-						"A watchface inspired by geometric arcs for Garmin devices."
-					],
-					"tags": ["Monkey C", "Watch Face"],
-					"link": "https://apps.garmin.com/en-US/apps/05ad2697-7c7d-49e1-9cd3-951274f99db7",
-					"source": "https://github.com/lixquid/garmin-lxfarcs",
-					"image": "./src/assets/images/garminLxFArcs.svg",
-					"color": "--lang-monkeyc"
-				},
-				{
-					"title": "VSCode Calculator",
-					"description": [
-						"Calculation commands and tools for VS Code.",
-						"Supports displaying calculation results in the status bar, and inserting / replacing the current selection with the result."
-					],
-					"tags": ["TypeScript", "VSCode", "Plugin"],
-					"link": "https://marketplace.visualstudio.com/items?itemName=lixquid.calculator",
-					"source": "https://github.com/lixquid/vscode-calculator",
-					"image": "./src/assets/images/vscodeCalculator.svg",
-					"color": "--lang-typescript"
-				},
-				{
-					"title": "React Utilites",
-					"description": [
-						"Utility functions and hooks for a variety of React-style frameworks."
-					],
-					"tags": ["React", "Library"],
-					"link": "https://jsr.io/@lixquid/util-react",
-					"source": "https://github.com/Lixquid/js-lixquid-util-react",
-					"image": "./src/assets/images/utilReact.svg",
-					"color": "--lang-react"
-				},
-				{
-					"title": "Vim Align",
-					"description": ["Simple Text Aligning in Vim."],
-					"tags": ["Vimscript", "Plugin"],
-					"link": "https://github.com/lixquid/vim-align",
-					"image": "./src/assets/images/vimAlign.svg",
-					"color": "--lang-vimscript"
-				},
-				{
-					"title": "Pandoc Steam",
-					"description": [
-						"A small Lua filter to output Steam BBCode."
-					],
-					"tags": ["Lua", "Pandoc"],
-					"link": "https://github.com/lixquid/pandoc-steam",
-					"image": "./src/assets/images/pandocSteam.svg",
-					"color": "--lang-lua"
-				}
-			]
-		},
-		{
-			"id": "tools",
-			"title": "Tools",
-			"subtitle": "Online tools and utilities.",
-			"cards": [
-				{
-					"title": "PeerChat",
-					"description": [
-						"Peer to peer chat and file sharing with WebRTC and PeerJS, and optional E2E encryption."
-					],
-					"tags": ["Tool", "AI-Built"],
-					"link": "https://peerchat.lixquid.com",
-					"source": "https://github.com/Lixquid/app-peerchat",
-					"image": "./src/assets/images/peerchat.svg",
-					"color": "--color-blue"
-				},
-				{
-					"title": "Fallout Hacking Solver",
-					"description": [
-						"A tool to solve the hacking minigame in the Fallout series."
-					],
-					"tags": ["Tool"],
-					"link": "https://fallout-hacking-solver.lixquid.com",
-					"source": "https://github.com/lixquid/app-fallout-hacking-solver",
-					"image": "./src/assets/images/falloutHackingSolver.svg",
-					"color": "--color-green"
-				},
-				{
-					"title": "Cyberpunk 2077 Hacking Solver",
-					"description": [
-						"A tool to solve the hacking minigame in Cyberpunk 2077."
-					],
-					"tags": ["Tool"],
-					"link": "https://cyberpunk-2077-hacking-solver.lixquid.com",
-					"source": "https://github.com/lixquid/app-cyberpunk-2077-hacking-solver",
-					"image": "./src/assets/images/cyberpunk2077HackingSolver.svg",
-					"color": "--color-yellow"
-				},
-				{
-					"title": "Reaction Tester",
-					"description": [
-						"A small tool to check your reaction times.",
-						"Supports multiple game modes, and analysis of your best, worst, and average times."
-					],
-					"tags": ["Tool"],
-					"link": "https://reaction-tester.lixquid.com",
-					"source": "https://github.com/lixquid/app-reaction-tester",
-					"image": "./src/assets/images/reactionTester.svg",
-					"color": "--color-orange"
-				},
-				{
-					"title": "Color Picker",
-					"description": [
-						"A small app to pick colours from different sources and output them in a variety of formats.",
-						"Supports palettes, picking from images, generating variations, and more."
-					],
-					"tags": ["Tool"],
-					"link": "https://color-picker.lixquid.com",
-					"source": "https://github.com/lixquid/app-color-picker",
-					"image": "./src/assets/images/colorPicker.svg",
-					"color": "--color-pink"
-				},
-				{
-					"title": "Password Tool",
-					"description": [
-						"A tool to generate and analyze passwords for complexity and strength.",
-						"Supports generating passwords with characters or dictionary words, and analyzing passwords for strength and leaks in the Have I Been Pwned database."
-					],
-					"tags": ["Tool"],
-					"link": "https://password-tool.lixquid.com",
-					"source": "https://github.com/lixquid/app-password-tool",
-					"image": "./src/assets/images/passwordTool.svg",
-					"color": "--color-red"
-				},
-				{
-					"title": "Unexpected Keyboard Layout Editor",
-					"description": [
-						"A tool for creating layouts for the Unexpected Keyboard for Android devices."
-					],
-					"tags": ["Tool"],
-					"link": "https://unexpected-keyboard-layout-editor.lixquid.com",
-					"source": "https://github.com/lixquid/app-unexpected-keyboard-layout-editor",
-					"image": "./src/assets/images/unexpectedKeyboardLayoutEditor.svg",
-					"color": "--color-white"
-				}
-			]
-		},
-		{
-			"id": "toys",
-			"title": "Toys",
-			"subtitle": "Games, experiments, and other toys.",
-			"cards": [
-				{
-					"title": "Mastermind Game",
-					"description": [
-						"An online implementation of the classic Mastermind game. Guess the secret code using deductive reasoning."
-					],
-					"tags": ["Game"],
-					"link": "https://mastermind-game.lixquid.com",
-					"source": "https://github.com/lixquid/app-mastermind-game",
-					"image": "./src/assets/images/mastermindGame.svg",
-					"color": "--color-green"
-				},
-				{
-					"title": "Lobo Game",
-					"description": [
-						"An online implementation of the solitaire game Lobo, designed by James Ernest."
-					],
-					"tags": ["Game"],
-					"link": "https://lobo-game.lixquid.com",
-					"source": "https://github.com/lixquid/app-lobo-game",
-					"image": "./src/assets/images/loboGame.svg",
-					"color": "--color-yellow"
-				},
-				{
-					"title": "Lights Out",
-					"description": [
-						"An online implementation of the Lights Out game. Try to turn off all the lights!"
-					],
-					"tags": ["Game"],
-					"link": "https://lightsout-game.lixquid.com",
-					"source": "https://github.com/lixquid/app-lightsout-game",
-					"image": "./src/assets/images/lightsoutGame.svg",
-					"color": "--color-red"
-				},
-				{
-					"title": "Rebel Chess",
-					"description": [
-						"Rebel Chess is a chess variant where moves are chosen randomly from a piece's valid moves. Click a piece and it immediately moves to a random legal destination!"
-					],
-					"tags": ["Game", "AI-Built"],
-					"link": "https://rebelchess-game.lixquid.com/",
-					"source": "https://github.com/Lixquid/app-rebelchess-game",
-					"image": "./src/assets/images/rebelchessGame.svg",
-					"color": "--color-orange"
-				}
-			]
-		}
-	],
-	"friends": [
-		{
-			"url": "https://alizard.gay/",
-			"image": "https://alizard.gay/assets/images/alizardgaybutton.gif"
-		},
-		{
-			"url": "https://pandashellhole.com/",
-			"image": "https://pandashellhole.com/resources/phh.png"
-		},
-		{
-			"url": "https://pollygeist.com/",
-			"image": "https://raw.githubusercontent.com/Polly-Geist/link-stuff/refs/heads/main/pollygeist-button.gif"
-		},
-		{
-			"url": "https://mentalish.fyi",
-			"image": "https://mentalish.fyi/assets/badges/Slime.png"
-		}
-	]
+    "cards": [
+        {
+            "id": "projects",
+            "title": "Projects",
+            "subtitle": "Libraries, applications, and other projects.",
+            "cards": [
+                {
+                    "title": "Catt",
+                    "description": [
+                        "cat for humans.",
+                        "catt prints files with rendering or highlighting to make them easier to read for humans, not tooling."
+                    ],
+                    "tags": ["Go", "Program", "AI-Built"],
+                    "link": "https://github.com/Lixquid/go-catt",
+                    "source": "https://github.com/Lixquid/go-catt",
+                    "image": "./src/assets/images/catt.svg",
+                    "color": "--color-orange"
+                },
+                {
+                    "title": "Garmin: Lx Calculator",
+                    "description": [
+                        "A touch calculator app for Garmin devices.",
+                        "Features a large input area with history, memory, trigonometry, unit conversion, and more."
+                    ],
+                    "tags": ["Monkey C", "App"],
+                    "link": "https://apps.garmin.com/en-US/apps/caa15d02-543b-4e58-aa57-0c9a2f93339d",
+                    "source": "https://github.com/lixquid/garmin-lxcalculator",
+                    "image": "./src/assets/images/garminLxCalculator.svg",
+                    "color": "--lang-monkeyc"
+                },
+                {
+                    "title": "Garmin: Lx Random",
+                    "description": [
+                        "An app for creating random numbers and values for Garmin devices."
+                    ],
+                    "tags": ["Monkey C", "App"],
+                    "link": "https://apps.garmin.com/en-US/apps/7cde0f59-cd68-4097-861c-b28549bcea0f",
+                    "source": "https://github.com/lixquid/garmin-lxrandom",
+                    "image": "./src/assets/images/garminLxRandom.svg",
+                    "color": "--lang-monkeyc"
+                },
+                {
+                    "title": "Garmin: LxF Arcs",
+                    "description": [
+                        "A watchface inspired by geometric arcs for Garmin devices."
+                    ],
+                    "tags": ["Monkey C", "Watch Face"],
+                    "link": "https://apps.garmin.com/en-US/apps/05ad2697-7c7d-49e1-9cd3-951274f99db7",
+                    "source": "https://github.com/lixquid/garmin-lxfarcs",
+                    "image": "./src/assets/images/garminLxFArcs.svg",
+                    "color": "--lang-monkeyc"
+                },
+                {
+                    "title": "VSCode Calculator",
+                    "description": [
+                        "Calculation commands and tools for VS Code.",
+                        "Supports displaying calculation results in the status bar, and inserting / replacing the current selection with the result."
+                    ],
+                    "tags": ["TypeScript", "VSCode", "Plugin"],
+                    "link": "https://marketplace.visualstudio.com/items?itemName=lixquid.calculator",
+                    "source": "https://github.com/lixquid/vscode-calculator",
+                    "image": "./src/assets/images/vscodeCalculator.svg",
+                    "color": "--lang-typescript"
+                },
+                {
+                    "title": "React Utilites",
+                    "description": [
+                        "Utility functions and hooks for a variety of React-style frameworks."
+                    ],
+                    "tags": ["React", "Library"],
+                    "link": "https://jsr.io/@lixquid/util-react",
+                    "source": "https://github.com/Lixquid/js-lixquid-util-react",
+                    "image": "./src/assets/images/utilReact.svg",
+                    "color": "--lang-react"
+                },
+                {
+                    "title": "Vim Align",
+                    "description": ["Simple Text Aligning in Vim."],
+                    "tags": ["Vimscript", "Plugin"],
+                    "link": "https://github.com/lixquid/vim-align",
+                    "image": "./src/assets/images/vimAlign.svg",
+                    "color": "--lang-vimscript"
+                },
+                {
+                    "title": "Pandoc Steam",
+                    "description": [
+                        "A small Lua filter to output Steam BBCode."
+                    ],
+                    "tags": ["Lua", "Pandoc"],
+                    "link": "https://github.com/lixquid/pandoc-steam",
+                    "image": "./src/assets/images/pandocSteam.svg",
+                    "color": "--lang-lua"
+                }
+            ]
+        },
+        {
+            "id": "tools",
+            "title": "Tools",
+            "subtitle": "Online tools and utilities.",
+            "cards": [
+                {
+                    "title": "PeerChat",
+                    "description": [
+                        "Peer to peer chat and file sharing with WebRTC and PeerJS, and optional E2E encryption."
+                    ],
+                    "tags": ["Tool", "AI-Built"],
+                    "link": "https://peerchat.lixquid.com",
+                    "source": "https://github.com/Lixquid/app-peerchat",
+                    "image": "./src/assets/images/peerchat.svg",
+                    "color": "--color-blue"
+                },
+                {
+                    "title": "Fallout Hacking Solver",
+                    "description": [
+                        "A tool to solve the hacking minigame in the Fallout series."
+                    ],
+                    "tags": ["Tool"],
+                    "link": "https://fallout-hacking-solver.lixquid.com",
+                    "source": "https://github.com/lixquid/app-fallout-hacking-solver",
+                    "image": "./src/assets/images/falloutHackingSolver.svg",
+                    "color": "--color-green"
+                },
+                {
+                    "title": "Cyberpunk 2077 Hacking Solver",
+                    "description": [
+                        "A tool to solve the hacking minigame in Cyberpunk 2077."
+                    ],
+                    "tags": ["Tool"],
+                    "link": "https://cyberpunk-2077-hacking-solver.lixquid.com",
+                    "source": "https://github.com/lixquid/app-cyberpunk-2077-hacking-solver",
+                    "image": "./src/assets/images/cyberpunk2077HackingSolver.svg",
+                    "color": "--color-yellow"
+                },
+                {
+                    "title": "Reaction Tester",
+                    "description": [
+                        "A small tool to check your reaction times.",
+                        "Supports multiple game modes, and analysis of your best, worst, and average times."
+                    ],
+                    "tags": ["Tool"],
+                    "link": "https://reaction-tester.lixquid.com",
+                    "source": "https://github.com/lixquid/app-reaction-tester",
+                    "image": "./src/assets/images/reactionTester.svg",
+                    "color": "--color-orange"
+                },
+                {
+                    "title": "Color Picker",
+                    "description": [
+                        "A small app to pick colours from different sources and output them in a variety of formats.",
+                        "Supports palettes, picking from images, generating variations, and more."
+                    ],
+                    "tags": ["Tool"],
+                    "link": "https://color-picker.lixquid.com",
+                    "source": "https://github.com/lixquid/app-color-picker",
+                    "image": "./src/assets/images/colorPicker.svg",
+                    "color": "--color-pink"
+                },
+                {
+                    "title": "Password Tool",
+                    "description": [
+                        "A tool to generate and analyze passwords for complexity and strength.",
+                        "Supports generating passwords with characters or dictionary words, and analyzing passwords for strength and leaks in the Have I Been Pwned database."
+                    ],
+                    "tags": ["Tool"],
+                    "link": "https://password-tool.lixquid.com",
+                    "source": "https://github.com/lixquid/app-password-tool",
+                    "image": "./src/assets/images/passwordTool.svg",
+                    "color": "--color-red"
+                },
+                {
+                    "title": "Unexpected Keyboard Layout Editor",
+                    "description": [
+                        "A tool for creating layouts for the Unexpected Keyboard for Android devices."
+                    ],
+                    "tags": ["Tool"],
+                    "link": "https://unexpected-keyboard-layout-editor.lixquid.com",
+                    "source": "https://github.com/lixquid/app-unexpected-keyboard-layout-editor",
+                    "image": "./src/assets/images/unexpectedKeyboardLayoutEditor.svg",
+                    "color": "--color-white"
+                }
+            ]
+        },
+        {
+            "id": "toys",
+            "title": "Toys",
+            "subtitle": "Games, experiments, and other toys.",
+            "cards": [
+                {
+                    "title": "Mastermind Game",
+                    "description": [
+                        "An online implementation of the classic Mastermind game. Guess the secret code using deductive reasoning."
+                    ],
+                    "tags": ["Game"],
+                    "link": "https://mastermind-game.lixquid.com",
+                    "source": "https://github.com/lixquid/app-mastermind-game",
+                    "image": "./src/assets/images/mastermindGame.svg",
+                    "color": "--color-green"
+                },
+                {
+                    "title": "Lobo Game",
+                    "description": [
+                        "An online implementation of the solitaire game Lobo, designed by James Ernest."
+                    ],
+                    "tags": ["Game"],
+                    "link": "https://lobo-game.lixquid.com",
+                    "source": "https://github.com/lixquid/app-lobo-game",
+                    "image": "./src/assets/images/loboGame.svg",
+                    "color": "--color-yellow"
+                },
+                {
+                    "title": "Lights Out",
+                    "description": [
+                        "An online implementation of the Lights Out game. Try to turn off all the lights!"
+                    ],
+                    "tags": ["Game"],
+                    "link": "https://lightsout-game.lixquid.com",
+                    "source": "https://github.com/lixquid/app-lightsout-game",
+                    "image": "./src/assets/images/lightsoutGame.svg",
+                    "color": "--color-red"
+                },
+                {
+                    "title": "Rebel Chess",
+                    "description": [
+                        "Rebel Chess is a chess variant where moves are chosen randomly from a piece's valid moves. Click a piece and it immediately moves to a random legal destination!"
+                    ],
+                    "tags": ["Game", "AI-Built"],
+                    "link": "https://rebelchess-game.lixquid.com/",
+                    "source": "https://github.com/Lixquid/app-rebelchess-game",
+                    "image": "./src/assets/images/rebelchessGame.svg",
+                    "color": "--color-orange"
+                }
+            ]
+        }
+    ],
+    "friends": [
+        {
+            "url": "https://alizard.gay/",
+            "image": "https://alizard.gay/assets/images/alizardgaybutton.gif"
+        },
+        {
+            "url": "https://pandashellhole.com/",
+            "image": "https://pandashellhole.com/resources/phh.png"
+        },
+        {
+            "url": "https://pollygeist.com/",
+            "image": "https://raw.githubusercontent.com/Polly-Geist/link-stuff/refs/heads/main/pollygeist-button.gif"
+        },
+        {
+            "url": "https://mentalish.fyi",
+            "image": "https://mentalish.fyi/assets/badges/Slime.png"
+        }
+    ]
 }

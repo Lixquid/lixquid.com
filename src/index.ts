@@ -9,43 +9,43 @@ import quotesStr from "./blog/QUOTES.txt?raw";
 
 const cover = document.getElementById("landing-cover") as HTMLDivElement;
 const animControls = document.getElementById(
-	"landing-controls",
+    "landing-controls",
 ) as HTMLDivElement;
 
 //#region Intro Animation
 addEventListener("load", () => {
-	// Remove the no-js class
-	document.querySelector("html")!.classList.remove("no-js");
+    // Remove the no-js class
+    document.querySelector("html")!.classList.remove("no-js");
 
-	// Start the logo animation
-	const logoPath = (
-		document.getElementById("landing-logo") as HTMLObjectElement
-	).contentDocument?.querySelector("path") as SVGPathElement | undefined;
-	if (logoPath) {
-		logoPath.style.fillOpacity = "0";
-		logoPath.style.strokeOpacity = "1";
+    // Start the logo animation
+    const logoPath = (
+        document.getElementById("landing-logo") as HTMLObjectElement
+    ).contentDocument?.querySelector("path") as SVGPathElement | undefined;
+    if (logoPath) {
+        logoPath.style.fillOpacity = "0";
+        logoPath.style.strokeOpacity = "1";
 
-		const len = logoPath.getTotalLength();
-		logoPath.style.strokeDasharray = `${len} ${len}`;
-		logoPath.style.strokeDashoffset = `${len}`;
-		// Trigger a reflow so the animation starts from the beginning
-		logoPath.getBoundingClientRect();
-		logoPath.style.transition =
-			"stroke-dashoffset 3s ease-in-out, fill-opacity 1s ease-in-out, stroke-opacity 1s ease-in-out";
-		logoPath.style.strokeDashoffset = "0";
-		setTimeout(() => {
-			logoPath.style.fillOpacity = "1";
-			logoPath.style.strokeOpacity = "0";
-		}, 3000);
-	}
+        const len = logoPath.getTotalLength();
+        logoPath.style.strokeDasharray = `${len} ${len}`;
+        logoPath.style.strokeDashoffset = `${len}`;
+        // Trigger a reflow so the animation starts from the beginning
+        logoPath.getBoundingClientRect();
+        logoPath.style.transition =
+            "stroke-dashoffset 3s ease-in-out, fill-opacity 1s ease-in-out, stroke-opacity 1s ease-in-out";
+        logoPath.style.strokeDashoffset = "0";
+        setTimeout(() => {
+            logoPath.style.fillOpacity = "1";
+            logoPath.style.strokeOpacity = "0";
+        }, 3000);
+    }
 
-	// Fade out the canvas cover and fade in the animation controls after 3 seconds
-	setTimeout(() => {
-		animControls.style.opacity = "1";
-		if (!localStorage.getItem("disableBgAnim")) {
-			cover.style.opacity = "0.5";
-		}
-	}, 3000);
+    // Fade out the canvas cover and fade in the animation controls after 3 seconds
+    setTimeout(() => {
+        animControls.style.opacity = "1";
+        if (!localStorage.getItem("disableBgAnim")) {
+            cover.style.opacity = "0.5";
+        }
+    }, 3000);
 });
 //#endregion
 
@@ -60,47 +60,47 @@ addEventListener("load", () => {
 // function again if the user clicks the "Start Animation" button.
 
 const animations = [
-	["Smooth Gradients", smoothGradients],
-	["Cellular Automata", cellularAutomata],
-	["Code Rain", codeRain],
-	["Interconnection", shiftingNetwork],
-	["DVD Joy", dvdJoy],
-	["Triangle Tunnel", triangleTunnel],
-	["Hex Dump", hexDump],
+    ["Smooth Gradients", smoothGradients],
+    ["Cellular Automata", cellularAutomata],
+    ["Code Rain", codeRain],
+    ["Interconnection", shiftingNetwork],
+    ["DVD Joy", dvdJoy],
+    ["Triangle Tunnel", triangleTunnel],
+    ["Hex Dump", hexDump],
 ] as const satisfies ReadonlyArray<
-	readonly [
-		string,
-		(ctx: CanvasRenderingContext2D, stopSignal: { stop: boolean }) => void,
-	]
+    readonly [
+        string,
+        (ctx: CanvasRenderingContext2D, stopSignal: { stop: boolean }) => void,
+    ]
 >;
 const selectedAnimation =
-	(localStorage.getItem("forceBgAnim") !== null &&
-		animations.find(
-			([name]) => name === localStorage.getItem("forceBgAnim"),
-		)) ||
-	animations[Math.floor(Math.random() * animations.length)]!;
+    (localStorage.getItem("forceBgAnim") !== null &&
+        animations.find(
+            ([name]) => name === localStorage.getItem("forceBgAnim"),
+        )) ||
+    animations[Math.floor(Math.random() * animations.length)]!;
 
 const canvas = document.getElementById("landing-canvas") as HTMLCanvasElement;
 const animToggleButton = document.getElementById(
-	"landing-controls-toggle",
+    "landing-controls-toggle",
 ) as HTMLButtonElement;
 const animTitle = document.getElementById(
-	"landing-controls-title",
+    "landing-controls-title",
 ) as HTMLHeadingElement;
 const stopSignal = { stop: false };
 const ctx = canvas.getContext("2d", {
-	alpha: false,
+    alpha: false,
 }) as CanvasRenderingContext2D;
 
 // Set the longest side of the canvas to a static size, and the other side to a
 // ratio based on the window size.
 const canvasResolution = 500;
 if (window.innerWidth > window.innerHeight) {
-	canvas.width = canvasResolution;
-	canvas.height = (canvasResolution * window.innerHeight) / window.innerWidth;
+    canvas.width = canvasResolution;
+    canvas.height = (canvasResolution * window.innerHeight) / window.innerWidth;
 } else {
-	canvas.width = (canvasResolution * window.innerWidth) / window.innerHeight;
-	canvas.height = canvasResolution;
+    canvas.width = (canvasResolution * window.innerWidth) / window.innerHeight;
+    canvas.height = canvasResolution;
 }
 
 // Set the little animation title
@@ -108,52 +108,52 @@ animTitle.textContent = selectedAnimation[0];
 
 // Start the animation
 if (localStorage.getItem("disableBgAnim")) {
-	stopSignal.stop = true;
-	animToggleButton.firstElementChild!.classList.remove("fa-pause");
-	animToggleButton.firstElementChild!.classList.add("fa-play");
-	animToggleButton.title = "Play Animation";
+    stopSignal.stop = true;
+    animToggleButton.firstElementChild!.classList.remove("fa-pause");
+    animToggleButton.firstElementChild!.classList.add("fa-play");
+    animToggleButton.title = "Play Animation";
 } else {
-	selectedAnimation[1](ctx, stopSignal);
+    selectedAnimation[1](ctx, stopSignal);
 }
 
 animToggleButton.addEventListener("click", () => {
-	if (stopSignal.stop) {
-		// Start the animation
-		stopSignal.stop = false;
-		animToggleButton.firstElementChild!.classList.remove("fa-play");
-		animToggleButton.firstElementChild!.classList.add("fa-pause");
-		animToggleButton.title = "Stop Animation";
-		cover.style.opacity = "0.5";
-		requestAnimationFrame(selectedAnimation[1].bind(null, ctx, stopSignal));
-		localStorage.removeItem("disableBgAnim");
-	} else {
-		// Stop the animation
-		stopSignal.stop = true;
-		animToggleButton.firstElementChild!.classList.remove("fa-pause");
-		animToggleButton.firstElementChild!.classList.add("fa-play");
-		animToggleButton.title = "Play Animation";
-		cover.style.opacity = "1";
-		localStorage.setItem("disableBgAnim", "true");
-	}
+    if (stopSignal.stop) {
+        // Start the animation
+        stopSignal.stop = false;
+        animToggleButton.firstElementChild!.classList.remove("fa-play");
+        animToggleButton.firstElementChild!.classList.add("fa-pause");
+        animToggleButton.title = "Stop Animation";
+        cover.style.opacity = "0.5";
+        requestAnimationFrame(selectedAnimation[1].bind(null, ctx, stopSignal));
+        localStorage.removeItem("disableBgAnim");
+    } else {
+        // Stop the animation
+        stopSignal.stop = true;
+        animToggleButton.firstElementChild!.classList.remove("fa-pause");
+        animToggleButton.firstElementChild!.classList.add("fa-play");
+        animToggleButton.title = "Play Animation";
+        cover.style.opacity = "1";
+        localStorage.setItem("disableBgAnim", "true");
+    }
 });
 
 const debugGlobals = globalThis as typeof globalThis & {
-	forceBackgroundAnimation?: (name: string) => void;
-	resetBackgroundAnimation?: () => void;
+    forceBackgroundAnimation?: (name: string) => void;
+    resetBackgroundAnimation?: () => void;
 };
 debugGlobals.forceBackgroundAnimation = (name: string) => {
-	if (!animations.some(([n]) => n === name)) {
-		console.error(`Unknown animation "${name}"`);
-		return;
-	}
-	console.log(`Forcing background animation to "${name}" and reloading...`);
-	localStorage.setItem("forceBgAnim", name);
-	location.reload();
+    if (!animations.some(([n]) => n === name)) {
+        console.error(`Unknown animation "${name}"`);
+        return;
+    }
+    console.log(`Forcing background animation to "${name}" and reloading...`);
+    localStorage.setItem("forceBgAnim", name);
+    location.reload();
 };
 debugGlobals.resetBackgroundAnimation = () => {
-	console.log("Resetting background animation to random and reloading...");
-	localStorage.removeItem("forceBgAnim");
-	location.reload();
+    console.log("Resetting background animation to random and reloading...");
+    localStorage.removeItem("forceBgAnim");
+    location.reload();
 };
 console.log(`Hello!
 If you'd like to see a specific background animation, run forceBackgroundAnimation('Animation Name') in the console.
@@ -166,7 +166,7 @@ ${animations.map(([name]) => `    ${name}`).join("\n")}`);
 //#region Inspirational Quotes
 const quotes = quotesStr.split("\n").filter((line) => line.length > 0);
 document.getElementById("footer")!.innerHTML =
-	quotes[Math.floor(Math.random() * quotes.length)]!;
+    quotes[Math.floor(Math.random() * quotes.length)]!;
 //#endregion
 
 //#region Search
@@ -174,48 +174,48 @@ const search = document.getElementById("search") as HTMLInputElement;
 const noAiToggle = document.getElementById("search-no-ai") as HTMLButtonElement;
 
 const applyFilters = () => {
-	const query = search.value.toLowerCase();
+    const query = search.value.toLowerCase();
 
-	// Hide or show the cards that contain the query, and hide AI-Built cards
-	// if the toggle is enabled
-	for (const card of Array.from(
-		document.querySelectorAll(".card"),
-	) as HTMLDivElement[]) {
-		const matchesQuery = card.innerText.toLowerCase().includes(query);
-		const isAiBuilt =
-			noAiToggle.getAttribute("aria-pressed") === "true" &&
-			Array.from(card.querySelectorAll(".tag")).some(
-				(tag) => tag.textContent === "AI-Built",
-			);
-		card.style.display = matchesQuery && !isAiBuilt ? "" : "none";
-	}
+    // Hide or show the cards that contain the query, and hide AI-Built cards
+    // if the toggle is enabled
+    for (const card of Array.from(
+        document.querySelectorAll(".card"),
+    ) as HTMLDivElement[]) {
+        const matchesQuery = card.innerText.toLowerCase().includes(query);
+        const isAiBuilt =
+            noAiToggle.getAttribute("aria-pressed") === "true" &&
+            Array.from(card.querySelectorAll(".tag")).some(
+                (tag) => tag.textContent === "AI-Built",
+            );
+        card.style.display = matchesQuery && !isAiBuilt ? "" : "none";
+    }
 
-	// Hide or show the headers if there are no cards. Headers whose next
-	// sibling doesn't contain any cards at all (e.g. the Friends header) are
-	// left untouched.
-	for (const header of Array.from(
-		document.querySelectorAll(".title"),
-	) as HTMLDivElement[]) {
-		const cards = Array.from(
-			header.nextElementSibling!.querySelectorAll(
-				".card",
-			) as NodeListOf<HTMLDivElement>,
-		);
-		if (cards.length === 0) continue;
-		header.style.display =
-			cards.filter((card) => card.style.display !== "none").length > 0
-				? ""
-				: "none";
-	}
+    // Hide or show the headers if there are no cards. Headers whose next
+    // sibling doesn't contain any cards at all (e.g. the Friends header) are
+    // left untouched.
+    for (const header of Array.from(
+        document.querySelectorAll(".title"),
+    ) as HTMLDivElement[]) {
+        const cards = Array.from(
+            header.nextElementSibling!.querySelectorAll(
+                ".card",
+            ) as NodeListOf<HTMLDivElement>,
+        );
+        if (cards.length === 0) continue;
+        header.style.display =
+            cards.filter((card) => card.style.display !== "none").length > 0
+                ? ""
+                : "none";
+    }
 };
 
 search.addEventListener("input", applyFilters);
 noAiToggle.addEventListener("click", () => {
-	noAiToggle.setAttribute(
-		"aria-pressed",
-		noAiToggle.getAttribute("aria-pressed") === "true" ? "false" : "true",
-	);
-	applyFilters();
+    noAiToggle.setAttribute(
+        "aria-pressed",
+        noAiToggle.getAttribute("aria-pressed") === "true" ? "false" : "true",
+    );
+    applyFilters();
 });
 //#endregion
 
@@ -223,24 +223,24 @@ noAiToggle.addEventListener("click", () => {
 // Randomize the order of the friend badges, seeded by the current day
 const day = new Date();
 let seed =
-	day.getFullYear() * 10000 + (day.getMonth() + 1) * 100 + day.getDate();
+    day.getFullYear() * 10000 + (day.getMonth() + 1) * 100 + day.getDate();
 const random = () => {
-	seed = (seed + 0x6d2b79f5) >>> 0;
-	let t = seed;
-	t = Math.imul(t ^ (t >>> 15), t | 1);
-	t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-	return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    seed = (seed + 0x6d2b79f5) >>> 0;
+    let t = seed;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
 };
 
 const friendBadges = document.getElementById("friend-badges") as HTMLDivElement;
 const badges = Array.from(
-	friendBadges.children,
+    friendBadges.children,
 ) as unknown as HTMLAnchorElement[];
 for (let i = badges.length - 1; i > 0; i--) {
-	const j = Math.floor(random() * (i + 1));
-	[badges[i], badges[j]] = [badges[j]!, badges[i]!];
+    const j = Math.floor(random() * (i + 1));
+    [badges[i], badges[j]] = [badges[j]!, badges[i]!];
 }
 for (const badge of badges) {
-	friendBadges.appendChild(badge);
+    friendBadges.appendChild(badge);
 }
 //#endregion

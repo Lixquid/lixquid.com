@@ -1,102 +1,102 @@
 <!doctype html>
 <html lang="en" class="no-js">
-	<head>
-		<meta charset="UTF-8" />
-		<title>Lixquid</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" href="./src/assets/favicon.png" />
+    <head>
+        <meta charset="UTF-8" />
+        <title>Lixquid</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="./src/assets/favicon.png" />
 
-		<link rel="stylesheet" href="./src/assets/fonts/fa-subset.css" />
-		<link
-			rel="stylesheet"
-			href="./node_modules/bootstrap/dist/css/bootstrap-reboot.min.css"
-		/>
-		<link rel="stylesheet" href="./src/index.css" />
+        <link rel="stylesheet" href="./src/assets/fonts/fa-subset.css" />
+        <link
+            rel="stylesheet"
+            href="./node_modules/bootstrap/dist/css/bootstrap-reboot.min.css"
+        />
+        <link rel="stylesheet" href="./src/index.css" />
 
-		<meta name="title" content="Lixquid" />
-		<meta name="description" content="Tools, toys, tepid." />
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://lixquid.com" />
-		<meta property="og:title" content="Lixquid" />
-		<meta property="og:description" content="Tools, toys, tepid." />
-		<meta property="og:image" content="/socialLogo.png" />
-		<meta property="twitter:card" content="summary_large_image" />
-	</head>
-	<body>
-		<div id="landing">
-			<!-- Background Canvas / Cover -->
-			<canvas id="landing-canvas"></canvas>
-			<div id="landing-cover"></div>
-			<!-- Central Content -->
-			<div class="center">
-				<div class="bg">
-					<object
-						id="landing-logo"
-						type="image/svg+xml"
-						data="/logo.svg"
-					></object>
-					<div class="links">
-						<a
-							href="https://github.com/lixquid"
-							target="_blank"
-							title="GitHub"
-							><i class="fab fa-fw fa-github"></i
-						></a>
-						<a
-							href="https://discord.gg/PDjFHV9"
-							target="_blank"
-							title="Discord (lixquid)"
-							><i class="fab fa-fw fa-discord"></i
-						></a>
-						<a
-							href="https://blog.lixquid.com"
-							target="_blank"
-							title="Blog"
-							><i class="fas fa-fw fa-blog"></i
-						></a>
-					</div>
-				</div>
-			</div>
-			<!-- Jump Links -->
-			<div class="bottom">
-				<div class="bg">
-					<a href="#projects">Projects</a>
-					<span class="separator">&bullet;</span>
-					<a href="#tools">Tools</a>
-					<span class="separator">&bullet;</span>
-					<a href="#toys">Toys</a>
-				</div>
-			</div>
-			<!-- Top-Right Animation Controls -->
-			<div id="landing-controls">
-				<span id="landing-controls-title">None</span>
-				<button id="landing-controls-toggle" title="Stop Animation">
-					<i class="fas fa-fw fa-pause"></i>
-				</button>
-			</div>
-		</div>
-		<main>
-			<form class="search">
-				<input
-					type="search"
-					id="search"
-					placeholder="Search..."
-					autocomplete="off"
-				/>
-				<button
-					type="button"
-					id="search-no-ai"
-					title="Hide cards tagged AI-Built"
-					aria-pressed="false"
-				>
-					Hide AI-Built
-				</button>
-			</form>
+        <meta name="title" content="Lixquid" />
+        <meta name="description" content="Tools, toys, tepid." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://lixquid.com" />
+        <meta property="og:title" content="Lixquid" />
+        <meta property="og:description" content="Tools, toys, tepid." />
+        <meta property="og:image" content="/socialLogo.png" />
+        <meta property="twitter:card" content="summary_large_image" />
+    </head>
+    <body>
+        <div id="landing">
+            <!-- Background Canvas / Cover -->
+            <canvas id="landing-canvas"></canvas>
+            <div id="landing-cover"></div>
+            <!-- Central Content -->
+            <div class="center">
+                <div class="bg">
+                    <object
+                        id="landing-logo"
+                        type="image/svg+xml"
+                        data="/logo.svg"
+                    ></object>
+                    <div class="links">
+                        <a
+                            href="https://github.com/lixquid"
+                            target="_blank"
+                            title="GitHub"
+                            ><i class="fab fa-fw fa-github"></i
+                        ></a>
+                        <a
+                            href="https://discord.gg/PDjFHV9"
+                            target="_blank"
+                            title="Discord (lixquid)"
+                            ><i class="fab fa-fw fa-discord"></i
+                        ></a>
+                        <a
+                            href="https://blog.lixquid.com"
+                            target="_blank"
+                            title="Blog"
+                            ><i class="fas fa-fw fa-blog"></i
+                        ></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Jump Links -->
+            <div class="bottom">
+                <div class="bg">
+                    <a href="#projects">Projects</a>
+                    <span class="separator">&bullet;</span>
+                    <a href="#tools">Tools</a>
+                    <span class="separator">&bullet;</span>
+                    <a href="#toys">Toys</a>
+                </div>
+            </div>
+            <!-- Top-Right Animation Controls -->
+            <div id="landing-controls">
+                <span id="landing-controls-title">None</span>
+                <button id="landing-controls-toggle" title="Stop Animation">
+                    <i class="fas fa-fw fa-pause"></i>
+                </button>
+            </div>
+        </div>
+        <main>
+            <form class="search">
+                <input
+                    type="search"
+                    id="search"
+                    placeholder="Search..."
+                    autocomplete="off"
+                />
+                <button
+                    type="button"
+                    id="search-no-ai"
+                    title="Hide cards tagged AI-Built"
+                    aria-pressed="false"
+                >
+                    Hide AI-Built
+                </button>
+            </form>
 
-			<!--template:sections-->
-			<!--template:friends-->
-			<footer id="footer">Inspirational Quote</footer>
-		</main>
-		<script src="./src/index.ts" type="module"></script>
-	</body>
+            <!--template:sections-->
+            <!--template:friends-->
+            <footer id="footer">Inspirational Quote</footer>
+        </main>
+        <script src="./src/index.ts" type="module"></script>
+    </body>
 </html>

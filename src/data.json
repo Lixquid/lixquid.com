@@ -209,6 +209,17 @@
                     "color": "--color-yellow"
                 },
                 {
+                    "title": "El Oso",
+                    "description": [
+                        "An online implementation of the solitaire game El Oso, designed by James Ernest."
+                    ],
+                    "tags": ["Game", "AI-Built"],
+                    "link": "http://eloso-game.lixquid.com/",
+                    "source": "https://github.com/Lixquid/app-eloso-game",
+                    "image": "./src/assets/images/elosoGame.svg",
+                    "color": "--color-blue"
+                },
+                {
                     "title": "Lights Out",
                     "description": [
                         "An online implementation of the Lights Out game. Try to turn off all the lights!"
